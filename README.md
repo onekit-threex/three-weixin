@@ -23,7 +23,7 @@ Three.js微信小程序版，
 2.  复制你的网页版Three.js项目(建议Vue2项目)代码到本小程序项目。
 3.  若用到网页对象（如window、document），请在页面顶部添加 import {document,window,requestAnimationFrame} from 'dhtml-weixin'
 4.  import * as THREE from 'three' 更换为 import * as THREE from 'three-weixin'
-5.  import xxx from 'three/examples/xxx' 更换为 import * as THREE from './xxx'(相对路径)
+5.  import xxx from 'three/examples/xxx' 更换为 import xxx from './xxx'(相对路径)
 6.  模型下载域名，请在小程序代码App.js中设置
 
 #### 参与贡献
