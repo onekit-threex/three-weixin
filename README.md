@@ -7,6 +7,7 @@ Three.js微信小程序版，
 
 #### 软件架构
 完美复刻Three.js
+[效果演示](https://www.bilibili.com/video/BV1Qe4y1Z7x2?share_source=copy_web&vd_source=7c04e28e67346c8e44c9b04db22d7631)
 
 
 #### 安装教程
