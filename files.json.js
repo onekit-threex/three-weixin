@@ -40,8 +40,7 @@ export default {
 		"webgl_geometry_terrain_raycast",
 		"webgl_geometry_text",
 		"webgl_geometry_text_shapes",
-        "webgl_geometry_text_stroke"]
-        ,"webgl2": [
+        "webgl_geometry_text_stroke",
 		"webgl_helpers",
 		"webgl_instancing_dynamic",
 		"webgl_instancing_performance",
@@ -127,8 +126,7 @@ export default {
 		"webgl_loader_vrml",
 		"webgl_loader_vtk",
 		"webgl_loader_xyz",
-		"webgl_lod",]
-        ,"webgl3": [
+		"webgl_lod",
 		"webgl_marchingcubes",
 		"webgl_materials",
 		"webgl_materials_blending",
@@ -192,8 +190,7 @@ export default {
 		"webgl_multiple_views",
 		"webgl_panorama_cube",
 		"webgl_panorama_equirectangular",
-		"webgl_performance"]
-        ,"webgl4": [
+		"webgl_performance",
 		"webgl_performance_static",
 		"webgl_performance_shader",
 		"webgl_points_billboards",
