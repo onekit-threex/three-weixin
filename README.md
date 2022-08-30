@@ -14,7 +14,9 @@ Three.js微信小程序版/Uni-App版，
 
 1.  克隆或下载本仓库。
 2.  在demo根目录运行
-    `npm i dhtml-weixin \n npm i three-weixin \n npm i pako`
+    `npm i dhtml-weixin`
+    `npm i three-weixin`
+    `npm i pako`
 3.  小程序开发工具打开dmo目录。
 4.  小程序开发工具顶部菜单->工具->构建npm
 5.  刷新本项目。
