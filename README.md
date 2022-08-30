@@ -12,9 +12,9 @@ Three.js微信小程序版，
 
 #### 安装教程
 
-1.  克隆或下载本项目。
-2.  npm i dhtml-weixin 和 npm i three-weixin 和 npm i pako
-3.  小程序开发工具打开本目录。
+1.  克隆或下载本仓库。
+2.  在demo根目录运行npm i dhtml-weixin 和 npm i three-weixin 和 npm i pako
+3.  小程序开发工具打开dmo目录。
 4.  小程序开发工具顶部菜单->工具->构建npm
 5.  刷新本项目。
 
@@ -25,7 +25,7 @@ Three.js微信小程序版，
 3.  若用到网页对象（如window、document），请在页面顶部添加 import {document,window,requestAnimationFrame} from 'dhtml-weixin'
 4.  import * as THREE from 'three' 更换为 import * as THREE from 'three-weixin'
 5.  import xxx from 'three/examples/xxx' 更换为 import xxx from './xxx'(相对路径)
-6.  模型下载域名，请在小程序代码App.js中设置
+6.  examples为本项目所需数据，可放置到你本地或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
 #### 参与贡献
 
