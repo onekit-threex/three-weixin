@@ -1,5 +1,5 @@
 import init from './scene.js';
-import {self} from "dhtml-weixin"
+import {self} from "../../dhtml-weixin/index"
 
 self.onmessage = function ( message ) {
 

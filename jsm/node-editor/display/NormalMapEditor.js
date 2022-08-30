@@ -1,7 +1,7 @@
 import { SelectInput, Element, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
 import { NormalMapNode, ConstNode } from '../../nodes/Nodes.js';
-import { TangentSpaceNormalMap, ObjectSpaceNormalMap } from '../three-weixin';
+import { TangentSpaceNormalMap, ObjectSpaceNormalMap } from 'three-weixin';
 
 const nullValue = new ConstNode( 0 );
 

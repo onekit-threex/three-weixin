@@ -1,7 +1,7 @@
 import { ColorInput, SliderInput, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
 import { MeshStandardNodeMaterial } from '../../nodes/Nodes.js';
-import * as THREE from '../three-weixin';
+import * as THREE from 'three-weixin';
 
 export class StandardMaterialEditor extends BaseNode {
 

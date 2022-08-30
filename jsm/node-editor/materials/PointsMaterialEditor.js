@@ -1,7 +1,7 @@
 import { ColorInput, ToggleInput, SliderInput, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
 import { PointsNodeMaterial } from '../../nodes/Nodes.js';
-import * as THREE from '../three-weixin';
+import * as THREE from 'three-weixin';
 
 export class PointsMaterialEditor extends BaseNode {
 

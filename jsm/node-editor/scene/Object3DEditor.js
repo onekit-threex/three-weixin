@@ -1,6 +1,6 @@
 import { NumberInput, StringInput, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { Group, MathUtils, Vector3 } from '../three-weixin';
+import { Group, MathUtils, Vector3 } from 'three-weixin';
 
 export class Object3DEditor extends BaseNode {
 

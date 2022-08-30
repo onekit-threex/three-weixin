@@ -1,4 +1,4 @@
-import {document} from 'dhtml-weixin'
+import {document} from '../../dhtml-weixin/index'
 let interval = null;
 let result = null;
 

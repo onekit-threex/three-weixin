@@ -1,7 +1,7 @@
 import { LabelElement, ToggleInput, SelectInput } from '../../libs/flow.module.js';
 import { BaseNode, onNodeValidElement } from '../core/BaseNode.js';
 import { TextureNode, UVNode } from '../../nodes/Nodes.js';
-import { Texture, TextureLoader, RepeatWrapping, ClampToEdgeWrapping, MirroredRepeatWrapping } from '../three-weixin';
+import { Texture, TextureLoader, RepeatWrapping, ClampToEdgeWrapping, MirroredRepeatWrapping } from 'three-weixin';
 
 const fileTexture = new WeakMap();
 const fileURL = new WeakMap();
