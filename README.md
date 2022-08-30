@@ -39,8 +39,7 @@ Three.js微信小程序版/Uni-App版，
         })
     })
 6.  所有JS文件，若用到网页对象（如window、document），请在页面顶部添加 import {document,window,self,URL,requestAnimationFrame} from 'dhtml-weixin'
-7.  本项目所需模型资源，[可自行下载](https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 
-提取码：4077)，可放置到你本地或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
+7.  本项目所需模型资源访问较慢，可从网盘下载后(https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077)，放置到你本地或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
 #### 参与贡献
 
