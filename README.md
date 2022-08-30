@@ -8,7 +8,8 @@ Three.js微信小程序版/Uni-App版，
 #### 软件架构
 完美复刻Three.js
 [效果演示](https://www.bilibili.com/video/BV1Qe4y1Z7x2?share_source=copy_web&vd_source=7c04e28e67346c8e44c9b04db22d7631)
-
+![输入图片说明](1.png)
+![输入图片说明](2.png)
 
 #### 安装教程(微信小程序/Uni-App)
 
@@ -24,7 +25,7 @@ Three.js微信小程序版/Uni-App版，
 #### 使用说明
 
 1.  根目录测试页面均可删除。
-2.  页面UI上加入 <canvas id="canvas_webgl" type="webgl"/>
+2.  页面UI上加入 `<canvas id="canvas_webgl" type="webgl"/>`
 3.  代码中，`import * as THREE from 'three'` 更换为 `import * as THREE from 'three-weixin'`
 4.  代码中，`import xxx from 'three/examples/xxx'` 更换为 `import xxx from './xxx'`
 5.  复制你的网页版Three.js项目页面代码(建议Vue2项目)代码到本小程序页面onLoad或onReady中。
