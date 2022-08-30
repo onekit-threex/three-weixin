@@ -1,4 +1,4 @@
-# three-weixin
+# three-weixin(0.420.0)
 
 #### 介绍
 Three.js微信小程序版/Uni-App版，
