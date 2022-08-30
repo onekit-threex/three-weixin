@@ -61,7 +61,7 @@ export default class Image extends EventTarget {
   }
 
   set src(src) {
-    console.error('[Image]', src)
+    console.log('[Image]', src)
     this._src = src
      if (src.startsWith('blob:')) {
       const array = getApp().ObjectURL[src].array[0]

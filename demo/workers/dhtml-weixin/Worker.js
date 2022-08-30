@@ -174,7 +174,7 @@ export default class Worker extends EventTarget {
   // /////////////////
   constructor(url) {
     super()
-    console.error('[Worker]', url)
+    console.log('[Worker]', url)
     const createNewWorker = () => {
       const worker = wx.createWorker('workers/' + url, {
         useExperimentalWorker: true

@@ -6,7 +6,7 @@ export default class URL {
     if (!getApp().ObjectURL) {
       getApp().ObjectURL = {}
     }
-    console.error("[createObjectURL]"+url)
+    console.log("[createObjectURL]"+url)
     getApp().ObjectURL[url] = blob
     return url
   }

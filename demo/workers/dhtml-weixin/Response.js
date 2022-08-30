@@ -15,7 +15,7 @@ export default class Response {
   }
 
   _run(responseType, dataType = 'text') {
-    console.error('[fetch]', this.request.url, responseType, dataType)
+    console.log('[fetch]', this.request.url, responseType, dataType)
 
     if (this.request.url.endsWith('.js')) {
       return new Promise((resolve) => {
@@ -40,7 +40,7 @@ export default class Response {
           resolve(res.data)
         },
         fail: () => {
-          console.error('[fetch]', this.request.url)
+          console.log('[fetch]', this.request.url)
           // eslint-disable-next-line prefer-promise-reject-errors
           // reject(null)
         }

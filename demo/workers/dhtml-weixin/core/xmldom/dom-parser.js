@@ -178,10 +178,10 @@ DOMHandler.prototype = {
     console.warn('[xmldom warning]\t' + error, _locator(this.locator))
   },
   error(error) {
-    console.error('[xmldom error]\t' + error, _locator(this.locator))
+    console.log('[xmldom error]\t' + error, _locator(this.locator))
   },
   fatalError(error) {
-    console.error('[xmldom fatalError]\t' + error, _locator(this.locator))
+    console.log('[xmldom fatalError]\t' + error, _locator(this.locator))
 	    throw error
   }
 }
