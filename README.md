@@ -33,14 +33,16 @@ Three.js微信小程序版/Uni-App版，
     5.1 异步方式
     `Page({
         async onLoad() {
-          getApp().canvas = await document.createElementAsync("canvas","webgl")
+              getApp().canvas = await document.createElementAsync("canvas","webgl");
+            /*你的代码 */
         }
     })`
     5.2 同步方式
     `Page({
         onLoad() {
           document.createElementAsync("canvas","webgl").then(canvas=>{
-            getApp().canvas = canvas
+            getApp().canvas = canvas;
+            /*你的代码 */
         })
     })`
 6.  所有JS文件，若用到网页对象（如window、document），请在页面顶部添加 
