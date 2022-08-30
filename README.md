@@ -66,6 +66,39 @@ Three.js微信小程序版/Uni-App版，
     ```
 7.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
+8.  添加控制器
+
+    8.1 页面UI改造为
+      ```
+     <canvas id="canvas_webgl" type="webgl"
+        disable-scroll="true"
+        bindtouchcancel="webgl_touchcancel"
+        bindtouchend="webgl_touchend"
+        bindtouchmove="webgl_touchmove"
+        bindtouchstart="webgl_touchstart"
+        />
+    ```
+
+    8.2 页面代码添加
+
+    ```
+    Page({
+
+    webgl_touchcancel(e){
+        getApp().webgl_touchcancel(e)
+    },
+    webgl_touchend(e){
+        getApp().webgl_touchend(e)
+    },
+    webgl_touchmove(e){
+        getApp().webgl_touchmove(e)
+    },
+    webgl_touchstart(e){
+        getApp().webgl_touchstart(e)
+    },
+
+    ```
+
 #### 参与贡献
 
 1.  Fork 本仓库
