@@ -1,6 +1,6 @@
 import {
 	WebGLRenderTarget
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { SSAARenderPass } from './SSAARenderPass.js';
 
 /**

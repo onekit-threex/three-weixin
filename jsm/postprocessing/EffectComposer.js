@@ -6,7 +6,7 @@ import {
 	OrthographicCamera,
 	Vector2,
 	WebGLRenderTarget
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { CopyShader } from '../shaders/CopyShader.js';
 import { ShaderPass } from './ShaderPass.js';
 import { MaskPass } from './MaskPass.js';

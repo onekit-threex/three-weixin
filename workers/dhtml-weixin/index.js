@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import Blob from './Blob'
 import createImageBitmap from "./createImageBitmap"
 import CSSStyleDeclaration from "./CSSStyleDeclaration"
@@ -12,11 +12,17 @@ import requestAnimationFrame from "./requestAnimationFrame"
 import Response from './Response'
 import URL from './URL'
 import Window from './window'
+const WebAssembly = require("./WebAssembly")
 import Worker from "./Worker"
 import XMLHttpRequest from "./XMLHttpRequest"
 import Location from "./Location"
 import { DOMParser } from './core/xmldom/dom-parser'
-const WebAssembly = require("./WebAssembly")
+import core from './core/index'
+import EventTarget from "./EventTarget"
+import Element from "./Element"
+import Node from "./Node"
+import Event from "./Event"
+
 const document = new Document()
 const window = new Window()
 const self = window
@@ -27,18 +33,23 @@ module.exports = {
   CSSStyleDeclaration,
   document,
   DOMParser,
+  EventTarget,
+  Element,
   fetch,
   Headers,
   Image,
   location,
   navigator,
+  Node,
+  Event,
   Request,
   requestAnimationFrame,
   Response,
   self,
   URL,
   window,
+  WebAssembly,
   Worker,
   XMLHttpRequest,
-  WebAssembly
+  core
 }

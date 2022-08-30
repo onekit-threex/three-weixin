@@ -5,7 +5,7 @@ import {
 	Matrix3,
 	Ray,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 // module scope helper variables
 

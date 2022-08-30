@@ -1,7 +1,7 @@
 import {
 	Triangle,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Utility class for sampling weighted random points on the surface of a mesh.

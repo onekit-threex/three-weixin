@@ -32,7 +32,7 @@
  *
  **/
 
-import { LoaderUtils } from '../../../three-weixin/index';
+import { LoaderUtils } from 'three-weixin';
 import { LWO2Parser } from './LWO2Parser.js';
 import { LWO3Parser } from './LWO3Parser.js';
 

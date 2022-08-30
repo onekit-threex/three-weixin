@@ -1,6 +1,6 @@
 import {
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Normal map shader

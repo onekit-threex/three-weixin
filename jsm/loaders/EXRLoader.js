@@ -7,7 +7,7 @@ import {
 	LinearFilter,
 	RedFormat,
 	RGBAFormat
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import * as fflate from '../libs/fflate.module.js';
 
 /**

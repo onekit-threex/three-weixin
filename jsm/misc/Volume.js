@@ -2,7 +2,7 @@ import {
 	Matrix3,
 	Matrix4,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { VolumeSlice } from '../misc/VolumeSlice.js';
 
 /**

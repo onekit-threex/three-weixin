@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 function DOMParser(options) {
   this.options = options || {locator: {}}
 }
@@ -236,7 +236,7 @@ function _toString(chars, start, length) {
   DOMHandler.prototype[key] = function() { return null }
 })
 
-
+/* Private static helpers treated below as private instance methods, so don't need to add these to the public API; we might use a Relator to also get rid of non-standard public properties */
 function appendElement (hander, node) {
   if (!hander.currentElement) {
     hander.doc.appendChild(node)

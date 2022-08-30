@@ -31,7 +31,7 @@ import {
 	TextureLoader,
 	Vector2,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import chevrotain from '../libs/chevrotain.module.min.js';
 
 

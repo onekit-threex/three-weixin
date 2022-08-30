@@ -3,7 +3,7 @@ import {
 	Float32BufferAttribute,
 	Matrix4,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * You can use this geometry to create a decal mesh, that serves different kinds of purposes.

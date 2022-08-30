@@ -17,7 +17,7 @@ import {
 	UniformsLib,
 	UniformsUtils,
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 
 UniformsLib.line = {

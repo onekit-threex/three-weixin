@@ -8,7 +8,7 @@ import {
 	Vector2,
 	Vector3,
 	Vector4
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class RenderableObject {
 

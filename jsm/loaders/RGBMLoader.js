@@ -5,7 +5,7 @@ import {
 	CubeTexture,
 	HalfFloatType,
 	DataUtils
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class RGBMLoader extends DataTextureLoader {
 

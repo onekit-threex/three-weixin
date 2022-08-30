@@ -1,6 +1,6 @@
 import {
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Edge Detection Shader using Frei-Chen filter

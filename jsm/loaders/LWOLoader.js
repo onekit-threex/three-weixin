@@ -37,7 +37,7 @@ import {
 	RepeatWrapping,
 	TextureLoader,
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 import { IFFParser } from './lwo/IFFParser.js';
 

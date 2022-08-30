@@ -1,7 +1,7 @@
 import {
 	FileLoader,
 	Loader
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import opentype from '../libs/opentype.module.js';
 
 /**

@@ -1,5 +1,5 @@
-
-import EventTarget from './core/EventTarget'
+/* eslint-disable camelcase */
+import EventTarget from './EventTarget'
 
 function run(cb, wx_object) {
   return new Promise((resolve, reject) => {
@@ -15,7 +15,6 @@ export default class XMLHttpRequest extends EventTarget {
   }
 
   open(method, url, async = true, user, password) {
-      console.error("[hrx",url)
     this._method = method
     this._url = url
     this._async = async

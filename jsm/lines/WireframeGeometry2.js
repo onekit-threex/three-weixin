@@ -1,6 +1,6 @@
 import {
 	WireframeGeometry
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { LineSegmentsGeometry } from '../lines/LineSegmentsGeometry.js';
 
 class WireframeGeometry2 extends LineSegmentsGeometry {

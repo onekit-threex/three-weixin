@@ -1,6 +1,6 @@
 import {
 	Color
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { Pass } from './Pass.js';
 
 class ClearPass extends Pass {

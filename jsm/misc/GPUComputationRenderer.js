@@ -10,7 +10,7 @@ import {
 	Scene,
 	ShaderMaterial,
 	WebGLRenderTarget
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * GPUComputationRenderer, based on SimulationRenderer by zz85

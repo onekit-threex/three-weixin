@@ -13,7 +13,7 @@ import {
 	NearestFilter,
 	Plane,
 	HalfFloatType
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class ReflectorForSSRPass extends Mesh {
 

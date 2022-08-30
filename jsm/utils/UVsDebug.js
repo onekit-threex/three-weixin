@@ -1,6 +1,6 @@
 import {
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * tool for "unwrapping" and debugging three.js geometries UV mapping

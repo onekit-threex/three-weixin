@@ -16,7 +16,7 @@ import {
 	Vector2,
 	WebGLRenderTarget,
 	ZeroFactor
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { Pass, FullScreenQuad } from './Pass.js';
 import { SAOShader } from '../shaders/SAOShader.js';
 import { DepthLimitedBlurShader } from '../shaders/DepthLimitedBlurShader.js';

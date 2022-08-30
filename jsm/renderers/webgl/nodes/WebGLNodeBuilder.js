@@ -1,10 +1,10 @@
-import NodeBuilder, { defaultShaderStages } from 'three-nodes/core/NodeBuilder.js';
-import NodeFrame from 'three-nodes/core/NodeFrame.js';
+import NodeBuilder, { defaultShaderStages } from '../../../nodes/core/NodeBuilder.js';
+import NodeFrame from '../../../nodes/core/NodeFrame.js';
 import SlotNode from './SlotNode.js';
-import GLSLNodeParser from 'three-nodes/parsers/GLSLNodeParser.js';
+import GLSLNodeParser from '../../../nodes/parsers/GLSLNodeParser.js';
 
 import { PerspectiveCamera, ShaderChunk, ShaderLib, UniformsUtils, UniformsLib,
-	LinearEncoding, RGBAFormat, UnsignedByteType, sRGBEncoding } from '../../three-weixin/index';
+	LinearEncoding, RGBAFormat, UnsignedByteType, sRGBEncoding } from 'three-weixin';
 import MathNode from '../../../nodes/math/MathNode.js';
 
 const nodeFrame = new NodeFrame();

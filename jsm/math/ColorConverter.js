@@ -1,4 +1,4 @@
-import { MathUtils } from '../../three-weixin/index';
+import { MathUtils } from 'three-weixin';
 
 const _hsl = {};
 

@@ -1,6 +1,6 @@
 {
 	"dependencies": {
 		"pako": "1.0.11",
-		"three-weixin": "0.402.0"
+		"three-weixin": "0.419.0"
 	}
 }

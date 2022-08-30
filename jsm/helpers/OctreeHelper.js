@@ -3,7 +3,7 @@ import {
 	BufferGeometry,
 	Float32BufferAttribute,
 	LineBasicMaterial
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class OctreeHelper extends LineSegments {
 

@@ -16,7 +16,7 @@ import {
 	RGB_PVRTC_4BPPV1_Format,
 	RGB_S3TC_DXT1_Format,
 	UnsignedByteType
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Loader for Basis Universal GPU Texture Codec.

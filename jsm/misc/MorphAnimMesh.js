@@ -2,7 +2,7 @@ import {
 	AnimationClip,
 	AnimationMixer,
 	Mesh
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class MorphAnimMesh extends Mesh {
 

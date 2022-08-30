@@ -1,5 +1,5 @@
-import {navigator} from '../three-weixin/index'
-import * as THREE from '../../three-weixin/index';
+import {navigator} from 'three-weixin'
+import * as THREE from 'three-weixin';
 import { potpack } from '../libs/potpack.module.js';
 
 /**

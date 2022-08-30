@@ -2,7 +2,7 @@ import {
 	DataTextureLoader,
 	LinearFilter,
 	LinearMipmapLinearFilter
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 import UTIF from '../libs/utif.module.js';
 

@@ -9,7 +9,7 @@ import {
 	UnsignedByteType,
 	ClampToEdgeWrapping,
 	LinearFilter,
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 export class LUT3dlLoader extends Loader {
 

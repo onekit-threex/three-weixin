@@ -9,7 +9,7 @@ import {
 	ShaderMaterial,
 	StereoCamera,
 	WebGLRenderTarget
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class ParallaxBarrierEffect {
 

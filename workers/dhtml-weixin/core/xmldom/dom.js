@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 /*
  * DOM Level 2
  * Object DOMException
@@ -207,7 +207,7 @@ NamedNodeMap.prototype = {
     _addNamedNode(this._ownerElement, this, attr, oldAttr)
     return oldAttr
   },
-  
+  /* returns Node */
   setNamedItemNS(attr) { // raises: WRONG_DOCUMENT_ERR,NO_MODIFICATION_ALLOWED_ERR,INUSE_ATTRIBUTE_ERR
     const el = attr.ownerElement; let
       oldAttr
@@ -219,7 +219,7 @@ NamedNodeMap.prototype = {
     return oldAttr
   },
 
-  
+  /* returns Node */
   removeNamedItem(key) {
     const attr = this.getNamedItem(key)
     _removeNamedNode(this._ownerElement, this, attr)
@@ -246,7 +246,7 @@ NamedNodeMap.prototype = {
 /**
  * @see http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-102161490
  */
-function DOMImplementation( features) {
+function DOMImplementation(/* Object */ features) {
   this._features = {}
   if (features) {
     for (const feature in features) {
@@ -256,7 +256,7 @@ function DOMImplementation( features) {
 }
 
 DOMImplementation.prototype = {
-  hasFeature( feature,  version) {
+  hasFeature(/* string */ feature, /* string */ version) {
     const versions = this._features[feature.toLowerCase()]
     if (versions && (!version || version in versions)) {
       return true
@@ -768,7 +768,8 @@ Element.prototype = {
     return new LiveNodeList(this, function (base) {
       const ls = []
       _visitNode(base, function (node) {
-        if (node !== base && node.nodeType == ELEMENT_NODE && (tagName === '*' || node.tagName == tagName)) {
+        if (node !== base && node.nodeType == ELEMENT_NODE && (tagName === '*' || node.tagName == tagName
+        || node.tagName.endsWith(":"+tagName))) {
           ls.push(node)
         }
       })

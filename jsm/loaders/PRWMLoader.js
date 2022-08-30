@@ -3,7 +3,7 @@ import {
 	BufferGeometry,
 	FileLoader,
 	Loader
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * See https://github.com/kchapelier/PRWM for more informations about this file format

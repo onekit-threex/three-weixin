@@ -10,7 +10,7 @@ import {
  	MeshStandardMaterial,
  	PointLight,
  	Scene,
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class RoomEnvironment extends Scene {
 

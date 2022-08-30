@@ -13,7 +13,7 @@ import {
 	LinearEncoding,
 	NoToneMapping,
 	HalfFloatType
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class Refractor extends Mesh {
 

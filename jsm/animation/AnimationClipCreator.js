@@ -5,7 +5,7 @@ import {
 	NumberKeyframeTrack,
 	Vector3,
 	VectorKeyframeTrack
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class AnimationClipCreator {
 

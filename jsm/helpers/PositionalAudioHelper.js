@@ -4,7 +4,7 @@ import {
 	LineBasicMaterial,
 	Line,
 	MathUtils
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class PositionalAudioHelper extends Line {
 

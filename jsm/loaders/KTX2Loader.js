@@ -36,7 +36,7 @@ import {
 	RGFormat,
 	sRGBEncoding,
 	UnsignedByteType
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { WorkerPool } from '../utils/WorkerPool.js';
 import {
 	read,

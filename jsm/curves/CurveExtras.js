@@ -1,7 +1,7 @@
 import {
 	Curve,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * A bunch of parametric curves

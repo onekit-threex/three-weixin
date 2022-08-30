@@ -7,7 +7,7 @@ import {
 	TextureLoader,
 	UVMapping,
 	sRGBEncoding
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { MD2Loader } from '../loaders/MD2Loader.js';
 
 class MD2Character {

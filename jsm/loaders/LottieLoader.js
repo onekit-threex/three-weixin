@@ -6,7 +6,7 @@ import {
 	Loader,
 	CanvasTexture,
 	NearestFilter
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import lottie_canvas from '../../js/libs/lottie_canvas'
 const {bodymovin} = lottie_canvas
 

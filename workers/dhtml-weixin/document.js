@@ -1,15 +1,15 @@
-
-
-
-
-
+/* eslint-disable no-redeclare */
+/* eslint-disable import/export */
+/* eslint-disable no-use-before-define */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-console */
 import Image from './Image'
 import Window from './window'
 import Location from './Location'
-import EventTarget from './core/EventTarget'
-
+import EventTarget from './EventTarget'
+/* eslint-disable class-methods-use-this */
 import Style from './Style'
-import Element from './core/Element'
+import Element from './Element'
 import ClassCollection from './ClassCollection'
 
 class HTMLElement extends Element {
@@ -32,13 +32,17 @@ class HTMLElement extends Element {
   get children() {
     return this._children
   }
+  append(){
 
-  appendChild() {
-    // this._children.push(child)
   }
-
+  appendChild() {
+ 
+  }
   removeChild() {
-    // this._children.push(child)
+
+  }
+  remove() {
+
   }
 
   insertBefore() {
@@ -59,6 +63,9 @@ class HTMLElement extends Element {
 
   getBoundingClientRect () {
     return {}
+  }
+  play(){
+    
   }
 }
 
@@ -106,6 +113,39 @@ export default class Document extends EventTarget {
     }
   }
 
+  async getElementByIdAsync(id) {
+    return new Promise((resolve) => {
+      const query = wx.createSelectorQuery()
+      query.select(`#${id}`)
+        .fields({node: true})
+        .exec((res) => {
+          resolve(res[0].node)
+        })
+    })
+  }
+
+  async getElementsByTagNameAsync(tagName) {
+    return new Promise((resolve) => {
+      const query = wx.createSelectorQuery()
+      query.select(tagName)
+        .fields({node: true})
+        .exec((res) => {
+          resolve(res[0].node)
+        })
+    })
+  }
+
+  async getElementsByClassNameAsync(className) {
+    return new Promise((resolve) => {
+      const query = wx.createSelectorQuery()
+      query.select(`.${className}`)
+        .fields({node: true})
+        .exec((res) => {
+          resolve(res[0].node)
+        })
+    })
+  }
+
   createElement(nodeName, canvasType = '2d') {
     switch (nodeName) {
       case 'canvas':
@@ -127,6 +167,14 @@ export default class Document extends EventTarget {
 
   getElementById() {
     return new HTMLElement()
+  }
+
+  getElementsByTagName() {
+    return []
+  }
+
+  getElementsByClassName() {
+    return []
   }
 
   querySelector() {

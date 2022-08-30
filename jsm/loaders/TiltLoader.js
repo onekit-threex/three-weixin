@@ -12,7 +12,7 @@ import {
 	TextureLoader,
 	Quaternion,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import * as fflate from '../libs/fflate.module.js';
 
 class TiltLoader extends Loader {

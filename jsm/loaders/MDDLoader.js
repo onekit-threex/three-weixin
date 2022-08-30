@@ -16,7 +16,7 @@ import {
 	FileLoader,
 	Loader,
 	NumberKeyframeTrack
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class MDDLoader extends Loader {
 

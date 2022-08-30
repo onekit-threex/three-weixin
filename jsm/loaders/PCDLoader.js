@@ -7,7 +7,7 @@ import {
 	LoaderUtils,
 	Points,
 	PointsMaterial
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class PCDLoader extends Loader {
 

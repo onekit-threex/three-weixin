@@ -5,7 +5,7 @@ import {
 	ShaderMaterial,
 	UniformsUtils,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Based on "A Practical Analytic Model for Daylight"

@@ -3,7 +3,7 @@ import {
 	Float32BufferAttribute,
 	OrthographicCamera,
 	Mesh
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class Pass {
 

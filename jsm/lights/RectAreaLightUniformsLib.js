@@ -9,7 +9,7 @@ import {
 	RGBAFormat,
 	UVMapping,
 	UniformsLib
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Uniforms library for RectAreaLight shared webgl shaders

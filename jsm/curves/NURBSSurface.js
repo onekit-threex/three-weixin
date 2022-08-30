@@ -1,6 +1,6 @@
 import {
 	Vector4
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import * as NURBSUtils from '../curves/NURBSUtils.js';
 
 /**

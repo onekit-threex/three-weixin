@@ -2,7 +2,7 @@ import {document} from 'dhtml-weixin'
 import {
 	Color,
 	MathUtils
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class Lut {
 

@@ -1,4 +1,4 @@
-import * as THREE from '../../three-weixin/index';
+import * as THREE from 'three-weixin';
 
 const vpTemp = new THREE.Vector4();
 

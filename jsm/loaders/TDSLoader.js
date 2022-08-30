@@ -12,7 +12,7 @@ import {
 	Mesh,
 	MeshPhongMaterial,
 	TextureLoader
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Autodesk 3DS three.js file loader, based on lib3ds.

@@ -1,62 +1,69 @@
-
-
-
-import EventTarget from './core/EventTarget'
+/* eslint-disable no-undef */
+/* eslint-disable getter-return */
+/* eslint-disable class-methods-use-this */
+import EventTarget from './EventTarget'
 import URL from './URL'
 import Performance from './Performance'
 import Location from './Location'
 import requestAnimationFrame from './requestAnimationFrame'
 import cancelAnimationFrame from './cancelAnimationFrame'
 import createImageBitmap from './createImageBitmap'
-import Worker from "./Worker"
-// ///////////////////////////////////////////////
-class AudioContext {
-
-}
+import Worker from './Worker'
+import AudioContext from "./AudioContext"
 // ///////////////////////////////////////////////
 
 export default class Window extends EventTarget {
-
-   get Int8Array(){
+  get Int8Array() {
     return Int8Array
   }
-   get Uint8Array(){
+
+  get Uint8Array() {
     return Uint8Array
   }
-   get Uint8ClampedArray(){
+
+  get Uint8ClampedArray() {
     return Uint8ClampedArray
   }
-   get Int16Array(){
+
+  get Int16Array() {
     return Int16Array
   }
-   get Uint16Array(){
+
+  get Uint16Array() {
     return Uint16Array
   }
-   get Int32Array(){
+
+  get Int32Array() {
     return Int32Array
   }
-   get Uint32Array(){
+
+  get Uint32Array() {
     return Uint32Array
   }
-   get Float32Array(){
+
+  get Float32Array() {
     return Float32Array
   }
-   get Float64Array(){
+
+  get Float64Array() {
     return Float64Array
   }
-   get BigInt64Array(){
+
+  get BigInt64Array() {
     return BigInt64Array
   }
-   get BigUint64Array(){
+
+  get BigUint64Array() {
     return BigUint64Array
   }
   // /////////////////
-  
-  _getSystemInfoSync(){
-      if(! self.systemInfo ){
-            self.systemInfo = wx.getSystemInfoSync()
-      }
+
+  _getSystemInfoSync() {
+    if (!this.systemInfo) {
+      this.systemInfo = wx.getSystemInfoSync()
+    }
   }
+
   constructor() {
     super()
     this.URL = URL
@@ -68,18 +75,22 @@ export default class Window extends EventTarget {
     this.setInterval = setInterval
     this.clearInterval = clearInterval
   }
-get devicePixelRatio(){
-    this.  _getSystemInfoSync()
-    return systemInfo.pixelRatio
-}
-get innerWidth(){
-    this.  _getSystemInfoSync()
-    return systemInfo.windowWidth
-}
-get innerHeight(){
-    this.  _getSystemInfoSync()
-    return systemInfo.windowHeight
-}
+
+  get devicePixelRatio() {
+    this._getSystemInfoSync()
+    return this.systemInfo.pixelRatio
+  }
+
+  get innerWidth() {
+    this._getSystemInfoSync()
+    return this.systemInfo.windowWidth
+  }
+
+  get innerHeight() {
+    this._getSystemInfoSync()
+    return this.systemInfo.windowHeight
+  }
+
   get Math() {
     return this.Math
   }
@@ -103,6 +114,7 @@ get innerHeight(){
   get localStorage() {
     return localStorage
   }
+
   postMessage(json) {
     Worker.self_postMessage(json)
   }

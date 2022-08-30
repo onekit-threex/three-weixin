@@ -2,7 +2,7 @@ import {
 	BufferGeometry,
 	Float32BufferAttribute,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import * as BufferGeometryUtils from '../utils/BufferGeometryUtils.js';
 
 /**

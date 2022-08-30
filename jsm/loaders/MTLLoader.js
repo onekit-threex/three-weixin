@@ -11,7 +11,7 @@ import {
 	TextureLoader,
 	Vector2,
 	sRGBEncoding
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Loads a Wavefront .mtl file specifying materials

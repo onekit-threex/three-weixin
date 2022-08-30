@@ -11,7 +11,7 @@ import {
 	Vector2,
 	Vector3,
 	WebGLRenderTarget
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { Pass, FullScreenQuad } from './Pass.js';
 import { CopyShader } from '../shaders/CopyShader.js';
 

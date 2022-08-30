@@ -1,7 +1,7 @@
 import {
 	DataTextureLoader,
 	LinearMipmapLinearFilter
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class TGALoader extends DataTextureLoader {
 

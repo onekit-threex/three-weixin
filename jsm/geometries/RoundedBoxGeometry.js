@@ -1,7 +1,7 @@
 import {
 	BoxGeometry,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 const _tempNormal = new Vector3();
 

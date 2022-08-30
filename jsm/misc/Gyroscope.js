@@ -2,7 +2,7 @@ import {
 	Object3D,
 	Quaternion,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 const _translationObject = new Vector3();
 const _quaternionObject = new Quaternion();

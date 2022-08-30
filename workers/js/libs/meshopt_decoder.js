@@ -1,6 +1,6 @@
 // This file is part of meshoptimizer library and is distributed under the terms of MIT License.
 // Copyright (C) 2016-2022, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
-const dhtml = require('../../../dhtml-weixin/index')
+const dhtml = require('../../dhtml-weixin/index')
 const Worker2 = dhtml.Worker
 const self2 =  dhtml.self
 var MeshoptDecoder = (function() {

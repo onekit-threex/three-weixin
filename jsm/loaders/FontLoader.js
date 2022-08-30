@@ -2,7 +2,7 @@ import {
 	FileLoader,
 	Loader,
 	ShapePath
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class FontLoader extends Loader {
 

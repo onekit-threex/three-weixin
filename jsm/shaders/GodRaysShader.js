@@ -1,7 +1,7 @@
 import {
 	Color,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * God-rays (crepuscular rays)

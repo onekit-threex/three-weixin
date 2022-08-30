@@ -4,7 +4,7 @@ import {
 	Color,
 	DynamicDrawUsage,
 	Mesh
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Port of http://webglsamples.org/blob/blob.html

@@ -8,7 +8,7 @@ import {
 	ShaderMaterial,
 	UniformsUtils,
 	WebGLRenderTarget
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 import { BokehShader } from '../shaders/BokehShader2.js';
 import { BokehDepthShader } from '../shaders/BokehShader2.js';

@@ -1,7 +1,7 @@
 import {
 	Vector2,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Shaders to render 3D volumes using raycasting.

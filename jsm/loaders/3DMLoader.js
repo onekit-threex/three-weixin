@@ -24,7 +24,7 @@ import {
 	ClampToEdgeWrapping,
 	RepeatWrapping,
 	TextureLoader
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 const _taskCache = new WeakMap();
 

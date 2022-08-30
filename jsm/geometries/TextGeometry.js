@@ -17,7 +17,7 @@
 
 import {
 	ExtrudeGeometry
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class TextGeometry extends ExtrudeGeometry {
 

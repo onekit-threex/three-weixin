@@ -3,7 +3,7 @@ import {
 	Mesh,
 	Plane,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { ConvexGeometry } from '../geometries/ConvexGeometry.js';
 
 /**

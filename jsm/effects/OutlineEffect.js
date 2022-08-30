@@ -4,7 +4,7 @@ import {
 	ShaderMaterial,
 	UniformsLib,
 	UniformsUtils
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Reference: https://en.wikipedia.org/wiki/Cel_shading

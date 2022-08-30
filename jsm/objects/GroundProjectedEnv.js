@@ -1,4 +1,4 @@
-import { Mesh, IcosahedronGeometry, ShaderMaterial, DoubleSide } from '../../three-weixin/index';
+import { Mesh, IcosahedronGeometry, ShaderMaterial, DoubleSide } from 'three-weixin';
 
 /**
  * Ground projected env map adapted from @react-three/drei.

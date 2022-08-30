@@ -12,7 +12,7 @@ import {
 	HalfFloatType,
 	NoToneMapping,
 	LinearEncoding
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class Reflector extends Mesh {
 

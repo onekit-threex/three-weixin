@@ -2,7 +2,7 @@ import {
 	Mesh,
 	ShaderMaterial,
 	SphereGeometry
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class LightProbeHelper extends Mesh {
 

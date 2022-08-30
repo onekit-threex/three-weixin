@@ -14,7 +14,7 @@ import {
 	Matrix4,
 	MathUtils,
 	EventDispatcher
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 //trackball state
 const STATE = {

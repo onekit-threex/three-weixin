@@ -1,5 +1,5 @@
-
-
+/* eslint-disable no-mixed-operators */
+/* eslint-disable no-bitwise */
 export default function GUID() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     const r = Math.random() * 16 | 0; const

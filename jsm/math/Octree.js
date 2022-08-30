@@ -5,7 +5,7 @@ import {
 	Sphere,
 	Triangle,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { Capsule } from '../math/Capsule.js';
 
 

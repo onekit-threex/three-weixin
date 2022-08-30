@@ -12,7 +12,7 @@ import {
 	ShapeUtils,
 	Vector2,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class SVGLoader extends Loader {
 

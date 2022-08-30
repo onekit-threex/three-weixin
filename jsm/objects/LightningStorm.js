@@ -3,7 +3,7 @@ import {
 	Mesh,
 	MeshBasicMaterial,
 	Object3D
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { LightningStrike } from '../geometries/LightningStrike.js';
 
 /**

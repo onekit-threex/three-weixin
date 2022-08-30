@@ -3,7 +3,7 @@ import {
 	FileLoader,
 	Float32BufferAttribute,
 	Loader
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class XYZLoader extends Loader {
 

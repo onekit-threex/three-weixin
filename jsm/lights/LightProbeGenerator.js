@@ -6,7 +6,7 @@ import {
 	SphericalHarmonics3,
 	Vector3,
 	sRGBEncoding
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class LightProbeGenerator {
 

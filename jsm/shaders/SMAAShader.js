@@ -1,6 +1,6 @@
 import {
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * WebGL port of Subpixel Morphological Antialiasing (SMAA) v2.8

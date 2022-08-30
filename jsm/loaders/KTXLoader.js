@@ -1,6 +1,6 @@
 import {
 	CompressedTextureLoader
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * for description see https://www.khronos.org/opengles/sdk/tools/KTX/

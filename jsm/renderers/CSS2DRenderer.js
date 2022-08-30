@@ -3,7 +3,7 @@ import {
 	Matrix4,
 	Object3D,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class CSS2DObject extends Object3D {
 

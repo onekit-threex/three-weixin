@@ -4,7 +4,7 @@ import {
 	Group,
 	Loader,
 	LoadingManager
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { ColladaLoader } from '../loaders/ColladaLoader.js';
 import * as fflate from '../libs/fflate.module.js';
 

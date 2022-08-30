@@ -1,6 +1,6 @@
 import {
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Color correction

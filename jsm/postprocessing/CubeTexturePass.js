@@ -7,7 +7,7 @@ import {
 	ShaderLib,
 	ShaderMaterial,
 	UniformsUtils
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { Pass } from './Pass.js';
 
 class CubeTexturePass extends Pass {

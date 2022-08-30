@@ -6,7 +6,7 @@ import {
 	Loader,
 	LoaderUtils,
 	Color
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Description: A THREE loader for PLY ASCII files (known as the Polygon

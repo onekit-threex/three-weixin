@@ -1,6 +1,6 @@
 import {
 	Color
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Colorify shader

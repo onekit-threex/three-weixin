@@ -62,7 +62,7 @@ import {
 	Vector3,
 	VectorKeyframeTrack,
 	sRGBEncoding
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class GLTFLoader extends Loader {
 

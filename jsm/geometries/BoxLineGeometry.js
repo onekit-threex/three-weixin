@@ -1,7 +1,7 @@
 import {
 	BufferGeometry,
 	Float32BufferAttribute
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class BoxLineGeometry extends BufferGeometry {
 

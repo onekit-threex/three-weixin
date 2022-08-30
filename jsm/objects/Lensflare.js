@@ -13,7 +13,7 @@ import {
 	Vector3,
 	Vector4,
 	RGBAFormat
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class Lensflare extends Mesh {
 

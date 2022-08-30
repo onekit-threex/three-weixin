@@ -6,7 +6,7 @@ import {
 	LineBasicMaterial,
 	Mesh,
 	MeshBasicMaterial
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  *  This helper must be added as a child of the light

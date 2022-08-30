@@ -18,7 +18,7 @@ import {
 	SphereGeometry,
 	TorusGeometry,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 const _raycaster = new Raycaster();
 

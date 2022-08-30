@@ -1,9 +1,9 @@
-
-
-
-
-
-import EventTarget from './core/EventTarget'
+/* eslint-disable camelcase */
+/* eslint-disable no-console */
+/* eslint-disable no-tabs */
+/* eslint-disable no-case-declarations */
+/* eslint-disable complexity */
+import EventTarget from './EventTarget'
 
 function json2message(json) {
   if (json == null) {
@@ -170,16 +170,7 @@ function message2json(message) {
       throw new Error(message.t)
   }
 }
- export default class Worker extends EventTarget {
-
-
-    static onmessage (data) {
-        return message2json(data.msg.data)
-      }
-    
-      static self_postMessage(json) {
-        worker.postMessage(json2message(json))
-      }
+export default class Worker extends EventTarget {
   // /////////////////
   constructor(url) {
     super()

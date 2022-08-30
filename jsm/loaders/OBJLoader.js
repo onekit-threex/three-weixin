@@ -13,7 +13,7 @@ import {
 	PointsMaterial,
 	Vector3,
 	Color
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 // o object_name | g group_name
 const _object_pattern = /^[og]\s*(.+)?/;

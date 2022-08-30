@@ -1,7 +1,7 @@
 import {
 	MathUtils,
 	Mesh
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class MorphBlendMesh extends Mesh {
 

@@ -8,7 +8,7 @@ import {
 	Skeleton,
 	Vector3,
 	VectorKeyframeTrack
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Description: reads BVH files and outputs a single Skeleton and an AnimationClip

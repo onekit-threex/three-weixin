@@ -1,4 +1,6 @@
-
+/* eslint-disable handle-callback-err */
+/* eslint-disable no-console */
+import Base64 from './core/Base64'
 
 export default class Response {
   constructor(body, options = {}, request) {
@@ -16,20 +18,19 @@ export default class Response {
     console.error('[fetch]', this.request.url, responseType, dataType)
 
     if (this.request.url.endsWith('.js')) {
-      /* const pages = getCurrentPages()
-      const page = pages[pages.length - 1]
-      const currentUrl = '/' + page.route
-      const abs = '/' + this.request.url
-      const rel = PATH.abs2rel(currentUrl, abs)
-      // console.error('uuuuuuuuuuuuuuuuuu', currentUrl, abs, rel)
-      // eslint-disable-next-line import/no-dynamic-require
-      //return require(`${rel}`) */
       return new Promise((resolve) => {
         resolve(this.request.url)
       })
     }
+    if (this.request.url.startsWith('data:')) {
+      return new Promise((resolve) => {
+        const BASE64 = 'base64,'
+        const url = this.request.url.substring(this.request.url.indexOf(BASE64) + BASE64.length)
+        resolve(Base64.base64ToArrayBuffer(url))
+      })
+    }
     // /////////////////////////
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       wx.request({
         url: this.request.url,
         headers: ((this.request.options || {}).headers || {}).data || {},
@@ -41,7 +42,7 @@ export default class Response {
         fail: () => {
           console.error('[fetch]', this.request.url)
           // eslint-disable-next-line prefer-promise-reject-errors
-          reject(null)
+          // reject(null)
         }
       })
     })

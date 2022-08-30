@@ -1,9 +1,9 @@
-
-
-
-
-
-import EventTarget from './core/EventTarget'
+/* eslint-disable prefer-spread */
+/* eslint-disable no-console */
+/* eslint-disable no-mixed-operators */
+/* eslint-disable no-bitwise */
+/* eslint-disable no-cond-assign */
+import EventTarget from './EventTarget'
 
 function btoa(string) {
   const b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
@@ -63,7 +63,7 @@ export default class Image extends EventTarget {
   set src(src) {
     console.error('[Image]', src)
     this._src = src
-    if (src.startsWith('blob:')) {
+     if (src.startsWith('blob:')) {
       const array = getApp().ObjectURL[src].array[0]
 
       let binary = ''

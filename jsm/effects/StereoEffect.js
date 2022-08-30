@@ -1,7 +1,7 @@
 import {
 	StereoCamera,
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class StereoEffect {
 

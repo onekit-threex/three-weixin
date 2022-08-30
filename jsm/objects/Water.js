@@ -11,7 +11,7 @@ import {
 	Vector3,
 	Vector4,
 	WebGLRenderTarget
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Work based on :

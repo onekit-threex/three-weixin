@@ -1,6 +1,6 @@
 import {
 	Vector2
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Sobel Edge Detection (see https://youtu.be/uihBwtPIBxM)

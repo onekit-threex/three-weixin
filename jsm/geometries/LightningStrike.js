@@ -5,7 +5,7 @@ import {
 	MathUtils,
 	Uint32BufferAttribute,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 import { SimplexNoise } from '../math/SimplexNoise.js';
 
 /**

@@ -7,7 +7,7 @@ import {
 	Sphere,
 	Vector3,
 	WireframeGeometry
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 const _box = new Box3();
 const _vector = new Vector3();

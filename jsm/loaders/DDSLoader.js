@@ -5,7 +5,7 @@ import {
 	RGBA_S3TC_DXT5_Format,
 	RGB_ETC1_Format,
 	RGB_S3TC_DXT1_Format
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class DDSLoader extends CompressedTextureLoader {
 

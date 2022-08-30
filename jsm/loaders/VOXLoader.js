@@ -9,7 +9,7 @@ import {
 	MeshStandardMaterial,
 	NearestFilter,
 	RedFormat
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class VOXLoader extends Loader {
 

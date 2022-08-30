@@ -4,7 +4,7 @@ import {
 	FloatType,
 	HalfFloatType,
 	RGBAFormat
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class LogLuvLoader extends DataTextureLoader {
 

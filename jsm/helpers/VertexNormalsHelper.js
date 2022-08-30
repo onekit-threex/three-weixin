@@ -5,7 +5,7 @@ import {
 	LineBasicMaterial,
 	Matrix3,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 const _v1 = new Vector3();
 const _v2 = new Vector3();

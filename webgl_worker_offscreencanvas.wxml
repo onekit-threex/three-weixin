@@ -1,0 +1,3 @@
+<canvas id="canvas_webgl" type="webgl"/>
+<canvas id="canvas1" type="2d" style="width:50%;"/>
+<canvas id="canvas2" type="2d" style="width:50%;right:0"/>

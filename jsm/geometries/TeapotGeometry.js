@@ -4,7 +4,7 @@ import {
 	Matrix4,
 	Vector3,
 	Vector4
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 /**
  * Tessellates the famous Utah teapot database by Martin Newell into triangles.

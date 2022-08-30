@@ -7,7 +7,7 @@ import {
 	BufferGeometry,
 	Float32BufferAttribute,
 	Vector3
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class ParametricGeometry extends BufferGeometry {
 
