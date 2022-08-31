@@ -12,35 +12,56 @@ Three.js微信小程序版/Uni-App版，
 ![输入图片说明](1.png)
 ![输入图片说明](2.png)
 
-#### 安装教程(微信小程序/Uni-App)
+#### Demo演示(微信小程序/Uni-App)
 
 1.  克隆或下载本仓库。
-2.  在demo根目录运行
-    `npm i dhtml-weixin`
-    `npm i three-weixin`
-    `npm i pako`
+2.  在demo根目录，安装依赖
+
+    ```
+    npm i
+    ```
+    
 3.  小程序开发工具打开dmo目录。
 4.  小程序开发工具顶部菜单->工具->构建npm
 5.  刷新本项目。
 
-#### 使用说明
+#### 项目使用（小程序/Uni-App）
 
-1.  根目录测试页面均可删除。
+1.  安装
+
+    1.1. 安装依赖
+
+    ```
+    npm i dhtml-weixin
+    npm i three-weixin
+    npm i pako
+    ```
+
+    1.2.  小程序开发工具顶部菜单->工具->构建npm
+    1.3.  刷新项目。
+
 2.  页面UI上加入 
+
     ```
     <canvas id="canvas_webgl" type="webgl"/>
     ```
+
 3.  代码中，使用three换为使用three-wexin
+
     ```
     import * as THREE from 'three'` 更换为 `import * as THREE from 'three-weixin'
     ```
+
 4.  代码中，替换examples中内容
+
     ```
     import xxx from 'three/examples/xxx'` 更换为 `import xxx from './xxx'
     ```
+
 5.  复制你的网页版Three.js项目页面代码(建议Vue2项目)代码到本小程序页面onLoad或onReady中。
 
     5.1 异步方式
+
     ```
     Page({
         async onLoad() {
@@ -51,6 +72,7 @@ Three.js微信小程序版/Uni-App版，
     ```
 
     5.2 同步方式
+
     ```
     Page({
         onLoad() {
@@ -60,6 +82,7 @@ Three.js微信小程序版/Uni-App版，
         })
     })
     ```
+
 6.  所有JS文件，若用到网页对象（如window、document），请在页面顶部添加 
     ```
     import {document,window,self,URL,requestAnimationFrame} from 'dhtml-weixin'
