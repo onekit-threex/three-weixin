@@ -1,7 +1,7 @@
-# three-weixin
+# three-weixin(全网最强)
 
 #### 介绍
-Three.js微信小程序版/Uni-App版，
+全网最强 Three.js 微信小程序版(兼容Uni-App版）。
 完美效果，完美移植。
 问题反馈（QQ群185654475）
 
