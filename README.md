@@ -24,6 +24,7 @@
 3.  小程序开发工具打开dmo目录。
 4.  小程序开发工具顶部菜单->工具->构建npm
 5.  编译（刷新）本demo项目。
+6.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地(推荐IIS)或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
 #### 项目使用（微信小程序/Uni-App）
 
@@ -50,13 +51,21 @@
 3.  代码中，使用three换为使用three-wexin
 
     ```
-    import * as THREE from 'three'` 更换为 `import * as THREE from 'three-weixin'
+    import * as THREE from 'three'
+    ```
+    更换为
+    ```
+    import * as THREE from 'three-weixin'
     ```
 
 4.  代码中，替换examples中内容
 
     ```
-    import xxx from 'three/examples/xxx'` 更换为 `import xxx from './xxx'
+    import xxx from 'three/examples/xxx'
+    ``` 
+    更换为
+    ```
+    import xxx from './xxx'
     ```
 
 5.  复制你的网页版Three.js项目页面代码(建议Vue2项目)代码到本小程序页面onLoad或onReady中。
@@ -88,7 +97,7 @@
     ```
     import {document,window,self,URL,requestAnimationFrame} from 'dhtml-weixin'
     ```
-7.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
+7.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地(推荐IIS)或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
 8.  添加控制器
 
