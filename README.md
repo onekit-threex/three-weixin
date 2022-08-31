@@ -116,22 +116,21 @@
 
     ```
     Page({
-
-    webgl_touchcancel(e){
-        getApp().webgl_touchcancel(e)
-    },
-    webgl_touchend(e){
-        getApp().webgl_touchend(e)
-    },
-    webgl_touchmove(e){
-        getApp().webgl_touchmove(e)
-    },
-    webgl_touchstart(e){
-        getApp().webgl_touchstart(e)
-    }
-  })
-
+        webgl_touchcancel(e){
+            getApp().webgl_touchcancel(e)
+        },
+        webgl_touchend(e){
+            getApp().webgl_touchend(e)
+        },
+        webgl_touchmove(e){
+            getApp().webgl_touchmove(e)
+        },
+        webgl_touchstart(e){
+            getApp().webgl_touchstart(e)
+        }
+    })
     ```
+
 
 #### 参与贡献
 
