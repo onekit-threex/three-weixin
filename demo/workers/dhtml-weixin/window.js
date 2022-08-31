@@ -116,6 +116,9 @@ export default class Window extends EventTarget {
   }
 
   postMessage(json) {
-    Worker.self_postMessage(json)
+    return Worker.self_postMessage(json)
+  }
+  onmessage(msg) {
+    return Worker.self_onmessage(msg)
   }
 }

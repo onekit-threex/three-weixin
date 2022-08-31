@@ -7,18 +7,22 @@ export default class EventTarget {
     this._all_event_handlers = {}
   }
 
-  addEventListener(eventName, handler) {
-    if (!this._all_event_handlers[eventName]) {
-      this._all_event_handlers[eventName] = []
+  addEventListener(type, handler) {
+    if (!this._all_event_handlers[type]) {
+      this._all_event_handlers[type] = []
     }
-    this._all_event_handlers[eventName].push(handler)
+    this._all_event_handlers[type].push(handler)
   }
 
-  removeEventListener(eventName, handler) {
-    this._all_event_handlers[eventName] = ArrayX.remove(this._all_event_handlers[eventName], handler)
+  removeEventListener(type, handler) {
+    this._all_event_handlers[type] = ArrayX.remove(this._all_event_handlers[type], handler)
   }
 
-  dispatchEvent() {
-
+  dispatchEvent(e) {
+    const type = e.type
+    const event_handlers = this._all_event_handlers[type] || []
+    for(var event_handler of event_handlers){
+      event_handler.call(this,e)
+    }
   }
 }

@@ -99,7 +99,7 @@ var MeshoptDecoder = (function() {
 		var source =
 			"var instance; var ready = WebAssembly.instantiate(new Uint8Array([" + new Uint8Array(unpack(wasm)) + "]), {})" +
 			".then(function(result) { instance = result.instance; instance.exports.__wasm_call_ctors(); });" +
-			"self.onmessage = workerProcess;" +
+			"self2.onmessage = workerProcess;" +
 			decode.toString() + workerProcess.toString();
 
 		var blob = new Blob([source], {type: 'text/javascript'});

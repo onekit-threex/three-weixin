@@ -13,8 +13,9 @@ import Element from './Element'
 import ClassCollection from './ClassCollection'
 
 class HTMLElement extends Element {
-  constructor() {
+  constructor(wx_element) {
     super()
+    this.wx_element = wx_element
     this.style = new Style()
     this.classList = new ClassCollection()
     this._children = []
@@ -32,11 +33,11 @@ class HTMLElement extends Element {
   get children() {
     return this._children
   }
-  append(){
+  append() {
 
   }
   appendChild() {
- 
+
   }
   removeChild() {
 
@@ -61,11 +62,23 @@ class HTMLElement extends Element {
 
   }
 
-  getBoundingClientRect () {
+  getBoundingClientRect() {
     return {}
   }
-  play(){
-    
+  play() {
+
+  }
+  setPointerCapture() {
+
+  }
+  releasePointerCapture() {
+
+  }
+  get clientWidth() {
+    return this.wx_element ? this.wx_element.width : 0
+  }
+  get clientHeight() {
+    return this.wx_element ? this.wx_element.height : 0
   }
 }
 
@@ -97,7 +110,7 @@ export default class Document extends EventTarget {
         return new Promise((resolve) => {
           const query = wx.createSelectorQuery()
           query.select(`#canvas_${canvasType}`)
-            .fields({node: true})
+            .fields({ node: true })
             .exec((res) => {
               const canvas = res[0].node
               if (canvasType === '2d') {
@@ -117,7 +130,7 @@ export default class Document extends EventTarget {
     return new Promise((resolve) => {
       const query = wx.createSelectorQuery()
       query.select(`#${id}`)
-        .fields({node: true})
+        .fields({ node: true })
         .exec((res) => {
           resolve(res[0].node)
         })
@@ -128,7 +141,7 @@ export default class Document extends EventTarget {
     return new Promise((resolve) => {
       const query = wx.createSelectorQuery()
       query.select(tagName)
-        .fields({node: true})
+        .fields({ node: true })
         .exec((res) => {
           resolve(res[0].node)
         })
@@ -139,7 +152,7 @@ export default class Document extends EventTarget {
     return new Promise((resolve) => {
       const query = wx.createSelectorQuery()
       query.select(`.${className}`)
-        .fields({node: true})
+        .fields({ node: true })
         .exec((res) => {
           resolve(res[0].node)
         })
@@ -149,7 +162,7 @@ export default class Document extends EventTarget {
   createElement(nodeName, canvasType = '2d') {
     switch (nodeName) {
       case 'canvas':
-        return wx.createOffscreenCanvas({type: canvasType})
+        return wx.createOffscreenCanvas({ type: canvasType })
       case 'img':
         return new Image()
       default:

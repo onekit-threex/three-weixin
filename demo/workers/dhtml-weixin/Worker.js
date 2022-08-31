@@ -171,6 +171,13 @@ function message2json(message) {
   }
 }
 export default class Worker extends EventTarget {
+  static self_onmessage (data) {
+    return message2json(data.msg.data)
+  }
+
+  static self_postMessage(json) {
+    return worker.postMessage(json2message(json))
+  }
   // /////////////////
   constructor(url) {
     super()

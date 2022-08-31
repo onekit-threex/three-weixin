@@ -9,6 +9,18 @@ import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 Page({
+    webgl_touchcancel(e){
+        getApp().webgl_touchcancel(e)
+    },
+    webgl_touchend(e){
+        getApp().webgl_touchend(e)
+    },
+    webgl_touchmove(e){
+        getApp().webgl_touchmove(e)
+    },
+    webgl_touchstart(e){
+        getApp().webgl_touchstart(e)
+    },
     onUnload(){
         getApp().worker.terminate()
     },

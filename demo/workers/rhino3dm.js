@@ -34,7 +34,7 @@ var rhino3dm = (function() {
 
 	onmessage = function ( e ) {
 
-		const message = Worker2.onmessage(e.data);
+		const message = self2.onmessage(e.data);
         console.error("Rhino3dmWorker",message)
 		switch ( message.type ) {
 
@@ -47,7 +47,7 @@ var rhino3dm = (function() {
              //   console.error( wasmBinary)
 				libraryPending = new Promise( function ( resolve ) {
 
-					
+					/* Like Basis Loader */
 					RhinoModule = { wasmBinary, onRuntimeInitialized: resolve };
 
 					rhino3dm( RhinoModule ); // eslint-disable-line no-undef

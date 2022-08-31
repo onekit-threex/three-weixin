@@ -795,8 +795,8 @@ class OrbitControls extends EventDispatcher {
 
 				scope.domElement.setPointerCapture( event.pointerId );
 
-				// scope.domElement.addEventListener( 'pointermove', onPointerMove );
-				// scope.domElement.addEventListener( 'pointerup', onPointerUp );
+				 scope.domElement.addEventListener( 'pointermove', onPointerMove );
+				 scope.domElement.addEventListener( 'pointerup', onPointerUp );
 
 			}
 
@@ -1202,11 +1202,11 @@ class OrbitControls extends EventDispatcher {
 
 		//
 
-		// scope.domElement.addEventListener( 'contextmenu', onContextMenu );
+		 scope.domElement.addEventListener( 'contextmenu', onContextMenu );
 
-		// scope.domElement.addEventListener( 'pointerdown', onPointerDown );
-		// scope.domElement.addEventListener( 'pointercancel', onPointerCancel );
-		// scope.domElement.addEventListener( 'wheel', onMouseWheel, { passive: false } );
+		 scope.domElement.addEventListener( 'pointerdown', onPointerDown );
+		 scope.domElement.addEventListener( 'pointercancel', onPointerCancel );
+		 scope.domElement.addEventListener( 'wheel', onMouseWheel, { passive: false } );
 
 		// force an update at start
 

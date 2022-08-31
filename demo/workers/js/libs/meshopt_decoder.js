@@ -1,6 +1,6 @@
 // This file is part of meshoptimizer library and is distributed under the terms of MIT License.
 // Copyright (C) 2016-2022, by Arseny Kapoulkine (arseny.kapoulkine@gmail.com)
-const dhtml = require('../../dhtml-weixin/index')
+const dhtml = require('dhtml-weixin')
 const Worker2 = dhtml.Worker
 const self2 =  dhtml.self
 var MeshoptDecoder = (function() {
@@ -86,7 +86,7 @@ var MeshoptDecoder = (function() {
 		};
 
 		worker.object.onmessage = function(event) {
-			var data = Worker2.onmessage(event.data);
+			var data = self2.onmessage(event.data);
 
 			worker.pending -= data.count;
 			worker.requests[data.id][data.action](data.value);
@@ -101,7 +101,7 @@ var MeshoptDecoder = (function() {
 		var source =
 			"var instance; var ready = WebAssembly.instantiate(new Uint8Array([" + new Uint8Array(unpack(wasm)) + "]), {})" +
 			".then(function(result) { instance = result.instance; instance.exports.__wasm_call_ctors(); });" +
-			"self.onmessage = workerProcess;" +
+			"self2.onmessage = workerProcess;" +
 			decode.toString() + workerProcess.toString();
 
 		var blob = new Blob([source], {type: 'text/javascript'});
@@ -139,9 +139,9 @@ var MeshoptDecoder = (function() {
 			try {
 				var target = new Uint8Array(data.count * data.size);
 				decode(instance.exports[data.mode], target, data.count, data.size, data.source, instance.exports[data.filter]);
-				self.postMessage({ id: data.id, count: data.count, action: "resolve", value: target }, [ target.buffer ]);
+				self2.postMessage({ id: data.id, count: data.count, action: "resolve", value: target }, [ target.buffer ]);
 			} catch (error) {
-				self.postMessage({ id: data.id, count: data.count, action: "reject", value: error });
+				self2.postMessage({ id: data.id, count: data.count, action: "reject", value: error });
 			}
 		});
 	}
@@ -188,4 +188,4 @@ else if (typeof define === 'function' && define['amd'])
 else if (typeof exports === 'object')
 	exports["MeshoptDecoder"] = MeshoptDecoder;
 else
-	(typeof self !== 'undefined' ? self : this).MeshoptDecoder = MeshoptDecoder;
+	(typeof self2 !== 'undefined' ? self2 : this).MeshoptDecoder = MeshoptDecoder;
