@@ -128,7 +128,8 @@
     },
     webgl_touchstart(e){
         getApp().webgl_touchstart(e)
-    },
+    }
+  })
 
     ```
 
