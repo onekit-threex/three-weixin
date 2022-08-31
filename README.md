@@ -26,7 +26,7 @@
 5.  编译（刷新）本demo项目。
 6.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地(推荐IIS)或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
-#### 项目使用（微信小程序/Uni-App）
+#### 项目使用(微信小程序/Uni-App)
 
 1.  安装
 
