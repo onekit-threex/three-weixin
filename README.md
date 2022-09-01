@@ -75,7 +75,8 @@
     ```
     Page({
         async onLoad() {
-              getApp().canvas = await document.createElementAsync("canvas","webgl");
+            // getApp().canvas = await document.createElementAsync("canvas","webgl");
+            //组件中使用 getApp().canvas = await document.createElementAsync("canvas","webgl",this);
             /*你的代码 */
         }
     })
@@ -86,7 +87,8 @@
     ```
     Page({
         onLoad() {
-          document.createElementAsync("canvas","webgl").then(canvas=>{
+            document.createElementAsync("canvas","webgl").then(canvas=>{
+            //组件中使用 document.createElementAsync("canvas","webgl",this).then(canvas=>{
             getApp().canvas = canvas;
             /*你的代码 */
         })
