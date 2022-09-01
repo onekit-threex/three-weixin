@@ -35,7 +35,6 @@
     ```
     npm i dhtml-weixin
     npm i three-weixin
-    npm i pako
     ```
 
     1.2.  小程序开发工具顶部菜单->工具->构建npm
