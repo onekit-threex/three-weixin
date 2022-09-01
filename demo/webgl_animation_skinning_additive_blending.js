@@ -5,24 +5,24 @@ import Stats from './jsm/libs/stats.module.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
-
+var renderer;
 Page({
     webgl_touchcancel(e){
-        getApp().webgl_touchcancel(e)
+        renderer.webgl_touchcancel(e)
     },
     webgl_touchend(e){
-        getApp().webgl_touchend(e)
+        renderer.webgl_touchend(e)
     },
     webgl_touchmove(e){
-        getApp().webgl_touchmove(e)
+        renderer.webgl_touchmove(e)
     },
     webgl_touchstart(e){
-        getApp().webgl_touchstart(e)
+        renderer.webgl_touchstart(e)
     },
     async onLoad() {
       getApp().canvas = await document.createElementAsync("canvas","webgl")
 
-      let scene, renderer, camera, stats;
+      let scene, camera, stats;
 			let model, skeleton, mixer, clock;
 
 			const crossFadeControls = [];
