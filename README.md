@@ -97,11 +97,10 @@
     ```
     import {document,window,self,URL,requestAnimationFrame} from 'dhtml-weixin'
     ```
-7.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地(推荐IIS)或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
-8.  添加控制器
+7.  添加事件
 
-    8.1 页面UI改造为
+    7.1 页面UI改造为
       ```
      <canvas id="canvas_webgl" type="webgl"
         disable-scroll="true"
@@ -112,7 +111,7 @@
         />
     ```
 
-    8.2 页面代码添加
+    7.2 页面代码添加
 
     ```
     Page({
@@ -130,6 +129,8 @@
         }
     })
     ```
+
+8.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地(推荐IIS)或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
 
 
 #### 参与贡献
