@@ -75,7 +75,7 @@
     ```
     Page({
         async onLoad() {
-            // getApp().canvas = await document.createElementAsync("canvas","webgl");
+            getApp().canvas = await document.createElementAsync("canvas","webgl");
             //组件中使用 getApp().canvas = await document.createElementAsync("canvas","webgl",this);
             /*你的代码 */
         }
@@ -116,18 +116,23 @@
     7.2 页面代码添加
 
     ```
+    var renderer
     Page({
         webgl_touchcancel(e){
-            getApp().webgl_touchcancel(e)
+            renderer.webgl_touchcancel(e)
         },
         webgl_touchend(e){
-            getApp().webgl_touchend(e)
+            renderer.webgl_touchend(e)
         },
         webgl_touchmove(e){
-            getApp().webgl_touchmove(e)
+            renderer.webgl_touchmove(e)
         },
         webgl_touchstart(e){
-            getApp().webgl_touchstart(e)
+            renderer.webgl_touchstart(e)
+        },
+        async onLoad(){
+             getApp().canvas = await document.createElementAsync("canvas","webgl");
+             renderer = new THREE.WebGLRenderer( { antialias: true } );
         }
     })
     ```
