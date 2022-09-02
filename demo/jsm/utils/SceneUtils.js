@@ -3,7 +3,7 @@ import {
 	Mesh,
 	BufferAttribute,
 	BufferGeometry
-} from 'three-weixin';
+} from '../../three-weixin/index.js';
 
 import { mergeGroups } from './BufferGeometryUtils.js';
 

@@ -1,66 +1,172 @@
-// misc_boxselection.js
+// misc/misc_boxselection.js
+import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import * as THREE from 'three-weixin';
+import Stats from './jsm/libs/stats.module.js';
+
+import { SelectionBox } from './jsm/interactive/SelectionBox.js';
+import { SelectionHelper } from './jsm/interactive/SelectionHelper.js';
+
 Page({
+  async onLoad(){
+getApp().canvas = await document.createElementAsync("canvas","webgl")
+let container, stats;
+let camera, scene, renderer;
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
+init();
+animate();
 
-    },
+function init() {
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
+    container = document.createElement( 'div' );
+    document.body.appendChild( container );
 
-    },
+    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 5000 );
+    camera.position.z = 1000;
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xf0f0f0 );
 
-    },
+    scene.add( new THREE.AmbientLight( 0x505050 ) );
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
+    const light = new THREE.SpotLight( 0xffffff, 1.5 );
+    light.position.set( 0, 500, 2000 );
+    light.angle = Math.PI / 9;
 
-    },
+    light.castShadow = true;
+    light.shadow.camera.near = 1000;
+    light.shadow.camera.far = 4000;
+    light.shadow.mapSize.width = 1024;
+    light.shadow.mapSize.height = 1024;
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+    scene.add( light );
 
-    },
+    const geometry = new THREE.BoxGeometry( 20, 20, 20 );
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+    for ( let i = 0; i < 200; i ++ ) {
 
-    },
+        const object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+        object.position.x = Math.random() * 1600 - 800;
+        object.position.y = Math.random() * 900 - 450;
+        object.position.z = Math.random() * 900 - 500;
 
-    },
+        object.rotation.x = Math.random() * 2 * Math.PI;
+        object.rotation.y = Math.random() * 2 * Math.PI;
+        object.rotation.z = Math.random() * 2 * Math.PI;
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+        object.scale.x = Math.random() * 2 + 1;
+        object.scale.y = Math.random() * 2 + 1;
+        object.scale.z = Math.random() * 2 + 1;
 
-    },
+        object.castShadow = true;
+        object.receiveShadow = true;
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
+        scene.add( object );
 
     }
+
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
+
+    container.appendChild( renderer.domElement );
+
+    stats = new Stats();
+    container.appendChild( stats.dom );
+
+    window.addEventListener( 'resize', onWindowResize );
+
+}
+
+function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+//
+
+function animate() {
+
+    requestAnimationFrame( animate );
+
+    render();
+    stats.update();
+
+}
+
+function render() {
+
+    renderer.render( scene, camera );
+
+}
+
+const selectionBox = new SelectionBox( camera, scene );
+const helper = new SelectionHelper( renderer, 'selectBox' );
+
+document.addEventListener( 'pointerdown', function ( event ) {
+
+    for ( const item of selectionBox.collection ) {
+
+        item.material.emissive.set( 0x000000 );
+
+    }
+
+    selectionBox.startPoint.set(
+        ( event.clientX / window.innerWidth ) * 2 - 1,
+        - ( event.clientY / window.innerHeight ) * 2 + 1,
+        0.5 );
+
+} );
+
+document.addEventListener( 'pointermove', function ( event ) {
+
+    if ( helper.isDown ) {
+
+        for ( let i = 0; i < selectionBox.collection.length; i ++ ) {
+
+            selectionBox.collection[ i ].material.emissive.set( 0x000000 );
+
+        }
+
+        selectionBox.endPoint.set(
+            ( event.clientX / window.innerWidth ) * 2 - 1,
+            - ( event.clientY / window.innerHeight ) * 2 + 1,
+            0.5 );
+
+        const allSelected = selectionBox.select();
+
+        for ( let i = 0; i < allSelected.length; i ++ ) {
+
+            allSelected[ i ].material.emissive.set( 0xffffff );
+
+        }
+
+    }
+
+} );
+
+document.addEventListener( 'pointerup', function ( event ) {
+
+    selectionBox.endPoint.set(
+        ( event.clientX / window.innerWidth ) * 2 - 1,
+        - ( event.clientY / window.innerHeight ) * 2 + 1,
+        0.5 );
+
+    const allSelected = selectionBox.select();
+
+    for ( let i = 0; i < allSelected.length; i ++ ) {
+
+        allSelected[ i ].material.emissive.set( 0xffffff );
+
+    }
+
+} );
+}
 })

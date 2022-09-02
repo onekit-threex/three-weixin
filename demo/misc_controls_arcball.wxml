@@ -1,2 +1,1 @@
-<!--misc_controls_arcball.wxml-->
-<text>misc_controls_arcball.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

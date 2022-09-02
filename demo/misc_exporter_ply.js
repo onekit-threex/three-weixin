@@ -1,66 +1,178 @@
-// misc_exporter_ply.js
+// misc/misc_exporter_ply.js
+import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import * as THREE from 'three-weixin';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { PLYExporter } from './jsm/exporters/PLYExporter.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
+  async onLoad(){
+getApp().canvas = await document.createElementAsync("canvas","webgl")
+let scene, camera, renderer, exporter, mesh;
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
+const params = {
+    exportASCII: exportASCII,
+    exportBinaryBigEndian: exportBinaryBigEndian,
+    exportBinaryLittleEndian: exportBinaryLittleEndian
+};
 
-    },
+init();
+animate();
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
+function init() {
 
-    },
+    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
+    camera.position.set( 200, 100, 200 );
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xa0a0a0 );
+    scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
 
-    },
+    exporter = new PLYExporter();
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
+    //
 
-    },
+    const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+    hemiLight.position.set( 0, 200, 0 );
+    scene.add( hemiLight );
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+    const directionalLight = new THREE.DirectionalLight( 0xffffff );
+    directionalLight.position.set( 0, 200, 100 );
+    directionalLight.castShadow = true;
+    directionalLight.shadow.camera.top = 180;
+    directionalLight.shadow.camera.bottom = - 100;
+    directionalLight.shadow.camera.left = - 120;
+    directionalLight.shadow.camera.right = 120;
+    scene.add( directionalLight );
 
-    },
+    // ground
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+    const ground = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
+    ground.rotation.x = - Math.PI / 2;
+    ground.receiveShadow = true;
+    scene.add( ground );
 
-    },
+    const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+    grid.material.opacity = 0.2;
+    grid.material.transparent = true;
+    scene.add( grid );
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+    // export mesh
 
-    },
+    const geometry = new THREE.BoxGeometry( 50, 50, 50 );
+    const material = new THREE.MeshPhongMaterial( { vertexColors: true } );
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+    // color vertices based on vertex positions
+    const colors = geometry.getAttribute( 'position' ).array.slice();
+    for ( let i = 0, l = colors.length; i < l; i ++ ) {
 
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
+        if ( colors[ i ] > 0 ) colors[ i ] = 0.5;
+        else colors[ i ] = 0;
 
     }
+
+    geometry.setAttribute( 'color', new THREE.BufferAttribute( colors, 3, false ) );
+
+    mesh = new THREE.Mesh( geometry, material );
+    mesh.castShadow = true;
+    mesh.position.y = 25;
+    scene.add( mesh );
+
+    //
+
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.shadowMap.enabled = true;
+    document.body.appendChild( renderer.domElement );
+
+    //
+
+    const controls = new OrbitControls( camera, renderer.domElement );
+    controls.target.set( 0, 25, 0 );
+    controls.update();
+
+    //
+
+    window.addEventListener( 'resize', onWindowResize );
+
+    const gui = new GUI();
+
+    gui.add( params, 'exportASCII' ).name( 'Export PLY (ASCII)' );
+    gui.add( params, 'exportBinaryBigEndian' ).name( 'Export PLY (Binary BE)' );
+    gui.add( params, 'exportBinaryLittleEndian' ).name( 'Export PLY (Binary LE)' );
+    gui.open();
+
+}
+
+function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function animate() {
+
+    requestAnimationFrame( animate );
+    renderer.render( scene, camera );
+
+}
+
+function exportASCII() {
+
+    exporter.parse( mesh, function ( result ) {
+
+        saveString( result, 'box.ply' );
+
+    } );
+
+}
+
+function exportBinaryBigEndian() {
+
+    exporter.parse( mesh, function ( result ) {
+
+        saveArrayBuffer( result, 'box.ply' );
+
+    }, { binary: true } );
+
+}
+
+function exportBinaryLittleEndian() {
+
+    exporter.parse( mesh, function ( result ) {
+
+        saveArrayBuffer( result, 'box.ply' );
+
+    }, { binary: true, littleEndian: true } );
+
+}
+
+const link = document.createElement( 'a' );
+link.style.display = 'none';
+document.body.appendChild( link );
+
+function save( blob, filename ) {
+
+    link.href = URL.createObjectURL( blob );
+    link.download = filename;
+    link.click();
+
+}
+
+function saveString( text, filename ) {
+
+    save( new Blob( [ text ], { type: 'text/plain' } ), filename );
+
+}
+
+function saveArrayBuffer( buffer, filename ) {
+
+    save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
+
+}
+}
 })

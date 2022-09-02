@@ -9,7 +9,7 @@ import {
 	ShaderChunk,
 	ShaderLib,
 	UniformsUtils,
-} from 'three-weixin';
+} from '../../three-weixin/index.js';
 
 class PackedPhongMaterial extends MeshPhongMaterial {
 

@@ -43,7 +43,8 @@ export class WorkerPool {
 		if ( this.queue.length ) {
 
 			const { resolve, msg, transfer } = this.queue.shift();
-			this.workersResolve[ workerId ] = resolve;
+            this.workersResolve[ workerId ] = resolve;
+            console.error("WorkerPool","_onMessage")
 			this.workers[ workerId ].postMessage( msg, transfer );
 
 		} else {
@@ -76,7 +77,8 @@ export class WorkerPool {
 
 				this._initWorker( workerId );
 				this.workerStatus |= 1 << workerId;
-				this.workersResolve[ workerId ] = resolve;
+                this.workersResolve[ workerId ] = resolve;
+                console.error("WorkerPool","postMessage")
 				this.workers[ workerId ].postMessage( msg, transfer );
 
 			} else {

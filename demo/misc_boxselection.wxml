@@ -1,2 +1,1 @@
-<!--misc_boxselection.wxml-->
-<text>misc_boxselection.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

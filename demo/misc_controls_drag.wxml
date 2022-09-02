@@ -1,2 +1,1 @@
-<!--misc_controls_drag.wxml-->
-<text>misc_controls_drag.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

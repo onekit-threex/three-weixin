@@ -1,2 +1,1 @@
-<!--misc_exporter_gltf.wxml-->
-<text>misc_exporter_gltf.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

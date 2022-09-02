@@ -1,2 +1,1 @@
-<!--misc_animation_groups.wxml-->
-<text>misc_animation_groups.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

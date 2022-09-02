@@ -1,4 +1,4 @@
-import { Vector3 } from 'three-weixin';
+import { Vector3 } from '../../three-weixin/index.js';
 
 
 /**

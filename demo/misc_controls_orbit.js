@@ -1,66 +1,107 @@
-// misc_controls_orbit.js
+// misc/misc_controls_orbit.js
+import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import * as THREE from 'three-weixin';
+
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
+  async onLoad(){
+getApp().canvas = await document.createElementAsync("canvas","webgl")
+let camera, controls, scene, renderer;
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
+init();
+//render(); // remove when using next line for animation loop (requestAnimationFrame)
+animate();
 
-    },
+function init() {
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xcccccc );
+    scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
 
-    },
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
+    camera.position.set( 400, 200, 0 );
 
-    },
+    // controls
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
+    controls = new OrbitControls( camera, renderer.domElement );
+    controls.listenToKeyEvents( window ); // optional
 
-    },
+    //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+    controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+    controls.dampingFactor = 0.05;
 
-    },
+    controls.screenSpacePanning = false;
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+    controls.minDistance = 100;
+    controls.maxDistance = 500;
 
-    },
+    controls.maxPolarAngle = Math.PI / 2;
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+    // world
 
-    },
+    const geometry = new THREE.CylinderGeometry( 0, 10, 30, 4, 1 );
+    const material = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+    for ( let i = 0; i < 500; i ++ ) {
 
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
+        const mesh = new THREE.Mesh( geometry, material );
+        mesh.position.x = Math.random() * 1600 - 800;
+        mesh.position.y = 0;
+        mesh.position.z = Math.random() * 1600 - 800;
+        mesh.updateMatrix();
+        mesh.matrixAutoUpdate = false;
+        scene.add( mesh );
 
     }
+
+    // lights
+
+    const dirLight1 = new THREE.DirectionalLight( 0xffffff );
+    dirLight1.position.set( 1, 1, 1 );
+    scene.add( dirLight1 );
+
+    const dirLight2 = new THREE.DirectionalLight( 0x002288 );
+    dirLight2.position.set( - 1, - 1, - 1 );
+    scene.add( dirLight2 );
+
+    const ambientLight = new THREE.AmbientLight( 0x222222 );
+    scene.add( ambientLight );
+
+    //
+
+    window.addEventListener( 'resize', onWindowResize );
+
+}
+
+function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function animate() {
+
+    requestAnimationFrame( animate );
+
+    controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
+
+    render();
+
+}
+
+function render() {
+
+    renderer.render( scene, camera );
+
+}
+}
 })

@@ -1,66 +1,141 @@
-// misc_exporter_draco.js
+// misc/misc_exporter_draco.js
+import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import * as THREE from 'three-weixin';
+
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { DRACOExporter } from './jsm/exporters/DRACOExporter.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+
 Page({
+  async onLoad(){
+getApp().canvas = await document.createElementAsync("canvas","webgl")
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
+let scene, camera, renderer, exporter, mesh;
 
-    },
+const params = {
+    export: exportFile
+};
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
+init();
+animate();
 
-    },
+function init() {
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
+    camera.position.set( 200, 100, 200 );
 
-    },
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xa0a0a0 );
+    scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
+    exporter = new DRACOExporter();
 
-    },
+    //
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+    const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+    hemiLight.position.set( 0, 200, 0 );
+    scene.add( hemiLight );
 
-    },
+    const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+    directionalLight.position.set( 0, 200, 100 );
+    directionalLight.castShadow = true;
+    directionalLight.shadow.camera.top = 180;
+    directionalLight.shadow.camera.bottom = - 100;
+    directionalLight.shadow.camera.left = - 120;
+    directionalLight.shadow.camera.right = 120;
+    scene.add( directionalLight );
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+    // ground
 
-    },
+    const ground = new THREE.Mesh(
+        new THREE.PlaneGeometry( 2000, 2000 ),
+        new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } )
+    );
+    ground.rotation.x = - Math.PI / 2;
+    ground.position.y = - 75;
+    ground.receiveShadow = true;
+    scene.add( ground );
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+    const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+    grid.material.opacity = 0.2;
+    grid.material.transparent = true;
+    grid.position.y = - 75;
+    scene.add( grid );
 
-    },
+    // export mesh
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+    const geometry = new THREE.TorusKnotGeometry( 50, 15, 200, 30 );
+    const material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
+    mesh = new THREE.Mesh( geometry, material );
+    mesh.castShadow = true;
+    mesh.position.y = 25;
+    scene.add( mesh );
 
-    },
+    //
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.shadowMap.enabled = true;
+    document.body.appendChild( renderer.domElement );
 
-    }
+    //
+
+    const controls = new OrbitControls( camera, renderer.domElement );
+    controls.target.set( 0, 25, 0 );
+    controls.update();
+
+    //
+
+    window.addEventListener( 'resize', onWindowResize );
+
+    const gui = new GUI();
+
+    gui.add( params, 'export' ).name( 'Export DRC' );
+    gui.open();
+
+
+}
+
+function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function animate() {
+
+    requestAnimationFrame( animate );
+    renderer.render( scene, camera );
+
+}
+
+function exportFile() {
+
+    const result = exporter.parse( mesh );
+    saveArrayBuffer( result, 'file.drc' );
+
+}
+
+const link = document.createElement( 'a' );
+link.style.display = 'none';
+document.body.appendChild( link );
+
+function save( blob, filename ) {
+
+    link.href = URL.createObjectURL( blob );
+    link.download = filename;
+    link.click();
+
+}
+
+function saveArrayBuffer( buffer, filename ) {
+
+    save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
+
+}
+}
 })
