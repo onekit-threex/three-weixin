@@ -8,16 +8,20 @@ import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 var renderer;
 Page({
     webgl_touchcancel(e){
-        renderer.webgl_touchcancel(e)
+        window.dispatchEvent(e)
+        renderer.dispatchEvent(e)
     },
     webgl_touchend(e){
-        renderer.webgl_touchend(e)
+        window.dispatchEvent(e)
+        renderer.dispatchEvent(e)
     },
     webgl_touchmove(e){
-        renderer.webgl_touchmove(e)
+        window.dispatchEvent(e)
+        renderer.dispatchEvent(e)
     },
     webgl_touchstart(e){
-        renderer.webgl_touchstart(e)
+        window.dispatchEvent(e)
+        renderer.dispatchEvent(e)
     },
     async onLoad() {
       getApp().canvas = await document.createElementAsync("canvas","webgl")
