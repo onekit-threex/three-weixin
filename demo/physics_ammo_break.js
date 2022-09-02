@@ -380,7 +380,6 @@ var Ammo = require("./jsm/ammo/index.js")
 		function initInput() {
 
 			window.addEventListener( 'pointerdown', function ( event ) {
-console.error(event)
 				mouseCoords.set(
 					( event.clientX / window.innerWidth ) * 2 - 1,
 					- ( event.clientY / window.innerHeight ) * 2 + 1
