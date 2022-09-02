@@ -27,7 +27,7 @@ Page({
 
 			Ammo().then( function ( AmmoLib ) {
 
-				Ammo = AmmoLib;
+                Ammo = getApp().onekit_ammo;
 
 				init();
 				animate();

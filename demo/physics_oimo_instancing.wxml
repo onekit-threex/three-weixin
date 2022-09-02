@@ -1,2 +1,1 @@
-<!--physics_oimo_instancing.wxml-->
-<text>physics_oimo_instancing.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

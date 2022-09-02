@@ -1,2 +1,1 @@
-<!--webgl_pmrem_test.wxml-->
-<text>webgl_pmrem_test.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

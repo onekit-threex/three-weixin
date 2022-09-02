@@ -1,66 +1,50 @@
-// misc_uv_tests.js
+// tests/misc_uv_tests.js
+import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import * as THREE from 'three-weixin';	
+import { UVsDebug } from './jsm/utils/UVsDebug.js';
 Page({
+  async onLoad(){
+getApp().canvas = await document.createElementAsync("canvas","webgl")
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
+function test( name, geometry ) {
 
-    },
+    const d = document.createElement( 'div' );
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
+    d.innerHTML = '<h3>' + name + '</h3>';
 
-    },
+    d.appendChild( UVsDebug( geometry ) );
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+    document.body.appendChild( d );
 
-    },
+}
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
+const points = [];
 
-    },
+for ( let i = 0; i < 10; i ++ ) {
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+    points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * 15 + 50, ( i - 5 ) * 2 ) );
 
-    },
+}
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+//
 
-    },
+test( 'new THREE.PlaneGeometry( 100, 100, 4, 4 )', new THREE.PlaneGeometry( 100, 100, 4, 4 ) );
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+test( 'new THREE.SphereGeometry( 75, 12, 6 )', new THREE.SphereGeometry( 75, 12, 6 ) );
 
-    },
+test( 'new THREE.IcosahedronGeometry( 30, 1 )', new THREE.IcosahedronGeometry( 30, 1 ) );
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+test( 'new THREE.OctahedronGeometry( 30, 2 )', new THREE.OctahedronGeometry( 30, 2 ) );
 
-    },
+test( 'new THREE.CylinderGeometry( 25, 75, 100, 10, 5 )', new THREE.CylinderGeometry( 25, 75, 100, 10, 5 ) );
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
+test( 'new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 )', new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 ) );
 
-    }
+test( 'new THREE.LatheGeometry( points, 8 )', new THREE.LatheGeometry( points, 8 ) );
+
+test( 'new THREE.TorusGeometry( 50, 20, 8, 8 )', new THREE.TorusGeometry( 50, 20, 8, 8 ) );
+
+test( 'new THREE.TorusKnotGeometry( 50, 10, 12, 6 )', new THREE.TorusKnotGeometry( 50, 10, 12, 6 ) );
+
+}
 })

@@ -1,66 +1,131 @@
-// webgl_furnace_test.js
+// tests/webgl_furnace_test.js
+import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import * as THREE from 'three-weixin';
 Page({
+  async onLoad(){
+getApp().canvas = await document.createElementAsync("canvas","webgl")
+let scene, camera, renderer, radianceMap;
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
+const COLOR = 0xcccccc;
 
-    },
+function init() {
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const aspect = width / height;
 
-    },
+    // renderer
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setSize( width, height );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    document.body.appendChild( renderer.domElement );
 
-    },
+    //renderer.outputEncoding = THREE.sRGBEncoding; // optional
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
+    window.addEventListener( 'resize', onWindowResize );
 
-    },
+    document.body.addEventListener( 'mouseover', function () {
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+        scene.traverse( function ( child ) {
 
-    },
+            if ( child.isMesh ) child.material.color.setHex( 0xffffff );
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+        } );
 
-    },
+        render();
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
+    } );
 
-    },
+    document.body.addEventListener( 'mouseout', function () {
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
+        scene.traverse( function ( child ) {
 
-    },
+            if ( child.isMesh ) child.material.color.setHex( 0xccccff ); // tinted for visibility
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
+        } );
+
+        render();
+
+    } );
+
+    // scene
+
+    scene = new THREE.Scene();
+
+    // camera
+    camera = new THREE.PerspectiveCamera( 40, aspect, 1, 30 );
+    camera.position.set( 0, 0, 18 );
+
+}
+
+function createObjects() {
+
+    const geometry = new THREE.SphereGeometry( 0.4, 32, 16 );
+
+    for ( let x = 0; x <= 10; x ++ ) {
+
+        for ( let y = 0; y <= 10; y ++ ) {
+
+            const material = new THREE.MeshPhysicalMaterial( {
+                roughness: x / 10,
+                metalness: y / 10,
+                color: 0xffffff,
+                envMap: radianceMap,
+                envMapIntensity: 1,
+                transmission: 0,
+                ior: 1.5
+            } );
+
+            const mesh = new THREE.Mesh( geometry, material );
+            mesh.position.x = x - 5;
+            mesh.position.y = 5 - y;
+            scene.add( mesh );
+
+        }
 
     }
+
+}
+
+function createEnvironment() {
+
+    const envScene = new THREE.Scene();
+    envScene.background = new THREE.Color( COLOR );
+    if ( renderer.outputEncoding === THREE.sRGBEncoding ) envScene.background.convertSRGBToLinear();
+
+    const pmremGenerator = new THREE.PMREMGenerator( renderer );
+    radianceMap = pmremGenerator.fromScene( envScene ).texture;
+    pmremGenerator.dispose();
+
+    scene.background = radianceMap;
+
+}
+
+function onWindowResize() {
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( width, height );
+
+    render();
+
+}
+
+function render() {
+
+    renderer.render( scene, camera );
+
+}
+
+Promise.resolve()
+    .then( init )
+    .then( createEnvironment )
+    .then( createObjects )
+    .then( render );
+}
 })

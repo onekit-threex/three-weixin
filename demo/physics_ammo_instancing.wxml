@@ -1,2 +1,1 @@
-<!--physics_ammo_instancing.wxml-->
-<text>physics_ammo_instancing.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

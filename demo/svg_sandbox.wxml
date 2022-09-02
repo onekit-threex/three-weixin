@@ -1,2 +1,1 @@
-<!--svg_sandbox.wxml-->
-<text>svg_sandbox.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

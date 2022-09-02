@@ -73,7 +73,7 @@ var Ammo = require("./jsm/ammo/index.js")
 
 		// - Main code -
 
-        Ammo().then( function (  ) {
+		Ammo().then( function (  ) {
             Ammo = getApp().onekit_ammo;
 			init();
 			animate();

@@ -1,2 +1,6 @@
-<!--games_fps.wxml-->
-<text>games_fps.wxml</text>
+<canvas id="canvas_webgl" type="webgl"
+disable-scroll="true"
+  bindtouchcancel="webgl_touchcancel"
+  bindtouchend="webgl_touchend"
+  bindtouchmove="webgl_touchmove"
+  bindtouchstart="webgl_touchstart"/>

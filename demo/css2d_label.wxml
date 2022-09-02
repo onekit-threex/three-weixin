@@ -1,2 +1,1 @@
-<!--css2d_label.wxml-->
-<text>css2d_label.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

@@ -1,2 +1,1 @@
-<!--physics_ammo_cloth.wxml-->
-<text>physics_ammo_cloth.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

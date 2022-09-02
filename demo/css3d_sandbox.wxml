@@ -1,2 +1,1 @@
-<!--css3d_sandbox.wxml-->
-<text>css3d_sandbox.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>

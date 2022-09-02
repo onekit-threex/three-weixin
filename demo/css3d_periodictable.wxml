@@ -1,2 +1,1 @@
-<!--css3d_periodictable.wxml-->
-<text>css3d_periodictable.wxml</text>
+<canvas id="canvas_webgl" type="webgl"/>
