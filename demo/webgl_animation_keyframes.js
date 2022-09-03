@@ -67,7 +67,7 @@ Page({
         loader.setDRACOLoader( dracoLoader );
     
         loader.load( 'models/gltf/LittlestTokyo.glb', function ( gltf ) {
-            console.error("xxxxxxx",gltf)
+            //console.error("xxxxxxx",gltf)
 
             const model = gltf.scene;
             model.position.set( 1, 1, 0 );
