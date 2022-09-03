@@ -395,6 +395,7 @@
         "misc_uv_tests"
     ],
     "window": {
+        "navigationBarTitleText": "OneKit Three X",
         "backgroundColor": "#F5F5F9"
     },
     "sitemapLocation": "sitemap.json",
