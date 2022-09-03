@@ -27,7 +27,7 @@ Page({
         renderer.dispatchEvent(e)
     },
     onUnload(){
-        // worker.terminate()
+        getApp().worker.terminate()
     },
     async onLoad() {
       getApp().canvas = await document.createElementAsync("canvas","webgl")
