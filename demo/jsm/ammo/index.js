@@ -1,23 +1,11 @@
-import window_Ammo from './wx.ammo.wasm'
-//import JsAmmo from "./ammo"
-module.exports = function () {
-	return new Promise((callback, fail) => {
-        /*
-        const useJS = true//typeof WebAssembly !== 'object' || this.decoderConfig.type === 'js';
-        const librariesPending = [];
-
-		if ( useJS ) {
-            const Ammo = JsAmmo().oB
-            console.error(Ammo)
-            getApp().onekit_ammo = Ammo//require("./ammo")()
-        }else{
-            
-        }
-     */
-		window_Ammo.instantiate('jsm/ammo/ammo.wasm.wasm').then(
-			() => {
-				callback()
-			}
-		).catch(fail)
-	})
+import {
+	navigator
+} from "dhtml-weixin"
+var Ammo
+console.error("[ammo]",navigator.platform)
+if (navigator.platform=="ios"){
+	Ammo = require("./ammo")
+} else {
+	Ammo = require("./ammo.wasm")
 }
+module.exports = Ammo
