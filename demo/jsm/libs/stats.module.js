@@ -1,4 +1,4 @@
-import {document,window,self} from 'dhtml-weixin';
+import {document,window,self,performance} from 'dhtml-weixin';
 var Stats =  function () {
 
 	var mode = 0;
