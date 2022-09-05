@@ -85,14 +85,14 @@ var MeshoptDecoder = (function() {
 			requests: {}
 		};
 
-		worker.object.onmessage = function(event) {
-			var data = self2.onmessage(event.data);
+worker.onMessage(function (e) {
+  e = self2.onmessage(e);
 
 			worker.pending -= data.count;
 			worker.requests[data.id][data.action](data.value);
 
 			delete worker.requests[data.id];
-		};
+		});
 
 		return worker;
 	}
@@ -101,7 +101,7 @@ var MeshoptDecoder = (function() {
 		var source =
 			"var instance; var ready = WebAssembly.instantiate(new Uint8Array([" + new Uint8Array(unpack(wasm)) + "]), {})" +
 			".then(function(result) { instance = result.instance; instance.exports.__wasm_call_ctors(); });" +
-			"self2.onmessage = workerProcess;" +
+			"worker.onMessage(function (e) {workerProcess(self2.onmessage(e);}});" +
 			decode.toString() + workerProcess.toString();
 
 		var blob = new Blob([source], {type: 'text/javascript'});
