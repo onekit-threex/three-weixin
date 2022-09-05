@@ -53,8 +53,8 @@ var DracoDecoderModule = (function() {
         let decoderConfig;
         let decoderPending;
     
-        onmessage = function ( wx_e ) {
-            const e = self2.onmessage(wx_e);
+        worker.onMessage(function (e) {
+             e = self2.onmessage(e);
          const message = e.data;
 
             switch ( message.type ) {
@@ -113,7 +113,7 @@ var DracoDecoderModule = (function() {
     
             }
     
-        };
+        });
     
         function decodeGeometry( draco, decoder, decoderBuffer, taskConfig ) {
     

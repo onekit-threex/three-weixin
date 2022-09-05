@@ -171,12 +171,8 @@ function message2json(message) {
   }
 }
 export default class Worker extends EventTarget {
-  static self_onmessage (e) {
-   if(!e.data.msg) {
-       //console.error("????????????????",e.data)
-       return  null
-   }
-    return {data:message2json(e.data.msg.data)}
+  static self_onmessage (msg) {
+    return {data:message2json(msg)}
   }
 
   static self_postMessage(json) {
