@@ -1,11 +1,11 @@
 module.exports = {
   compile: WXWebAssembly.compile,
 
-  compileStreaming: WXWebAssembly.compileStreaming,
+  compileStreaming:null,
 
   instantiate: WXWebAssembly.instantiate,
 
-  instantiateStreaming: WXWebAssembly.compileStreaming,
+  instantiateStreaming: null,
 
   validate: WXWebAssembly.validate || function() { return true },
 

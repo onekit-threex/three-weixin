@@ -40,7 +40,7 @@ export default {
 		"webgl_geometry_terrain_raycast",
 		"webgl_geometry_text",
 		"webgl_geometry_text_shapes",
-		"webgl_geometry_text_stroke",
+        "webgl_geometry_text_stroke",
 		"webgl_helpers",
 		"webgl_instancing_dynamic",
 		"webgl_instancing_performance",
@@ -122,6 +122,7 @@ export default {
 		"webgl_loader_texture_tga",
 		"webgl_loader_texture_tiff",
 		"webgl_loader_ttf",
+        "webgl_loader_usdz",
 		"webgl_loader_vox",
 		"webgl_loader_vrml",
 		"webgl_loader_vtk",
@@ -174,7 +175,8 @@ export default {
 		"webgl_modifier_curve",
 		"webgl_modifier_curve_instanced",
 		"webgl_modifier_edgesplit",
-		"webgl_modifier_simplifier",
+        "webgl_modifier_simplifier",
+        "webgl_modifier_subdivision",
 		"webgl_modifier_tessellation",
 		"webgl_morphtargets",
 		"webgl_morphtargets_face",
@@ -228,7 +230,7 @@ export default {
 		"webgl_water",
 		"webgl_water_flowmap"
 	],
-	"webgl / nodes": [
+	"webgl_nodes": [
 		"webgl_nodes_loader_gltf_iridescence",
 		"webgl_nodes_loader_gltf_transmission",
 		"webgl_nodes_loader_gltf_sheen",
@@ -239,7 +241,7 @@ export default {
 		"webgl_nodes_playground",
 		"webgl_nodes_points"
 	],
-	"webgl / postprocessing": [
+	"webgl_postprocessing": [
 		"webgl_postprocessing",
 		"webgl_postprocessing_3dlut",
 		"webgl_postprocessing_advanced",
@@ -266,7 +268,7 @@ export default {
 		"webgl_postprocessing_unreal_bloom",
 		"webgl_postprocessing_unreal_bloom_selective"
 	],
-	"webgl / advanced": [
+	"webgl_advanced": [
 		"webgl_buffergeometry",
 		"webgl_buffergeometry_compression",
 		"webgl_buffergeometry_custom_attributes_particles",

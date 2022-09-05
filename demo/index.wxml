@@ -4,7 +4,7 @@
 					<navigator wx:for="{{section.demos}}" wx:for-item="demo" wx:for-key="demo" wx:key="demo"
                     url="{{ demo }}" target="viewer">
 	
-							<image mode="aspectFill" src="https://onekit.cn/screenshots/{{ demo }}.jpg" />
+							<image mode="aspectFill" src="https://onekit.cn/examples/screenshots/{{ demo }}.jpg" />
 						<view style="display: none;">{{demo}}</view>
 					</navigator>
 				</view>
