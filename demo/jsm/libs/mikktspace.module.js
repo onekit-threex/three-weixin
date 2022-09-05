@@ -1,6 +1,6 @@
-import {WebAssembly} from "dhtml-weixin"
-const lTextDecoder = typeof TextDecoder === 'undefined' ? (0, module.require)('util').TextDecoder : TextDecoder;
-
+import {WebAssembly,TextDecoder} from "dhtml-weixin"
+//const lTextDecoder = typeof TextDecoder === 'undefined' ? (0, module.require)('util').TextDecoder : TextDecoder;
+const lTextDecoder = TextDecoder
 let cachedTextDecoder = new lTextDecoder('utf-8', { ignoreBOM: true, fatal: true });
 
 cachedTextDecoder.decode();
