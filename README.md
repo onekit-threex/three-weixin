@@ -1,5 +1,6 @@
 # three-weixin(全网最强)
 # 支持Ammo（WASM）
+# 牛逼可用请点星
 
 #### 介绍
 全网最强 Three.js 微信小程序版(兼容Uni-App版）。
@@ -97,7 +98,7 @@
 
 6.  所有JS文件，若用到网页对象（如window、document），请在页面顶部添加 
     ```
-    import {document,window,self,URL,requestAnimationFrame} from 'dhtml-weixin'
+    import {document,window,self,URL,requestAnimationFrame,Event} from 'dhtml-weixin'
     ```
 
 7.  添加事件
