@@ -106,10 +106,10 @@
       ```
      <canvas id="canvas_webgl" type="webgl"
         disable-scroll="true"
-        bindtouchcancel="webgl_touchcancel"
-        bindtouchend="webgl_touchend"
-        bindtouchmove="webgl_touchmove"
-        bindtouchstart="webgl_touchstart"
+        bindtouchcancel="webgl_touch"
+        bindtouchend="webgl_touch"
+        bindtouchmove="webgl_touch"
+        bindtouchstart="webgl_touch"
         />
     ```
 
@@ -118,21 +118,10 @@
     ```
     var renderer
     Page({
-       webgl_touchcancel(e){
-        window.dispatchEvent(e)
-        renderer.dispatchEvent(e)
-        },
-        webgl_touchend(e){
-            window.dispatchEvent(e)
-            renderer.dispatchEvent(e)
-        },
-        webgl_touchmove(e){
-            window.dispatchEvent(e)
-            renderer.dispatchEvent(e)
-        },
-        webgl_touchstart(e){
-            window.dispatchEvent(e)
-            renderer.dispatchEvent(e)
+       webgl_touch(e){
+            const web_e = Event.fix(e)
+            window.dispatchEvent(web_e)
+            renderer && renderer.dispatchEvent(web_e)
         },
         async onLoad(){
              getApp().canvas = await document.createElementAsync("canvas","webgl");
