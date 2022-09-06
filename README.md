@@ -97,7 +97,7 @@
 
 6.  所有JS文件，若用到网页对象（如window、document），请在页面顶部添加 
     ```
-    import {document,window,self,URL,requestAnimationFrame} from 'dhtml-weixin'
+    import {document,window,self,URL,requestAnimationFrame,Event} from 'dhtml-weixin'
     ```
 
 7.  添加事件
