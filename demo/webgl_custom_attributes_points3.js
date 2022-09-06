@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_custom_attributes_points3.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 

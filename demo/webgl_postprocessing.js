@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';

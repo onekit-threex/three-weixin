@@ -1,5 +1,5 @@
 // misc/misc_controls_map.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';

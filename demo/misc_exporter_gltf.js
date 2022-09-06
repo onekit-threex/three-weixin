@@ -1,5 +1,5 @@
 // misc/misc_exporter_gltf.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 import { GLTFExporter } from './jsm/exporters/GLTFExporter.js';

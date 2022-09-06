@@ -1,5 +1,5 @@
 // webgl/webgl_loader_gltf_compressed.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';

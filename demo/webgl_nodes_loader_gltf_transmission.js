@@ -1,5 +1,5 @@
 // webgl_nodes/webgl_nodes_loader_gltf_transmission.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { NodeMaterial, float, texture, mul } from './jsm/nodes/Nodes.js';
 

@@ -1,5 +1,5 @@
 // webgl/webgl_portal.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import * as CameraUtils from './jsm/utils/CameraUtils.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';

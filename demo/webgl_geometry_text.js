@@ -1,5 +1,5 @@
 // webgl/webgl_geometry_text.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { FontLoader } from './jsm/loaders/FontLoader.js';

@@ -1,5 +1,5 @@
 // physics/physics_ammo_break.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
@@ -7,21 +7,10 @@ import { ConvexObjectBreaker } from './jsm/misc/ConvexObjectBreaker.js';
 import { ConvexGeometry } from './jsm/geometries/ConvexGeometry.js';
 var renderer
 Page({
-    webgl_touchcancel(e){
-        window.dispatchEvent(e)
-        renderer.dispatchEvent(e)
-    },
-    webgl_touchend(e){
-        window.dispatchEvent(e)
-        renderer.dispatchEvent(e)
-    },
-    webgl_touchmove(e){
-        window.dispatchEvent(e)
-        renderer.dispatchEvent(e)
-    },
-    webgl_touchstart(e){
-        window.dispatchEvent(e)
-        renderer.dispatchEvent(e)
+    webgl_touch(e){
+        const web_e = Event.fix(e)
+        window.dispatchEvent(web_e)
+        renderer && renderer.dispatchEvent(web_e)
     },
   async onLoad(){
 getApp().canvas = await document.createElementAsync("canvas","webgl")

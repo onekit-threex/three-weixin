@@ -1,5 +1,5 @@
 // webgl/webgl_modifier_curve_instanced.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { TransformControls } from './jsm/controls/TransformControls.js';
 import Stats from './jsm/libs/stats.module.js';

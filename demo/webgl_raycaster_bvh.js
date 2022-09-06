@@ -1,5 +1,5 @@
 // webgl/webgl_raycaster_bvh.js
-/*import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+/*import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';		
 import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast, MeshBVHVisualizer } from 'three-mesh-bvh-weixin';
 import Stats from './jsm/libs/stats.module.js';

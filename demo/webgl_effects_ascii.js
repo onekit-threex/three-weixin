@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { AsciiEffect } from './jsm/effects/AsciiEffect.js';
 import { TrackballControls } from './jsm/controls/TrackballControls.js';

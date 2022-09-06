@@ -1,5 +1,5 @@
 // webgl_nodes/webgl_nodes_materials_instance_uniform.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { MeshStandardNodeMaterial, Node, NodeUpdateType, uniform, cubeTexture, add, mul } from './jsm/nodes/Nodes.js';
 

@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_custom_attributes_lines.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { FontLoader } from './jsm/loaders/FontLoader.js';
             import { TextGeometry } from './jsm/geometries/TextGeometry.js';

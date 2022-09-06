@@ -1,5 +1,5 @@
 // tests/misc_uv_tests.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';	
 import { UVsDebug } from './jsm/utils/UVsDebug.js';
 Page({

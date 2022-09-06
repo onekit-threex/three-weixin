@@ -1,5 +1,5 @@
 // webgl/webgl_loader_obj_mtl.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { MTLLoader } from './jsm/loaders/MTLLoader.js';

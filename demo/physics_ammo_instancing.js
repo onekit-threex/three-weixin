@@ -1,5 +1,5 @@
 // physics/physics_ammo_instancing.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { AmmoPhysics } from './jsm/physics/AmmoPhysics.js';

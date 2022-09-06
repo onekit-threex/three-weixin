@@ -1,5 +1,5 @@
 // webgl/webgl_loader_texture_ktx2.js
-import {document,window,requestAnimationFrame} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { KTX2Loader } from './jsm/loaders/KTX2Loader.js';
