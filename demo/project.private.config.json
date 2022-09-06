@@ -7,21 +7,5 @@
         "bigPackageSizeSupport": true
     },
     "libVersion": "2.25.0",
-    "condition": {
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "",
-                    "pathName": "webgl_animation_skinning_additive_blending",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null,
-                    "partialCompile": {
-                        "enabled": true,
-                        "pages": []
-                    }
-                }
-            ]
-        }
-    }
+    "condition": {}
 }

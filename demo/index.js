@@ -12,9 +12,6 @@ Page({
         })
      }
      this.setData({sections})
- /*
-     wx.navigateTo({
-       url: '/webgl/webgl_animation_keyframes',
-     })*/
+ 
     }
 })
