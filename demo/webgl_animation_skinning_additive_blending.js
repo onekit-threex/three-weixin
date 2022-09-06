@@ -141,7 +141,7 @@ Page({
 
 				const controls = new OrbitControls( camera, renderer.domElement );
 				controls.enablePan = false;
-				controls.enableZoom = false;
+				controls.enableZoom = true;
 				controls.target.set( 0, 1, 0 );
 				controls.update();
 

@@ -11,8 +11,8 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "手机测试",
-                    "pathName": "webgl_animation_keyframes",
+                    "name": "",
+                    "pathName": "webgl_animation_skinning_additive_blending",
                     "query": "",
                     "launchMode": "default",
                     "scene": null,
