@@ -1,5 +1,6 @@
 # three-weixin(全网最强)
 # 支持Ammo（WASM）
+# 牛逼可用请点星
 
 #### 介绍
 全网最强 Three.js 微信小程序版(兼容Uni-App版）。
