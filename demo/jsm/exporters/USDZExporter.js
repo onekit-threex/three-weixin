@@ -1,7 +1,7 @@
 import {
 	DoubleSide
 } from '../../three-weixin/index.js';
-import {core} from "dhtml-weixin"
+import {HTMLImageElement,document,core} from "dhtml-weixin"
 import * as fflate from '../libs/fflate.module.js';
 
 class USDZExporter {
@@ -120,7 +120,7 @@ function imageToCanvas( image, color ) {
 		canvas.height = image.height * Math.min( 1, scale );
 
 		const context = canvas.getContext( '2d' );
-		context.drawImage( image, 0, 0, canvas.width, canvas.height );
+		context.drawImage( image.wx_image, 0, 0, canvas.width, canvas.height );
 
 		if ( color !== undefined ) {
 
