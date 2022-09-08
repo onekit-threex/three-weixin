@@ -5,12 +5,18 @@ import Stats from './jsm/libs/stats.module.js';
 
 import { SelectionBox } from './jsm/interactive/SelectionBox.js';
 import { SelectionHelper } from './jsm/interactive/SelectionHelper.js';
-
+var renderer
 Page({
+    webgl_touch(e){
+        const web_e = Event.fix(e)
+        document.dispatchEvent(web_e)
+        window.dispatchEvent(web_e)
+        renderer && renderer.dispatchEvent(web_e)
+    },
   async onLoad(){
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let container, stats;
-let camera, scene, renderer;
+let camera, scene;
 
 init();
 animate();

@@ -7,5 +7,21 @@
         "bigPackageSizeSupport": true
     },
     "libVersion": "2.25.0",
-    "condition": {}
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "",
+                    "pathName": "misc_boxselection",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null,
+                    "partialCompile": {
+                        "enabled": true,
+                        "pages": []
+                    }
+                }
+            ]
+        }
+    }
 }

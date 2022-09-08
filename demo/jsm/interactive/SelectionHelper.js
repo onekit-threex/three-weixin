@@ -1,5 +1,5 @@
 import { Vector2 } from '../../three-weixin/index.js';
-
+import {document} from "dhtml-weixin"
 class SelectionHelper {
 
 	constructor( renderer, cssClassName ) {
