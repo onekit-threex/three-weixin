@@ -15,7 +15,7 @@ import {
 	MathUtils,
 	EventDispatcher
 } from 'three-weixin';
-
+import {window} from "dhtml-weixin"
 //trackball state
 const STATE = {
 
