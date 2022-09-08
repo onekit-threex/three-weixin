@@ -1,6 +1,6 @@
 # three-weixin(全网最强)
-# 支持Ammo（WASM）
-# 牛逼可用请点星
+# 支持Ammo（WASM/JS双模式）
+# 牛逼可用,请点星.
 
 #### 介绍
 全网最强 Three.js 微信小程序版(兼容Uni-App版）。
@@ -121,6 +121,7 @@
     Page({
        webgl_touch(e){
             const web_e = Event.fix(e)
+            document.dispatchEvent(web_e)
             window.dispatchEvent(web_e)
             renderer && renderer.dispatchEvent(web_e)
         },
