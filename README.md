@@ -79,7 +79,15 @@
             getApp().canvas = await document.createElementAsync("canvas","webgl");
             //组件中使用 getApp().canvas = await document.createElementAsync("canvas","webgl",this);
             /*你的代码 */
-        }
+        },
+        onUnload(){
+            cancelAnimationFrame()
+            this.renderer.dispose()
+            this.renderer.forceContextLoss()
+            this.renderer.context = null
+            this.renderer.domElement = null
+            this.renderer = null
+        },
     })
     ```
 
@@ -89,16 +97,25 @@
     Page({
         onLoad() {
             document.createElementAsync("canvas","webgl").then(canvas=>{
-            //组件中使用 document.createElementAsync("canvas","webgl",this).then(canvas=>{
-            getApp().canvas = canvas;
-            /*你的代码 */
-        })
+                //组件中使用 document.createElementAsync("canvas","webgl",this).then(canvas=>{
+                getApp().canvas = canvas;
+                /*你的代码 */
+            })
+        },
+        onUnload(){
+            cancelAnimationFrame()
+            this.renderer.dispose()
+            this.renderer.forceContextLoss()
+            this.renderer.context = null
+            this.renderer.domElement = null
+            this.renderer = null
+       },
     })
     ```
 
 6.  所有JS文件，若用到网页对象（如window、document），请在页面顶部添加 
     ```
-    import {document,window,self,URL,requestAnimationFrame,Event} from 'dhtml-weixin'
+    import {document,window,self,URL,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin'
     ```
 
 7.  添加事件
@@ -117,17 +134,16 @@
     7.2 页面代码添加
 
     ```
-    var renderer
     Page({
        webgl_touch(e){
             const web_e = Event.fix(e)
             document.dispatchEvent(web_e)
             window.dispatchEvent(web_e)
-            renderer && renderer.dispatchEvent(web_e)
+            this.renderer && this.renderer.dispatchEvent(web_e)
         },
         async onLoad(){
              getApp().canvas = await document.createElementAsync("canvas","webgl");
-             renderer = new THREE.WebGLRenderer( { antialias: true } );
+             const renderer = this.renderer = new THREE.WebGLRenderer( { antialias: true } );
         }
     })
     ```
