@@ -78,6 +78,7 @@
         async onLoad() {
             getApp().canvas = await document.createElementAsync("canvas","webgl");
             //组件中使用 getApp().canvas = await document.createElementAsync("canvas","webgl",this);
+             const renderer = this.renderer = new THREE.WebGLRenderer( { antialias: true } );
             /*你的代码 */
         },
         onUnload(){
@@ -99,6 +100,7 @@
             document.createElementAsync("canvas","webgl").then(canvas=>{
                 //组件中使用 document.createElementAsync("canvas","webgl",this).then(canvas=>{
                 getApp().canvas = canvas;
+                const renderer = this.renderer = new THREE.WebGLRenderer( { antialias: true } );
                 /*你的代码 */
             })
         },
@@ -141,10 +143,6 @@
             window.dispatchEvent(web_e)
             this.renderer && this.renderer.dispatchEvent(web_e)
         },
-        async onLoad(){
-             getApp().canvas = await document.createElementAsync("canvas","webgl");
-             const renderer = this.renderer = new THREE.WebGLRenderer( { antialias: true } );
-        }
     })
     ```
 
