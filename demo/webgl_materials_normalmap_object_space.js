@@ -1,10 +1,11 @@
 // webgl/webgl_materials_normalmap_object_space.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         
@@ -15,7 +16,7 @@ Page({
 			function init() {
 
 				// renderer
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
 

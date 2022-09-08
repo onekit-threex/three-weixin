@@ -1,9 +1,10 @@
 // webgl/webgl_interactive_lines.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
@@ -111,7 +112,7 @@ Page({
             raycaster = new THREE.Raycaster();
             raycaster.params.Line.threshold = 3;
 
-            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             container.appendChild( renderer.domElement );

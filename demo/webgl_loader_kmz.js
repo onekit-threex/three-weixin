@@ -1,10 +1,11 @@
 // webgl/webgl_loader_kmz.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { KMZLoader } from './jsm/loaders/KMZLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
@@ -31,7 +32,7 @@ Page({
 				const grid = new THREE.GridHelper( 50, 50, 0xffffff, 0x333333 );
 				scene.add( grid );
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

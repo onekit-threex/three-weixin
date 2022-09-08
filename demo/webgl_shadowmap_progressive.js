@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_shadowmap_progressive.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -8,7 +8,16 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { TransformControls } from './jsm/controls/TransformControls.js';
 import { ProgressiveLightMap } from './jsm/misc/ProgressiveLightMap.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 	// ShadowMap + LightMap Res and Number of Directional Lights
@@ -25,7 +34,7 @@ getApp().canvas = await document.createElementAsync("canvas","webgl")
   function init() {
 
     // renderer
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.shadowMap.enabled = true;

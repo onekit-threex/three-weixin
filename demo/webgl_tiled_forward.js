@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_tiled_forward.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
@@ -8,7 +8,16 @@ import Stats from './jsm/libs/stats.module.js';
 
 			import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 const RADIUS = 75;
 
@@ -170,7 +179,7 @@ camera.position.set( 0.0, 0.0, 240.0 );
 const scene = new THREE.Scene();
 scene.background = new THREE.Color( 0x111111 );
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = that.renderer = new THREE.WebGLRenderer();
 renderer.toneMapping = THREE.NoToneMapping;
 container.appendChild( renderer.domElement );
 

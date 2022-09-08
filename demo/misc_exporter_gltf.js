@@ -1,12 +1,21 @@
 // misc/misc_exporter_gltf.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 import { GLTFExporter } from './jsm/exporters/GLTFExporter.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 function exportGLTF( input ) {
 
@@ -456,7 +465,7 @@ function init() {
 
     //
 
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
 

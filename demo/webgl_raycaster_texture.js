@@ -1,9 +1,10 @@
 // webgl/webgl_raycaster_texture.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         const WRAPPING = {
             'RepeatWrapping': THREE.RepeatWrapping,
@@ -162,7 +163,7 @@ Page({
             camera.position.z = 50;
             camera.lookAt( scene.position );
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( width, height );
             container.appendChild( renderer.domElement );

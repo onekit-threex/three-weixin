@@ -1,5 +1,5 @@
 // misc/misc_exporter_collada.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -9,7 +9,16 @@ import { ColladaExporter } from './jsm/exporters/ColladaExporter.js';
 import { TeapotGeometry } from './jsm/geometries/TeapotGeometry.js';
 
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer;
 let cameraControls;
@@ -55,7 +64,7 @@ function init() {
     // direction is set in GUI
 
     // RENDERER
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( canvasWidth, canvasHeight );
     renderer.outputEncoding = THREE.sRGBEncoding;

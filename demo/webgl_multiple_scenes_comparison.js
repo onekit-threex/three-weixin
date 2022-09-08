@@ -1,10 +1,11 @@
 // webgl/webgl_multiple_scenes_comparison.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let container, camera, renderer, controls;
 			let sceneL, sceneR;
@@ -36,7 +37,7 @@ Page({
 				initMeshes();
 				initSlider();
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.setScissorTest( true );

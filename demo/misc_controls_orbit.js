@@ -1,10 +1,19 @@
 // misc/misc_controls_orbit.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let camera, controls, scene, renderer;
 
@@ -18,7 +27,7 @@ function init() {
     scene.background = new THREE.Color( 0xcccccc );
     scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
 
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );

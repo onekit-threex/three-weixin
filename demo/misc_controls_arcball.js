@@ -1,5 +1,5 @@
 // misc/misc_controls_arcball.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -10,7 +10,16 @@ import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 const cameras = [ 'Orthographic', 'Perspective' ];
@@ -74,7 +83,7 @@ function init() {
     const container = document.createElement( 'div' );
     document.body.appendChild( container );
 
-    renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
 

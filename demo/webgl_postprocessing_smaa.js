@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_smaa.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
@@ -7,7 +7,16 @@ import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from './jsm/postprocessing/RenderPass.js';
 import { SMAAPass } from './jsm/postprocessing/SMAAPass.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer, composer, stats;
 
@@ -18,7 +27,7 @@ let camera, scene, renderer, composer, stats;
 
 				const container = document.getElementById( 'container' );
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

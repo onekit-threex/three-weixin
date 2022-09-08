@@ -1,11 +1,12 @@
 // webgl/webgl_loader_stl.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
 			import { STLLoader } from './jsm/loaders/STLLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         
@@ -130,7 +131,7 @@ Page({
 				addShadowedLight( 0.5, 1, - 1, 0xffaa00, 1 );
 				// renderer
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.outputEncoding = THREE.sRGBEncoding;

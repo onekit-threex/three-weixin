@@ -1,5 +1,5 @@
 // webgl/webgl_loader_collada_skinning.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -8,6 +8,7 @@ import { ColladaLoader } from './jsm/loaders/ColladaLoader.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats, clock, controls;
@@ -68,7 +69,7 @@ Page({
 
 				//
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

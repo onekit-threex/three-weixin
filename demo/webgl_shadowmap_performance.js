@@ -1,5 +1,5 @@
 // webgl/webgl_shadowmap_performance.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -9,6 +9,7 @@ import { FontLoader } from './jsm/loaders/FontLoader.js';
 import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         const SHADOW_MAP_WIDTH = 2048, SHADOW_MAP_HEIGHT = 1024;
 
@@ -72,7 +73,7 @@ Page({
 
             // RENDERER
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
             container.appendChild( renderer.domElement );

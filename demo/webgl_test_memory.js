@@ -1,8 +1,9 @@
 // webgl/webgl_test_memory.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 
@@ -22,7 +23,7 @@ Page({
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );

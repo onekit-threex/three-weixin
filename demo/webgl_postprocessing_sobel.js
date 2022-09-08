@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_sobel.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -13,7 +13,16 @@ import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 import { LuminosityShader } from './jsm/shaders/LuminosityShader.js';
 import { SobelOperatorShader } from './jsm/shaders/SobelOperatorShader.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer, composer;
 
@@ -55,7 +64,7 @@ function init() {
 
     //
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = that.renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );

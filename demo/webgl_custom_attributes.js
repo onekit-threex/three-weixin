@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_custom_attributes.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -47,7 +47,16 @@ const onekit = {
         }
 `}
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let renderer, scene, camera, stats;
 
@@ -103,7 +112,7 @@ function init() {
     sphere = new THREE.Mesh( geometry, shaderMaterial );
     scene.add( sphere );
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = that.renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
 

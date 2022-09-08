@@ -1,5 +1,5 @@
 // webgl/webgl_lines_fat_raycasting.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 			import { GPUStatsPanel } from './jsm/utils/GPUStatsPanel.js';
@@ -13,6 +13,7 @@ import Stats from './jsm/libs/stats.module.js';
 			import { LineGeometry } from './jsm/lines/LineGeometry.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let line, thresholdLine, segments, thresholdSegments;
@@ -33,7 +34,7 @@ Page({
 
 			function init() {
 
-				renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setClearColor( 0x000000, 0.0 );
 				renderer.setSize( window.innerWidth, window.innerHeight );

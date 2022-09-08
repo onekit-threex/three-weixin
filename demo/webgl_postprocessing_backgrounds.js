@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_backgrounds.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -14,7 +14,16 @@ import { ClearPass } from './jsm/postprocessing/ClearPass.js';
 import { CopyShader } from './jsm/shaders/CopyShader.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let scene, renderer, composer;
 			let clearPass, texturePass, renderPass;
@@ -72,7 +81,7 @@ let scene, renderer, composer;
 				const aspect = width / height;
 				const devicePixelRatio = window.devicePixelRatio || 1;
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( devicePixelRatio );
 				renderer.setSize( width, height );
 				document.body.appendChild( renderer.domElement );

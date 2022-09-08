@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -7,6 +7,7 @@ import { GUI } from './jsm/libs/lil-gui.module.min.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas", "webgl")
         
         
@@ -263,7 +264,7 @@ Page({
 
 				const container = document.body;
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.shadowMap.enabled = true;
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

@@ -1,5 +1,5 @@
 // webgl/webgl_loader_texture_ktx2.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { KTX2Loader } from './jsm/loaders/KTX2Loader.js';
@@ -7,12 +7,13 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         const width = window.innerWidth;
 			const height = window.innerHeight;
 
-			const renderer = new THREE.WebGLRenderer( { antialias: true } );
+			const renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 			renderer.setSize( width, height );
 			renderer.outputEncoding = THREE.sRGBEncoding;
 			document.body.appendChild( renderer.domElement );

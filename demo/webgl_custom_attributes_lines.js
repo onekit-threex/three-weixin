@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_custom_attributes_lines.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { FontLoader } from './jsm/loaders/FontLoader.js';
             import { TextGeometry } from './jsm/geometries/TextGeometry.js';
@@ -40,7 +40,16 @@ const onekit = {
 `
 }
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let renderer, scene, camera, stats;
 
@@ -120,7 +129,7 @@ function init( font ) {
     line.rotation.x = 0.2;
     scene.add( line );
 
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
 

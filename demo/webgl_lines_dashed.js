@@ -1,11 +1,12 @@
 // webgl/webgl_lines_dashed.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
 import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let renderer, scene, camera, stats;
 			const objects = [];
@@ -47,7 +48,7 @@ Page({
 				objects.push( lineSegments );
 				scene.add( lineSegments );
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( WIDTH, HEIGHT );
 

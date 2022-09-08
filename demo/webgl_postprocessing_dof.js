@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_dof.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -9,7 +9,16 @@ import Stats from './jsm/libs/stats.module.js';
 			import { RenderPass } from './jsm/postprocessing/RenderPass.js';
 			import { BokehPass } from './jsm/postprocessing/BokehPass.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 let camera, scene, renderer, stats,
@@ -41,7 +50,7 @@ camera.position.z = 200;
 
 scene = new THREE.Scene();
 
-renderer = new THREE.WebGLRenderer();
+renderer = that.renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( width, height );
 container.appendChild( renderer.domElement );

@@ -23,6 +23,7 @@ import {
 } from './jsm/shaders/FXAAShader.js';
 Page({
     async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas", "webgl")
         let camera, scene, renderer, clock, group, container;
 
@@ -84,7 +85,7 @@ Page({
 
             //
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer();
             renderer.autoClear = false;
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(container.offsetWidth, container.offsetHeight);

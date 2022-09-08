@@ -1,5 +1,5 @@
 // webgl/webgl_materials_matcap.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -8,6 +8,7 @@ import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 import { EXRLoader } from './jsm/loaders/EXRLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let mesh, renderer, scene, camera;
@@ -22,7 +23,7 @@ Page({
 			function init() {
 
 				// renderer
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

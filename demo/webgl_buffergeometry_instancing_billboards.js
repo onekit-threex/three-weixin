@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_buffergeometry_instancing_billboards.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 const onekit = {
@@ -60,7 +60,16 @@ const onekit = {
 `
 }
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 let container, stats;
@@ -70,7 +79,7 @@ let container, stats;
 
 		function init() {
 
-			renderer = new THREE.WebGLRenderer();
+			renderer = that.renderer = new THREE.WebGLRenderer();
 
 			if ( renderer.capabilities.isWebGL2 === false && renderer.extensions.has( 'ANGLE_instanced_arrays' ) === false ) {
 

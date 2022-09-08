@@ -1,5 +1,5 @@
 // webgl/webgl_geometry_spline_editor.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -8,6 +8,7 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { TransformControls } from './jsm/controls/TransformControls.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let container;
@@ -79,7 +80,7 @@ Page({
 				helper.material.transparent = true;
 				scene.add( helper );
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				renderer.shadowMap.enabled = true;

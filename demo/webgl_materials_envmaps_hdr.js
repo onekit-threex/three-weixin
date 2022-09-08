@@ -1,5 +1,5 @@
 // webgl/webgl_materials_envmaps_hdr.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
@@ -11,6 +11,7 @@ import Stats from './jsm/libs/stats.module.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         
@@ -42,7 +43,7 @@ Page({
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x000000 );
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.physicallyCorrectLights = true;
 				renderer.toneMapping = THREE.ACESFilmicToneMapping;
 

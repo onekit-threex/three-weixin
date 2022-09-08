@@ -1,5 +1,5 @@
 // webgl/webgl_modifier_simplifier.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
@@ -7,6 +7,7 @@ import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 import { SimplifyModifier } from './jsm/modifiers/SimplifyModifier.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         
 			let renderer, scene, camera;
@@ -23,7 +24,7 @@ Page({
 				info.innerHTML = '<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - Vertex Reduction using SimplifyModifier';
 				document.body.appendChild( info );
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

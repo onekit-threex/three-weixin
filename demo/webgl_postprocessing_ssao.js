@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_ssao.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -9,7 +9,16 @@ import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
 import { SSAOPass } from './jsm/postprocessing/SSAOPass.js';
 
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let container, stats;
 			let camera, scene, renderer;
@@ -24,7 +33,7 @@ let container, stats;
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
 

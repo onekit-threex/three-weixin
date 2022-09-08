@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_sao.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -9,7 +9,16 @@ import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from './jsm/postprocessing/RenderPass.js';
 import { SAOPass } from './jsm/postprocessing/SAOPass.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 let container, stats;
@@ -29,7 +38,7 @@ function init() {
     const height = window.innerHeight || 1;
     const devicePixelRatio = window.devicePixelRatio || 1;
 
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setClearColor( 0x000000 );
     renderer.setPixelRatio( devicePixelRatio );
     renderer.setSize( width, height );

@@ -1,19 +1,27 @@
 // misc/misc_boxselection.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
 import { SelectionBox } from './jsm/interactive/SelectionBox.js';
 import { SelectionHelper } from './jsm/interactive/SelectionHelper.js';
-var renderer
 Page({
     webgl_touch(e){
         const web_e = Event.fix(e)
         document.dispatchEvent(web_e)
         window.dispatchEvent(web_e)
-        renderer && renderer.dispatchEvent(web_e)
+        this.renderer && this.renderer.dispatchEvent(web_e)
     },
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let container, stats;
 let camera, scene;
@@ -71,7 +79,7 @@ function init() {
 
     }
 
-    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
 

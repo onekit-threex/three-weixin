@@ -1,11 +1,12 @@
 // webgl/webgl_loader_tilt.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { TiltLoader } from './jsm/loaders/TiltLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
@@ -26,7 +27,7 @@ Page({
             const grid = new THREE.GridHelper( 50, 50, 0xffffff, 0x555555 );
             scene.add( grid );
 
-            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             document.body.appendChild( renderer.domElement );

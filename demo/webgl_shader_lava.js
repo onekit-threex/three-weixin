@@ -1,5 +1,5 @@
 // webgl/webgl_shader_lava.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
 			import { RenderPass } from './jsm/postprocessing/RenderPass.js';
@@ -63,6 +63,7 @@ void main()
 }
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let camera, renderer, composer, clock;
 
@@ -114,7 +115,7 @@ Page({
 
             //
 
-            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             container.appendChild( renderer.domElement );
             renderer.autoClear = false;

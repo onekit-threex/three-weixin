@@ -1,5 +1,5 @@
 // webgl/webgl_refraction.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { Refractor } from './jsm/objects/Refractor.js';
@@ -7,6 +7,7 @@ import { WaterRefractionShader } from './jsm/shaders/WaterRefractionShader.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer, clock;
 
@@ -21,7 +22,7 @@ Page({
 				clock = new THREE.Clock();
 
 				// renderer
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );

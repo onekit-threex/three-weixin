@@ -1,5 +1,5 @@
 // webgl/webgl_loader_nrrd.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
@@ -9,6 +9,7 @@ import { NRRDLoader } from './jsm/loaders/NRRDLoader.js';
 import { VTKLoader } from './jsm/loaders/VTKLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let container,
         stats,
@@ -124,7 +125,7 @@ Page({
         } );
         // renderer
 
-        renderer = new THREE.WebGLRenderer();
+        renderer = that.renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
 

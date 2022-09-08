@@ -1,9 +1,10 @@
 // webgl/webgl_shadowmesh.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { ShadowMesh } from './jsm/objects/ShadowMesh.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let SCREEN_WIDTH = window.innerWidth;
 			let SCREEN_HEIGHT = window.innerHeight;
@@ -11,7 +12,7 @@ Page({
 			const scene = new THREE.Scene();
 			const camera = new THREE.PerspectiveCamera( 55, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 3000 );
 			const clock = new THREE.Clock();
-			const renderer = new THREE.WebGLRenderer();
+			const renderer = that.renderer = new THREE.WebGLRenderer();
 
 			const sunLight = new THREE.DirectionalLight( 'rgb(255,255,255)', 1 );
 			let useDirectionalLight = true;

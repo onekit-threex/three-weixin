@@ -1,5 +1,5 @@
 // webgl/webgl_lights_pointlights.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -7,6 +7,7 @@ import Stats from './jsm/libs/stats.module.js';
 import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer,
 				light1, light2, light3, light4,
@@ -58,7 +59,7 @@ Page({
 
 				//renderer
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

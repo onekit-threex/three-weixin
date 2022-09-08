@@ -1,9 +1,10 @@
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { AsciiEffect } from './jsm/effects/AsciiEffect.js';
 import { TrackballControls } from './jsm/controls/TrackballControls.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, controls, scene, renderer, effect;
@@ -42,7 +43,7 @@ Page({
             plane.rotation.x = - Math.PI / 2;
             scene.add( plane );
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer();
             renderer.setSize( window.innerWidth, window.innerHeight );
 
             effect = new AsciiEffect( renderer, ' .:-+*=%@#', { invert: true } );

@@ -1,5 +1,5 @@
 // webgl/webgl_materials_physical_clearcoat.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -11,6 +11,7 @@ import { FlakesTexture } from './jsm/textures/FlakesTexture.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
@@ -154,7 +155,7 @@ Page({
 
 				particleLight.add( new THREE.PointLight( 0xffffff, 1 ) );
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );

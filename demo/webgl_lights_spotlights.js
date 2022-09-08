@@ -1,12 +1,13 @@
 // webgl/webgl_lights_spotlights.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { TWEEN } from './jsm/libs/tween.module.min.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
-        const renderer = new THREE.WebGLRenderer();
+        const renderer = that.renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio( window.devicePixelRatio );
 
         const camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 2000 );

@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_unreal_bloom_selective.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -35,7 +35,16 @@ const onekit = {
     }`
 }
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 const ENTIRE_SCENE = 0, BLOOM_SCENE = 1;
@@ -54,7 +63,7 @@ const params = {
 const darkMaterial = new THREE.MeshBasicMaterial( { color: 'black' } );
 const materials = {};
 
-const renderer = new THREE.WebGLRenderer( { antialias: true } );
+const renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.toneMapping = THREE.ReinhardToneMapping;

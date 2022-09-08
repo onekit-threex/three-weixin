@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_outline.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -13,7 +13,16 @@ import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 import { OutlinePass } from './jsm/postprocessing/OutlinePass.js';
 import { FXAAShader } from './jsm/shaders/FXAAShader.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 let container, stats;
@@ -105,7 +114,7 @@ let container, stats;
 				const width = window.innerWidth;
 				const height = window.innerHeight;
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.shadowMap.enabled = true;
 				// todo - support pixelRatio in this demo
 				renderer.setSize( width, height );

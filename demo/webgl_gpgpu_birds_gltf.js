@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_gpgpu_birds_gltf.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -187,7 +187,16 @@ const onekit = {
 `
 }
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 	/* TEXTURE WIDTH FOR SIMULATION */
@@ -353,7 +362,7 @@ getApp().canvas = await document.createElementAsync("canvas","webgl")
         dirLight.position.multiplyScalar( 30 );
         scene.add( dirLight );
 
-        renderer = new THREE.WebGLRenderer( { antialias: true } );
+        renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         container.appendChild( renderer.domElement );

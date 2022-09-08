@@ -1,5 +1,5 @@
 // webgl/webgl_materials_physical_reflectivity.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
@@ -9,6 +9,7 @@ import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
@@ -39,7 +40,7 @@ Page({
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x000000 );
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 
 				gemBackMaterial = new THREE.MeshPhysicalMaterial( {
 					map: null,

@@ -1,5 +1,5 @@
 // webgl/webgl_geometry_convex.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
@@ -7,6 +7,7 @@ import { ConvexGeometry } from './jsm/geometries/ConvexGeometry.js';
 import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         
@@ -19,7 +20,7 @@ Page({
 
 				scene = new THREE.Scene();
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

@@ -1,9 +1,10 @@
 // webgl/webgl_performance_static.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';		
 import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let stats;
 
@@ -58,7 +59,7 @@ Page({
 
             } );
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
 

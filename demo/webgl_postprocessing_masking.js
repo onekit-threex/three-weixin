@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_masking.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
 import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
@@ -9,7 +9,16 @@ import { MaskPass, ClearMaskPass } from './jsm/postprocessing/MaskPass.js';
 import { CopyShader } from './jsm/shaders/CopyShader.js';
 
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let camera, composer, renderer;
 			let box, torus;
@@ -31,7 +40,7 @@ let camera, composer, renderer;
 				torus = new THREE.Mesh( new THREE.TorusGeometry( 3, 1, 16, 32 ) );
 				scene2.add( torus );
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setClearColor( 0xe0e0e0 );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

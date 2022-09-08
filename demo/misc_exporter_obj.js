@@ -1,12 +1,21 @@
 // misc/misc_exporter_obj.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { OBJExporter } from './jsm/exporters/OBJExporter.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer;
 
@@ -25,7 +34,7 @@ animate();
 
 function init() {
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = that.renderer = new THREE.WebGLRenderer();
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );

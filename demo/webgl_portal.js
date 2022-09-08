@@ -1,11 +1,12 @@
 // webgl/webgl_portal.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import * as CameraUtils from './jsm/utils/CameraUtils.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         
 			let camera, scene, renderer;
@@ -25,7 +26,7 @@ Page({
 				const container = document.getElementById( 'container' );
 
 				// renderer
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );

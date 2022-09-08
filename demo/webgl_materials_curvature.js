@@ -1,5 +1,5 @@
 // webgl/webgl_materials_curvature.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -28,6 +28,7 @@ const onekit = {
 }
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
@@ -105,7 +106,7 @@ Page({
             camera.position.y = 2;
             camera.position.z = 24;
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer();
             renderer.setSize( window.innerWidth, window.innerHeight );
             renderer.autoClear = false;
             document.body.appendChild( renderer.domElement );

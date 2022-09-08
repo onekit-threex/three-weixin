@@ -1,5 +1,5 @@
 // webgl/webgl_lines_fat.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 import { GPUStatsPanel } from './jsm/utils/GPUStatsPanel.js';
@@ -12,6 +12,7 @@ import { LineGeometry } from './jsm/lines/LineGeometry.js';
 import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let line, renderer, scene, camera, camera2, controls;
         let line1;
@@ -28,7 +29,7 @@ Page({
 
         function init() {
 
-            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setClearColor( 0x000000, 0.0 );
             renderer.setSize( window.innerWidth, window.innerHeight );

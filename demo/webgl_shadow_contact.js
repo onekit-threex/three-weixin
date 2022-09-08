@@ -1,5 +1,5 @@
 // webgl/webgl_shadow_contact.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import Stats from './jsm/libs/stats.module.js';
@@ -8,6 +8,7 @@ import { HorizontalBlurShader } from './jsm/shaders/HorizontalBlurShader.js';
 import { VerticalBlurShader } from './jsm/shaders/VerticalBlurShader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer, stats, gui;
 
@@ -201,7 +202,7 @@ Page({
 
 				//
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

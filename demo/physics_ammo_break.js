@@ -1,25 +1,34 @@
 // physics/physics_ammo_break.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { ConvexObjectBreaker } from './jsm/misc/ConvexObjectBreaker.js';
 import { ConvexGeometry } from './jsm/geometries/ConvexGeometry.js';
-var renderer
 Page({
     webgl_touch(e){
         const web_e = Event.fix(e)
+        document .dispatchEvent(web_e)
         window.dispatchEvent(web_e)
-        renderer && renderer.dispatchEvent(web_e)
+        this.renderer && this.renderer.dispatchEvent(web_e)
     },
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 var Ammo = require("./jsm/ammo/index.js")
 
 		// - Global variables -
 
 		// Graphics variables
-		let container, stats;
+		let container, stats,renderer;
 		let camera, controls, scene;
 		let textureLoader;
 		const clock = new THREE.Clock();
@@ -95,7 +104,7 @@ var Ammo = require("./jsm/ammo/index.js")
 
 			camera.position.set( - 14, 8, 16 );
 
-			renderer = new THREE.WebGLRenderer();
+			renderer = that.renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			renderer.shadowMap.enabled = true;

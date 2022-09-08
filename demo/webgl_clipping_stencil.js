@@ -1,10 +1,11 @@
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas", "webgl")
         let camera, scene, renderer, object, stats;
         let planes, planeObjects, planeHelpers;
@@ -197,7 +198,7 @@ Page({
             document.body.appendChild( stats.dom );
 
             // Renderer
-            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.shadowMap.enabled = true;
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );

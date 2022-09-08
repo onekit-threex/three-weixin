@@ -1,10 +1,11 @@
 // webgl/webgl_multiple_elements.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         
 			let canvas, renderer;
@@ -82,7 +83,7 @@ Page({
 				}
 
 
-				renderer = new THREE.WebGLRenderer( { canvas: canvas, antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { canvas: canvas, antialias: true } );
 				renderer.setClearColor( 0xffffff, 1 );
 				renderer.setPixelRatio( window.devicePixelRatio );
 

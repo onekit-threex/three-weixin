@@ -1,5 +1,5 @@
 // webgl/webgl_geometry_teapot.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -8,6 +8,7 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { TeapotGeometry } from './jsm/geometries/TeapotGeometry.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
@@ -49,7 +50,7 @@ Page({
 				light.position.set( 0.32, 0.39, 0.7 );
 
 				// RENDERER
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( canvasWidth, canvasHeight );
 				renderer.outputEncoding = THREE.sRGBEncoding;

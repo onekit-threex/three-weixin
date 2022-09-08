@@ -1,5 +1,5 @@
 // webgl_nodes/webgl_nodes_points.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import * as Nodes from './jsm/nodes/Nodes.js';
 
@@ -13,7 +13,16 @@ import * as Nodes from './jsm/nodes/Nodes.js';
 
 			import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer, stats;
 
@@ -110,7 +119,7 @@ function init() {
 
     // renderer
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = that.renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );

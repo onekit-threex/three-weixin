@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -8,6 +8,7 @@ import { Lut } from './jsm/math/Lut.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         
         let container;
@@ -63,7 +64,7 @@ Page({
             const pointLight = new THREE.PointLight( 0xffffff, 1 );
             perpCamera.add( pointLight );
 
-            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.autoClear = false;
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( width, height );

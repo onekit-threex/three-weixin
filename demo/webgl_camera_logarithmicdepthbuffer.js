@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { FontLoader } from './jsm/loaders/FontLoader.js';
@@ -7,6 +7,7 @@ import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
    
         	// 1 micrometer to 100 billion light years in one scene, with 1 unit = 1 meter?  preposterous!  and yet...
@@ -81,7 +82,7 @@ Page({
 				const camera = new THREE.PerspectiveCamera( 50, screensplit * SCREEN_WIDTH / SCREEN_HEIGHT, NEAR, FAR );
 				scene.add( camera );
 
-				const renderer = new THREE.WebGLRenderer( { antialias: true, logarithmicDepthBuffer: logDepthBuf } );
+				const renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true, logarithmicDepthBuffer: logDepthBuf } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( SCREEN_WIDTH / 2, SCREEN_HEIGHT );
 				//renderer.domElement.style.position = 'relative';

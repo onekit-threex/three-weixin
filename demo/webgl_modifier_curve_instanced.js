@@ -1,5 +1,5 @@
 // webgl/webgl_modifier_curve_instanced.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { TransformControls } from './jsm/controls/TransformControls.js';
 import Stats from './jsm/libs/stats.module.js';
@@ -9,6 +9,7 @@ import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         
 			const ACTION_SELECT = 1, ACTION_NONE = 0;
@@ -143,7 +144,7 @@ Page({
 
 				//
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

@@ -1,5 +1,5 @@
 // webgl/webgl_loader_pdb.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { TrackballControls } from './jsm/controls/TrackballControls.js';
 import { PDBLoader } from './jsm/loaders/PDBLoader.js';
@@ -7,6 +7,7 @@ import { CSS2DRenderer, CSS2DObject } from './jsm/renderers/CSS2DRenderer.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer, labelRenderer;
@@ -66,7 +67,7 @@ Page({
 
 				//
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.getElementById( 'container' ).appendChild( renderer.domElement );

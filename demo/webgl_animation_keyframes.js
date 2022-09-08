@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -13,12 +13,13 @@ Page({
     webgl_touch(e){
         const web_e = Event.fix(e)
         window.dispatchEvent(web_e)
-        renderer && renderer.dispatchEvent(web_e)
+        this.renderer && this.renderer.dispatchEvent(web_e)
     },
     onUnload(){
         getApp().worker && getApp().worker.terminate()
     },
     async onLoad() {
+var that = this
       getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let mixer;
@@ -28,7 +29,7 @@ Page({
 
         const stats =  new Stats();
         container.appendChild( stats.dom );
-         renderer = new THREE.WebGLRenderer( { antialias: true } );
+         renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.outputEncoding = THREE.sRGBEncoding;

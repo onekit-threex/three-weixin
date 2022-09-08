@@ -14,6 +14,7 @@ import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 
 Page({
 	async onLoad() {
+var that = this
 		getApp().canvas = await document.createElementAsync("canvas", "webgl")
 
 		// Graphics variables
@@ -71,7 +72,7 @@ Page({
 
 			camera.position.set(-7, 5, 8);
 
-			renderer = new THREE.WebGLRenderer();
+			renderer = that.renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio(window.devicePixelRatio);
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			renderer.shadowMap.enabled = true;

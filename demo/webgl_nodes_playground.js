@@ -1,5 +1,5 @@
 // webgl_nodes/webgl_nodes_playground.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import * as Nodes from './jsm/nodes/Nodes.js';
 
@@ -14,7 +14,16 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { FBXLoader } from './jsm/loaders/FBXLoader.js';
 
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 let stats;
@@ -42,7 +51,7 @@ let stats;
 			backLight.position.set( - 100, 20, - 260 );
 			scene.add( backLight );
 
-			renderer = new THREE.WebGLRenderer( { antialias: true } );
+			renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 			document.body.appendChild( renderer.domElement );
 			renderer.outputEncoding = THREE.sRGBEncoding;
 			renderer.toneMapping = THREE.LinearToneMapping;

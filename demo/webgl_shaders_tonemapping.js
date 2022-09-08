@@ -1,5 +1,5 @@
 // webgl/webgl_shaders_tonemapping.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';	
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
@@ -11,6 +11,7 @@ import { BloomPass } from './jsm/postprocessing/BloomPass.js';
 import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let bloomPass, adaptToneMappingPass, ldrToneMappingPass, hdrToneMappingPass;
         let params;
@@ -281,7 +282,7 @@ Page({
 
             sceneCube.background = textureCube;
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             renderer.autoClear = false;

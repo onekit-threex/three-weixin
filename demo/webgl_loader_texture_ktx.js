@@ -1,9 +1,10 @@
 // webgl/webgl_loader_texture_ktx.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { KTXLoader } from './jsm/loaders/KTXLoader.js';
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
@@ -14,7 +15,7 @@ Page({
 
 	function init() {
 
-		renderer = new THREE.WebGLRenderer( { antialias: true } );
+		renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		document.body.appendChild( renderer.domElement );

@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_shadowmap_csm.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
@@ -7,7 +7,16 @@ import { GUI } from './jsm/libs/lil-gui.module.min.js';
 import { CSM } from './jsm/csm/CSM.js';
 import { CSMHelper } from './jsm/csm/CSMHelper.js';
 Page({
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let renderer, scene, camera, orthoCamera, controls, csm, csmHelper;
 
@@ -56,7 +65,7 @@ let renderer, scene, camera, orthoCamera, controls, csm, csmHelper;
 				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 5000 );
 				orthoCamera = new THREE.OrthographicCamera();
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
 				renderer.shadowMap.enabled = true;

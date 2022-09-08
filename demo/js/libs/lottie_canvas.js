@@ -9493,13 +9493,13 @@ AnimationItem.prototype.setParams = function(params) {
     var animType = params.animType ? params.animType : params.renderer ? params.renderer : 'svg';
     switch(animType){
         case 'canvas':
-            this.renderer = new CanvasRenderer(this, params.rendererSettings);
+            that.renderer = new CanvasRenderer(this, params.rendererSettings);
             break;
         case 'svg':
-            this.renderer = new SVGRenderer(this, params.rendererSettings);
+            that.renderer = new SVGRenderer(this, params.rendererSettings);
             break;
         default:
-            this.renderer = new HybridRenderer(this, params.rendererSettings);
+            that.renderer = new HybridRenderer(this, params.rendererSettings);
             break;
     }
     this.imagePreloader.setCacheType(animType);

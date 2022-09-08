@@ -1,5 +1,5 @@
 // games/games_fps.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -12,14 +12,24 @@ import { OctreeHelper } from './jsm/helpers/OctreeHelper.js';
 import { Capsule } from './jsm/math/Capsule.js';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
-var renderer
 Page({
     webgl_touch(e){
         const web_e = Event.fix(e)
         window.dispatchEvent(web_e)
-        renderer && renderer.dispatchEvent(web_e)
+        this.renderer && this.renderer.dispatchEvent(web_e)
     },
-  async onLoad(){
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+async onLoad(){
+var that = this
+
+var renderer;
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 
 const clock = new THREE.Clock();
@@ -52,7 +62,7 @@ scene.add( directionalLight );
 
 const container = document.getElementById( 'container' );
 
- renderer = new THREE.WebGLRenderer( { antialias: true } );
+ renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.shadowMap.enabled = true;

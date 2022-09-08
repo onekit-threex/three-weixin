@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -38,6 +38,7 @@ void main() {
 }
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas", "webgl")
 
         let camera, scene, renderer, controls, stats;
@@ -58,7 +59,7 @@ Page({
 
 			function init() {
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 
 				if ( renderer.capabilities.isWebGL2 === false && renderer.extensions.has( 'WEBGL_depth_texture' ) === false ) {
 

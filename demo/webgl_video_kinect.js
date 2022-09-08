@@ -1,5 +1,5 @@
 // webgl/webgl_video_kinect.js
-import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 const onekit = {
@@ -53,6 +53,7 @@ fs:`
 }
 Page({
 	async onLoad() {
+var that = this
         getApp().canvas = await document.createElementAsync("canvas","webgl")
         let scene, camera, renderer;
 			let geometry, mesh, material;
@@ -134,7 +135,7 @@ Page({
 
 				//
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
