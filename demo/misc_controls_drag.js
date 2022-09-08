@@ -3,11 +3,18 @@ import {document,window,requestAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { DragControls } from './jsm/controls/DragControls.js';
+var renderer
 Page({
+    webgl_touch(e){
+        const web_e = Event.fix(e)
+        document.dispatchEvent(web_e)
+        window.dispatchEvent(web_e)
+        renderer && renderer.dispatchEvent(web_e)
+    },
   async onLoad(){
 getApp().canvas = await document.createElementAsync("canvas","webgl")
 let container;
-			let camera, scene, renderer;
+			let camera, scene;
 			let controls, group;
 			let enableSelection = false;
 
