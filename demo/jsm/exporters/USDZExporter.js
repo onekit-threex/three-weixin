@@ -1,7 +1,7 @@
 import {
 	DoubleSide
 } from '../../three-weixin/index.js';
-
+import {core} from "dhtml-weixin"
 import * as fflate from '../libs/fflate.module.js';
 
 class USDZExporter {
@@ -67,7 +67,7 @@ class USDZExporter {
 			const isRGBA = texture.format === 1023;
 
 			const canvas = imageToCanvas( texture.image, color );
-			const blob = await new Promise( resolve => canvas.toBlob( resolve, isRGBA ? 'image/png' : 'image/jpeg', 1 ) );
+			const blob = await new Promise( resolve => core.Canvas.toBlob( canvas,resolve, isRGBA ? 'image/png' : 'image/jpeg', 1 ) );
 
 			files[ `textures/Texture_${ id }.${ isRGBA ? 'png' : 'jpg' }` ] = new Uint8Array( await blob.arrayBuffer() );
 
