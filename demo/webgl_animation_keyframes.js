@@ -58,7 +58,16 @@ var that = this
     
         loader.load( 'models/gltf/LittlestTokyo.glb', function ( gltf ) {
             //console.error("xxxxxxx",gltf)
-
+            gltf.scene.traverse(function (child) {
+                if (child.isMesh) {
+                    child.frustumCulled = false;
+                    //模型阴影
+                    child.castShadow = true;
+                    //模型自发光
+                	child.material.emissive = child.material.color;
+                    child.material.emissiveMap = child.material.map;
+                }
+            })
             const model = gltf.scene;
             model.position.set( 1, 1, 0 );
             model.scale.set( 0.01, 0.01, 0.01 );
