@@ -399,7 +399,8 @@
     "plugins": {
       "ThreeX": {
         "version": "dev",
-        "provider": "wx5d6376b4fc730db9"
+        "provider": "wx5d6376b4fc730db9",
+        "export": "index.js"
       }
     },
     "sitemapLocation": "sitemap.json"

@@ -1,5 +1,5 @@
 
-
+const THREE = requirePlugin('ThreeX');
 const vpTemp = new THREE.Vector4();
 
 class ViewHelper extends THREE.Object3D {
