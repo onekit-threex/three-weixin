@@ -1,6 +1,6 @@
 ![链接](./ThreeX.jpeg)
 
-# three-weixin(全网最强)
+# ThreeX(微信小程序插件)
 # 支持Ammo（WASM/JS双模式）
 # 牛逼可用,请点星.
 
@@ -16,20 +16,6 @@
 ![输入图片说明](1.png)
 ![输入图片说明](2.png)
 
-#### Demo演示(微信小程序/Uni-App)
-
-1.  克隆或下载本仓库。
-2.  在demo根目录，安装依赖
-
-    ```
-    npm i
-    ```
-    
-3.  小程序开发工具打开dmo目录。
-4.  小程序开发工具顶部菜单->工具->构建npm
-5.  编译（刷新）本demo项目。
-6.  本项目所需模型资源访问较慢，可从网盘下载后( https://pan.baidu.com/s/1NU-9y6oeUNCUKpFBvvN7Hg?pwd=4077 )，放置到你本地(推荐IIS)或云web服务器，并修改项目访问默认域名（请在小程序代码App.js中设置）
-
 #### 项目使用(微信小程序/Uni-App)
 
 1.  安装
@@ -38,12 +24,31 @@
 
     ```
     npm i dhtml-weixin
-    npm i three-weixin
     ```
 
-    1.2.  小程序开发工具顶部菜单->工具->构建npm
+    1.2.  app.json的plugins节点添加
 
-    1.3.  编译（刷新）你的项目。
+    ```
+      "ThreeX": {
+        "provider": "wx5d6376b4fc730db9",
+        "export": "index.js"
+      }
+    ```
+
+    1.3. 根目录添加index.js文件
+
+    ```
+    module.exports = {
+        getApp() {
+            return getApp()
+        },
+        getCurrentPages() {
+            return getCurrentPages()
+        }
+    }
+    ```
+
+    1.4.  编译（刷新）你的项目。
 
 2.  页面UI上加入 
 
@@ -58,7 +63,7 @@
     ```
     更换为
     ```
-    import * as THREE from 'three-weixin'
+    const THREE = requirePlugin('ThreeX');
     ```
 
 4.  代码中，替换examples中内容
