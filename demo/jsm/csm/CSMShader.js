@@ -1,4 +1,4 @@
-import { ShaderChunk } from '../../three-weixin/index';
+import { ShaderChunk } from 'three-weixin';
 
 const CSMShader = {
 	lights_fragment_begin: /* glsl */`

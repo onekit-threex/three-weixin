@@ -1,17 +1,4 @@
-import {
-	FloatType,
-	HalfFloatType,
-	UnsignedByteType,
-	RGBAFormat,
-	RGFormat,
-	RGIntegerFormat,
-	RedFormat,
-	RedIntegerFormat,
-	LinearEncoding,
-	sRGBEncoding,
-	DataTexture,
-	REVISION,
-} from '../../three-weixin/index.js';
+
 
 import {
 	write,
@@ -40,7 +27,20 @@ import {
 	VK_FORMAT_R8G8B8A8_SRGB,
 	VK_FORMAT_R8G8B8A8_UNORM,
 } from '../libs/ktx-parse.module.js';
-
+const {
+	FloatType,
+	HalfFloatType,
+	UnsignedByteType,
+	RGBAFormat,
+	RGFormat,
+	RGIntegerFormat,
+	RedFormat,
+	RedIntegerFormat,
+	LinearEncoding,
+	sRGBEncoding,
+	DataTexture,
+	REVISION,
+} = requirePlugin("ThreeX");
 const VK_FORMAT_MAP = {
 
 	[ RGBAFormat ]: {

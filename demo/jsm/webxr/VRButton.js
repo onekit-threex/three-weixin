@@ -1,4 +1,4 @@
-import {navigator} from '../three-weixin/index.js'
+import {navigator} from 'three-weixin'
 class VRButton {
 
 	static createButton( renderer ) {

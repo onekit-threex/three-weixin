@@ -9,7 +9,7 @@ import {
 	ShaderMaterial,
 	Texture,
 	UniformsUtils
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 import {window,document} from 'dhtml-weixin'
 import { UnpackDepthRGBAShader } from '../shaders/UnpackDepthRGBAShader.js';
 

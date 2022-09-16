@@ -15,7 +15,12 @@
             "ignore": [],
             "disablePlugins": [],
             "outputPath": ""
-        }
+        },
+        "es6": true,
+        "enhance": true,
+        "uglifyFileName": true,
+        "minified": true,
+        "postcss": true
     },
     "condition": {},
     "editorSetting": {

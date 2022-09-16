@@ -1,7 +1,7 @@
-import {navigator} = requirePlugin('ThreeX')
+
 
 import { potpack } from '../libs/potpack.module.js';
-
+const {navigator} = requirePlugin('ThreeX')
 /**
  * Progressive Light Map Accumulator, by [zalo](https://github.com/zalo/)
  *

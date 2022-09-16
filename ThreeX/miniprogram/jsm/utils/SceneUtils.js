@@ -1,12 +1,12 @@
-import {
+
+
+import { mergeGroups } from './BufferGeometryUtils.js';
+const {
 	Group,
 	Mesh,
 	BufferAttribute,
 	BufferGeometry
-} from '../../three-weixin/index.js';
-
-import { mergeGroups } from './BufferGeometryUtils.js';
-
+} = requirePlugin("ThreeX");
 function createMeshesFromInstancedMesh( instancedMesh ) {
 
 	const group = new Group();

@@ -1,4 +1,4 @@
-import * as THREE from '../../three-weixin/index.js';
+const THREE = requirePlugin("ThreeX")
 
 function createText( message, height ) {
 

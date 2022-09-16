@@ -1,9 +1,9 @@
-import {
+const {
 	Color,
 	Matrix3,
 	Vector2,
 	Vector3
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 class OBJExporter {
 

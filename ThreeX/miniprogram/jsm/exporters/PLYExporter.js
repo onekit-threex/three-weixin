@@ -1,8 +1,8 @@
-import {
+const {
 	Matrix3,
 	Vector3,
 	Color
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 /**
  * https://github.com/gkjohnson/ply-exporter-js

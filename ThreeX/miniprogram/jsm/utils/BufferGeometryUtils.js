@@ -1,4 +1,4 @@
-import {
+const {
 	BufferAttribute,
 	BufferGeometry,
 	Float32BufferAttribute,
@@ -10,7 +10,7 @@ import {
 	TriangleStripDrawMode,
 	TrianglesDrawMode,
 	Vector3,
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 function computeTangents() {
 

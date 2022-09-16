@@ -1,4 +1,4 @@
-import { Vector3, Matrix4 } from '../../three-weixin/index';
+import { Vector3, Matrix4 } from 'three-weixin';
 
 const inverseProjectionMatrix = new Matrix4();
 

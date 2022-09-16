@@ -1,9 +1,4 @@
-import {
-	Mesh,
-	MeshBasicMaterial,
-	Object3D,
-	SphereGeometry,
-} from '../../three-weixin/index.js';
+
 
 import { GLTFLoader } from '../loaders/GLTFLoader.js';
 
@@ -12,7 +7,12 @@ import {
 	fetchProfile,
 	MotionController
 } from '../libs/motion-controllers.module.js';
-
+const {
+	Mesh,
+	MeshBasicMaterial,
+	Object3D,
+	SphereGeometry,
+} = requirePlugin("ThreeX");
 const DEFAULT_PROFILES_PATH = 'https://cdn.jsdelivr.net/npm/@webxr-input-profiles/assets@1.0/dist/profiles';
 const DEFAULT_PROFILE = 'generic-trigger';
 

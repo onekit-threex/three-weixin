@@ -1,4 +1,4 @@
-import {
+const {
 	Group,
 	Mesh,
 	LineSegments,
@@ -10,7 +10,7 @@ import {
 	MeshBasicMaterial,
 	BufferAttribute,
 	DoubleSide
-} from '../../three-weixin/index';
+} = requirePlugin("ThreeX");
 
 class CSMHelper extends Group {
 

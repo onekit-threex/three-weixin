@@ -1,5 +1,8 @@
 import {Blob,URL} from "dhtml-weixin"
-import {
+
+
+import * as fflate from '../libs/fflate.module.js';
+const {
 	BufferAttribute,
 	BufferGeometry,
 	FileLoader,
@@ -8,10 +11,7 @@ import {
 	Mesh,
 	MeshStandardMaterial,
 	TextureLoader
-} from '../../three-weixin/index';
-
-import * as fflate from '../libs/fflate.module.js';
-
+} = requirePlugin("ThreeX");
 class USDZLoader extends Loader {
 
 	constructor( manager ) {

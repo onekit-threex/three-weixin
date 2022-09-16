@@ -10,7 +10,7 @@ import {
 	Matrix3,
 	Matrix4,
 	Vector3
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 import { PackedPhongMaterial } from './PackedPhongMaterial.js';
 
 

@@ -1,5 +1,6 @@
-import { Vector2 } from '../../three-weixin/index.js';
+
 import {document} from "dhtml-weixin"
+const { Vector2 } = requirePlugin("ThreeX");
 class SelectionHelper {
 
 	constructor( renderer, cssClassName ) {

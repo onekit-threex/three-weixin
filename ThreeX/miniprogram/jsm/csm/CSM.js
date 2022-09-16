@@ -1,3 +1,6 @@
+
+import { CSMFrustum } from './CSMFrustum.js';
+import { CSMShader } from './CSMShader.js';
 const {
 	Vector2,
 	Vector3,
@@ -6,10 +9,7 @@ const {
 	ShaderChunk,
 	Matrix4,
 	Box3
-} from '../../three-weixin/index';
-import { CSMFrustum } from './CSMFrustum.js';
-import { CSMShader } from './CSMShader.js';
-
+} = requirePlugin("ThreeX");
 const _cameraToLightMatrix = new Matrix4();
 const _lightSpaceFrustum = new CSMFrustum();
 const _center = new Vector3();

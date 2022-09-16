@@ -1,9 +1,9 @@
-import {
-	DoubleSide
-} from '../../three-weixin/index.js';
+
 import {HTMLImageElement,document,core} from "dhtml-weixin"
 import * as fflate from '../libs/fflate.module.js';
-
+const {
+	DoubleSide
+} = requirePlugin("ThreeX");
 class USDZExporter {
 
 	async parse( scene ) {

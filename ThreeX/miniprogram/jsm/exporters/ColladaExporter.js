@@ -1,9 +1,9 @@
-import {
+const {
 	Color,
 	DoubleSide,
 	Matrix4,
 	MeshBasicMaterial
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 /**
  * https://github.com/gkjohnson/collada-exporter-js

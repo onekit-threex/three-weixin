@@ -1,4 +1,4 @@
-import { Vector3, Matrix4 } from '../../three-weixin/index';
+const { Vector3, Matrix4 } = requirePlugin("ThreeX");
 
 const inverseProjectionMatrix = new Matrix4();
 

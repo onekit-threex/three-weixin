@@ -1,4 +1,4 @@
-import { WebGLRenderTarget } from '../../three-weixin/index.js';
+import { WebGLRenderTarget } from 'three-weixin.js';
 
 class WebGPUTextureRenderer {
 

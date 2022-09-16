@@ -4,12 +4,12 @@
  *
  * @param {Object} parameters
  */
-import {
+const {
 	MeshPhongMaterial,
 	ShaderChunk,
 	ShaderLib,
 	UniformsUtils,
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 class PackedPhongMaterial extends MeshPhongMaterial {
 

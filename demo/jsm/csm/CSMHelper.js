@@ -10,7 +10,7 @@ import {
 	MeshBasicMaterial,
 	BufferAttribute,
 	DoubleSide
-} from '../../three-weixin/index';
+} from 'three-weixin';
 
 class CSMHelper extends Group {
 

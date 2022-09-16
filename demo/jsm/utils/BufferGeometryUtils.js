@@ -10,7 +10,7 @@ import {
 	TriangleStripDrawMode,
 	TrianglesDrawMode,
 	Vector3,
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 
 function computeTangents() {
 

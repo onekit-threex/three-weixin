@@ -1,14 +1,14 @@
-import {
+
+
+import { mergeBufferGeometries } from './BufferGeometryUtils.js';
+const {
 	BufferAttribute,
 	BufferGeometry,
 	Group,
 	LineSegments,
 	Matrix3,
 	Mesh
-} from '../../three-weixin/index.js';
-
-import { mergeBufferGeometries } from './BufferGeometryUtils.js';
-
+} = requirePlugin("ThreeX");
 class LDrawUtils {
 
 	static mergeObject( object ) {

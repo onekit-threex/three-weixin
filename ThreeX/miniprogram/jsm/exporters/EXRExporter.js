@@ -5,14 +5,14 @@
  * 	https://www.openexr.com/documentation/openexrfilelayout.pdf
  */
 
-import {
+
+import * as fflate from '../libs/fflate.module.js';
+const {
 	FloatType,
 	HalfFloatType,
 	RGBAFormat,
 	DataUtils,
-} from '../../three-weixin/index.js';
-import * as fflate from '../libs/fflate.module.js';
-
+} = requirePlugin("ThreeX");
 const textEncoder = new TextEncoder();
 
 const NO_COMPRESSION = 0;

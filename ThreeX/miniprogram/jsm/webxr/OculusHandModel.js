@@ -1,6 +1,6 @@
-import { Object3D, Sphere, Box3 } from '../../three-weixin/index.js';
-import { XRHandMeshModel } from './XRHandMeshModel.js';
 
+import { XRHandMeshModel } from './XRHandMeshModel.js';
+const { Object3D, Sphere, Box3 } = requirePlugin("ThreeX");
 const TOUCH_RADIUS = 0.01;
 const POINTING_JOINT = 'index-finger-tip';
 

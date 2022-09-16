@@ -2,7 +2,7 @@ import {
 	Matrix3,
 	Vector3,
 	Color
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 
 /**
  * https://github.com/gkjohnson/ply-exporter-js

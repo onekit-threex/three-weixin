@@ -1,6 +1,6 @@
 import {
 	DoubleSide
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 import {HTMLImageElement,document,core} from "dhtml-weixin"
 import * as fflate from '../libs/fflate.module.js';
 

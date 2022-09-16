@@ -1,9 +1,9 @@
-import {
+const {
 	Group,
 	Matrix4,
 	Raycaster,
 	Vector2
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 const _pointer = new Vector2();
 const _event = { type: '', data: _pointer };

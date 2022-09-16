@@ -1,9 +1,9 @@
-import {
+const {
 	DirectionalLight,
 	Group,
 	LightProbe,
 	WebGLCubeRenderTarget
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 class SessionLightProbe {
 

@@ -5,7 +5,7 @@
  *
  */
 
-import { UniformsUtils, UniformsLib, ShaderMaterial, Color, MultiplyOperation } from '../../three-weixin/index.js';
+const { UniformsUtils, UniformsLib, ShaderMaterial, Color, MultiplyOperation } = requirePlugin("ThreeX");
 
 const GouraudShader = {
 

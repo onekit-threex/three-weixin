@@ -3,7 +3,7 @@ import {
 	Group,
 	LightProbe,
 	WebGLCubeRenderTarget
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 
 class SessionLightProbe {
 

@@ -1,8 +1,8 @@
 import { GPULoadOp, GPUStoreOp } from './constants.js';
-import { Color, Mesh, BoxGeometry, BackSide } from '../../three-weixin/index.js';
 import { context, transformDirection, positionWorld, modelWorldMatrix } from '../nodes/Nodes.js';
 import MeshBasicNodeMaterial from '../nodes/materials/MeshBasicNodeMaterial.js';
 
+const { Color, Mesh, BoxGeometry, BackSide } = requirePlugin("ThreeX");
 let _clearAlpha;
 const _clearColor = new Color();
 

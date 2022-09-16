@@ -5,7 +5,7 @@ import {
 	LineSegments,
 	Matrix3,
 	Mesh
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 
 import { mergeBufferGeometries } from './BufferGeometryUtils.js';
 

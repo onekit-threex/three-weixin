@@ -2,7 +2,7 @@ import {
 	Matrix4,
 	Quaternion,
 	Vector3
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 import { MMDParser } from '../libs/mmdparser.module.js';
 
 /**

@@ -1,4 +1,4 @@
-import {
+const {
 	CanvasTexture,
 	LinearFilter,
 	Mesh,
@@ -6,7 +6,7 @@ import {
 	PlaneGeometry,
 	sRGBEncoding,
 	Color
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 class HTMLMesh extends Mesh {
 

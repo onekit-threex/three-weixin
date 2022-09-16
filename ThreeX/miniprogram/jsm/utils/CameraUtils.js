@@ -1,8 +1,8 @@
-import {
+const {
 	MathUtils,
 	Quaternion,
 	Vector3
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 const _va = /*@__PURE__*/ new Vector3(), // from pe to pa
 	_vb = /*@__PURE__*/ new Vector3(), // from pe to pb

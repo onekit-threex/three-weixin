@@ -1,4 +1,4 @@
-import {
+const {
 	LineSegments,
 	BufferGeometry,
 	Float32BufferAttribute,

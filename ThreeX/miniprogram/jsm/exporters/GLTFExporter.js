@@ -1,4 +1,4 @@
-import {
+const {
 	BufferAttribute,
 	ClampToEdgeWrapping,
 	DoubleSide,
@@ -21,7 +21,7 @@ import {
 	Source,
 	sRGBEncoding,
 	Vector3
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 class GLTFExporter {
 

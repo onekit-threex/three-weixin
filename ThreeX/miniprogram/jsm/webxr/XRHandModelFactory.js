@@ -1,11 +1,11 @@
-import {
-	Object3D
-} from '../../three-weixin/index.js';
+
 
 import {
 	XRHandPrimitiveModel
 } from './XRHandPrimitiveModel.js';
-
+const {
+	Object3D
+} = requirePlugin("ThreeX");
 import {
 	XRHandMeshModel
 } from './XRHandMeshModel.js';

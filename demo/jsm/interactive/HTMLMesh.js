@@ -6,7 +6,7 @@ import {
 	PlaneGeometry,
 	sRGBEncoding,
 	Color
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 
 class HTMLMesh extends Mesh {
 

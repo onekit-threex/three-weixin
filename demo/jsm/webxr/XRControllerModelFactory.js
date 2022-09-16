@@ -3,7 +3,7 @@ import {
 	MeshBasicMaterial,
 	Object3D,
 	SphereGeometry,
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 
 import { GLTFLoader } from '../loaders/GLTFLoader.js';
 

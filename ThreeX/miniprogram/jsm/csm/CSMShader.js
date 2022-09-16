@@ -1,4 +1,4 @@
-import { ShaderChunk } from '../../three-weixin/index';
+const { ShaderChunk } = requirePlugin("ThreeX");
 
 const CSMShader = {
 	lights_fragment_begin: /* glsl */`

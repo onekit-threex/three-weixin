@@ -1,4 +1,4 @@
-import {
+const {
 	AnimationClip,
 	AnimationMixer,
 	Euler,
@@ -9,7 +9,7 @@ import {
 	Vector2,
 	Vector3,
 	VectorKeyframeTrack
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 
 function retarget( target, source, options = {} ) {

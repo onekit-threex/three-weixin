@@ -5,7 +5,7 @@
  *
  */
 
-import { UniformsUtils, UniformsLib, ShaderMaterial, Color, MultiplyOperation } from '../../three-weixin/index.js';
+import { UniformsUtils, UniformsLib, ShaderMaterial, Color, MultiplyOperation } from 'three-weixin.js';
 
 const GouraudShader = {
 

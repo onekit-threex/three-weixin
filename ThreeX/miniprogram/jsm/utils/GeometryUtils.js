@@ -1,4 +1,4 @@
-import { Vector3 } from '../../three-weixin/index.js';
+const { Vector3 } = requirePlugin("ThreeX");
 
 
 /**

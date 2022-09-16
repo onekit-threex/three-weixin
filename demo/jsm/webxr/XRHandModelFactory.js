@@ -1,6 +1,6 @@
 import {
 	Object3D
-} from '../../three-weixin/index.js';
+} from 'three-weixin.js';
 
 import {
 	XRHandPrimitiveModel

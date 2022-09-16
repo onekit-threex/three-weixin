@@ -1,4 +1,4 @@
-import { WebGLRenderTarget } from '../../three-weixin/index.js';
+const { WebGLRenderTarget } = requirePlugin("ThreeX");
 
 class WebGPUTextureRenderer {
 

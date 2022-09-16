@@ -1,4 +1,4 @@
-import {
+const {
 	DynamicDrawUsage,
 	SphereGeometry,
 	BoxGeometry,
@@ -6,7 +6,7 @@ import {
 	InstancedMesh,
 	Matrix4,
 	Vector3
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 const _matrix = new Matrix4();
 const _vector = new Vector3();

@@ -1,4 +1,7 @@
-import {
+
+import {window,document} from 'dhtml-weixin'
+import { UnpackDepthRGBAShader } from '../shaders/UnpackDepthRGBAShader.js';
+const {
 	DoubleSide,
 	LinearFilter,
 	Mesh,
@@ -9,10 +12,7 @@ import {
 	ShaderMaterial,
 	Texture,
 	UniformsUtils
-} from '../../three-weixin/index.js';
-import {window,document} from 'dhtml-weixin'
-import { UnpackDepthRGBAShader } from '../shaders/UnpackDepthRGBAShader.js';
-
+} = requirePlugin("ThreeX");
 /**
  * This is a helper for visualising a given light's shadow map.
  * It works for shadow casting lights: DirectionalLight and SpotLight.

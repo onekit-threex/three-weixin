@@ -1,10 +1,10 @@
-import {
+
+import { MMDParser } from '../libs/mmdparser.module.js';
+const {
 	Matrix4,
 	Quaternion,
 	Vector3
-} from '../../three-weixin/index.js';
-import { MMDParser } from '../libs/mmdparser.module.js';
-
+} = requirePlugin("ThreeX");
 /**
  * Dependencies
  *  - mmd-parser https://github.com/takahirox/mmd-parser

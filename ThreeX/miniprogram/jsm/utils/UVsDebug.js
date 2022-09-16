@@ -1,7 +1,8 @@
+
+import {document} from "dhtml-weixin"
 const {
 	Vector2
-} from '../../three-weixin/index.js';
-import {document} from "dhtml-weixin"
+} = requirePlugin("ThreeX");
 /**
  * tool for "unwrapping" and debugging three.js geometries UV mapping
  *

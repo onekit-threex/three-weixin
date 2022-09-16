@@ -1,9 +1,9 @@
-import {
+const {
 	Frustum,
 	Vector3,
 	Matrix4,
 	Quaternion,
-} from '../../three-weixin/index.js';
+} = requirePlugin("ThreeX");
 
 /**
  * This is a class to check whether objects are in a selection area in 3D space
