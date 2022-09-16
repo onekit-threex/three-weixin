@@ -1,4 +1,2 @@
-//import * as THREE from 'three-weixin'
-module.exports = {
-  answer: 42
-}
+import * as THREE from 'three-weixin'
+module.exports = THREE

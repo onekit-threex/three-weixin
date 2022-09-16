@@ -11,7 +11,7 @@ import {
 	sRGBEncoding,
 	DataTexture,
 	REVISION,
-} from 'three-weixin.js';
+} from 'three-weixin';
 
 import {
 	write,

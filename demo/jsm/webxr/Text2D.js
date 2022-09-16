@@ -1,4 +1,4 @@
-import * as THREE from 'three-weixin.js';
+import * as THREE from 'three-weixin';
 
 function createText( message, height ) {
 

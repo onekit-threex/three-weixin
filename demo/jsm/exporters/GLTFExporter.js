@@ -21,7 +21,7 @@ import {
 	Source,
 	sRGBEncoding,
 	Vector3
-} from 'three-weixin.js';
+} from 'three-weixin';
 
 class GLTFExporter {
 

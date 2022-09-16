@@ -3,7 +3,7 @@ import {
 	Vector3,
 	Matrix4,
 	Quaternion,
-} from 'three-weixin.js';
+} from 'three-weixin';
 
 /**
  * This is a class to check whether objects are in a selection area in 3D space

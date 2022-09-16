@@ -1,4 +1,4 @@
-import { Vector2 } from 'three-weixin.js';
+import { Vector2 } from 'three-weixin';
 import {document} from "dhtml-weixin"
 class SelectionHelper {
 

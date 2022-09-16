@@ -1,4 +1,4 @@
-import * as THREE from 'three-weixin.js';
+import * as THREE from 'three-weixin';
 
 const PINCH_MAX = 0.05;
 const PINCH_THRESHOLD = 0.02;

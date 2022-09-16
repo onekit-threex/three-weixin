@@ -3,7 +3,7 @@ import {
 	Matrix4,
 	Raycaster,
 	Vector2
-} from 'three-weixin.js';
+} from 'three-weixin';
 
 const _pointer = new Vector2();
 const _event = { type: '', data: _pointer };

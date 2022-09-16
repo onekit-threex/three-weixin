@@ -9,7 +9,7 @@ import {
 	Vector2,
 	Vector3,
 	VectorKeyframeTrack
-} from 'three-weixin.js';
+} from 'three-weixin';
 
 
 function retarget( target, source, options = {} ) {

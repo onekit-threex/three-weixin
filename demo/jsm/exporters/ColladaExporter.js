@@ -3,7 +3,7 @@ import {
 	DoubleSide,
 	Matrix4,
 	MeshBasicMaterial
-} from 'three-weixin.js';
+} from 'three-weixin';
 
 /**
  * https://github.com/gkjohnson/collada-exporter-js
