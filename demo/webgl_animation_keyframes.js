@@ -8,7 +8,7 @@ import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
-var renderer;
+var requestId;
 Page({
     webgl_touch(e){
         const web_e = Event.fix(e)
@@ -16,7 +16,15 @@ Page({
         this.renderer && this.renderer.dispatchEvent(web_e)
     },
     onUnload(){
-        getApp().worker && getApp().worker.terminate()
+		cancelAnimationFrame(requestId)
+this.dracoLoader.dispose()
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        this.dracoLoader.dispose()
     },
     async onLoad() {
 var that = this
@@ -29,7 +37,7 @@ var that = this
 
         const stats =  new Stats();
         container.appendChild( stats.dom );
-         renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+        var renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.outputEncoding = THREE.sRGBEncoding;
@@ -55,7 +63,7 @@ var that = this
         controls.enablePan = false;
         controls.enableDamping = true;
 
-        const dracoLoader = new DRACOLoader();
+        const dracoLoader =this.dracoLoader= new DRACOLoader();
         dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
 
         const loader = new GLTFLoader();
@@ -92,7 +100,7 @@ var that = this
 */
         function animate() {
 
-            requestAnimationFrame( animate );
+            requestId = requestAnimationFrame( animate );
 
             const delta = clock.getDelta();
 
