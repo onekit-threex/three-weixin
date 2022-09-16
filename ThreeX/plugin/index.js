@@ -1,6 +1,2 @@
-module.exports = {
-  sayHello() {
-    console.log('Hello plugin!')
-  },
-  answer: 42
-}
+//import * as THREE from 'three-weixin'
+module.exports = {}

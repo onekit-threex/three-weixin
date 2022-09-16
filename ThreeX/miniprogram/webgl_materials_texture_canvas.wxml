@@ -1,0 +1,2 @@
+<canvas id="canvas_webgl" type="webgl"/>
+<canvas id="drawing-canvas" type="2d" style="width:200rpx;height:200rpx;position:absolute;right:0;"/>
