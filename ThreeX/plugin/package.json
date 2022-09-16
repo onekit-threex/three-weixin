@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "three-weixin": "1.9.1"
+    "three-weixin": "1.9.4"
   },
   "author": "",
   "license": "ISC"

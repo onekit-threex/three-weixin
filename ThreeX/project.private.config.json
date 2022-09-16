@@ -5,5 +5,6 @@
         "urlCheck": false,
         "bigPackageSizeSupport": true,
         "compileHotReLoad": true
-    }
+    },
+    "libVersion": "2.25.0"
 }

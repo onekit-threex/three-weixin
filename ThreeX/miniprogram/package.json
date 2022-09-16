@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "pako": "1.0.11",
-    "dhtml-weixin": "1.9.1"
+    "dhtml-weixin": "1.9.4"
   },
   "workers": "workers",
   "author": "",

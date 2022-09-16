@@ -34,7 +34,7 @@ export default class Response {
     }
     // /////////////////////////
     return new Promise((resolve,reject) => {
-      wx.request({
+      Page.wx_request({
         url: this.request.url,
         headers: ((this.request.options || {}).headers || {}).data || {},
         responseType,

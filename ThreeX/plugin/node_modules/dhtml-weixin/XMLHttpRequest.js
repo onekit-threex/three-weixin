@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 import EventTarget from "./EventTarget";
-
+import Page from "./core/Page"
 function run(cb, wx_object) {
   return new Promise((resolve, reject) => {
     wx_object.success = resolve;
     wx_object.fail = reject;
-    cb(wx.request(wx_object));
+    cb(Page.wx_request(wx_object));
   });
 }
 export default class XMLHttpRequest extends EventTarget {
@@ -49,7 +49,7 @@ export default class XMLHttpRequest extends EventTarget {
         callback.call(this, res);
       };
       wx_object.fail = console.error
-      this._task = wx.request(wx_object);
+      this._task = Page.wx_request(wx_object);
     } else {
       try {
         const res = await run((task) => {

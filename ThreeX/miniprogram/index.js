@@ -1,8 +1,11 @@
 module.exports = {
-    getApp(){
+    getApp() {
         return getApp()
     },
-    getCurrentPages(){
+    getCurrentPages() {
         return getCurrentPages()
+    },
+    wx_request() {
+        return wx.request
     }
 }
