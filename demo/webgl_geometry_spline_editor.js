@@ -9,7 +9,7 @@ import { TransformControls } from './jsm/controls/TransformControls.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container;
 			let camera, scene, renderer;

@@ -10,7 +10,7 @@ import { DecalGeometry } from './jsm/geometries/DecalGeometry.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas", "webgl")
+        this.canvas = await document.createElementAsync("canvas", "webgl")
 
         const container = document.getElementById( 'container' );
 

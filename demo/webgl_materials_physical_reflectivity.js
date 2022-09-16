@@ -10,7 +10,7 @@ import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
 			const params = {

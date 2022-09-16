@@ -14,7 +14,7 @@ import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let line, thresholdLine, segments, thresholdSegments;
 			let renderer, scene, camera, camera2, controls;

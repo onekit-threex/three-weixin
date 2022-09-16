@@ -5,7 +5,7 @@ import { AnaglyphEffect } from './jsm/effects/AnaglyphEffect.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas", "webgl")
+        this.canvas = await document.createElementAsync("canvas", "webgl")
 
         let container, camera, scene, renderer, effect;
 

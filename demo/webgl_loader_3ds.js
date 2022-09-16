@@ -7,7 +7,7 @@ import { TDSLoader } from './jsm/loaders/TDSLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         let container, controls;
         let camera, scene, renderer;
 

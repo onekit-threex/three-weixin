@@ -12,7 +12,7 @@ import { WireframeGeometry2 } from './jsm/lines/WireframeGeometry2.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let wireframe, renderer, scene, camera, camera2, controls;
 			let wireframe1;

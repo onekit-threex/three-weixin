@@ -10,7 +10,7 @@ import { VTKLoader } from './jsm/loaders/VTKLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         let container,
         stats,
         camera,

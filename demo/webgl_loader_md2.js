@@ -11,7 +11,7 @@ import { MD2Character } from './jsm/misc/MD2Character.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         
 			let SCREEN_WIDTH = window.innerWidth;

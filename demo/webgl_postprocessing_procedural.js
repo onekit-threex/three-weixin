@@ -54,7 +54,7 @@ Page({
 },
 async onLoad(){
 var that = this
-getApp().canvas = await document.createElementAsync("canvas","webgl")
+this.canvas = await document.createElementAsync("canvas","webgl")
 
 let postCamera, postScene, renderer;
 			let postMaterial, noiseRandom1DMaterial, noiseRandom2DMaterial, noiseRandom3DMaterial, postQuad;

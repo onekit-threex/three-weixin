@@ -9,7 +9,7 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats, clock, controls;
 			let camera, scene, renderer, mixer;

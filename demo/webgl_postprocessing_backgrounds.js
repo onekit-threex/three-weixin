@@ -24,7 +24,7 @@ Page({
 },
 async onLoad(){
 var that = this
-getApp().canvas = await document.createElementAsync("canvas","webgl")
+this.canvas = await document.createElementAsync("canvas","webgl")
 let scene, renderer, composer;
 			let clearPass, texturePass, renderPass;
 			let cameraP, cubeTexturePassP;

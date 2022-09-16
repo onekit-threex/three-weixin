@@ -16,7 +16,7 @@ Page({
 },
 async onLoad(){
 var that = this
-getApp().canvas = await document.createElementAsync("canvas","webgl")
+this.canvas = await document.createElementAsync("canvas","webgl")
 let gui;
 
 			let camera, scene, renderer, labelRenderer;

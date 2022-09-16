@@ -45,7 +45,7 @@ Page({
 },
 async onLoad(){
 var that = this
-getApp().canvas = await document.createElementAsync("canvas","webgl")
+this.canvas = await document.createElementAsync("canvas","webgl")
 
 const ENTIRE_SCENE = 0, BLOOM_SCENE = 1;
 

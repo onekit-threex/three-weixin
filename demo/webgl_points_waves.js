@@ -30,7 +30,7 @@ const onekit = {
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
 
 			let container, stats;

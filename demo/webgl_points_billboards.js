@@ -9,7 +9,7 @@ import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer, stats, material;
 			let mouseX = 0, mouseY = 0;
 

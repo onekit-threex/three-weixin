@@ -39,7 +39,7 @@ void main() {
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas", "webgl")
+        this.canvas = await document.createElementAsync("canvas", "webgl")
 
         let camera, scene, renderer, controls, stats;
 			let target;

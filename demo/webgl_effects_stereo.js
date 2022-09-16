@@ -4,7 +4,7 @@ import { StereoEffect } from './jsm/effects/StereoEffect.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         let container, camera, scene, renderer, effect;
 
         const spheres = [];

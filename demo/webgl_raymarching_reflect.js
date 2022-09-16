@@ -223,14 +223,14 @@ Page({
 },
 async onLoad(){
 var that = this
-getApp().canvas = await document.createElementAsync("canvas","webgl")
+this.canvas = await document.createElementAsync("canvas","webgl")
 
 
 let dolly, camera, scene, renderer;
 let geometry, material, mesh;
 let stats, clock;
 
-const canvas = getApp().canvas
+const canvas = this.canvas
 
 const config = {
   saveImage: function () {

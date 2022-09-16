@@ -13,7 +13,7 @@ import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         let line, renderer, scene, camera, camera2, controls;
         let line1;
         let matLine, matLineBasic, matLineDashed;

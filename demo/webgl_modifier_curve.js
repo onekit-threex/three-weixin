@@ -9,7 +9,7 @@ import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         
 			const ACTION_SELECT = 1, ACTION_NONE = 0;
 			const curveHandles = [];

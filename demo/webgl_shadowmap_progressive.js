@@ -18,7 +18,7 @@ Page({
 },
 async onLoad(){
 var that = this
-getApp().canvas = await document.createElementAsync("canvas","webgl")
+this.canvas = await document.createElementAsync("canvas","webgl")
 
 	// ShadowMap + LightMap Res and Number of Directional Lights
   const shadowMapRes = 512, lightMapRes = 1024, lightCount = 8;

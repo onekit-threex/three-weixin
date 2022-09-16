@@ -8,7 +8,7 @@ import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         
 			let camera, controls, scene, renderer, stats;
 

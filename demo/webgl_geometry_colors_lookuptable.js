@@ -9,7 +9,7 @@ import { Lut } from './jsm/math/Lut.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         
         let container;
 

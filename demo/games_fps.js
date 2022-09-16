@@ -30,7 +30,7 @@ async onLoad(){
 var that = this
 
 var renderer;
-getApp().canvas = await document.createElementAsync("canvas","webgl")
+this.canvas = await document.createElementAsync("canvas","webgl")
 
 const clock = new THREE.Clock();
 

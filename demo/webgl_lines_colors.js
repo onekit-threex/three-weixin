@@ -5,7 +5,7 @@ import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let mouseX = 0, mouseY = 0;
 

@@ -5,7 +5,7 @@ import { DDSLoader } from './jsm/loaders/DDSLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
 			const meshes = [];

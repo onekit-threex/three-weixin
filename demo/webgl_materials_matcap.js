@@ -9,7 +9,7 @@ import { EXRLoader } from './jsm/loaders/EXRLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let mesh, renderer, scene, camera;
 

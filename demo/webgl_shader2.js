@@ -103,7 +103,7 @@ const onekit= {
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         let stats;
 
 			let camera, scene, renderer, clock;

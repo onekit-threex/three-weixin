@@ -8,7 +8,7 @@ import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
         let camera, controls, scene, renderer;

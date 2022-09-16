@@ -5,7 +5,7 @@ import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         const WRAPPING = {
             'RepeatWrapping': THREE.RepeatWrapping,
             'ClampToEdgeWrapping': THREE.ClampToEdgeWrapping,

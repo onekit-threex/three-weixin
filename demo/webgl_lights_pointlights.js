@@ -8,7 +8,7 @@ import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        getApp().canvas = await document.createElementAsync("canvas","webgl")
+        this.canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer,
 				light1, light2, light3, light4,
 				object, stats;
