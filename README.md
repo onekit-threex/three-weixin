@@ -74,6 +74,7 @@
     5.1 异步方式
 
     ```
+    var requestId // 来自 requestId = requestAnimationFrame()
     Page({
         async onLoad() {
             this.canvas = await document.createElementAsync("canvas","webgl");
@@ -82,7 +83,7 @@
             /*你的代码 */
         },
         onUnload(){
-            cancelAnimationFrame()
+            cancelAnimationFrame(requestId)
             this.renderer.dispose()
             this.renderer.forceContextLoss()
             this.renderer.context = null
@@ -95,6 +96,7 @@
     5.2 同步方式
 
     ```
+    var requestId // 来自 requestId = requestAnimationFrame()
     Page({
         onLoad() {
             document.createElementAsync("canvas","webgl").then(canvas=>{
@@ -105,7 +107,7 @@
             })
         },
         onUnload(){
-            cancelAnimationFrame()
+            cancelAnimationFrame(requestId)
             this.renderer.dispose()
             this.renderer.forceContextLoss()
             this.renderer.context = null
