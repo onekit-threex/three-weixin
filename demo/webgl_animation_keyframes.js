@@ -38,6 +38,11 @@ var that = this
         const pmremGenerator = new THREE.PMREMGenerator( renderer );
 
         const scene = new THREE.Scene();
+          /////////////////////////////////
+    var AmbientLight = new THREE.AmbientLight(0xffffff,1)
+    AmbientLight.position.set(0, 0, 100)
+    scene.add(AmbientLight)
+    ///////////////////
         scene.background = new THREE.Color( 0xbfe3dd );
         scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
 
@@ -58,16 +63,6 @@ var that = this
     
         loader.load( 'models/gltf/LittlestTokyo.glb', function ( gltf ) {
             //console.error("xxxxxxx",gltf)
-            gltf.scene.traverse(function (child) {
-                if (child.isMesh) {
-                    child.frustumCulled = false;
-                    //模型阴影
-                    child.castShadow = true;
-                    //模型自发光
-                	child.material.emissive = child.material.color;
-                    child.material.emissiveMap = child.material.map;
-                }
-            })
             const model = gltf.scene;
             model.position.set( 1, 1, 0 );
             model.scale.set( 0.01, 0.01, 0.01 );
