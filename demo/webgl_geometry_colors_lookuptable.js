@@ -9,7 +9,7 @@ import { Lut } from './jsm/math/Lut.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         
         let container;
 
@@ -64,7 +64,7 @@ var that = this
             const pointLight = new THREE.PointLight( 0xffffff, 1 );
             perpCamera.add( pointLight );
 
-            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
             renderer.autoClear = false;
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( width, height );

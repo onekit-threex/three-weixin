@@ -9,7 +9,7 @@ import { LightProbeGenerator } from './jsm/lights/LightProbeGenerator.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         
 			let renderer, scene, camera, cubeCamera;
 
@@ -20,7 +20,7 @@ var that = this
 			function init() {
 
 				// renderer
-				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

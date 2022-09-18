@@ -18,7 +18,7 @@ Page({
 },
 async onLoad(){
 var that = this
-this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
 	// ShadowMap + LightMap Res and Number of Directional Lights
   const shadowMapRes = 512, lightMapRes = 1024, lightCount = 8;
@@ -34,7 +34,7 @@ this.canvas = await document.createElementAsync("canvas","webgl")
   function init() {
 
     // renderer
-    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.shadowMap.enabled = true;

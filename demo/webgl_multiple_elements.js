@@ -6,9 +6,9 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         
-			let canvas, renderer;
+			let  renderer;
 
 			const scenes = [];
 
@@ -83,7 +83,7 @@ var that = this
 				}
 
 
-				renderer = that.renderer = new THREE.WebGLRenderer( { canvas: canvas, antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, canvas: canvas, antialias: true } );
 				renderer.setClearColor( 0xffffff, 1 );
 				renderer.setPixelRatio( window.devicePixelRatio );
 

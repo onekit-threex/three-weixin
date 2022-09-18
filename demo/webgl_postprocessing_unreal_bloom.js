@@ -21,7 +21,7 @@ Page({
 },
 async onLoad(){
 var that = this
-this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
 let camera, stats;
 let composer, renderer, mixer, clock;
@@ -44,7 +44,7 @@ function init() {
 
     clock = new THREE.Clock();
 
-    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.toneMapping = THREE.ReinhardToneMapping;

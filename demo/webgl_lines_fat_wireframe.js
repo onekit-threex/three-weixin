@@ -12,7 +12,7 @@ import { WireframeGeometry2 } from './jsm/lines/WireframeGeometry2.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let wireframe, renderer, scene, camera, camera2, controls;
 			let wireframe1;
@@ -29,7 +29,7 @@ var that = this
 
 			function init() {
 
-				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setClearColor( 0x000000, 0.0 );
 				renderer.setSize( window.innerWidth, window.innerHeight );

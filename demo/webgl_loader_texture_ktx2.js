@@ -8,12 +8,12 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
         const width = window.innerWidth;
 			const height = window.innerHeight;
 
-			const renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+			const renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
 			renderer.setSize( width, height );
 			renderer.outputEncoding = THREE.sRGBEncoding;
 			document.body.appendChild( renderer.domElement );

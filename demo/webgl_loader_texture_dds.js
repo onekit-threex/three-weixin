@@ -5,7 +5,7 @@ import { DDSLoader } from './jsm/loaders/DDSLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
 			const meshes = [];
@@ -136,7 +136,7 @@ var that = this
 				scene.add( mesh );
 				meshes.push( mesh );
 
-				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

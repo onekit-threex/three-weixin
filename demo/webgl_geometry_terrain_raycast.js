@@ -4,6 +4,6 @@ import * as THREE from 'three-weixin';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
     }
 })

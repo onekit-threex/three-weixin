@@ -9,7 +9,7 @@ import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 Page({
     async onLoad() {
 var that = this
-      this.canvas = await document.createElementAsync("canvas","webgl")
+      const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
       let scene, renderer, camera, stats;
       let model, skeleton, mixer, clock;
@@ -104,7 +104,7 @@ var that = this
 
           } );
 
-          renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+          renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
           renderer.setPixelRatio( window.devicePixelRatio );
           renderer.setSize( window.innerWidth, window.innerHeight );
           renderer.outputEncoding = THREE.sRGBEncoding;
@@ -443,7 +443,7 @@ var that = this
 
           // Render loop
 
-           requestAnimationFrame( animate );
+       //    requestAnimationFrame( animate );
 
           idleWeight = idleAction.getEffectiveWeight();
           walkWeight = walkAction.getEffectiveWeight();

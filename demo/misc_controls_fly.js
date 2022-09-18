@@ -19,7 +19,7 @@ Page({
 },
 async onLoad(){
 var that = this
-this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
 const radius = 6371;
 const tilt = 0.41;
@@ -168,7 +168,7 @@ function init() {
 
     }
 
-    renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
     document.body.appendChild( renderer.domElement );

@@ -9,7 +9,7 @@ import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         let container, stats, gui, guiStatsEl;
 		let camera, controls, scene, renderer, material;
 
@@ -218,7 +218,7 @@ var that = this
 
 			// renderer
 
-			renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+			renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( width, height );
 			renderer.outputEncoding = THREE.sRGBEncoding;

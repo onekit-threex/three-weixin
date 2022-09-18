@@ -15,7 +15,7 @@ Page({
 },
 async onLoad(){
 var that = this
-this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 const canvas1 = await document.getElementByIdAsync( 'canvas1' );
 const canvas2 = await document.getElementByIdAsync( 'canvas2' );
 

@@ -54,7 +54,7 @@ fs:`
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         let scene, camera, renderer;
 			let geometry, mesh, material;
 			let mouse, center;

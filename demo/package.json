@@ -1,7 +1,7 @@
 {
 	"dependencies": {
 		"pako": "1.0.11",
-		"dhtml-weixin": "1.9.5",
-		"three-weixin": "1.9.5"
+		"dhtml-weixin": "2.0.5",
+		"three-weixin": "2.0.5"
 	}
 }

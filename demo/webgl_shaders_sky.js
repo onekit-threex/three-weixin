@@ -8,7 +8,7 @@ import { Sky } from './jsm/objects/Sky.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer;
 
         let sky, sun;

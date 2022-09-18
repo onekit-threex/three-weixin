@@ -8,7 +8,7 @@ import { ColladaLoader } from './jsm/loaders/ColladaLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         let container, stats;
 
 			let camera, scene, renderer;

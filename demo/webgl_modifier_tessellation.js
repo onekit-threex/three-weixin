@@ -46,7 +46,7 @@ const onekit  = {
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         let renderer, scene, camera, stats;
 
         let controls;
@@ -154,7 +154,7 @@ var that = this
 
             scene.add( mesh );
 
-            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( WIDTH, HEIGHT );
 

@@ -5,7 +5,7 @@ import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container;
 

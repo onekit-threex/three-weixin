@@ -7,7 +7,7 @@ import { BVHLoader } from './jsm/loaders/BVHLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         
 			const clock = new THREE.Clock();
 
@@ -46,7 +46,7 @@ var that = this
 				scene.add( new THREE.GridHelper( 400, 10 ) );
 
 				// renderer
-				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

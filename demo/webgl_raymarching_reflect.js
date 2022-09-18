@@ -223,14 +223,12 @@ Page({
 },
 async onLoad(){
 var that = this
-this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
 
 let dolly, camera, scene, renderer;
 let geometry, material, mesh;
 let stats, clock;
-
-const canvas = this.canvas
 
 const config = {
   saveImage: function () {
@@ -247,7 +245,7 @@ render();
 
 function init() {
 
-  renderer = that.renderer = new THREE.WebGLRenderer( { canvas: canvas } );
+  renderer = that.renderer = new THREE.WebGLRenderer( {canvas, canvas: canvas } );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( config.resolution, config.resolution );
 

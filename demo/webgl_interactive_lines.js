@@ -5,7 +5,7 @@ import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
         let camera, scene, raycaster, renderer, parentTransform, sphereInter;
@@ -112,7 +112,7 @@ var that = this
             raycaster = new THREE.Raycaster();
             raycaster.params.Line.threshold = 3;
 
-            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             container.appendChild( renderer.domElement );

@@ -14,7 +14,7 @@ import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let line, thresholdLine, segments, thresholdSegments;
 			let renderer, scene, camera, camera2, controls;
@@ -34,7 +34,7 @@ var that = this
 
 			function init() {
 
-				renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true, alpha: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setClearColor( 0x000000, 0.0 );
 				renderer.setSize( window.innerWidth, window.innerHeight );

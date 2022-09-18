@@ -7,7 +7,7 @@ import { TiltLoader } from './jsm/loaders/TiltLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
 
@@ -27,7 +27,7 @@ var that = this
             const grid = new THREE.GridHelper( 50, 50, 0xffffff, 0x555555 );
             scene.add( grid );
 
-            renderer = that.renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             document.body.appendChild( renderer.domElement );

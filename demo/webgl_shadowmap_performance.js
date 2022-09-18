@@ -10,7 +10,7 @@ import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 Page({
 	async onLoad() {
 var that = this
-        this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         const SHADOW_MAP_WIDTH = 2048, SHADOW_MAP_HEIGHT = 1024;
 
         let SCREEN_WIDTH = window.innerWidth;
