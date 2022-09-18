@@ -78,9 +78,9 @@
     var requestId // 来自 requestId = requestAnimationFrame()
     Page({
         async onLoad() {
-            this.canvas = await document.createElementAsync("canvas","webgl");
+            const canvas = this.canvas = await document.createElementAsync("canvas","webgl");
             //组件中使用 getApp().canvas = await document.createElementAsync("canvas","webgl",this);
-             const renderer = this.renderer = new THREE.WebGLRenderer( { antialias: true } );
+             const renderer = this.renderer = new THREE.WebGLRenderer( { canvas, antialias: true } );
             /*你的代码 */
         },
         onUnload(){
@@ -102,8 +102,8 @@
         onLoad() {
             document.createElementAsync("canvas","webgl").then(canvas=>{
                 //组件中使用 document.createElementAsync("canvas","webgl",this).then(canvas=>{
-                this.canvas = canvas;
-                const renderer = this.renderer = new THREE.WebGLRenderer( { antialias: true } );
+                const canvas = this.canvas = canvas;
+                const renderer = this.renderer = new THREE.WebGLRenderer( { canvas, antialias: true } );
                 /*你的代码 */
             })
         },
