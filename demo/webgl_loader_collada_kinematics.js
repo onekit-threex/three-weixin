@@ -8,7 +8,7 @@ import { ColladaLoader } from './jsm/loaders/ColladaLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let container, stats;
 
 			let camera, scene, renderer;
@@ -75,7 +75,7 @@ var that = this
 				const pointLight = new THREE.PointLight( 0xffffff, 0.3 );
 				particleLight.add( pointLight );
 
-				renderer = that.renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

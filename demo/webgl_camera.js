@@ -103,7 +103,7 @@ var that = this
 
 				//
 
-				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 				container.appendChild( renderer.domElement );

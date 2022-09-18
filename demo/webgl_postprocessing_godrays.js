@@ -19,7 +19,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 let container, stats;
 			let camera, scene, renderer, materialDepth;
@@ -82,7 +82,7 @@ let container, stats;
 
 				//
 
-				renderer = that.renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 				renderer.setClearColor( 0xffffff );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

@@ -9,7 +9,7 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer, bulbLight, bulbMat, hemiLight, stats;
         let ballMat, cubeMat, floorMat;
 
@@ -203,7 +203,7 @@ var that = this
             scene.add( boxMesh3 );
 
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
             renderer.physicallyCorrectLights = true;
             renderer.outputEncoding = THREE.sRGBEncoding;
             renderer.shadowMap.enabled = true;

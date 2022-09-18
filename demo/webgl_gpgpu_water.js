@@ -238,7 +238,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 	// Texture width for simulation
     const WIDTH = 128;
 
@@ -291,7 +291,7 @@ const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
         sun2.position.set( - 100, 350, - 200 );
         scene.add( sun2 );
 
-        renderer = that.renderer = new THREE.WebGLRenderer();
+        renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         container.appendChild( renderer.domElement );

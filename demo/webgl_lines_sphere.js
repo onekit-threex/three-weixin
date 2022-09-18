@@ -4,7 +4,7 @@ import * as THREE from 'three-weixin';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         const SCREEN_WIDTH = window.innerWidth,
         SCREEN_HEIGHT = window.innerHeight,
@@ -47,7 +47,7 @@ var that = this
 
         }
 
-        renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+        renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
         document.body.appendChild( renderer.domElement );

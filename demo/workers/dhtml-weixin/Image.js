@@ -28,7 +28,7 @@ function btoa(string) {
 export default class Image extends EventTarget {
   constructor() {
     super()
-    const canvas = this.canvas
+    const canvas3d = this.canvas
     this.wx_image = canvas.createImage()
     this.wx_image.onload = () => {
       if (this.onload) {

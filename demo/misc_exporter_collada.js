@@ -19,7 +19,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer;
 let cameraControls;
 let effectController;
@@ -64,7 +64,7 @@ function init() {
     // direction is set in GUI
 
     // RENDERER
-    renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+    renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( canvasWidth, canvasHeight );
     renderer.outputEncoding = THREE.sRGBEncoding;

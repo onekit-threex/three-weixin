@@ -276,7 +276,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 	/* TEXTURE WIDTH FOR SIMULATION */
     const WIDTH = 32;
 
@@ -409,7 +409,7 @@ function init() {
     scene.background = new THREE.Color( 0xffffff );
     scene.fog = new THREE.Fog( 0xffffff, 100, 1000 );
 
-    renderer = that.renderer = new THREE.WebGLRenderer();
+    renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     container.appendChild( renderer.domElement );

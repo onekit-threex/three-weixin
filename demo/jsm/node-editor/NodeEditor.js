@@ -318,7 +318,7 @@ export class NodeEditor extends EventDispatcher {
 
 	centralizeNode( node ) {
 
-		const canvas = this.canvas;
+		const canvas3d = this.canvas;
 		const canvasRect = canvas.rect;
 
 		const nodeRect = node.dom.getBoundingClientRect();
@@ -370,7 +370,7 @@ export class NodeEditor extends EventDispatcher {
 
 	loadJSON( json ) {
 
-		const canvas = this.canvas;
+		const canvas3d = this.canvas;
 
 		canvas.clear();
 
@@ -388,7 +388,7 @@ export class NodeEditor extends EventDispatcher {
 
 	_initUpload() {
 
-		const canvas = this.canvas;
+		const canvas3d = this.canvas;
 
 		canvas.onDrop( () => {
 

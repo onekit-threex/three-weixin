@@ -10,7 +10,7 @@ import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         const SHADOW_MAP_WIDTH = 2048, SHADOW_MAP_HEIGHT = 1024;
 
         let SCREEN_WIDTH = window.innerWidth;
@@ -73,7 +73,7 @@ var that = this
 
             // RENDERER
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
             container.appendChild( renderer.domElement );

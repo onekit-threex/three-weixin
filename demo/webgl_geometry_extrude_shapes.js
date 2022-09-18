@@ -5,7 +5,7 @@ import { TrackballControls } from './jsm/controls/TrackballControls.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer, controls;
 
@@ -24,7 +24,7 @@ var that = this
 				info.innerHTML = '<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - geometry extrude shapes';
 				document.body.appendChild( info );
 
-				renderer = that.renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

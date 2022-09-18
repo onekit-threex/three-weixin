@@ -5,7 +5,7 @@ import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let mouseX = 0, mouseY = 0;
 
@@ -24,7 +24,7 @@ var that = this
 
 				scene = new THREE.Scene();
 
-				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

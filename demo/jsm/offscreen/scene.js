@@ -42,7 +42,7 @@ function init( canvas, width, height, pixelRatio, path ) {
 
 		}
 
-		renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true, canvas: canvas } );
+		renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true, canvas: canvas } );
 		renderer.setPixelRatio( pixelRatio );
 		renderer.setSize( width, height, false );
 

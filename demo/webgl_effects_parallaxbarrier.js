@@ -4,7 +4,7 @@ import { ParallaxBarrierEffect } from './jsm/effects/ParallaxBarrierEffect.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, camera, scene, renderer, effect;
 
@@ -64,7 +64,7 @@ var that = this
 
 				//
 
-				renderer = that.renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 				renderer.setPixelRatio( window.devicePixelRatio );
 				container.appendChild( renderer.domElement );
 

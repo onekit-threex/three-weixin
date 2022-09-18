@@ -6,8 +6,8 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
-        const renderer = that.renderer = new THREE.WebGLRenderer();
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
+        const renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
         renderer.setPixelRatio( window.devicePixelRatio );
 
         const camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 2000 );

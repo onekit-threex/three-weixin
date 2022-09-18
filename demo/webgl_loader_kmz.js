@@ -6,7 +6,7 @@ import { KMZLoader } from './jsm/loaders/KMZLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
 
@@ -32,7 +32,7 @@ var that = this
 				const grid = new THREE.GridHelper( 50, 50, 0xffffff, 0x333333 );
 				scene.add( grid );
 
-				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

@@ -19,7 +19,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let scene, renderer, composer, copyPass;
 let cameraP, ssaaRenderPassP;
 let cameraO, ssaaRenderPassO;
@@ -77,7 +77,7 @@ function init() {
     const aspect = width / height;
     const devicePixelRatio = window.devicePixelRatio || 1;
 
-    renderer = that.renderer = new THREE.WebGLRenderer();
+    renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
     renderer.setPixelRatio( devicePixelRatio );
     renderer.setSize( width, height );
     document.body.appendChild( renderer.domElement );

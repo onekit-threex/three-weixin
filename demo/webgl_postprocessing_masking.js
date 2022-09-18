@@ -19,7 +19,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let camera, composer, renderer;
 			let box, torus;
 
@@ -40,7 +40,7 @@ let camera, composer, renderer;
 				torus = new THREE.Mesh( new THREE.TorusGeometry( 3, 1, 16, 32 ) );
 				scene2.add( torus );
 
-				renderer = that.renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 				renderer.setClearColor( 0xe0e0e0 );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

@@ -19,7 +19,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 const statsEnabled = true;
 
 			let container, stats, gui;
@@ -67,7 +67,7 @@ const statsEnabled = true;
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
-				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );

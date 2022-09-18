@@ -1246,7 +1246,7 @@ class Node extends Serializer {
 
 		const onDown = () => {
 
-			const canvas = this.canvas;
+			const canvas3d = this.canvas;
 
 			if ( canvas !== null ) {
 
@@ -1404,7 +1404,7 @@ class Node extends Serializer {
 
 	dispose() {
 
-		const canvas = this.canvas;
+		const canvas3d = this.canvas;
 
 		if ( canvas !== null ) canvas.remove( this );
 

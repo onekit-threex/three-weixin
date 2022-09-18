@@ -5,7 +5,7 @@ import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         const WRAPPING = {
             'RepeatWrapping': THREE.RepeatWrapping,
             'ClampToEdgeWrapping': THREE.ClampToEdgeWrapping,
@@ -162,7 +162,7 @@ var that = this
             camera.position.z = 50;
             camera.lookAt( scene.position );
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( width, height );
             container.appendChild( renderer.domElement );

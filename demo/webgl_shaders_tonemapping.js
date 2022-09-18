@@ -12,7 +12,7 @@ import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let bloomPass, adaptToneMappingPass, ldrToneMappingPass, hdrToneMappingPass;
         let params;
 
@@ -282,7 +282,7 @@ var that = this
 
             sceneCube.background = textureCube;
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             renderer.autoClear = false;

@@ -22,7 +22,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 var Ammo = require("./jsm/ammo/index.js")
 
 		// - Global variables -
@@ -104,7 +104,7 @@ var Ammo = require("./jsm/ammo/index.js")
 
 			camera.position.set( - 14, 8, 16 );
 
-			renderer = that.renderer = new THREE.WebGLRenderer();
+			renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			renderer.shadowMap.enabled = true;

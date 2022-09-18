@@ -16,7 +16,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 	// Heightfield parameters
     const terrainWidthExtents = 100;
     const terrainDepthExtents = 100;
@@ -73,7 +73,7 @@ var Ammo = require("./jsm/ammo/index")
 
         container = document.getElementById( 'container' );
 
-        renderer = that.renderer = new THREE.WebGLRenderer();
+        renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.shadowMap.enabled = true;

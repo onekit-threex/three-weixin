@@ -18,7 +18,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 const RADIUS = 75;
 
 THREE.ShaderChunk[ 'lights_pars_begin' ] += [
@@ -179,7 +179,7 @@ camera.position.set( 0.0, 0.0, 240.0 );
 const scene = new THREE.Scene();
 scene.background = new THREE.Color( 0x111111 );
 
-const renderer = that.renderer = new THREE.WebGLRenderer();
+const renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 renderer.toneMapping = THREE.NoToneMapping;
 container.appendChild( renderer.domElement );
 

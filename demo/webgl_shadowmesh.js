@@ -5,14 +5,14 @@ import { ShadowMesh } from './jsm/objects/ShadowMesh.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let SCREEN_WIDTH = window.innerWidth;
 			let SCREEN_HEIGHT = window.innerHeight;
 
 			const scene = new THREE.Scene();
 			const camera = new THREE.PerspectiveCamera( 55, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 3000 );
 			const clock = new THREE.Clock();
-			const renderer = that.renderer = new THREE.WebGLRenderer();
+			const renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 
 			const sunLight = new THREE.DirectionalLight( 'rgb(255,255,255)', 1 );
 			let useDirectionalLight = true;

@@ -9,7 +9,7 @@ import { EXRLoader } from './jsm/loaders/EXRLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let mesh, renderer, scene, camera;
 
@@ -23,7 +23,7 @@ var that = this
 			function init() {
 
 				// renderer
-				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );

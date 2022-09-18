@@ -12,7 +12,7 @@ import Stats from './jsm/libs/stats.module.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         
 			const params = {
@@ -43,7 +43,7 @@ var that = this
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x000000 );
 
-				renderer = that.renderer = new THREE.WebGLRenderer();
+				renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 				renderer.physicallyCorrectLights = true;
 				renderer.toneMapping = THREE.ACESFilmicToneMapping;
 

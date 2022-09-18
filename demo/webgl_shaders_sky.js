@@ -8,7 +8,7 @@ import { Sky } from './jsm/objects/Sky.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer;
 
         let sky, sun;
@@ -81,7 +81,7 @@ var that = this
             const helper = new THREE.GridHelper( 10000, 2, 0xffffff, 0xffffff );
             scene.add( helper );
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             renderer.outputEncoding = THREE.sRGBEncoding;

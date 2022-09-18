@@ -30,7 +30,7 @@ async onLoad(){
 var that = this
 
 var renderer;
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 const clock = new THREE.Clock();
 
@@ -62,7 +62,7 @@ scene.add( directionalLight );
 
 const container = document.getElementById( 'container' );
 
- renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+ renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.shadowMap.enabled = true;

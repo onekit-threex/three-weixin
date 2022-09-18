@@ -64,7 +64,7 @@ var that = this
 
             //
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
             renderer.setPixelRatio( window.devicePixelRatio );
             container.appendChild( renderer.domElement );
 

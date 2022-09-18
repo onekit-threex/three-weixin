@@ -28,7 +28,7 @@ if( this.renderer){
     },
     async onLoad() {
 var that = this
-      const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+      const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let mixer;
 
@@ -37,7 +37,7 @@ var that = this
 
         const stats =  new Stats();
         container.appendChild( stats.dom );
-        var renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+        var renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.outputEncoding = THREE.sRGBEncoding;

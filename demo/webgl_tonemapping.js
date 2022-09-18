@@ -8,7 +8,7 @@ import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let mesh, renderer, scene, camera, controls;
         let gui, guiExposure = null;
@@ -35,7 +35,7 @@ var that = this
 
         async function init() {
 
-            renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+            renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             document.body.appendChild( renderer.domElement );

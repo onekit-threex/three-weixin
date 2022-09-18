@@ -70,7 +70,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 let container, stats;
 
@@ -79,7 +79,7 @@ let container, stats;
 
 		function init() {
 
-			renderer = that.renderer = new THREE.WebGLRenderer();
+			renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 
 			if ( renderer.capabilities.isWebGL2 === false && renderer.extensions.has( 'ANGLE_instanced_arrays' ) === false ) {
 

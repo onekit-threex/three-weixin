@@ -29,7 +29,7 @@ const onekit = {
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
 
@@ -106,7 +106,7 @@ var that = this
             camera.position.y = 2;
             camera.position.z = 24;
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
             renderer.setSize( window.innerWidth, window.innerHeight );
             renderer.autoClear = false;
             document.body.appendChild( renderer.domElement );

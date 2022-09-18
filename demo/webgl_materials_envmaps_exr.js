@@ -10,7 +10,7 @@ import { EXRLoader } from './jsm/loaders/EXRLoader.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         const params = {
             envMap: 'EXR',
             roughness: 0.0,
@@ -38,7 +38,7 @@ var that = this
 
             scene = new THREE.Scene();
 
-            renderer = that.renderer = new THREE.WebGLRenderer();
+            renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 
             //
 

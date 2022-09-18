@@ -9,7 +9,7 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let camera, scene, renderer, clock, stats;
         let dirLight, spotLight;
         let torusKnot, dirGroup;
@@ -163,7 +163,7 @@ var that = this
 
         function initMisc() {
 
-            renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+            renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( window.innerWidth, window.innerHeight );
             renderer.shadowMap.enabled = true;

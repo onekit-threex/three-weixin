@@ -10,7 +10,7 @@ import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 Page({
 	async onLoad() {
 var that = this
-        const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
 			const params = {
@@ -40,7 +40,7 @@ var that = this
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x000000 );
 
-				renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 
 				gemBackMaterial = new THREE.MeshPhysicalMaterial( {
 					map: null,

@@ -24,7 +24,7 @@ Page({
 },
 async onLoad(){
 var that = this
-const canvas = this.canvas = await document.createElementAsync("canvas","webgl")
+const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 let stats;
 		let camera, scene, renderer;
@@ -51,7 +51,7 @@ let stats;
 			backLight.position.set( - 100, 20, - 260 );
 			scene.add( backLight );
 
-			renderer = that.renderer = new THREE.WebGLRenderer( {canvas, antialias: true } );
+			renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
 			document.body.appendChild( renderer.domElement );
 			renderer.outputEncoding = THREE.sRGBEncoding;
 			renderer.toneMapping = THREE.LinearToneMapping;
