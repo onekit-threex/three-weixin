@@ -1,5 +1,5 @@
 // misc/misc_exporter_collada.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
@@ -17,6 +17,11 @@ Page({
     this.renderer.domElement = null
     this.renderer = null
 },
+    webgl_touch(e){
+        const web_e = Event.fix(e)
+        window.dispatchEvent(web_e)
+        this.canvas && this.canvas.dispatchEvent(web_e)
+    },
 async onLoad(){
 var that = this
 const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")

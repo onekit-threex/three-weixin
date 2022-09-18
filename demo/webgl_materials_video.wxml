@@ -1,7 +1,13 @@
 
 <video id="video" src="https://onekit.cn/textures/sintel.ogv" style="position: absolute;" />
 
-        <canvas id="canvas_webgl" type="webgl"/>
+        <canvas id="canvas_webgl" type="webgl"
+disable-scroll="true"
+bindtouchcancel="webgl_touch"
+bindtouchend="webgl_touch"
+bindtouchmove="webgl_touch"
+bindtouchstart="webgl_touch"
+/>
         <cover-view id="overlay">
 			<cover-view id="startButton" bindtap="startButton_tap">Play</cover-view>
 		</cover-view>

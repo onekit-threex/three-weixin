@@ -17,6 +17,11 @@ Page({
     this.renderer.domElement = null
     this.renderer = null
 },
+    webgl_touch(e){
+        const web_e = Event.fix(e)
+        window.dispatchEvent(web_e)
+        this.canvas && this.canvas.dispatchEvent(web_e)
+    },
 async onLoad(){
 var that = this
 const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")

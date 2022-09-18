@@ -1,5 +1,5 @@
 // webgl/webgl_geometry_terrain.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -19,10 +19,10 @@ var that = this
 			const worldWidth = 256, worldDepth = 256;
 			const clock = new THREE.Clock();
 
-			init();
+			await init();
 			animate();
 
-			function init() {
+		async	function init() {
 
 				container = document.getElementById( 'container' );
 
@@ -48,7 +48,7 @@ var that = this
 
 				}
 
-				texture = new THREE.CanvasTexture( generateTexture( data, worldWidth, worldDepth ) );
+				texture = new THREE.CanvasTexture(await generateTexture( data, worldWidth, worldDepth ) );
 				texture.wrapS = THREE.ClampToEdgeWrapping;
 				texture.wrapT = THREE.ClampToEdgeWrapping;
 
@@ -117,7 +117,7 @@ var that = this
 
 			}
 
-			function generateTexture( data, width, height ) {
+	async		function generateTexture( data, width, height ) {
 
 				let context, image, imageData, shade;
 
@@ -162,7 +162,7 @@ var that = this
 
 				context = canvasScaled.getContext( '2d' );
 				context.scale( 4, 4 );
-				context.drawImage( canvas, 0, 0 );
+				context.drawImage(await core.Canvas.canvas2image(canvas3d,canvas), 0, 0 );
 
 				image = context.getImageData( 0, 0, canvasScaled.width, canvasScaled.height );
 				imageData = image.data;

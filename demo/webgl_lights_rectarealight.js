@@ -1,5 +1,5 @@
 // webgl/webgl_lights_rectarealight.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
@@ -8,7 +8,20 @@ import { RectAreaLightHelper } from './jsm/helpers/RectAreaLightHelper.js';
 import { RectAreaLightUniformsLib } from './jsm/lights/RectAreaLightUniformsLib.js';
 
 Page({
-	async onLoad() {
+  onUnload(){
+    cancelAnimationFrame()
+    this.renderer.dispose()
+    this.renderer.forceContextLoss()
+    this.renderer.context = null
+    this.renderer.domElement = null
+    this.renderer = null
+},
+    webgl_touch(e){
+        const web_e = Event.fix(e)
+       window.dispatchEvent(web_e)
+        this.canvas && this.canvas.dispatchEvent(web_e)
+    },
+async onLoad(){
 var that = this
         const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 

@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -13,7 +13,7 @@ Page({
     webgl_touch(e){
         const web_e = Event.fix(e)
         window.dispatchEvent(web_e)
-        this.renderer && this.renderer.dispatchEvent(web_e)
+        this.canvas && this.canvas.dispatchEvent(web_e)
     },
     onUnload(){
 		cancelAnimationFrame(requestId)
