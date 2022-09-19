@@ -184,7 +184,7 @@ class Lut {
 
 		}
 
-		core.putImageData(ctx, imageData, 0, 0 );
+		core.Canvas.putImageData(ctx, imageData, 0, 0 );
 
 		return canvas;
 

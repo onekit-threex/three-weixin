@@ -1145,7 +1145,7 @@ class GLTFWriter {
 
 			}
 
-			core.putImageData(ctx, new ImageData( data, image.width, image.height ), 0, 0 );
+			core.Canvas.putImageData(ctx, new ImageData( data, image.width, image.height ), 0, 0 );
 
 		} else {
 

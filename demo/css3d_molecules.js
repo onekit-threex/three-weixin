@@ -208,7 +208,7 @@ function colorify( ctx, width, height, color ) {
 
     }
 
-    core.putImageData(ctx, imageData, 0, 0 );
+    core.Canvas.putImageData(ctx, imageData, 0, 0 );
 
 }
 
