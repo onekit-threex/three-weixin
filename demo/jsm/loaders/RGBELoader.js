@@ -16,7 +16,7 @@ class RGBELoader extends DataTextureLoader {
 
 		super( manager );
 
-		this.type = HalfFloatType;
+		this.type =  (wx.getSystemInfoSync().platform=="ios"?HalfFloatType:FloatType);
 
 	}
 
