@@ -178,7 +178,7 @@ class VolumeSlice {
 
 		}
 
-		ctx.putImageData( imgData, 0, 0 );
+		core.putImageData(ctx, imgData, 0, 0 );
 		this.ctx.drawImage( canvas, 0, 0, iLength, jLength, 0, 0, this.canvas.width, this.canvas.height );
 
 

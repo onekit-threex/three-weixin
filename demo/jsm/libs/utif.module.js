@@ -1452,7 +1452,7 @@
         var cnv = document.createElement("canvas");  cnv.width=w;  cnv.height=h;
         var ctx = cnv.getContext("2d");
         var imgd = new ImageData(new Uint8ClampedArray(rgba.buffer),w,h);
-        ctx.putImageData(imgd,0,0);
+        core.putImageData(ctx,imgd,0,0);
         return cnv.toDataURL();
     }
     
