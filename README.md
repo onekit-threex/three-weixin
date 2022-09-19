@@ -144,7 +144,7 @@
             const web_e = Event.fix(e)
             //document.dispatchEvent(web_e)
             //window.dispatchEvent(web_e)
-            this.renderer && this.renderer.dispatchEvent(web_e)
+            this.canvas.dispatchEvent(web_e)
         },
     })
     ```
