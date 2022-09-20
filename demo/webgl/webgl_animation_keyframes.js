@@ -48,7 +48,7 @@ var that = this
         const scene = new THREE.Scene();
           /////////////////////////////////
     var AmbientLight = new THREE.AmbientLight(0xffffff,1)
-    AmbientLight.position.set(0, 0, 100)
+    AmbientLight.position.set(0, 0, 1)
     scene.add(AmbientLight)
     ///////////////////
         scene.background = new THREE.Color( 0xbfe3dd );
