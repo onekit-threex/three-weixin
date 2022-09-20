@@ -1,5 +1,5 @@
 // misc/misc_controls_drag.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { DragControls } from './jsm/controls/DragControls.js';

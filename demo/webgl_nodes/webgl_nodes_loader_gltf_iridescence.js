@@ -1,5 +1,5 @@
 // webgl_nodes/webgl_nodes_loader_gltf_iridescence.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { NodeMaterial, uv, add, mul, vec2, checker, float, timerLocal } from './jsm/nodes/Nodes.js';
 

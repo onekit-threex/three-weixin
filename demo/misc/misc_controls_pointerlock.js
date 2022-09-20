@@ -1,5 +1,5 @@
 // misc/misc_controls_pointerlock.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { PointerLockControls } from './jsm/controls/PointerLockControls.js';

@@ -1,5 +1,5 @@
 // webgl/webgl_lights_spotlights.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { TWEEN } from './jsm/libs/tween.module.min.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';

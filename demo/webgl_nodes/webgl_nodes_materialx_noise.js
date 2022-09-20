@@ -1,5 +1,5 @@
 // webgl_nodes/webgl_nodes_materialx_noise.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { MeshPhysicalNodeMaterial, add, mul, normalWorld, saturate, timerLocal } from './jsm/nodes/Nodes.js';
 

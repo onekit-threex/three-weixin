@@ -1,5 +1,5 @@
 // webgl/webgl_loader_vox.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { VOXLoader, VOXMesh } from './jsm/loaders/VOXLoader.js';

@@ -1,5 +1,5 @@
 // webgl_nodes/webgl_nodes_loader_gltf_sheen.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { NodeMaterial, color, uv, mix, mul, checker } from './jsm/nodes/Nodes.js';

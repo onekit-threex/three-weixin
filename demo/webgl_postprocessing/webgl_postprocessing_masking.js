@@ -1,5 +1,5 @@
 // webgl_postprocessing/webgl_postprocessing_masking.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
 import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';

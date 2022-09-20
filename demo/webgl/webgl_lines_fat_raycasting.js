@@ -1,5 +1,5 @@
 // webgl/webgl_lines_fat_raycasting.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 			import { GPUStatsPanel } from './jsm/utils/GPUStatsPanel.js';
