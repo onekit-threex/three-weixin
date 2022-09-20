@@ -25,10 +25,10 @@ var that = this
         let camera, scene, renderer, stats;
 			let pointLight, pointLight2;
 
-			init();
+	await		init();
 			animate();
 
-			function init() {
+		async	function init() {
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
 				camera.position.set( 0, 10, 40 );
@@ -38,7 +38,7 @@ var that = this
 
 				// lights
 
-				function createLight( color ) {
+		async		function createLight( color ) {
 
 					const intensity = 1.5;
 
@@ -52,7 +52,7 @@ var that = this
 					let sphere = new THREE.Mesh( geometry, material );
 					light.add( sphere );
 
-					const texture = new THREE.CanvasTexture( generateTexture() );
+					const texture = new THREE.CanvasTexture(await core.Canvas.fix( generateTexture()) );
 					texture.magFilter = THREE.NearestFilter;
 					texture.wrapT = THREE.RepeatWrapping;
 					texture.wrapS = THREE.RepeatWrapping;
@@ -81,10 +81,10 @@ var that = this
 
 				}
 
-				pointLight = createLight( 0x0088ff );
+				pointLight =await createLight( 0x0088ff );
 				scene.add( pointLight );
 
-				pointLight2 = createLight( 0xff8888 );
+				pointLight2 = await createLight( 0xff8888 );
 				scene.add( pointLight2 );
 				//
 

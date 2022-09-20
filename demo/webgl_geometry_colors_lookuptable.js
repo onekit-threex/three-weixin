@@ -33,9 +33,9 @@ var that = this
 
         let params;
 
-        init();
+    await    init();
 
-        function init() {
+   async     function init() {
 
             container = document.getElementById( 'container' );
 
@@ -57,7 +57,7 @@ var that = this
             orthoCamera.position.set( 0.5, 0, 1 );
 
             sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
-                map: new THREE.CanvasTexture( lut.createCanvas() )
+                map: new THREE.CanvasTexture(await core.Canvas.fix( lut.createCanvas() ))
             } ) );
             sprite.scale.x = 0.125;
             uiScene.add( sprite );

@@ -53,7 +53,7 @@ function init() {
 
         scene.add( gltf.scene );
 
-        const shadowMesh = createSpotShadowMesh();
+        const shadowMesh = await createSpotShadowMesh();
         shadowMesh.position.y = - 1.1;
         shadowMesh.position.z = - 0.25;
         shadowMesh.scale.setScalar( 2 );
@@ -83,7 +83,7 @@ function init() {
 
 }
 
-function createSpotShadowMesh() {
+async function createSpotShadowMesh() {
 
     const canvas = document.createElement( 'canvas' );
     canvas.width = 128;
@@ -97,7 +97,7 @@ function createSpotShadowMesh() {
     context.fillStyle = gradient;
     context.fillRect( 0, 0, canvas.width, canvas.height );
 
-    const shadowTexture = new THREE.CanvasTexture( canvas );
+    const shadowTexture = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
 
     const geometry = new THREE.PlaneGeometry();
     const material = new THREE.MeshBasicMaterial( {

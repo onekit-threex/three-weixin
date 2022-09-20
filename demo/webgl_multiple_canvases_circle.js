@@ -27,7 +27,7 @@ var that = this
 		const windowHalfX = window.innerWidth / 2;
 		const windowHalfY = window.innerHeight / 2;
 
-		init();
+	await	init();
 		animate();
 
 		//
@@ -65,7 +65,7 @@ var that = this
 
 		}
 
-		function init() {
+	async	function init() {
 
 			const canvas1 = document.getElementById( 'canvas1' );
 			const canvas2 = document.getElementById( 'canvas2' );
@@ -107,7 +107,7 @@ var that = this
 			context.fillStyle = gradient;
 			context.fillRect( 0, 0, canvas.width, canvas.height );
 
-			const shadowTexture = new THREE.CanvasTexture( canvas );
+			const shadowTexture = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
 
 			const shadowMaterial = new THREE.MeshBasicMaterial( { map: shadowTexture } );
 			const shadowGeo = new THREE.PlaneGeometry( 300, 300, 1, 1 );

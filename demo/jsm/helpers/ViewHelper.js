@@ -260,7 +260,7 @@ class ViewHelper extends THREE.Object3D {
 
 		}
 
-		function getSpriteMaterial( color, text = null ) {
+	async	function getSpriteMaterial( color, text = null ) {
 
 			const canvas = document.createElement('canvas')
 			canvas.width = 64;
@@ -282,7 +282,7 @@ class ViewHelper extends THREE.Object3D {
 
 			}
 
-			const texture = new THREE.CanvasTexture( canvas );
+			const texture = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
 
 			return new THREE.SpriteMaterial( { map: texture, toneMapped: false } );
 

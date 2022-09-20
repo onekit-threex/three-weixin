@@ -82,10 +82,10 @@ var that = this
 				}
 			];
 
-			init();
+	await		init();
 			animate();
 
-			function init() {
+		async	function init() {
 
 				const container = document.getElementById( 'container' );
 
@@ -119,7 +119,7 @@ var that = this
 				context.fillStyle = gradient;
 				context.fillRect( 0, 0, canvas.width, canvas.height );
 
-				const shadowTexture = new THREE.CanvasTexture( canvas );
+				const shadowTexture = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
 
 				const shadowMaterial = new THREE.MeshBasicMaterial( { map: shadowTexture, transparent: true } );
 				const shadowGeo = new THREE.PlaneGeometry( 300, 300, 1, 1 );

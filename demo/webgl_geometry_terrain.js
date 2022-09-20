@@ -48,7 +48,7 @@ var that = this
 
 				}
 
-				texture = new THREE.CanvasTexture(await generateTexture( data, worldWidth, worldDepth ) );
+				texture = new THREE.CanvasTexture(await core.Canvas.fix(await generateTexture( data, worldWidth, worldDepth )) );
 				texture.wrapS = THREE.ClampToEdgeWrapping;
 				texture.wrapT = THREE.ClampToEdgeWrapping;
 
@@ -162,7 +162,7 @@ var that = this
 
 				context = canvasScaled.getContext( '2d' );
 				context.scale( 4, 4 );
-				context.drawImage(await core.Canvas.canvas2image(canvas3d,canvas), 0, 0 );
+				context.drawImage(await core.Canvas.fix(canvas3d,canvas), 0, 0 );
 
 				image = context.getImageData( 0, 0, canvasScaled.width, canvasScaled.height );
 				imageData = image.data;

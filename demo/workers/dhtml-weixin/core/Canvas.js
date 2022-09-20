@@ -1,6 +1,6 @@
 export default class Canvas{
     
-    static canvas2image(canvas3d, canvas2d) {
+    static fix(canvas3d, canvas2d) {
         return new Promise((callback) => {
             var image = canvas2d.createImage()
             image.onload = function () {

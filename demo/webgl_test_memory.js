@@ -23,7 +23,7 @@ var that = this
 			let camera, scene, renderer;
 
 			init();
-			animate();
+		await	animate();
 
 			function init() {
 
@@ -59,19 +59,19 @@ var that = this
 
 			//
 
-			function animate() {
+	async		function animate() {
 
 				requestAnimationFrame( animate );
 
-				render();
+		await		render();
 
 			}
 
-			function render() {
+		async	function render() {
 
 				const geometry = new THREE.SphereGeometry( 50, Math.random() * 64, Math.random() * 32 );
 
-				const texture = new THREE.CanvasTexture( createImage() );
+				const texture = new THREE.CanvasTexture(await core.Canvas.fix( createImage() ));
 
 				const material = new THREE.MeshBasicMaterial( { map: texture, wireframe: true } );
 

@@ -64,7 +64,7 @@ var that = this
 
 				// set canvas as material.map (this could be done to any map, bump, displacement etc.)
 
-				material.map = new THREE.CanvasTexture( drawingCanvas );
+				material.map = new THREE.CanvasTexture(await core.Canvas.fix( drawingCanvas ));
 
 				// set the variable to keep track of when to draw
 
