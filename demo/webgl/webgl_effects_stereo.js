@@ -1,6 +1,6 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { StereoEffect } from '../jsm/effects/StereoEffect.js';
+import { StereoEffect } from './jsm/effects/StereoEffect.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

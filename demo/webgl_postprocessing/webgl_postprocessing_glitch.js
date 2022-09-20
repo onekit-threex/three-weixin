@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { GlitchPass } from '../jsm/postprocessing/GlitchPass.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { GlitchPass } from './jsm/postprocessing/GlitchPass.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

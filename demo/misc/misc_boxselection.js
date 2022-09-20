@@ -1,10 +1,10 @@
 // misc/misc_boxselection.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { SelectionBox } from '../jsm/interactive/SelectionBox.js';
-import { SelectionHelper } from '../jsm/interactive/SelectionHelper.js';
+import { SelectionBox } from './jsm/interactive/SelectionBox.js';
+import { SelectionHelper } from './jsm/interactive/SelectionHelper.js';
 Page({
     webgl_touch(e){
         const web_e = Event.fix(e)

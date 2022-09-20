@@ -2,11 +2,11 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { TransformControls } from '../jsm/controls/TransformControls.js';
-import { ProgressiveLightMap } from '../jsm/misc/ProgressiveLightMap.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { TransformControls } from './jsm/controls/TransformControls.js';
+import { ProgressiveLightMap } from './jsm/misc/ProgressiveLightMap.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,7 +1,7 @@
 // webgl/webgl_lines_colors.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import * as GeometryUtils from '../jsm/utils/GeometryUtils.js';
+import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,7 +1,7 @@
 // webgl/webgl_loader_texture_dds.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { DDSLoader } from '../jsm/loaders/DDSLoader.js';
+import { DDSLoader } from './jsm/loaders/DDSLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

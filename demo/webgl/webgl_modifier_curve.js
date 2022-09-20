@@ -1,11 +1,11 @@
 // webgl/webgl_modifier_curve.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { TransformControls } from '../jsm/controls/TransformControls.js';
-import Stats from '../jsm/libs/stats.module.js';
-import { Flow } from '../jsm/modifiers/CurveModifier.js';
-import { FontLoader } from '../jsm/loaders/FontLoader.js';
-import { TextGeometry } from '../jsm/geometries/TextGeometry.js';
+import { TransformControls } from './jsm/controls/TransformControls.js';
+import Stats from './jsm/libs/stats.module.js';
+import { Flow } from './jsm/modifiers/CurveModifier.js';
+import { FontLoader } from './jsm/loaders/FontLoader.js';
+import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

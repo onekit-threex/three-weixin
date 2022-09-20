@@ -1,8 +1,8 @@
 // webgl/webgl_instancing_dynamic.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
-			import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 Page({
   onUnload(){

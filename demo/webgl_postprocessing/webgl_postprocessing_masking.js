@@ -1,12 +1,12 @@
 // webgl_postprocessing/webgl_postprocessing_masking.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { TexturePass } from '../jsm/postprocessing/TexturePass.js';
-import { ClearPass } from '../jsm/postprocessing/ClearPass.js';
-import { MaskPass, ClearMaskPass } from '../jsm/postprocessing/MaskPass.js';
-import { CopyShader } from '../jsm/shaders/CopyShader.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { TexturePass } from './jsm/postprocessing/TexturePass.js';
+import { ClearPass } from './jsm/postprocessing/ClearPass.js';
+import { MaskPass, ClearMaskPass } from './jsm/postprocessing/MaskPass.js';
+import { CopyShader } from './jsm/shaders/CopyShader.js';
 
 Page({
   onUnload(){

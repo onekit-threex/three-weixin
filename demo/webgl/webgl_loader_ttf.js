@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { TTFLoader } from '../jsm/loaders/TTFLoader.js';
-import { Font } from '../jsm/loaders/FontLoader.js';
-import { TextGeometry } from '../jsm/geometries/TextGeometry.js';
+import { TTFLoader } from './jsm/loaders/TTFLoader.js';
+import { Font } from './jsm/loaders/FontLoader.js';
+import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

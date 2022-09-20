@@ -1,8 +1,8 @@
 // webgl/webgl_loader_3mf_materials.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ThreeMFLoader } from '../jsm/loaders/3MFLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ThreeMFLoader } from './jsm/loaders/3MFLoader.js';
 
 Page({
   onUnload(){

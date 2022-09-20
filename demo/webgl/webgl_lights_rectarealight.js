@@ -1,11 +1,11 @@
 // webgl/webgl_lights_rectarealight.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { RectAreaLightHelper } from '../jsm/helpers/RectAreaLightHelper.js';
-import { RectAreaLightUniformsLib } from '../jsm/lights/RectAreaLightUniformsLib.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { RectAreaLightHelper } from './jsm/helpers/RectAreaLightHelper.js';
+import { RectAreaLightUniformsLib } from './jsm/lights/RectAreaLightUniformsLib.js';
 
 Page({
   onUnload(){

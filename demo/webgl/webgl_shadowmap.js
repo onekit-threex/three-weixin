@@ -1,13 +1,13 @@
 // webgl/webgl_shadowmap.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-			import { FirstPersonControls } from '../jsm/controls/FirstPersonControls.js';
-			import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-			import { FontLoader } from '../jsm/loaders/FontLoader.js';
-			import { TextGeometry } from '../jsm/geometries/TextGeometry.js';
-			import { ShadowMapViewer } from '../jsm/utils/ShadowMapViewer.js';
+			import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { FontLoader } from './jsm/loaders/FontLoader.js';
+			import { TextGeometry } from './jsm/geometries/TextGeometry.js';
+			import { ShadowMapViewer } from './jsm/utils/ShadowMapViewer.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,8 +1,8 @@
 // webgl/webgl_mirror.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { Reflector } from '../jsm/objects/Reflector.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { Reflector } from './jsm/objects/Reflector.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

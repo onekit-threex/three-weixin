@@ -2,18 +2,18 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { SSRPass } from '../jsm/postprocessing/SSRPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { GammaCorrectionShader } from '../jsm/shaders/GammaCorrectionShader.js';
-import { ReflectorForSSRPass } from '../jsm/objects/ReflectorForSSRPass.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { SSRPass } from './jsm/postprocessing/SSRPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
+import { ReflectorForSSRPass } from './jsm/objects/ReflectorForSSRPass.js';
 
-import { DRACOLoader } from '../jsm/loaders/DRACOLoader.js';
+import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 
 Page({
   onUnload(){

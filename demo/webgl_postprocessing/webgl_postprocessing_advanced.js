@@ -2,26 +2,26 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { BloomPass } from '../jsm/postprocessing/BloomPass.js';
-import { FilmPass } from '../jsm/postprocessing/FilmPass.js';
-import { DotScreenPass } from '../jsm/postprocessing/DotScreenPass.js';
-import { MaskPass, ClearMaskPass } from '../jsm/postprocessing/MaskPass.js';
-import { TexturePass } from '../jsm/postprocessing/TexturePass.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { BloomPass } from './jsm/postprocessing/BloomPass.js';
+import { FilmPass } from './jsm/postprocessing/FilmPass.js';
+import { DotScreenPass } from './jsm/postprocessing/DotScreenPass.js';
+import { MaskPass, ClearMaskPass } from './jsm/postprocessing/MaskPass.js';
+import { TexturePass } from './jsm/postprocessing/TexturePass.js';
 
-import { BleachBypassShader } from '../jsm/shaders/BleachBypassShader.js';
-import { ColorifyShader } from '../jsm/shaders/ColorifyShader.js';
-import { HorizontalBlurShader } from '../jsm/shaders/HorizontalBlurShader.js';
-import { VerticalBlurShader } from '../jsm/shaders/VerticalBlurShader.js';
-import { SepiaShader } from '../jsm/shaders/SepiaShader.js';
-import { VignetteShader } from '../jsm/shaders/VignetteShader.js';
-import { GammaCorrectionShader } from '../jsm/shaders/GammaCorrectionShader.js';
+import { BleachBypassShader } from './jsm/shaders/BleachBypassShader.js';
+import { ColorifyShader } from './jsm/shaders/ColorifyShader.js';
+import { HorizontalBlurShader } from './jsm/shaders/HorizontalBlurShader.js';
+import { VerticalBlurShader } from './jsm/shaders/VerticalBlurShader.js';
+import { SepiaShader } from './jsm/shaders/SepiaShader.js';
+import { VignetteShader } from './jsm/shaders/VignetteShader.js';
+import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

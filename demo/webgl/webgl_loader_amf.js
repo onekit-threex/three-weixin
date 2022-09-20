@@ -1,8 +1,8 @@
 // webgl/webgl_loader_amf.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { AMFLoader } from '../jsm/loaders/AMFLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { AMFLoader } from './jsm/loaders/AMFLoader.js';
 
 Page({
   onUnload(){

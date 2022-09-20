@@ -1,7 +1,7 @@
 // webgl/webgl_loader_obj.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

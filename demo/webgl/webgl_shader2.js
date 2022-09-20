@@ -1,7 +1,7 @@
 // webgl/webgl_shader2.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 const onekit= {
     fragment_shader4:`uniform float time;
 

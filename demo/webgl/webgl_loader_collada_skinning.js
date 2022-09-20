@@ -2,10 +2,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { ColladaLoader } from '../jsm/loaders/ColladaLoader.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { ColladaLoader } from './jsm/loaders/ColladaLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,7 +1,7 @@
 // webgl/webgl_loader_mdd.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { MDDLoader } from '../jsm/loaders/MDDLoader.js';
+import { MDDLoader } from './jsm/loaders/MDDLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

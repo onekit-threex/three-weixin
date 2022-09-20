@@ -2,16 +2,16 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { OutlinePass } from '../jsm/postprocessing/OutlinePass.js';
-import { FXAAShader } from '../jsm/shaders/FXAAShader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutlinePass } from './jsm/postprocessing/OutlinePass.js';
+import { FXAAShader } from './jsm/shaders/FXAAShader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

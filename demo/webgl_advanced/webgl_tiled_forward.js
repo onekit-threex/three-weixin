@@ -1,12 +1,12 @@
 // webgl_advanced/webgl_tiled_forward.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 
-			import { UnrealBloomPass } from '../jsm/postprocessing/UnrealBloomPass.js';
+			import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

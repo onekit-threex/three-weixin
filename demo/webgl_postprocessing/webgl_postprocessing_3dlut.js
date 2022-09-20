@@ -1,17 +1,17 @@
 // webgl_postprocessing/webgl_postprocessing_3dlut.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-			import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
-			import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-			import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-			import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-			import { LUTPass } from '../jsm/postprocessing/LUTPass.js';
-			import { LUTCubeLoader } from '../jsm/loaders/LUTCubeLoader.js';
-			import { LUT3dlLoader } from '../jsm/loaders/LUT3dlLoader.js';
-			import { GammaCorrectionShader } from '../jsm/shaders/GammaCorrectionShader.js';
-			import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { RGBELoader } from './jsm/loaders/RGBELoader.js';
+			import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+			import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+			import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+			import { LUTPass } from './jsm/postprocessing/LUTPass.js';
+			import { LUTCubeLoader } from './jsm/loaders/LUTCubeLoader.js';
+			import { LUT3dlLoader } from './jsm/loaders/LUT3dlLoader.js';
+			import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

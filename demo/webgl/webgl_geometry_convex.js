@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ConvexGeometry } from '../jsm/geometries/ConvexGeometry.js';
-import * as BufferGeometryUtils from '../jsm/utils/BufferGeometryUtils.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ConvexGeometry } from './jsm/geometries/ConvexGeometry.js';
+import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

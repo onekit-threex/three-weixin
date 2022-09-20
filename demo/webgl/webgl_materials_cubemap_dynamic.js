@@ -2,11 +2,11 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import Stats from '../jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,8 +1,8 @@
 // webgl/webgl_loader_ttf.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { USDZLoader } from '../jsm/loaders/USDZLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { USDZLoader } from './jsm/loaders/USDZLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

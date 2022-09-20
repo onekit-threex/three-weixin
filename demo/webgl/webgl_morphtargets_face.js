@@ -2,17 +2,17 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { KTX2Loader } from '../jsm/loaders/KTX2Loader.js';
-import { MeshoptDecoder } from '../jsm/libs/meshopt_decoder.module.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { KTX2Loader } from './jsm/loaders/KTX2Loader.js';
+import { MeshoptDecoder } from './jsm/libs/meshopt_decoder.module.js';
 
-import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
+import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,11 +1,11 @@
 // webgl/webgl_geometry_minecraft.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { FirstPersonControls } from '../jsm/controls/FirstPersonControls.js';
-import { ImprovedNoise } from '../jsm/math/ImprovedNoise.js';
-import * as BufferGeometryUtils from '../jsm/utils/BufferGeometryUtils.js';
+import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
+import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
+import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

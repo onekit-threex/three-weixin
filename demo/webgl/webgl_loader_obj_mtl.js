@@ -2,8 +2,8 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { MTLLoader } from '../jsm/loaders/MTLLoader.js';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+import { MTLLoader } from './jsm/loaders/MTLLoader.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

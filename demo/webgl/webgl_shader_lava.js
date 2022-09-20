@@ -1,10 +1,10 @@
 // webgl/webgl_shader_lava.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-			import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-			import { FilmPass } from '../jsm/postprocessing/FilmPass.js';
-			import { BloomPass } from '../jsm/postprocessing/BloomPass.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+			import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+			import { FilmPass } from './jsm/postprocessing/FilmPass.js';
+			import { BloomPass } from './jsm/postprocessing/BloomPass.js';
 const onekit = {
     fragmentShader:`uniform float time;
 

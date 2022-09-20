@@ -1,7 +1,7 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,HTMLCanvasElement} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { AsciiEffect } from '../jsm/effects/AsciiEffect.js';
-import { TrackballControls } from '../jsm/controls/TrackballControls.js';
+import { AsciiEffect } from './jsm/effects/AsciiEffect.js';
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
 var requestId
 Page({
     onUnload() {

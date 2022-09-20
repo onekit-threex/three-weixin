@@ -2,7 +2,7 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { DragControls } from '../jsm/controls/DragControls.js';
+import { DragControls } from './jsm/controls/DragControls.js';
 Page({
     webgl_touch(e){
         const web_e = Event.fix(e)

@@ -1,14 +1,14 @@
 // webgl/webgl_shaders_tonemapping.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';	
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { AdaptiveToneMappingPass } from '../jsm/postprocessing/AdaptiveToneMappingPass.js';
-import { BloomPass } from '../jsm/postprocessing/BloomPass.js';
-import { GammaCorrectionShader } from '../jsm/shaders/GammaCorrectionShader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { AdaptiveToneMappingPass } from './jsm/postprocessing/AdaptiveToneMappingPass.js';
+import { BloomPass } from './jsm/postprocessing/BloomPass.js';
+import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

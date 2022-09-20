@@ -1,9 +1,9 @@
 // webgl/webgl_lines_dashed.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import * as GeometryUtils from '../jsm/utils/GeometryUtils.js';
+import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

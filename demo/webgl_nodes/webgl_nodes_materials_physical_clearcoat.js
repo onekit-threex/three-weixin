@@ -1,18 +1,18 @@
 // webgl_nodes/webgl_nodes_materials_physical_clearcoat.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import * as Nodes from '../jsm/nodes/Nodes.js';
+import * as Nodes from './jsm/nodes/Nodes.js';
 
-import { color, float, vec2, texture, normalMap, uv, mul } from '../jsm/nodes/Nodes.js';
+import { color, float, vec2, texture, normalMap, uv, mul } from './jsm/nodes/Nodes.js';
 
-import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
+import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { HDRCubeTextureLoader } from '../jsm/loaders/HDRCubeTextureLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { HDRCubeTextureLoader } from './jsm/loaders/HDRCubeTextureLoader.js';
 
-import { FlakesTexture } from '../jsm/textures/FlakesTexture.js';
+import { FlakesTexture } from './jsm/textures/FlakesTexture.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

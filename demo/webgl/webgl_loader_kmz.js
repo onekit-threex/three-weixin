@@ -1,8 +1,8 @@
 // webgl/webgl_loader_kmz.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { KMZLoader } from '../jsm/loaders/KMZLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { KMZLoader } from './jsm/loaders/KMZLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

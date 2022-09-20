@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { LightProbeHelper } from '../jsm/helpers/LightProbeHelper.js';
-import { LightProbeGenerator } from '../jsm/lights/LightProbeGenerator.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { LightProbeHelper } from './jsm/helpers/LightProbeHelper.js';
+import { LightProbeGenerator } from './jsm/lights/LightProbeGenerator.js';
 
 Page({
   onUnload(){

@@ -2,10 +2,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
-import { VertexNormalsHelper } from '../jsm/helpers/VertexNormalsHelper.js';
-import { VertexTangentsHelper } from '../jsm/helpers/VertexTangentsHelper.js';
+import { VertexNormalsHelper } from './jsm/helpers/VertexNormalsHelper.js';
+import { VertexTangentsHelper } from './jsm/helpers/VertexTangentsHelper.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

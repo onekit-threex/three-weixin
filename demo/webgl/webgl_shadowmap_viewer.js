@@ -1,10 +1,10 @@
 // webgl/webgl_shadowmap_viewer.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ShadowMapViewer } from '../jsm/utils/ShadowMapViewer.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ShadowMapViewer } from './jsm/utils/ShadowMapViewer.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

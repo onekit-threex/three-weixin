@@ -1,6 +1,6 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { PeppersGhostEffect } from '../jsm/effects/PeppersGhostEffect.js';
+import { PeppersGhostEffect } from './jsm/effects/PeppersGhostEffect.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

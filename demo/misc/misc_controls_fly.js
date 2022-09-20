@@ -2,12 +2,12 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { FlyControls } from '../jsm/controls/FlyControls.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { FilmPass } from '../jsm/postprocessing/FilmPass.js';
+import { FlyControls } from './jsm/controls/FlyControls.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { FilmPass } from './jsm/postprocessing/FilmPass.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

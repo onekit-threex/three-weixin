@@ -1,10 +1,10 @@
 // physics/physics_ammo_break.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ConvexObjectBreaker } from '../jsm/misc/ConvexObjectBreaker.js';
-import { ConvexGeometry } from '../jsm/geometries/ConvexGeometry.js';
+import Stats from './jsm/libs/stats.module.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ConvexObjectBreaker } from './jsm/misc/ConvexObjectBreaker.js';
+import { ConvexGeometry } from './jsm/geometries/ConvexGeometry.js';
 Page({
     webgl_touch(e){
         const web_e = Event.fix(e)

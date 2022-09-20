@@ -2,13 +2,13 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { NodeMaterial, color, uv, mix, mul, checker } from '../jsm/nodes/Nodes.js';
+import { NodeMaterial, color, uv, mix, mul, checker } from './jsm/nodes/Nodes.js';
 
-import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
+import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,11 +1,11 @@
 // webgl/webgl_loader_md2_control.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { MD2CharacterComplex } from '../jsm/misc/MD2CharacterComplex.js';
-import { Gyroscope } from '../jsm/misc/Gyroscope.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { MD2CharacterComplex } from './jsm/misc/MD2CharacterComplex.js';
+import { Gyroscope } from './jsm/misc/Gyroscope.js';
 
 Page({
   onUnload(){

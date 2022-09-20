@@ -2,12 +2,12 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 
-import { RGBShiftShader } from '../jsm/shaders/RGBShiftShader.js';
-import { DotScreenShader } from '../jsm/shaders/DotScreenShader.js';
+import { RGBShiftShader } from './jsm/shaders/RGBShiftShader.js';
+import { DotScreenShader } from './jsm/shaders/DotScreenShader.js';
 
 Page({
   onUnload(){

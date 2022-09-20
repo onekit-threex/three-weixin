@@ -1,13 +1,13 @@
 // webgl_nodes/webgl_nodes_loader_gltf_iridescence.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { NodeMaterial, uv, add, mul, vec2, checker, float, timerLocal } from '../jsm/nodes/Nodes.js';
+import { NodeMaterial, uv, add, mul, vec2, checker, float, timerLocal } from './jsm/nodes/Nodes.js';
 
-import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
+import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

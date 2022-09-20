@@ -1,13 +1,13 @@
 // webgl/webgl_loader_mmd.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { OutlineEffect } from '../jsm/effects/OutlineEffect.js';
-import { MMDLoader } from '../jsm/loaders/MMDLoader.js';
-import { MMDAnimationHelper } from '../jsm/animation/MMDAnimationHelper.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
+import { MMDLoader } from './jsm/loaders/MMDLoader.js';
+import { MMDAnimationHelper } from './jsm/animation/MMDAnimationHelper.js';
 
 const  Ammo = new function(){return new Promise((callback)=>{
 

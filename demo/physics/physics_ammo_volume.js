@@ -5,12 +5,12 @@ import {
 	requestAnimationFrame
 } from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
 import {
 	OrbitControls
-} from '../jsm/controls/OrbitControls.js';
-import * as BufferGeometryUtils from '../jsm/utils/BufferGeometryUtils.js';
+} from './jsm/controls/OrbitControls.js';
+import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 
 Page({
   onUnload(){

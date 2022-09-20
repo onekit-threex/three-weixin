@@ -1,9 +1,9 @@
 // physics/physics_ammo_instancing.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { AmmoPhysics } from './jsm/physics/AmmoPhysics.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

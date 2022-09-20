@@ -306,16 +306,16 @@ export default {
 		"webaudio_timing",
 		"webaudio_visualizer"
 	],
-	"games": [
-		"games_fps"
-	],
 	"physics": [
 		"physics_ammo_break",
 		"physics_ammo_cloth",
 		"physics_ammo_instancing",
 		"physics_ammo_rope",
 		"physics_ammo_terrain",
-		"physics_ammo_volume",
+		"physics_ammo_volume"
+    ],
+    "physics2": [
+        "games_fps",
 		"physics_oimo_instancing"
 	],
 	"misc": [
@@ -339,22 +339,16 @@ export default {
 		"misc_exporter_usdz",
 		"misc_lookat"
 	],
-	"css2d": [
-		"css2d_label"
-	],
-	"css3d": [
+	"other": [
+		"css2d_label",
 		"css3d_molecules",
 		"css3d_orthographic",
 		"css3d_periodictable",
 		"css3d_sandbox",
 		"css3d_sprites",
-		"css3d_youtube"
-	],
-	"svg": [
+		"css3d_youtube",
 		"svg_lines",
-		"svg_sandbox"
-	],
-	"tests": [
+		"svg_sandbox",
 		"webgl_furnace_test",
 		"webgl_pmrem_test",
 		"misc_uv_tests"

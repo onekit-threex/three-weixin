@@ -2,8 +2,8 @@ import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} f
 import * as THREE from 'three-weixin';
 
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import * as SkeletonUtils from '../jsm/utils/SkeletonUtils.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import * as SkeletonUtils from './jsm/utils/SkeletonUtils.js';
 
 Page({
   onUnload(){

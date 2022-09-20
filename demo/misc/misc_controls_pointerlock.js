@@ -2,7 +2,7 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { PointerLockControls } from '../jsm/controls/PointerLockControls.js';
+import { PointerLockControls } from './jsm/controls/PointerLockControls.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

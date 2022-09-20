@@ -1,8 +1,8 @@
 // webgl/webgl_loader_3ds.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { TrackballControls } from '../jsm/controls/TrackballControls.js';
-import { TDSLoader } from '../jsm/loaders/TDSLoader.js';
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
+import { TDSLoader } from './jsm/loaders/TDSLoader.js';
 
 Page({
   onUnload(){

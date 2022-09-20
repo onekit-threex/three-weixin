@@ -1,11 +1,11 @@
 // webgl/webgl_shadow_contact.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { HorizontalBlurShader } from '../jsm/shaders/HorizontalBlurShader.js';
-import { VerticalBlurShader } from '../jsm/shaders/VerticalBlurShader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { HorizontalBlurShader } from './jsm/shaders/HorizontalBlurShader.js';
+import { VerticalBlurShader } from './jsm/shaders/VerticalBlurShader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,9 +1,9 @@
 // misc/misc_exporter_gltf.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
-import { GLTFExporter } from '../jsm/exporters/GLTFExporter.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
+import { GLTFExporter } from './jsm/exporters/GLTFExporter.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 Page({
   onUnload(){

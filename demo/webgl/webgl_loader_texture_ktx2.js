@@ -2,8 +2,8 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { KTX2Loader } from '../jsm/loaders/KTX2Loader.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { KTX2Loader } from './jsm/loaders/KTX2Loader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
 Page({
   onUnload(){

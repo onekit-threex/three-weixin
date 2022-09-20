@@ -2,11 +2,11 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { BloomPass } from '../jsm/postprocessing/BloomPass.js';
-import { CopyShader } from '../jsm/shaders/CopyShader.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { BloomPass } from './jsm/postprocessing/BloomPass.js';
+import { CopyShader } from './jsm/shaders/CopyShader.js';
 Page({
     data:{
         onekit_path:getApp().onekit_path

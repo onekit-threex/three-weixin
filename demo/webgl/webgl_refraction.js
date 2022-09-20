@@ -1,9 +1,9 @@
 // webgl/webgl_refraction.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { Refractor } from '../jsm/objects/Refractor.js';
-import { WaterRefractionShader } from '../jsm/shaders/WaterRefractionShader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { Refractor } from './jsm/objects/Refractor.js';
+import { WaterRefractionShader } from './jsm/shaders/WaterRefractionShader.js';
 
 Page({
   onUnload(){

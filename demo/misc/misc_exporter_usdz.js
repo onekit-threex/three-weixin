@@ -2,11 +2,11 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,Blob,URL} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { USDZExporter } from '../jsm/exporters/USDZExporter.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { USDZExporter } from './jsm/exporters/USDZExporter.js';
 
 Page({
   onUnload(){

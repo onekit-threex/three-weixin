@@ -2,8 +2,8 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { BVHLoader } from '../jsm/loaders/BVHLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { BVHLoader } from './jsm/loaders/BVHLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

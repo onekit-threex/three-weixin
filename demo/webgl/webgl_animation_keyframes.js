@@ -1,13 +1,13 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { DRACOLoader } from '../jsm/loaders/DRACOLoader.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 var requestId;
 Page({
     webgl_touch(e){

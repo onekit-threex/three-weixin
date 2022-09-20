@@ -1,14 +1,14 @@
 // webgl_advanced/webgl_lightningstrike.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { LightningStrike } from '../jsm/geometries/LightningStrike.js';
-import { LightningStorm } from '../jsm/objects/LightningStorm.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { OutlinePass } from '../jsm/postprocessing/OutlinePass.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { LightningStrike } from './jsm/geometries/LightningStrike.js';
+import { LightningStorm } from './jsm/objects/LightningStorm.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { OutlinePass } from './jsm/postprocessing/OutlinePass.js';
 
 Page({
   onUnload(){

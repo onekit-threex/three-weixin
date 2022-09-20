@@ -2,16 +2,16 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { BleachBypassShader } from '../jsm/shaders/BleachBypassShader.js';
-import { ColorCorrectionShader } from '../jsm/shaders/ColorCorrectionShader.js';
-import { FXAAShader } from '../jsm/shaders/FXAAShader.js';
-import { GammaCorrectionShader } from '../jsm/shaders/GammaCorrectionShader.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { BleachBypassShader } from './jsm/shaders/BleachBypassShader.js';
+import { ColorCorrectionShader } from './jsm/shaders/ColorCorrectionShader.js';
+import { FXAAShader } from './jsm/shaders/FXAAShader.js';
+import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
 
 Page({
   onUnload(){

@@ -2,8 +2,8 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import initJank from '../jsm/offscreen/jank.js';
-import init from '../jsm/offscreen/scene.js';
+import initJank from './jsm/offscreen/jank.js';
+import init from './jsm/offscreen/scene.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

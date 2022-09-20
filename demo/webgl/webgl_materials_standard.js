@@ -2,12 +2,12 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { TrackballControls } from '../jsm/controls/TrackballControls.js';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 
 Page({
   onUnload(){

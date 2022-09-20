@@ -1,13 +1,13 @@
 // webgl_nodes/webgl_nodes_materials_instance_uniform.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { MeshStandardNodeMaterial, Node, NodeUpdateType, uniform, cubeTexture, add, mul } from '../jsm/nodes/Nodes.js';
+import { MeshStandardNodeMaterial, Node, NodeUpdateType, uniform, cubeTexture, add, mul } from './jsm/nodes/Nodes.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
+import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

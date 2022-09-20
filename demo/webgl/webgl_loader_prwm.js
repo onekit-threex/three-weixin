@@ -1,7 +1,7 @@
 // webgl/webgl_loader_prwm.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { PRWMLoader } from '../jsm/loaders/PRWMLoader.js';
+import { PRWMLoader } from './jsm/loaders/PRWMLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

@@ -1,16 +1,16 @@
 // webgl/webgl_lines_fat_raycasting.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
-			import { GPUStatsPanel } from '../jsm/utils/GPUStatsPanel.js';
+import Stats from './jsm/libs/stats.module.js';
+			import { GPUStatsPanel } from './jsm/utils/GPUStatsPanel.js';
 
-			import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { LineMaterial } from '../jsm/lines/LineMaterial.js';
-			import { LineSegments2 } from '../jsm/lines/LineSegments2.js';
-			import { LineSegmentsGeometry } from '../jsm/lines/LineSegmentsGeometry.js';
-			import { Line2 } from '../jsm/lines/Line2.js';
-			import { LineGeometry } from '../jsm/lines/LineGeometry.js';
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { LineMaterial } from './jsm/lines/LineMaterial.js';
+			import { LineSegments2 } from './jsm/lines/LineSegments2.js';
+			import { LineSegmentsGeometry } from './jsm/lines/LineSegmentsGeometry.js';
+			import { Line2 } from './jsm/lines/Line2.js';
+			import { LineGeometry } from './jsm/lines/LineGeometry.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

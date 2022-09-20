@@ -1,13 +1,13 @@
 // webgl/webgl_materials_envmaps_hdr.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-			import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { HDRCubeTextureLoader } from '../jsm/loaders/HDRCubeTextureLoader.js';
-			import { RGBMLoader } from '../jsm/loaders/RGBMLoader.js';
-			import { DebugEnvironment } from '../jsm/environments/DebugEnvironment.js';
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { HDRCubeTextureLoader } from './jsm/loaders/HDRCubeTextureLoader.js';
+			import { RGBMLoader } from './jsm/loaders/RGBMLoader.js';
+			import { DebugEnvironment } from './jsm/environments/DebugEnvironment.js';
 
 Page({
   onUnload(){

@@ -1,17 +1,17 @@
 // webgl_nodes/webgl_nodes_points.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import * as Nodes from '../jsm/nodes/Nodes.js';
+import * as Nodes from './jsm/nodes/Nodes.js';
 
-			import Stats from '../jsm/libs/stats.module.js';
+			import Stats from './jsm/libs/stats.module.js';
 
-			import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-			import { TeapotGeometry } from '../jsm/geometries/TeapotGeometry.js';
+			import { TeapotGeometry } from './jsm/geometries/TeapotGeometry.js';
 
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-			import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
+			import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

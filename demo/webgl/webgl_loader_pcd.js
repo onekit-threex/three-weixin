@@ -2,8 +2,8 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { PCDLoader } from '../jsm/loaders/PCDLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { PCDLoader } from './jsm/loaders/PCDLoader.js';
 
 Page({
   onUnload(){

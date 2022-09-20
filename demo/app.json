@@ -334,12 +334,6 @@
         ]
     },
     {
-        "root": "games",
-        "pages": [
-            "games_fps"
-        ]
-    },
-    {
         "root": "physics",
         "pages": [
             "physics_ammo_break",
@@ -347,7 +341,13 @@
             "physics_ammo_instancing",
             "physics_ammo_rope",
             "physics_ammo_terrain",
-            "physics_ammo_volume",
+            "physics_ammo_volume"
+        ]
+    },
+    {
+        "root": "physics2",
+        "pages": [
+            "games_fps",
             "physics_oimo_instancing"
         ]
     },
@@ -376,32 +376,17 @@
         ]
     },
     {
-        "root": "css2d",
+        "root": "other",
         "pages": [
-            "css2d_label"
-        ]
-    },
-    {
-        "root": "css3d",
-        "pages": [
+            "css2d_label",
             "css3d_molecules",
             "css3d_orthographic",
             "css3d_periodictable",
             "css3d_sandbox",
             "css3d_sprites",
-            "css3d_youtube"
-        ]
-    },
-    {
-        "root": "svg",
-        "pages": [
+            "css3d_youtube",
             "svg_lines",
-            "svg_sandbox"
-        ]
-    },
-    {
-        "root": "tests",
-        "pages": [
+            "svg_sandbox",
             "webgl_furnace_test",
             "webgl_pmrem_test",
             "misc_uv_tests"

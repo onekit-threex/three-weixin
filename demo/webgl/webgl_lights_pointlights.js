@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

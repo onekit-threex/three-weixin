@@ -1,9 +1,9 @@
 // webgl/webgl_geometry_text_stroke.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { SVGLoader } from '../jsm/loaders/SVGLoader.js';
-import { FontLoader } from '../jsm/loaders/FontLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { SVGLoader } from './jsm/loaders/SVGLoader.js';
+import { FontLoader } from './jsm/loaders/FontLoader.js';
 
 Page({
   onUnload(){

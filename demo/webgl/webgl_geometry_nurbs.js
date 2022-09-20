@@ -1,11 +1,11 @@
 // webgl/webgl_geometry_nurbs.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-			import { NURBSCurve } from '../jsm/curves/NURBSCurve.js';
-			import { NURBSSurface } from '../jsm/curves/NURBSSurface.js';
-			import { ParametricGeometry } from '../jsm/geometries/ParametricGeometry.js';
+			import { NURBSCurve } from './jsm/curves/NURBSCurve.js';
+			import { NURBSSurface } from './jsm/curves/NURBSSurface.js';
+			import { ParametricGeometry } from './jsm/geometries/ParametricGeometry.js';
 Page({
   onUnload(){
     cancelAnimationFrame()

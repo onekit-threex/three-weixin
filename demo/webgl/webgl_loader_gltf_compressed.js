@@ -1,12 +1,12 @@
 // webgl/webgl_loader_gltf_compressed.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
-			import { KTX2Loader } from '../jsm/loaders/KTX2Loader.js';
-            import { MeshoptDecoder } from '../jsm/libs/meshopt_decoder.module.js';
+			import { KTX2Loader } from './jsm/loaders/KTX2Loader.js';
+            import { MeshoptDecoder } from './jsm/libs/meshopt_decoder.module.js';
             
 
 Page({

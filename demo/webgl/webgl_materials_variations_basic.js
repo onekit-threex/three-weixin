@@ -1,11 +1,11 @@
 // webgl/webgl_materials_variations_basic.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { FontLoader } from '../jsm/loaders/FontLoader.js';
-import { TextGeometry } from '../jsm/geometries/TextGeometry.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { FontLoader } from './jsm/loaders/FontLoader.js';
+import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 
 Page({
   onUnload(){
