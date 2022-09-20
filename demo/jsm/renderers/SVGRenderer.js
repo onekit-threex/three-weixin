@@ -11,7 +11,7 @@ import { Projector } from '../renderers/Projector.js';
 import { RenderableFace } from '../renderers/Projector.js';
 import { RenderableLine } from '../renderers/Projector.js';
 import { RenderableSprite } from '../renderers/Projector.js';
-
+import {document} from "dhtml-weixin"
 class SVGObject extends Object3D {
 
 	constructor( node ) {
