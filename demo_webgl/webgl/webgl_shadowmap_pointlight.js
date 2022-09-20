@@ -34,7 +34,7 @@ var that = this
 			init();
 			animate();
 
-			function init() {
+		await	function init() {
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
 				camera.position.set( 0, 10, 40 );
@@ -44,7 +44,7 @@ var that = this
 
 				// lights
 
-				function createLight( color ) {
+		async		function createLight( color ) {
 
 					const intensity = 1.5;
 
@@ -58,7 +58,7 @@ var that = this
 					let sphere = new THREE.Mesh( geometry, material );
 					light.add( sphere );
 
-					const texture = new THREE.CanvasTexture( generateTexture() );
+					const texture = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, generateTexture() ));
 					texture.magFilter = THREE.NearestFilter;
 					texture.wrapT = THREE.RepeatWrapping;
 					texture.wrapS = THREE.RepeatWrapping;

@@ -1,5 +1,5 @@
 // webgl/webgl_modifier_edgesplit.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { OBJLoader } from './jsm/loaders/OBJLoader.js';

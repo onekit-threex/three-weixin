@@ -1,5 +1,5 @@
 // webgl/webgl_loader_texture_ktx.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  { KTXLoader } from './jsm/loaders/KTXLoader.js';
 var requestId

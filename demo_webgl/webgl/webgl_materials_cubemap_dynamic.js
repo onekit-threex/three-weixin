@@ -1,5 +1,5 @@
 // webgl/webgl_materials_cubemap_dynamic.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { RGBELoader } from './jsm/loaders/RGBELoader.js';

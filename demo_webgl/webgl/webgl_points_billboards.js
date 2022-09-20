@@ -1,5 +1,5 @@
 // webgl/webgl_points_billboards.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  Stats from './jsm/libs/stats.module.js';
 

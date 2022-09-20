@@ -1,4 +1,4 @@
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  { GUI } from './jsm/libs/lil-gui.module.min.js';
 
@@ -36,9 +36,9 @@ var that = this
 
         let params;
 
-        init();
+        await init();
 
-        function init() {
+   async     function init() {
 
             container = document.getElementById( 'container' );
 
@@ -60,7 +60,7 @@ var that = this
             orthoCamera.position.set( 0.5, 0, 1 );
 
             sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
-                map: new THREE.CanvasTexture( lut.createCanvas() )
+                map: new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, lut.createCanvas() ))
             } ) );
             sprite.scale.x = 0.125;
             uiScene.add( sprite );

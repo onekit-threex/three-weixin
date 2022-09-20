@@ -1,5 +1,5 @@
 // webgl/webgl_loader_texture_tiff.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  { TIFFLoader } from './jsm/loaders/TIFFLoader.js';
 var requestId

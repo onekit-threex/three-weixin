@@ -1,5 +1,5 @@
 // webgl/webgl_materials_physical_transmission.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  { GUI } from './jsm/libs/lil-gui.module.min.js';
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
@@ -50,16 +50,16 @@ var that = this
 
 			const hdrEquirect = new RGBELoader()
 				.setPath( 'textures/equirectangular/' )
-				.load( 'royal_esplanade_1k.hdr', function () {
+				.load( 'royal_esplanade_1k.hdr',async function () {
 
 					hdrEquirect.mapping = THREE.EquirectangularReflectionMapping;
 
-					init();
+		await			init();
 					render();
 
 				} );
 
-			function init() {
+	async		function init() {
 
 				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
@@ -85,7 +85,7 @@ var that = this
 
 				const geometry = new THREE.SphereGeometry( 20, 64, 32 );
 
-				const texture = new THREE.CanvasTexture( generateTexture() );
+				const texture = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, generateTexture()) );
 				texture.magFilter = THREE.NearestFilter;
 				texture.wrapT = THREE.RepeatWrapping;
 				texture.wrapS = THREE.RepeatWrapping;

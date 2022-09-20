@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "pako": "^1.0.5",
-    "three-weixin": "^2.3.3"
+    "three-weixin": "^2.5.1"
   },
   "devDependencies": {},
   "scripts": {

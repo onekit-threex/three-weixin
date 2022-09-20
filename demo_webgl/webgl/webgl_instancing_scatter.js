@@ -1,5 +1,5 @@
 // webgl/webgl_instancing_scatter.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 
 import { MeshSurfaceSampler } from './jsm/math/MeshSurfaceSampler.js';

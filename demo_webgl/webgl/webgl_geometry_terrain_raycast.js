@@ -90,7 +90,7 @@ var that = this
 
             //
 
-            texture = new THREE.CanvasTexture(await generateTexture( data, worldWidth, worldDepth ) );
+            texture = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d,await generateTexture( data, worldWidth, worldDepth ) ));
             texture.wrapS = THREE.ClampToEdgeWrapping;
             texture.wrapT = THREE.ClampToEdgeWrapping;
 

@@ -1,5 +1,5 @@
 // webgl/webgl_geometry_colors.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 var requestId
@@ -36,10 +36,10 @@ var that = this
 			let windowHalfX = window.innerWidth / 2;
 			let windowHalfY = window.innerHeight / 2;
 
-			init();
+			await init();
 			animate();
 
-			function init() {
+		async	function init() {
 
 				container = document.getElementById( 'container' );
 
@@ -67,7 +67,7 @@ var that = this
 				context.fillStyle = gradient;
 				context.fillRect( 0, 0, canvas.width, canvas.height );
 
-				const shadowTexture = new THREE.CanvasTexture( canvas );
+				const shadowTexture = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, canvas ));
 
 				const shadowMaterial = new THREE.MeshBasicMaterial( { map: shadowTexture } );
 				const shadowGeo = new THREE.PlaneGeometry( 300, 300, 1, 1 );

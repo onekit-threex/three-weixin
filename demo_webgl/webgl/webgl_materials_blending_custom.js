@@ -1,5 +1,5 @@
 // webgl/webgl_materials_blending_custom.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 var requestId
@@ -37,10 +37,10 @@ var that = this
 
 			const equations = { Add: THREE.AddEquation, Subtract: THREE.SubtractEquation, ReverseSubtract: THREE.ReverseSubtractEquation, Min: THREE.MinEquation, Max: THREE.MaxEquation };
 
-			init();
+			await init();
 			animate();
 
-			function init() {
+		async	function init() {
 
 				// CAMERA
 
@@ -67,7 +67,7 @@ var that = this
 				ctx.fillStyle = '#777';
 				ctx.fillRect( 96, 96, 32, 32 );
 
-				mapBg = new THREE.CanvasTexture( canvas );
+				mapBg = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, canvas) );
 				mapBg.wrapS = mapBg.wrapT = THREE.RepeatWrapping;
 				mapBg.repeat.set( 64, 32 );
 
@@ -147,7 +147,7 @@ var that = this
 					const z = 0;
 					const y = ( 0 - dst.length / 2 ) * 110 + 50;
 
-					const mesh = new THREE.Mesh( geo2, generateLabelMaterial( blendSrc.name, 'rgba( 0, 150, 0, 1 )' ) );
+					const mesh = new THREE.Mesh( geo2,await generateLabelMaterial( blendSrc.name, 'rgba( 0, 150, 0, 1 )' ) );
 					mesh.position.set( x, - ( y - 70 ), z );
 					mesh.matrixAutoUpdate = false;
 					mesh.updateMatrix();
@@ -163,7 +163,7 @@ var that = this
 					const z = 0;
 					const y = ( i - dst.length / 2 ) * 110 + 165;
 
-					const mesh = new THREE.Mesh( geo2, generateLabelMaterial( blendDst.name, 'rgba( 150, 0, 0, 1 )' ) );
+					const mesh = new THREE.Mesh( geo2,await  generateLabelMaterial( blendDst.name, 'rgba( 150, 0, 0, 1 )' ) );
 					mesh.position.set( x, - ( y - 120 ), z );
 					mesh.matrixAutoUpdate = false;
 					mesh.updateMatrix();
@@ -205,7 +205,7 @@ var that = this
 
 			//
 
-			function generateLabelMaterial( text, bg ) {
+		async	function generateLabelMaterial( text, bg ) {
 
 				const canvas = document.createElement( 'canvas' );
 				const ctx = canvas.getContext( '2d' );
@@ -219,7 +219,7 @@ var that = this
 				ctx.font = 'bold 11pt arial';
 				ctx.fillText( text, 8, 22 );
 
-				const map = new THREE.CanvasTexture( canvas );
+				const map = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, canvas ));
 
 				const material = new THREE.MeshBasicMaterial( { map: map, transparent: true } );
 				return material;

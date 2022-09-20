@@ -1,5 +1,5 @@
 // webgl/webgl_materials_physical_clearcoat.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import  Stats from './jsm/libs/stats.module.js';
 
@@ -58,7 +58,7 @@ var that = this
 				new HDRCubeTextureLoader()
 					.setPath( 'textures/cube/pisaHDR/' )
 					.load( [ 'px.hdr', 'nx.hdr', 'py.hdr', 'ny.hdr', 'pz.hdr', 'nz.hdr' ],
-						function ( texture ) {
+				async		function ( texture ) {
 
 							const geometry = new THREE.SphereGeometry( 80, 64, 32 );
 
@@ -77,7 +77,7 @@ var that = this
 
 							const normalMap2 = textureLoader.load( 'textures/water/Water_1_M_Normal.jpg' );
 
-							const normalMap3 = new THREE.CanvasTexture( new FlakesTexture() );
+							const normalMap3 = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, new FlakesTexture() ));
 							normalMap3.wrapS = THREE.RepeatWrapping;
 							normalMap3.wrapT = THREE.RepeatWrapping;
 							normalMap3.repeat.x = 10;

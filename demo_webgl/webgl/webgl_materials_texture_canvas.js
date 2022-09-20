@@ -1,5 +1,5 @@
 // webgl/webgl_materials_texture_canvas.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 var requestId
 Page({
@@ -70,7 +70,7 @@ var that = this
 
 				// set canvas as material.map (this could be done to any map, bump, displacement etc.)
 
-				material.map = new THREE.CanvasTexture( drawingCanvas );
+				material.map = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, drawingCanvas ));
 
 				// set the variable to keep track of when to draw
 

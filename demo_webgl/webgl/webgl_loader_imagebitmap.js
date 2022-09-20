@@ -34,9 +34,9 @@ var that = this
         function addImageBitmap() {
 
             new THREE.ImageBitmapLoader()
-                .load( 'textures/planets/earth_atmos_2048.jpg?' + performance.now(), function ( imageBitmap ) {
+                .load( 'textures/planets/earth_atmos_2048.jpg?' + performance.now(),async function ( imageBitmap ) {
 
-                    const texture = new THREE.CanvasTexture( imageBitmap );
+                    const texture = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, imageBitmap ));
                     const material = new THREE.MeshBasicMaterial( { map: texture } );
 
                     /* ImageBitmap should be disposed when done with it
@@ -62,9 +62,9 @@ var that = this
 
             new THREE.ImageLoader( )
                 .setCrossOrigin( '*' )
-                .load( 'textures/planets/earth_atmos_2048.jpg?' + performance.now(), function ( image ) {
+                .load( 'textures/planets/earth_atmos_2048.jpg?' + performance.now(),async function ( image ) {
 
-                    const texture = new THREE.CanvasTexture( image );
+                    const texture = new THREE.CanvasTexture(await core.Canvas.canvas2image(canvas3d, image ));
                     const material = new THREE.MeshBasicMaterial( { color: 0xff8888, map: texture } );
                     addCube( material );
 
