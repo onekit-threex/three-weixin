@@ -62,7 +62,6 @@ export default {
 		"webgl_lights_pointlights",
 		"webgl_lights_spotlight",
 		"webgl_lights_spotlights",
-		"webgl_lights_rectarealight",
 		"webgl_lines_colors",
 		"webgl_lines_dashed",
 		"webgl_lines_fat",
@@ -96,9 +95,6 @@ export default {
 		"webgl_loader_md2",
 		"webgl_loader_md2_control",
 		"webgl_loader_mdd",
-		"webgl_loader_mmd",
-		"webgl_loader_mmd_pose",
-		"webgl_loader_mmd_audio",
 		"webgl_loader_nrrd",
 		"webgl_loader_obj",
 		"webgl_loader_obj_mtl",
@@ -230,6 +226,10 @@ export default {
 		"webgl_animation_keyframes"
     ],
     "webgl_ttf":[
+		"webgl_loader_mmd",
+		"webgl_loader_mmd_pose",
+		"webgl_loader_mmd_audio",
+		"webgl_lights_rectarealight",
 		"webgl_loader_ttf"
     ],
 	"webgl_nodes": [

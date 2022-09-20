@@ -1,2 +1,7 @@
-<!--other/webgl_pmrem_test.wxml-->
-<text>other/webgl_pmrem_test.wxml</text>
+<canvas id="canvas_webgl" type="webgl"  
+    disable-scroll="true"
+    bindtouchstart="webgl_touch"
+    bindtouchmove="webgl_touch"
+    bindtouchend="webgl_touch"
+    bindtouchcancel="webgl_touch">
+    </canvas>
