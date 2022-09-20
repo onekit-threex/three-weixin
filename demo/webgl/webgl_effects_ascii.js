@@ -21,9 +21,7 @@ if( this.renderer){
         this.canvas.dispatchEvent(web_e)
     },
 async onLoad() {
-         this.canvas =   document.createElement("canvas","webgl")
-         const canvas3d = new HTMLCanvasElement(this.canvas)
-        //this.canvas2d =  document.createElement("canvas","2d")
+    const canvas3d =     this.canvas =  document.createElement("canvas","webgl")
         var that = this
         let camera, controls, scene, renderer, effect;
 

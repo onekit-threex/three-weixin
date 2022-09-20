@@ -199,7 +199,7 @@ class AsciiEffect {
         async function asciifyImage(oAscii) {      
             //   console.error(oAscii)
             oCtx.clearRect(0, 0, iWidth, iHeight);
-            oCtx.drawImage(await core.Canvas.fix(oCanvasImg,oCanvas), 0, 0, iWidth, iHeight);
+            oCtx.drawImage((await core.Canvas.fix(oCanvas,oCanvasImg)).image, 0, 0, iWidth, iHeight);
             const oImgData = oCtx.getImageData(0, 0, iWidth, iHeight).data;
    
 
