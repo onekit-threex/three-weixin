@@ -13597,7 +13597,7 @@
 
 	module.exports = function () {
 		return new Promise(function (resolve, reject) {
-			waitForAmmoInstantiation('jsm/ammo/ammo.wasm.wasm').then(
+			waitForAmmoInstantiation('physics/jsm/ammo/ammo.wasm.wasm').then(
 				() => {
 					getApp().onekit_ammo = Ammo;
 					resolve();

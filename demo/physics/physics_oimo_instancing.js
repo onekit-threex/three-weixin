@@ -2,7 +2,7 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from 'three-weixin';
 import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { OimoPhysics } from '../jsm/physics/OimoPhysics.js';
+import { OimoPhysics } from './jsm/physics/OimoPhysics.js';
 import Stats from '../jsm/libs/stats.module.js';
 Page({
   onUnload(){
