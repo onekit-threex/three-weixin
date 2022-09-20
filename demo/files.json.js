@@ -120,7 +120,6 @@ export default {
 		"webgl_loader_texture_rgbm",
 		"webgl_loader_texture_tga",
 		"webgl_loader_texture_tiff",
-		"webgl_loader_ttf",
         "webgl_loader_usdz",
 		"webgl_loader_vox",
 		"webgl_loader_vrml",
@@ -229,7 +228,10 @@ export default {
 		"webgl_water",
 		"webgl_water_flowmap",
 		"webgl_animation_keyframes"
-	],
+    ],
+    "webgl_ttf":[
+		"webgl_loader_ttf"
+    ],
 	"webgl_nodes": [
 		"webgl_nodes_loader_gltf_iridescence",
 		"webgl_nodes_loader_gltf_transmission",
@@ -306,7 +308,15 @@ export default {
 		"webaudio_timing",
 		"webaudio_visualizer"
 	],
-	"physics": [
+	"physics_wasm": [
+		"physics_ammo_break",
+		"physics_ammo_cloth",
+		"physics_ammo_instancing",
+		"physics_ammo_rope",
+		"physics_ammo_terrain",
+		"physics_ammo_volume"
+    ],
+    "physics_js": [
 		"physics_ammo_break",
 		"physics_ammo_cloth",
 		"physics_ammo_instancing",
