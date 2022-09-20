@@ -39,7 +39,7 @@ const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl
     let transformAux1;
 
     let armMovement = 0;
-var Ammo = require("../jsm/ammo/index")
+var Ammo = require("./jsm/ammo/index")
     Ammo().then( function (  ) {
 
         Ammo = getApp().onekit_ammo;

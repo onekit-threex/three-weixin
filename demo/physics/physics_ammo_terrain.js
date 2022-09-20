@@ -54,7 +54,7 @@ const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl
     const objectTimePeriod = 3;
     let timeNextSpawn = time + objectTimePeriod;
     const maxNumObjects = 30;
-var Ammo = require("../jsm/ammo/index")
+var Ammo = require("./jsm/ammo/index")
     Ammo().then( function ( AmmoLib ) {
 
         Ammo = getApp().onekit_ammo//AmmoLib;

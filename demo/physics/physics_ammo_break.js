@@ -28,7 +28,7 @@ Page({
 async onLoad(){
 var that = this
 const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
-var Ammo = require("../jsm/ammo/index.js")
+var Ammo = require("./jsm/ammo/index.js")
 
 		// - Global variables -
 

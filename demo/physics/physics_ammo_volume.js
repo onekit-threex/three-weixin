@@ -52,7 +52,7 @@ var that = this
 		const margin = 0.05;
 		let transformAux1;
 		let softBodyHelpers;
-		var Ammo = require("../jsm/ammo/index")
+		var Ammo = require("./jsm/ammo/index")
 		Ammo().then(function (AmmoLib) {
 
 			Ammo = getApp().onekit_ammo //AmmoLib;
