@@ -6,12 +6,6 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { ConvexObjectBreaker } from './jsm/misc/ConvexObjectBreaker.js';
 import { ConvexGeometry } from './jsm/geometries/ConvexGeometry.js';
 Page({
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        document .dispatchEvent(web_e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()
