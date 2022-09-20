@@ -5,12 +5,19 @@ Page({
         
       
         const sections = []
-     for(const sectionName of Object.keys(files)){
-        sections.push({
-            sectionName,
-            demos:files[sectionName]
-        })
-     }
+        const platform = wx.getSystemInfoSync()
+		for (const sectionName of Object.keys(files)) {
+			if (sectionName.startsWith("physics_")) {
+                const type = platform=="ios"?"js":"wasm"
+				if (!sectionName.endsWith("_"+type)) {
+                    continue
+                }
+			}
+			sections.push({
+				sectionName,
+				demos: files[sectionName]
+			})
+		}
      this.setData({sections})
  
     }
