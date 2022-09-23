@@ -5,7 +5,21 @@ import { TrackballControls } from './jsm/controls/TrackballControls.js';
 import { PDBLoader } from './jsm/loaders/PDBLoader.js';
 import { CSS3DRenderer, CSS3DObject, CSS3DSprite } from './jsm/renderers/CSS3DRenderer.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

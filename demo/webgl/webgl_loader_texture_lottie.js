@@ -5,7 +5,21 @@ import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 import { RoundedBoxGeometry } from './jsm/geometries/RoundedBoxGeometry.js';
 import { LottieLoader } from './jsm/loaders/LottieLoader.js';
 
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

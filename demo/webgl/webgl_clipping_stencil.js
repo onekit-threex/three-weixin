@@ -3,7 +3,21 @@ import * as THREE from 'three-weixin';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 import Stats from './jsm/libs/stats.module.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

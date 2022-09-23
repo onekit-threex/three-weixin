@@ -9,7 +9,21 @@ import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 var requestId;
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
     webgl_touch(e){
         const web_e = Event.fix(e)
         window.dispatchEvent(web_e)

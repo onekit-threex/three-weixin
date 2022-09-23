@@ -12,7 +12,21 @@ import { RenderPass } from './jsm/postprocessing/RenderPass.js';
 import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 import { OutlinePass } from './jsm/postprocessing/OutlinePass.js';
 import { FXAAShader } from './jsm/shaders/FXAAShader.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

@@ -5,7 +5,21 @@ import * as THREE from 'three-weixin';
 import { TTFLoader } from './jsm/loaders/TTFLoader.js';
 import { Font } from './jsm/loaders/FontLoader.js';
 import { TextGeometry } from './jsm/geometries/TextGeometry.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

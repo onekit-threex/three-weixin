@@ -21,7 +21,21 @@ import {
 import {
     FXAAShader
 } from './jsm/shaders/FXAAShader.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
     async onLoad() {
 var that = this
         const canvas3d = this.canvas = await document.createElementAsync("canvas", "webgl")

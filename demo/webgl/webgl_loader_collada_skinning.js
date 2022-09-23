@@ -6,7 +6,21 @@ import Stats from './jsm/libs/stats.module.js';
 
 import { ColladaLoader } from './jsm/loaders/ColladaLoader.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

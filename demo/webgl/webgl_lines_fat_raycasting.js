@@ -11,7 +11,21 @@ import Stats from './jsm/libs/stats.module.js';
 			import { LineSegmentsGeometry } from './jsm/lines/LineSegmentsGeometry.js';
 			import { Line2 } from './jsm/lines/Line2.js';
 			import { LineGeometry } from './jsm/lines/LineGeometry.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

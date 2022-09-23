@@ -5,7 +5,21 @@ import Stats from './jsm/libs/stats.module.js';
 
 import { SelectionBox } from './jsm/interactive/SelectionBox.js';
 import { SelectionHelper } from './jsm/interactive/SelectionHelper.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
     webgl_touch(e){
         const web_e = Event.fix(e)
         document.dispatchEvent(web_e)

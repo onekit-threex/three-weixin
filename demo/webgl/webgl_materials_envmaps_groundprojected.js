@@ -8,7 +8,21 @@ import { GroundProjectedEnv } from './jsm/objects/GroundProjectedEnv.js';
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 import { RGBELoader } from './jsm/loaders/RGBELoader.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

@@ -6,7 +6,21 @@ import Stats from './jsm/libs/stats.module.js';
 import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
 import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
 import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

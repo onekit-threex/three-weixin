@@ -10,7 +10,21 @@ import { Line2 } from './jsm/lines/Line2.js';
 import { LineMaterial } from './jsm/lines/LineMaterial.js';
 import { LineGeometry } from './jsm/lines/LineGeometry.js';
 import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

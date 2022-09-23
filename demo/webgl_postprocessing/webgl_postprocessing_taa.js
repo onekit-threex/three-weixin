@@ -10,7 +10,21 @@ import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 import { TAARenderPass } from './jsm/postprocessing/TAARenderPass.js';
 import { CopyShader } from './jsm/shaders/CopyShader.js';
 
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

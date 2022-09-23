@@ -8,7 +8,21 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { MarchingCubes } from './jsm/objects/MarchingCubes.js';
 import { ToonShader1, ToonShader2, ToonShaderHatching, ToonShaderDotted } from './jsm/shaders/ToonShader.js';
 
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

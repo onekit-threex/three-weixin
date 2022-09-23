@@ -8,7 +8,21 @@ import { GUI } from './jsm/libs/lil-gui.module.min.js';
 import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
 import { SSAOPass } from './jsm/postprocessing/SSAOPass.js';
 
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

@@ -22,7 +22,21 @@ import { VignetteShader } from './jsm/shaders/VignetteShader.js';
 import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
 
 import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

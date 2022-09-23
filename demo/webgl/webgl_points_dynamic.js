@@ -11,7 +11,21 @@ import { BloomPass } from './jsm/postprocessing/BloomPass.js';
 import { FilmPass } from './jsm/postprocessing/FilmPass.js';
 import { FocusShader } from './jsm/shaders/FocusShader.js';
 import { OBJLoader } from './jsm/loaders/OBJLoader.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

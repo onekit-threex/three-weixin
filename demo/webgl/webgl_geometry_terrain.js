@@ -7,7 +7,21 @@ import Stats from './jsm/libs/stats.module.js';
 import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
 import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
 
-Page({ 
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    }, 
 	async onLoad() {
 var that = this
         const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")

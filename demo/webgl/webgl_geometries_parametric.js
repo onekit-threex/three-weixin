@@ -6,7 +6,21 @@ import Stats from './jsm/libs/stats.module.js';
 import * as Curves from './jsm/curves/CurveExtras.js';
 import { ParametricGeometry } from './jsm/geometries/ParametricGeometry.js';
 import { ParametricGeometries } from './jsm/geometries/ParametricGeometries.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

@@ -3,7 +3,21 @@ import * as THREE from 'three-weixin';
 import { AsciiEffect } from './jsm/effects/AsciiEffect.js';
 import { TrackballControls } from './jsm/controls/TrackballControls.js';
 var requestId
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
     onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
 

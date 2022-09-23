@@ -6,7 +6,21 @@ import Stats from './jsm/libs/stats.module.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
 var requestId
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)

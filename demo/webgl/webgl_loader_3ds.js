@@ -4,7 +4,21 @@ import * as THREE from 'three-weixin';
 import { TrackballControls } from './jsm/controls/TrackballControls.js';
 import { TDSLoader } from './jsm/loaders/TDSLoader.js';
 
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

@@ -5,7 +5,21 @@ import * as THREE from 'three-weixin';
 import Stats from './jsm/libs/stats.module.js';
 
 import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

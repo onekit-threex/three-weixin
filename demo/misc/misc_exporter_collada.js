@@ -8,7 +8,21 @@ import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { ColladaExporter } from './jsm/exporters/ColladaExporter.js';
 import { TeapotGeometry } from './jsm/geometries/TeapotGeometry.js';
 
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

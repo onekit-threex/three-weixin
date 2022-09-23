@@ -7,7 +7,21 @@ import { RenderPass } from './jsm/postprocessing/RenderPass.js';
 import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 import { BloomPass } from './jsm/postprocessing/BloomPass.js';
 import { CopyShader } from './jsm/shaders/CopyShader.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
     data:{
         onekit_path:getApp().onekit_path
     },

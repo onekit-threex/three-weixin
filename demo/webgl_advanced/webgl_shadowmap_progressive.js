@@ -7,7 +7,21 @@ import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { TransformControls } from './jsm/controls/TransformControls.js';
 import { ProgressiveLightMap } from './jsm/misc/ProgressiveLightMap.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

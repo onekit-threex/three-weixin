@@ -4,7 +4,21 @@ import * as THREE from 'three-weixin';
 import * as CameraUtils from './jsm/utils/CameraUtils.js';
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
   onUnload(){
     cancelAnimationFrame()
     this.renderer.dispose()

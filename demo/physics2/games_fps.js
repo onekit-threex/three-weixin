@@ -12,7 +12,21 @@ import { OctreeHelper } from './jsm/helpers/OctreeHelper.js';
 import { Capsule } from './jsm/math/Capsule.js';
 
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
-Page({
+Page({   
+ onShareAppMessage() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            path:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
+    onShareTimeline() {
+        return {
+            title: "ThreeX 元宇宙利器",
+            query:"/index",
+            imageUrl:"/ThreeX.jpg"
+        }
+    },
     webgl_touch(e){
         const web_e = Event.fix(e)
         window.dispatchEvent(web_e)
