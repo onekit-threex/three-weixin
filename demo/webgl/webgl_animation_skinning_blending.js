@@ -470,7 +470,7 @@ async onLoad() {
 
             // Render loop
 
-            //requestId =requestAnimationFrame(animate);
+            requestId =requestAnimationFrame(animate);
 
             idleWeight = idleAction.getEffectiveWeight();
             walkWeight = walkAction.getEffectiveWeight();
