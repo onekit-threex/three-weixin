@@ -1,41 +1,27 @@
 // webgl_postprocessing/webgl_postprocessing_glitch.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
 
-import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from './jsm/postprocessing/RenderPass.js';
-import { GlitchPass } from './jsm/postprocessing/GlitchPass.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
+import { GlitchPass } from '../jsm/postprocessing/GlitchPass.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer, composer;
 			let object, light;
 
@@ -131,7 +117,7 @@ let camera, scene, renderer, composer;
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				object.rotation.x += 0.005;
 				object.rotation.y += 0.01;

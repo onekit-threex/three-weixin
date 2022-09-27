@@ -1,42 +1,27 @@
 // webgl_advanced/webgl_shadowmap_csm.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
 
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
-import { CSM } from './jsm/csm/CSM.js';
-import { CSMHelper } from './jsm/csm/CSMHelper.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { CSM } from '../jsm/csm/CSM.js';
+import { CSMHelper } from '../jsm/csm/CSMHelper.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let renderer, scene, camera, orthoCamera, controls, csm, csmHelper;
 
 			const params = {
@@ -84,7 +69,7 @@ let renderer, scene, camera, orthoCamera, controls, csm, csmHelper;
 				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 5000 );
 				orthoCamera = new THREE.OrthographicCamera();
 
-				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
 				renderer.shadowMap.enabled = true;
@@ -272,7 +257,7 @@ let renderer, scene, camera, orthoCamera, controls, csm, csmHelper;
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				camera.updateMatrixWorld();
 				csm.update();

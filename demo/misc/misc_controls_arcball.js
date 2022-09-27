@@ -1,45 +1,30 @@
 // misc/misc_controls_arcball.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
 
-import { ArcballControls } from './jsm/controls/ArcballControls.js';
+import { ArcballControls } from '../jsm/controls/ArcballControls.js';
 
-import { OBJLoader } from './jsm/loaders/OBJLoader.js';
-import { RGBELoader } from './jsm/loaders/RGBELoader.js';
+import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 const cameras = [ 'Orthographic', 'Perspective' ];
 const cameraType = { type: 'Perspective' };
@@ -102,7 +87,7 @@ function init() {
     const container = document.createElement( 'div' );
     document.body.appendChild( container );
 
-    renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true, alpha: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true, alpha: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
 
@@ -126,7 +111,7 @@ function init() {
         .setPath( 'models/obj/cerberus/' )
         .load( 'Cerberus.obj', function ( group ) {
 
-            const textureLoader = new THREE.TextureLoader().setPath( 'models/obj/cerberus/' );
+            const textureLoader = new THREE.TextureLoader( ).setPath( 'models/obj/cerberus/' );
 
             material.roughness = 1;
             material.metalness = 1;

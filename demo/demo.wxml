@@ -1,0 +1,7 @@
+<camera style="height:0;width: 0;"/>
+<canvas id="canvas_webgl" type="webgl" style="background: blue;"
+disable-scroll
+bindtouchstart="webgl_touch"
+bindtouchmove="webgl_touch"
+bindtouchend="webgl_touch"
+/>

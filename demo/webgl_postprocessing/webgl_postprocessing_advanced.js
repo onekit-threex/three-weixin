@@ -1,58 +1,44 @@
 // webgl_postprocessing/webgl_postprocessing_advanced.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
+import * as THREE from '../three/Three.js';
+import Stats from '../jsm/libs/stats.module.js';
 
-import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from './jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
-import { BloomPass } from './jsm/postprocessing/BloomPass.js';
-import { FilmPass } from './jsm/postprocessing/FilmPass.js';
-import { DotScreenPass } from './jsm/postprocessing/DotScreenPass.js';
-import { MaskPass, ClearMaskPass } from './jsm/postprocessing/MaskPass.js';
-import { TexturePass } from './jsm/postprocessing/TexturePass.js';
+import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
+import { BloomPass } from '../jsm/postprocessing/BloomPass.js';
+import { FilmPass } from '../jsm/postprocessing/FilmPass.js';
+import { DotScreenPass } from '../jsm/postprocessing/DotScreenPass.js';
+import { MaskPass, ClearMaskPass } from '../jsm/postprocessing/MaskPass.js';
+import { TexturePass } from '../jsm/postprocessing/TexturePass.js';
 
-import { BleachBypassShader } from './jsm/shaders/BleachBypassShader.js';
-import { ColorifyShader } from './jsm/shaders/ColorifyShader.js';
-import { HorizontalBlurShader } from './jsm/shaders/HorizontalBlurShader.js';
-import { VerticalBlurShader } from './jsm/shaders/VerticalBlurShader.js';
-import { SepiaShader } from './jsm/shaders/SepiaShader.js';
-import { VignetteShader } from './jsm/shaders/VignetteShader.js';
-import { GammaCorrectionShader } from './jsm/shaders/GammaCorrectionShader.js';
+import { BleachBypassShader } from '../jsm/shaders/BleachBypassShader.js';
+import { ColorifyShader } from '../jsm/shaders/ColorifyShader.js';
+import { HorizontalBlurShader } from '../jsm/shaders/HorizontalBlurShader.js';
+import { VerticalBlurShader } from '../jsm/shaders/VerticalBlurShader.js';
+import { SepiaShader } from '../jsm/shaders/SepiaShader.js';
+import { VignetteShader } from '../jsm/shaders/VignetteShader.js';
+import { GammaCorrectionShader } from '../jsm/shaders/GammaCorrectionShader.js';
 
-import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 
 let container, stats;
@@ -106,7 +92,7 @@ function init() {
 
     //
 
-    const diffuseMap = new THREE.TextureLoader().load( 'textures/cube/SwedishRoyalCastle/pz.jpg' );
+    const diffuseMap = new THREE.TextureLoader( ).load( 'textures/cube/SwedishRoyalCastle/pz.jpg' );
     diffuseMap.encoding = THREE.sRGBEncoding;
 
     const materialColor = new THREE.MeshBasicMaterial( {
@@ -296,7 +282,7 @@ function onWindowResize() {
 
 function createMesh( geometry, scene, scale ) {
 
-    const diffuseMap = new THREE.TextureLoader().load( 'models/gltf/LeePerrySmith/Map-COL.jpg' );
+    const diffuseMap = new THREE.TextureLoader( ).load( 'models/gltf/LeePerrySmith/Map-COL.jpg' );
     diffuseMap.encoding = THREE.sRGBEncoding;
 
     const mat2 = new THREE.MeshPhongMaterial( {
@@ -305,7 +291,7 @@ function createMesh( geometry, scene, scale ) {
         specular: 0x080808,
         shininess: 20,
         map: diffuseMap,
-        normalMap: new THREE.TextureLoader().load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' ),
+        normalMap: new THREE.TextureLoader( ).load( 'models/gltf/LeePerrySmith/Infinite-Level_02_Tangent_SmoothUV.jpg' ),
         normalScale: new THREE.Vector2( 0.75, 0.75 )
 
     } );
@@ -322,7 +308,7 @@ function createMesh( geometry, scene, scale ) {
 
 function animate() {
 
-    requestAnimationFrame( animate );
+    requestId = requestAnimationFrame(animate);
 
     stats.begin();
     render();

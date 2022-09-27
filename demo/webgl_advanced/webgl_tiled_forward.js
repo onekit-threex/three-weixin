@@ -1,43 +1,29 @@
 // webgl_advanced/webgl_tiled_forward.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import Stats from '../jsm/libs/stats.module.js';
 
-			import { OrbitControls } from './jsm/controls/OrbitControls.js';
-			import { OBJLoader } from './jsm/loaders/OBJLoader.js';
+			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+			import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
 
-			import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+			import { UnrealBloomPass } from '../jsm/postprocessing/UnrealBloomPass.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 const RADIUS = 75;
 
 THREE.ShaderChunk[ 'lights_pars_begin' ] += [
@@ -198,7 +184,7 @@ camera.position.set( 0.0, 0.0, 240.0 );
 const scene = new THREE.Scene();
 scene.background = new THREE.Color( 0x111111 );
 
-const renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
+const  renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 renderer.toneMapping = THREE.NoToneMapping;
 container.appendChild( renderer.domElement );
 

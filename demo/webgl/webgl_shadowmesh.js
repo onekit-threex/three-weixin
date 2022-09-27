@@ -1,45 +1,37 @@
 // webgl/webgl_shadowmesh.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import { ShadowMesh } from './jsm/objects/ShadowMesh.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+import * as THREE from '../three/Three.js';
+import  { ShadowMesh } from '../jsm/objects/ShadowMesh.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let SCREEN_WIDTH = window.innerWidth;
 			let SCREEN_HEIGHT = window.innerHeight;
 
 			const scene = new THREE.Scene();
 			const camera = new THREE.PerspectiveCamera( 55, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 3000 );
 			const clock = new THREE.Clock();
-			const renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
+			const  renderer = that.renderer = new THREE.WebGLRenderer({canvas:canvas3d});
 
 			const sunLight = new THREE.DirectionalLight( 'rgb(255,255,255)', 1 );
 			let useDirectionalLight = true;
@@ -182,7 +174,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				frameTime = clock.getDelta();
 

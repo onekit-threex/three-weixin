@@ -1,49 +1,35 @@
 // webgl_nodes/webgl_nodes_materials_physical_clearcoat.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import * as Nodes from './jsm/nodes/Nodes.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import * as Nodes from '../jsm/nodes/Nodes.js';
 
-import { color, float, vec2, texture, normalMap, uv, mul } from './jsm/nodes/Nodes.js';
+import { color, float, vec2, texture, normalMap, uv, mul } from '../jsm/nodes/Nodes.js';
 
-import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
+import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
 
-import Stats from './jsm/libs/stats.module.js';
+import Stats from '../jsm/libs/stats.module.js';
 
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { HDRCubeTextureLoader } from './jsm/loaders/HDRCubeTextureLoader.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { HDRCubeTextureLoader } from '../jsm/loaders/HDRCubeTextureLoader.js';
 
-import { FlakesTexture } from './jsm/textures/FlakesTexture.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { FlakesTexture } from '../jsm/textures/FlakesTexture.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let container, stats;
 
 			let camera, scene, renderer;
@@ -70,11 +56,11 @@ let container, stats;
 				new HDRCubeTextureLoader()
 					.setPath( 'textures/cube/pisaHDR/' )
 					.load( [ 'px.hdr', 'nx.hdr', 'py.hdr', 'ny.hdr', 'pz.hdr', 'nz.hdr' ],
-					async	  function ( hdrTexture ) {
+						  function ( hdrTexture ) {
 
 							const geometry = new THREE.SphereGeometry( 80, 64, 32 );
 
-							const textureLoader = new THREE.TextureLoader();
+							const textureLoader = new THREE.TextureLoader( );
 
 							const diffuse = textureLoader.load( 'textures/carbon/Carbon.png' );
 							diffuse.encoding = THREE.sRGBEncoding;
@@ -87,7 +73,7 @@ let container, stats;
 
 							const normalMap2 = textureLoader.load( 'textures/water/Water_1_M_Normal.jpg' );
 
-							const normalMap3 = new THREE.CanvasTexture(await core.Canvas.fix( new FlakesTexture() ));
+							const normalMap3 = new THREE.CanvasTexture( new FlakesTexture() );
 							normalMap3.wrapS = THREE.RepeatWrapping;
 							normalMap3.wrapT = THREE.RepeatWrapping;
 							normalMap3.anisotropy = 16;
@@ -226,7 +212,7 @@ let container, stats;
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				nodeFrame.update();
 

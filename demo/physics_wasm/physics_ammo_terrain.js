@@ -1,41 +1,27 @@
 // physics/physics_ammo_terrain.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
 
-import Stats from './jsm/libs/stats.module.js';
+import Stats from '../jsm/libs/stats.module.js';
 
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 	// Heightfield parameters
     const terrainWidthExtents = 100;
     const terrainDepthExtents = 100;
@@ -68,10 +54,10 @@ const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl
     const objectTimePeriod = 3;
     let timeNextSpawn = time + objectTimePeriod;
     const maxNumObjects = 30;
-var Ammo = require("./jsm/ammo/index")
+var Ammo = require("../jsm/ammo/index")
     Ammo().then( function ( AmmoLib ) {
 
-        Ammo = getApp().onekit_ammo//AmmoLib;
+        Ammo = that.onekit_ammo//AmmoLib;
 
         init();
         animate();
@@ -137,7 +123,7 @@ var Ammo = require("./jsm/ammo/index")
 
         scene.add( terrainMesh );
 
-        const textureLoader = new THREE.TextureLoader();
+        const textureLoader = new THREE.TextureLoader( );
         textureLoader.load( 'textures/grid.png', function ( texture ) {
 
             texture.wrapS = THREE.RepeatWrapping;
@@ -390,7 +376,7 @@ var Ammo = require("./jsm/ammo/index")
 
     function animate() {
 
-        requestAnimationFrame( animate );
+        requestId = requestAnimationFrame(animate);
 
         render();
         stats.update();

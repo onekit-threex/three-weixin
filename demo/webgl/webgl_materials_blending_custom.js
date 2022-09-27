@@ -1,38 +1,30 @@
 // webgl/webgl_materials_blending_custom.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';	
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
 
@@ -45,7 +37,7 @@ var that = this
 
 			const equations = { Add: THREE.AddEquation, Subtract: THREE.SubtractEquation, ReverseSubtract: THREE.ReverseSubtractEquation, Min: THREE.MinEquation, Max: THREE.MaxEquation };
 
-		await	init();
+			await init();
 			animate();
 
 		async	function init() {
@@ -75,7 +67,7 @@ var that = this
 				ctx.fillStyle = '#777';
 				ctx.fillRect( 96, 96, 32, 32 );
 
-				mapBg = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
+				mapBg = new THREE.CanvasTexture(await core.Canvas.fix(canvas3d, canvas ));
 				mapBg.wrapS = mapBg.wrapT = THREE.RepeatWrapping;
 				mapBg.repeat.set( 64, 32 );
 
@@ -113,7 +105,7 @@ var that = this
 				const geo1 = new THREE.PlaneGeometry( 100, 100 );
 				const geo2 = new THREE.PlaneGeometry( 100, 25 );
 
-				const texture = new THREE.TextureLoader().load( 'textures/lensflare/lensflare0_alpha.png' );
+				const texture = new THREE.TextureLoader( ).load( 'textures/lensflare/lensflare0_alpha.png' );
 
 				for ( let i = 0; i < dst.length; i ++ ) {
 
@@ -171,7 +163,7 @@ var that = this
 					const z = 0;
 					const y = ( i - dst.length / 2 ) * 110 + 165;
 
-					const mesh = new THREE.Mesh( geo2,await generateLabelMaterial( blendDst.name, 'rgba( 150, 0, 0, 1 )' ) );
+					const mesh = new THREE.Mesh( geo2, await generateLabelMaterial( blendDst.name, 'rgba( 150, 0, 0, 1 )' ) );
 					mesh.position.set( x, - ( y - 120 ), z );
 					mesh.matrixAutoUpdate = false;
 					mesh.updateMatrix();
@@ -227,7 +219,7 @@ var that = this
 				ctx.font = 'bold 11pt arial';
 				ctx.fillText( text, 8, 22 );
 
-				const map = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
+				const map = new THREE.CanvasTexture(await core.Canvas.fix(canvas3d, canvas ));
 
 				const material = new THREE.MeshBasicMaterial( { map: map, transparent: true } );
 				return material;
@@ -246,7 +238,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				const time = Date.now() * 0.00025;
 				const ox = ( time * - 0.01 * mapBg.repeat.x ) % 1;

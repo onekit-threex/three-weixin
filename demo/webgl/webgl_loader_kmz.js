@@ -1,39 +1,31 @@
 // webgl/webgl_loader_kmz.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { KMZLoader } from './jsm/loaders/KMZLoader.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+import * as THREE from '../three/Three.js';
+import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { KMZLoader } from '../jsm/loaders/KMZLoader.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let camera, scene, renderer;
 
@@ -59,7 +51,7 @@ var that = this
 				const grid = new THREE.GridHelper( 50, 50, 0xffffff, 0x333333 );
 				scene.add( grid );
 
-				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );

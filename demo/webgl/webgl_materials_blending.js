@@ -1,49 +1,40 @@
 // webgl/webgl_materials_blending.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 
 			let camera, scene, renderer;
 			let mapBg;
 
-			const textureLoader = new THREE.TextureLoader();
+			const textureLoader = new THREE.TextureLoader( );
 
 		await	init();
 			animate();
 
-		async	function init() {
+	async		function init() {
 
 				// CAMERA
 
@@ -70,7 +61,7 @@ var that = this
 				ctx.fillStyle = '#777';
 				ctx.fillRect( 96, 96, 32, 32 );
 
-				mapBg = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
+				mapBg = new THREE.CanvasTexture(await core.Canvas.fix(canvas3d, canvas) );
 				mapBg.wrapS = mapBg.wrapT = THREE.RepeatWrapping;
 				mapBg.repeat.set( 64, 32 );
 
@@ -95,13 +86,13 @@ var that = this
 				const geo1 = new THREE.PlaneGeometry( 100, 100 );
 				const geo2 = new THREE.PlaneGeometry( 100, 25 );
 
-                await		addImageRow( map0, 300 );
-                await		addImageRow( map1, 150 );
+                await	addImageRow( map0, 300 );
+                await	addImageRow( map1, 150 );
                 await		addImageRow( map2, 0 );
                 await		addImageRow( map3, - 150 );
-		await		addImageRow( map4, - 300 );
+			await	addImageRow( map4, - 300 );
 
-		async		function addImageRow( map, y ) {
+			async	function addImageRow( map, y ) {
 
 					for ( let i = 0; i < blendings.length; i ++ ) {
 
@@ -118,7 +109,7 @@ var that = this
 						mesh.position.set( x, y, z );
 						scene.add( mesh );
 
-						mesh = new THREE.Mesh( geo2,await generateLabelMaterial( blending.name ) );
+						mesh = new THREE.Mesh( geo2, await generateLabelMaterial( blending.name ) );
 						mesh.position.set( x, y - 75, z );
 						scene.add( mesh );
 
@@ -154,7 +145,7 @@ var that = this
 			}
 
 
-		async	function generateLabelMaterial( text ) {
+	async		function generateLabelMaterial( text ) {
 
 				const canvas = document.createElement( 'canvas' );
 				const ctx = canvas.getContext( '2d' );
@@ -168,7 +159,7 @@ var that = this
 				ctx.font = 'bold 12pt arial';
 				ctx.fillText( text, 10, 22 );
 
-				const map = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
+				const map = new THREE.CanvasTexture(await core.Canvas.fix(canvas3d, canvas) );
 
 				const material = new THREE.MeshBasicMaterial( { map: map, transparent: true } );
 
@@ -178,7 +169,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				const time = Date.now() * 0.00025;
 				const ox = ( time * - 0.01 * mapBg.repeat.x ) % 1;

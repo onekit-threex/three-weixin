@@ -1,23 +1,9 @@
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,HTMLCanvasElement} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import { AsciiEffect } from './jsm/effects/AsciiEffect.js';
-import { TrackballControls } from './jsm/controls/TrackballControls.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,HTMLCanvasElement} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import { AsciiEffect } from '../jsm/effects/AsciiEffect.js';
+import { TrackballControls } from '../jsm/controls/TrackballControls.js';
 var requestId
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
+Page({
     onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
 
@@ -35,7 +21,7 @@ if( this.renderer){
         this.canvas.dispatchEvent(web_e)
     },
 async onLoad() {
-    const canvas3d =     this.canvas =  document.createElement("canvas","webgl")
+         const canvas3d = this.canvas= document.createElement("canvas","webgl")
         var that = this
         let camera, controls, scene, renderer, effect;
 
@@ -104,8 +90,7 @@ async onLoad() {
         //
 
         function animate() {
-
-           requestId = requestAnimationFrame(animate);
+        //  requestId = requestAnimationFrame(animate);
 
             render();
 

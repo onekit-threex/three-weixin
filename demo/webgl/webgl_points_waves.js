@@ -1,7 +1,7 @@
 // webgl/webgl_points_waves.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
+import * as THREE from '../three/Three.js';
+import  Stats from '../jsm/libs/stats.module.js';
 const onekit = {
     vertexshader:`
     attribute float scale;
@@ -27,37 +27,29 @@ const onekit = {
     }`
 
 }
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
 
 			let container, stats;
@@ -130,7 +122,7 @@ var that = this
 
 				//
 
-				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
@@ -174,7 +166,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				render();
 				stats.update();

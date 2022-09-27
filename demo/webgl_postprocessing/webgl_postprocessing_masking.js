@@ -1,44 +1,30 @@
 // webgl_postprocessing/webgl_postprocessing_masking.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
-import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
-import { TexturePass } from './jsm/postprocessing/TexturePass.js';
-import { ClearPass } from './jsm/postprocessing/ClearPass.js';
-import { MaskPass, ClearMaskPass } from './jsm/postprocessing/MaskPass.js';
-import { CopyShader } from './jsm/shaders/CopyShader.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
+import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
+import { TexturePass } from '../jsm/postprocessing/TexturePass.js';
+import { ClearPass } from '../jsm/postprocessing/ClearPass.js';
+import { MaskPass, ClearMaskPass } from '../jsm/postprocessing/MaskPass.js';
+import { CopyShader } from '../jsm/shaders/CopyShader.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let camera, composer, renderer;
 			let box, torus;
 
@@ -75,9 +61,9 @@ let camera, composer, renderer;
 				const maskPass1 = new MaskPass( scene1, camera );
 				const maskPass2 = new MaskPass( scene2, camera );
 
-				const texture1 = new THREE.TextureLoader().load( 'textures/758px-Canestra_di_frutta_(Caravaggio).jpg' );
+				const texture1 = new THREE.TextureLoader( ).load( 'textures/758px-Canestra_di_frutta_(Caravaggio).jpg' );
 				texture1.minFilter = THREE.LinearFilter;
-				const texture2 = new THREE.TextureLoader().load( 'textures/2294472375_24a3b8ef46_o.jpg' );
+				const texture2 = new THREE.TextureLoader( ).load( 'textures/2294472375_24a3b8ef46_o.jpg' );
 
 				const texturePass1 = new TexturePass( texture1 );
 				const texturePass2 = new TexturePass( texture2 );
@@ -119,7 +105,7 @@ let camera, composer, renderer;
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				const time = performance.now() * 0.001 + 6000;
 

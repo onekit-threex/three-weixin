@@ -1,41 +1,25 @@
 // misc/misc_exporter_gltf.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import { OBJLoader } from './jsm/loaders/OBJLoader.js';
-import { GLTFExporter } from './jsm/exporters/GLTFExporter.js';
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+import { GLTFExporter } from '../jsm/exporters/GLTFExporter.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 function exportGLTF( input ) {
 
     const gltfExporter = new GLTFExporter();
@@ -129,7 +113,6 @@ function init() {
     document.body.appendChild( container );
 
     // Make linear gradient texture
-
     const data = new Uint8ClampedArray( 100 * 100 * 4 );
 
     for ( let y = 0; y < 100; y ++ ) {
@@ -200,7 +183,7 @@ function init() {
     // Simple geometry with basic material
     // ---------------------------------------------------------------------
     // Icosahedron
-    const mapGrid = new THREE.TextureLoader().load( 'textures/uv_grid_opengl.jpg' );
+    const mapGrid = new THREE.TextureLoader( ).load( 'textures/uv_grid_opengl.jpg' );
     mapGrid.wrapS = mapGrid.wrapT = THREE.RepeatWrapping;
     material = new THREE.MeshBasicMaterial( {
         color: 0xffffff,
@@ -274,7 +257,7 @@ function init() {
     // ---------------------------------------------------------------------
     // Hierarchy
     // ---------------------------------------------------------------------
-    const mapWood = new THREE.TextureLoader().load( 'textures/hardwood2_diffuse.jpg' );
+    const mapWood = new THREE.TextureLoader( ).load( 'textures/hardwood2_diffuse.jpg' );
     material = new THREE.MeshStandardMaterial( { map: mapWood, side: THREE.DoubleSide } );
 
     object = new THREE.Mesh( new THREE.BoxGeometry( 40, 100, 100 ), material );
@@ -484,7 +467,7 @@ function init() {
 
     //
 
-    renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
 
@@ -564,7 +547,7 @@ function onWindowResize() {
 
 function animate() {
 
-    requestAnimationFrame( animate );
+    requestId = requestAnimationFrame(animate);
 
     render();
 

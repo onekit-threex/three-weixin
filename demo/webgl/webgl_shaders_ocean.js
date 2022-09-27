@@ -1,44 +1,35 @@
 // webgl/webgl_shaders_ocean.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,performance,Event,core} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import  Stats from '../jsm/libs/stats.module.js';
 
-import Stats from './jsm/libs/stats.module.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { Water } from '../jsm/objects/Water.js';
+import { Sky } from '../jsm/objects/Sky.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { Water } from './jsm/objects/Water.js';
-import { Sky } from './jsm/objects/Sky.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         let container, stats;
 			let camera, scene, renderer;
 			let controls, water, sun, mesh;
@@ -78,7 +69,7 @@ var that = this
 					{
 						textureWidth: 512,
 						textureHeight: 512,
-						waterNormals: new THREE.TextureLoader().load( 'textures/waternormals.jpg', function ( texture ) {
+						waterNormals: new THREE.TextureLoader( ).load( 'textures/waternormals.jpg', function ( texture ) {
 
 							texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
@@ -191,7 +182,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 				render();
 				stats.update();
 

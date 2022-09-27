@@ -1,43 +1,34 @@
 // webgl/webgl_materials_envmaps_exr.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import * as THREE from '../three/Three.js';
+import  Stats from '../jsm/libs/stats.module.js';
 
-import Stats from './jsm/libs/stats.module.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { EXRLoader } from '../jsm/loaders/EXRLoader.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { EXRLoader } from './jsm/loaders/EXRLoader.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         const params = {
             envMap: 'EXR',
             roughness: 0.0,
@@ -103,7 +94,7 @@ var that = this
 
                 } );
 
-            new THREE.TextureLoader().load( 'textures/equirectangular.png', function ( texture ) {
+            new THREE.TextureLoader( ).load( 'textures/equirectangular.png', function ( texture ) {
 
                 texture.encoding = THREE.sRGBEncoding;
 
@@ -160,7 +151,7 @@ var that = this
 
         function animate() {
 
-            requestAnimationFrame( animate );
+            requestId = requestAnimationFrame(animate);
 
             stats.begin();
             render();

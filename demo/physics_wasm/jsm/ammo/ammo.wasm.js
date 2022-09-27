@@ -1,7 +1,3 @@
-/**
- *  Ammo 将被开放至 window.Ammo 上
- * 
- */
 (function () {
 	const WebAssembly = typeof WXWebAssembly === 'object' ? WXWebAssembly : WebAssembly;
 
@@ -13597,9 +13593,11 @@
 
 	module.exports = function () {
 		return new Promise(function (resolve, reject) {
-			waitForAmmoInstantiation('physics/jsm/ammo/ammo.wasm.wasm').then(
+			waitForAmmoInstantiation('physics_wasm/jsm/ammo/ammo.wasm.wasm').then(
 				() => {
-					getApp().onekit_ammo = Ammo;
+                    const pages = getCurrentPages()
+                    const page = pages[pages.length-1]
+					page.onekit_ammo = Ammo;
 					resolve();
 				},
 				(res) => {

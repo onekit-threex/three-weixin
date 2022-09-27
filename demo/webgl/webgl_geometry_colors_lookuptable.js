@@ -1,42 +1,31 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import * as THREE from '../three/Three.js';
+import  { GUI } from '../jsm/libs/lil-gui.module.min.js';
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { Lut } from '../jsm/math/Lut.js';
 
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { Lut } from './jsm/math/Lut.js';
+var requestId
+Page({
+    onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
         
         let container;
 
@@ -47,9 +36,9 @@ var that = this
 
         let params;
 
-    await    init();
+        await init();
 
-   async     function init() {
+     async   function init() {
 
             container = document.getElementById( 'container' );
 
@@ -70,9 +59,12 @@ var that = this
             orthoCamera = new THREE.OrthographicCamera( - 1, 1, 1, - 1, 1, 2 );
             orthoCamera.position.set( 0.5, 0, 1 );
 
+            console.error("ok?")
+            const cv =  lut.createCanvas() 
             sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
-                map: new THREE.CanvasTexture(await core.Canvas.fix( lut.createCanvas() ))
+                map: new THREE.CanvasTexture(await core.Canvas.fix(canvas3d,cv))
             } ) );
+            console.error("ok!")
             sprite.scale.x = 0.125;
             uiScene.add( sprite );
 
@@ -91,7 +83,7 @@ var that = this
             const pointLight = new THREE.PointLight( 0xffffff, 1 );
             perpCamera.add( pointLight );
 
-            renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+            renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
             renderer.autoClear = false;
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.setSize( width, height );

@@ -1,44 +1,36 @@
 // webgl/webgl_marchingcubes.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
+import * as THREE from '../three/Three.js';
+import  Stats from '../jsm/libs/stats.module.js';
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { MarchingCubes } from './jsm/objects/MarchingCubes.js';
-import { ToonShader1, ToonShader2, ToonShaderHatching, ToonShaderDotted } from './jsm/shaders/ToonShader.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { MarchingCubes } from '../jsm/objects/MarchingCubes.js';
+import { ToonShader1, ToonShader2, ToonShaderHatching, ToonShaderDotted } from '../jsm/shaders/ToonShader.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
 
@@ -169,7 +161,7 @@ var that = this
 			const hatchingMaterial = createShaderMaterial( ToonShaderHatching, light, ambientLight );
 			const dottedMaterial = createShaderMaterial( ToonShaderDotted, light, ambientLight );
 
-			const texture = new THREE.TextureLoader().load( 'textures/uv_grid_opengl.jpg' );
+			const texture = new THREE.TextureLoader( ).load( 'textures/uv_grid_opengl.jpg' );
 			texture.wrapS = THREE.RepeatWrapping;
 			texture.wrapT = THREE.RepeatWrapping;
 
@@ -178,7 +170,7 @@ var that = this
 				'chrome': new THREE.MeshLambertMaterial( { color: 0xffffff, envMap: reflectionCube } ),
 				'liquid': new THREE.MeshLambertMaterial( { color: 0xffffff, envMap: refractionCube, refractionRatio: 0.85 } ),
 				'matte': new THREE.MeshPhongMaterial( { specular: 0x111111, shininess: 1 } ),
-				'flat': new THREE.MeshLambertMaterial( {  } ),
+				'flat': new THREE.MeshLambertMaterial( { /*TODO flatShading: true */ } ),
 				'textured': new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0x111111, shininess: 1, map: texture } ),
 				'colors': new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 2, vertexColors: true } ),
 				'multiColors': new THREE.MeshPhongMaterial( { shininess: 2, vertexColors: true } ),
@@ -326,7 +318,7 @@ var that = this
 
 		function animate() {
 
-			requestAnimationFrame( animate );
+			requestAnimationFrame(animate);
 
 			render();
 		//	stats.update();

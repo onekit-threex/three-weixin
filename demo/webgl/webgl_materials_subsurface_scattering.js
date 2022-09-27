@@ -1,43 +1,35 @@
 // webgl/webgl_materials_subsurface_scattering.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,performance,Event,core} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import  Stats from '../jsm/libs/stats.module.js';
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { SubsurfaceScatteringShader } from './jsm/shaders/SubsurfaceScatteringShader.js';
-import { FBXLoader } from './jsm/loaders/FBXLoader.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { SubsurfaceScatteringShader } from '../jsm/shaders/SubsurfaceScatteringShader.js';
+import { FBXLoader } from '../jsm/loaders/FBXLoader.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         
 		let container, stats;
@@ -79,7 +71,7 @@ var that = this
 			pointLight2.position.y = 20;
 			pointLight2.position.z = - 260;
 
-			renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+			renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			container.appendChild( renderer.domElement );
@@ -102,7 +94,7 @@ var that = this
 
 		function initMaterial() {
 
-			const loader = new THREE.TextureLoader();
+			const loader = new THREE.TextureLoader( );
 			const imgTexture = loader.load( 'models/fbx/white.jpg' );
 			const thicknessTexture = loader.load( 'models/fbx/bunny_thickness.jpg' );
 			imgTexture.wrapS = imgTexture.wrapT = THREE.RepeatWrapping;
@@ -210,7 +202,7 @@ var that = this
 
 		function animate() {
 
-			requestAnimationFrame( animate );
+			requestAnimationFrame(animate);
 
 			render();
 

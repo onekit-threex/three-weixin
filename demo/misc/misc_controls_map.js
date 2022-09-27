@@ -1,41 +1,26 @@
 // misc/misc_controls_map.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
 
-import { MapControls } from './jsm/controls/OrbitControls.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { MapControls } from '../jsm/controls/OrbitControls.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 let camera, controls, scene, renderer;
 
@@ -49,7 +34,7 @@ function init() {
     scene.background = new THREE.Color( 0xcccccc );
     scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
 
-    renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
@@ -128,7 +113,7 @@ function onWindowResize() {
 
 function animate() {
 
-    requestAnimationFrame( animate );
+    requestId = requestAnimationFrame(animate);
 
     controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
 

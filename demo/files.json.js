@@ -1,5 +1,6 @@
 export default {
 	"webgl": [
+		"webgl_animation_keyframes",
 		"webgl_animation_skinning_blending",
 		"webgl_animation_skinning_additive_blending",
 		"webgl_animation_skinning_morph",
@@ -62,6 +63,7 @@ export default {
 		"webgl_lights_pointlights",
 		"webgl_lights_spotlight",
 		"webgl_lights_spotlights",
+		"webgl_lights_rectarealight",
 		"webgl_lines_colors",
 		"webgl_lines_dashed",
 		"webgl_lines_fat",
@@ -95,6 +97,9 @@ export default {
 		"webgl_loader_md2",
 		"webgl_loader_md2_control",
 		"webgl_loader_mdd",
+		"webgl_loader_mmd",
+		"webgl_loader_mmd_pose",
+		"webgl_loader_mmd_audio",
 		"webgl_loader_nrrd",
 		"webgl_loader_obj",
 		"webgl_loader_obj_mtl",
@@ -116,6 +121,7 @@ export default {
 		"webgl_loader_texture_rgbm",
 		"webgl_loader_texture_tga",
 		"webgl_loader_texture_tiff",
+		"webgl_loader_ttf",
         "webgl_loader_usdz",
 		"webgl_loader_vox",
 		"webgl_loader_vrml",
@@ -222,16 +228,8 @@ export default {
 		"webgl_video_kinect",
 		"webgl_video_panorama_equirectangular",
 		"webgl_water",
-		"webgl_water_flowmap",
-		"webgl_animation_keyframes"
-    ],
-    "webgl_ttf":[
-		"webgl_loader_mmd",
-		"webgl_loader_mmd_pose",
-		"webgl_loader_mmd_audio",
-		"webgl_lights_rectarealight",
-		"webgl_loader_ttf"
-    ],
+		"webgl_water_flowmap"
+	],
 	"webgl_nodes": [
 		"webgl_nodes_loader_gltf_iridescence",
 		"webgl_nodes_loader_gltf_transmission",
@@ -292,6 +290,10 @@ export default {
 		"webgl_custom_attributes_points",
 		"webgl_custom_attributes_points2",
 		"webgl_custom_attributes_points3",
+		"webgl_gpgpu_birds",
+		"webgl_gpgpu_birds_gltf",
+		"webgl_gpgpu_water",
+		"webgl_gpgpu_protoplanet",
 		"webgl_lightningstrike",
 		"webgl_materials_modified",
 		"webgl_raymarching_reflect",
@@ -302,30 +304,90 @@ export default {
 		"webgl_tiled_forward",
 		"webgl_worker_offscreencanvas"
 	],
+	"webgl2": [
+		"webgl2_buffergeometry_attributes_integer",
+		"webgl2_materials_texture2darray",
+		"webgl2_materials_texture3d",
+		"webgl2_materials_texture3d_partialupdate",
+		"webgl2_multiple_rendertargets",
+		"webgl2_multisampled_renderbuffers",
+		"webgl2_rendertarget_texture2darray",
+		"webgl2_ubo",
+		"webgl2_volume_cloud",
+		"webgl2_volume_instancing",
+		"webgl2_volume_perlin"
+	],
+	"webgpu": [
+		"webgpu_compute",
+		"webgpu_cubemap_adjustments",
+		"webgpu_cubemap_mix",
+		"webgpu_depth_texture",
+		"webgpu_instance_mesh",
+		"webgpu_instance_uniform",
+		"webgpu_lights_custom",
+		"webgpu_lights_selective",
+		"webgpu_loader_gltf",
+		"webgpu_materials",
+		"webgpu_nodes_playground",
+		"webgpu_particles",
+		"webgpu_rtt",
+		"webgpu_sandbox",
+		"webgpu_skinning",
+		"webgpu_skinning_instancing",
+		"webgpu_skinning_points",
+		"webgpu_sprites"
+	],
 	"webaudio": [
 		"webaudio_orientation",
 		"webaudio_sandbox",
 		"webaudio_timing",
 		"webaudio_visualizer"
 	],
-	"physics_wasm": [
+	"webxr": [
+		"webxr_ar_cones",
+		"webxr_ar_dragging",
+		"webxr_ar_hittest",
+		"webxr_ar_lighting",
+		"webxr_ar_paint",
+		"webxr_vr_ballshooter",
+		"webxr_vr_cubes",
+		"webxr_vr_dragging",
+		"webxr_vr_handinput",
+		"webxr_vr_handinput_cubes",
+		"webxr_vr_handinput_profiles",
+		"webxr_vr_handinput_pointerclick",
+		"webxr_vr_handinput_pointerdrag",
+		"webxr_vr_handinput_pressbutton",
+		"webxr_vr_haptics",
+		"webxr_vr_layers",
+		"webxr_vr_panorama",
+		"webxr_vr_panorama_depth",
+		"webxr_vr_paint",
+		"webxr_vr_rollercoaster",
+		"webxr_vr_sandbox",
+		"webxr_vr_sculpt",
+		"webxr_vr_teleport",
+		"webxr_vr_video"
+	],
+	"games": [
+		"games_fps"
+	],
+	"physics_js": [
 		"physics_ammo_break",
 		"physics_ammo_cloth",
 		"physics_ammo_instancing",
 		"physics_ammo_rope",
 		"physics_ammo_terrain",
-		"physics_ammo_volume"
+		"physics_ammo_volume",
+		"physics_oimo_instancing"
     ],
-    "physics_js": [
+    "physics_wasm": [
 		"physics_ammo_break",
 		"physics_ammo_cloth",
 		"physics_ammo_instancing",
 		"physics_ammo_rope",
 		"physics_ammo_terrain",
-		"physics_ammo_volume"
-    ],
-    "physics2": [
-        "games_fps",
+		"physics_ammo_volume",
 		"physics_oimo_instancing"
 	],
 	"misc": [
@@ -349,16 +411,22 @@ export default {
 		"misc_exporter_usdz",
 		"misc_lookat"
 	],
-	"other": [
-		"css2d_label",
+	"css2d": [
+		"css2d_label"
+	],
+	"css3d": [
 		"css3d_molecules",
 		"css3d_orthographic",
 		"css3d_periodictable",
 		"css3d_sandbox",
 		"css3d_sprites",
-		"css3d_youtube",
+		"css3d_youtube"
+	],
+	"svg": [
 		"svg_lines",
-		"svg_sandbox",
+		"svg_sandbox"
+	],
+	"tests": [
 		"webgl_furnace_test",
 		"webgl_pmrem_test",
 		"misc_uv_tests"

@@ -1,26 +1,13 @@
 // webgl/webgl_geometry_terrain_raycast.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,core,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import Stats from '../jsm/libs/stats.module.js';
 
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { ImprovedNoise } from '../jsm/math/ImprovedNoise.js';
+
 var requestId
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
+Page({
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)
@@ -42,7 +29,6 @@ if( this.renderer){
 async onLoad() {
       const canvas3d=   this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        var canvas2d = await document.createElementAsync("canvas","2d")
 
         let container, stats;
 
@@ -103,7 +89,7 @@ var that = this
 
             //
 
-            texture = new THREE.CanvasTexture(await core.Canvas.fix(await generateTexture( data, worldWidth, worldDepth ) ));
+            texture = new THREE.CanvasTexture(await core.Canvas.fix(canvas3d,await generateTexture( data, worldWidth, worldDepth ) ));
             texture.wrapS = THREE.ClampToEdgeWrapping;
             texture.wrapT = THREE.ClampToEdgeWrapping;
 
@@ -201,13 +187,13 @@ var that = this
 
             // Scaled 4x
 
-            const canvasScaled = canvas2d//document.createElement( 'canvas' );
+            const canvasScaled = document.createElement( 'canvas' );
             canvasScaled.width = width * 4;
             canvasScaled.height = height * 4;
 
             context = canvasScaled.getContext( '2d' );
             context.scale( 4, 4 );
-            context.drawImage(await core.Canvas.fix(canvas,canvasScaled), 0, 0 );
+            context.drawImage(await core.Canvas.toImage(canvasScaled,canvas), 0, 0 );
 
             image = context.getImageData( 0, 0, canvasScaled.width, canvasScaled.height );
             imageData = image.data;

@@ -1,30 +1,25 @@
 // webgl/webgl_geometry_terrain.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,core,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
 
-import Stats from './jsm/libs/stats.module.js';
+import Stats from '../jsm/libs/stats.module.js';
 
-import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
-import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
+import { FirstPersonControls } from '../jsm/controls/FirstPersonControls.js';
+import { ImprovedNoise } from '../jsm/math/ImprovedNoise.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
+var requestId
+Page({ 
+	   
+         webgl_touch(e) {
+        const web_e = Event.fix(e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    }, 
-	async onLoad() {
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
+    var   canvas2d = await document.createElementAsync("canvas","2d")
 
         let container, stats;
 			let camera, controls, scene, renderer;
@@ -33,10 +28,10 @@ var that = this
 			const worldWidth = 256, worldDepth = 256;
 			const clock = new THREE.Clock();
 
-			await init();
+		await	init();
 			animate();
 
-		async	function init() {
+		async	function  init() {
 
 				container = document.getElementById( 'container' );
 
@@ -62,7 +57,7 @@ var that = this
 
 				}
 
-				texture = new THREE.CanvasTexture(await core.Canvas.fix(await generateTexture( data, worldWidth, worldDepth )) );
+				texture = new THREE.CanvasTexture(await core.Canvas.fix(canvas3d,await generateTexture( data, worldWidth, worldDepth ) ));
 				texture.wrapS = THREE.ClampToEdgeWrapping;
 				texture.wrapT = THREE.ClampToEdgeWrapping;
 
@@ -130,8 +125,8 @@ var that = this
 				return data;
 
 			}
-
-	async		function generateTexture( data, width, height ) {
+      
+		 async	function generateTexture( data, width, height ) {
 
 				let context, image, imageData, shade;
 
@@ -139,8 +134,7 @@ var that = this
 
 				const sun = new THREE.Vector3( 1, 1, 1 );
 				sun.normalize();
-
-				const canvas = document.createElement( 'canvas' );
+const canvas = canvas2d
 				canvas.width = width;
 				canvas.height = height;
 
@@ -176,7 +170,7 @@ var that = this
 
 				context = canvasScaled.getContext( '2d' );
 				context.scale( 4, 4 );
-				context.drawImage(await core.Canvas.fix(canvas3d,canvas), 0, 0 );
+				context.drawImage(await core.Canvas.toImage( canvasScaled,canvas2d), 0, 0 );
 
 				image = context.getImageData( 0, 0, canvasScaled.width, canvasScaled.height );
 				imageData = image.data;
@@ -201,7 +195,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				render();
 				//stats.update();

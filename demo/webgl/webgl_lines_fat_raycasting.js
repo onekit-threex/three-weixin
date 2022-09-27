@@ -1,47 +1,39 @@
 // webgl/webgl_lines_fat_raycasting.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
-			import { GPUStatsPanel } from './jsm/utils/GPUStatsPanel.js';
+import * as THREE from '../three/Three.js';
+import Stats from '../jsm/libs/stats.module.js';
+			import { GPUStatsPanel } from '../jsm/utils/GPUStatsPanel.js';
 
-			import { GUI } from './jsm/libs/lil-gui.module.min.js';
-			import { OrbitControls } from './jsm/controls/OrbitControls.js';
-			import { LineMaterial } from './jsm/lines/LineMaterial.js';
-			import { LineSegments2 } from './jsm/lines/LineSegments2.js';
-			import { LineSegmentsGeometry } from './jsm/lines/LineSegmentsGeometry.js';
-			import { Line2 } from './jsm/lines/Line2.js';
-			import { LineGeometry } from './jsm/lines/LineGeometry.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+			import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+			import { LineMaterial } from '../jsm/lines/LineMaterial.js';
+			import { LineSegments2 } from '../jsm/lines/LineSegments2.js';
+			import { LineSegmentsGeometry } from '../jsm/lines/LineSegmentsGeometry.js';
+			import { Line2 } from '../jsm/lines/Line2.js';
+			import { LineGeometry } from '../jsm/lines/LineGeometry.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let line, thresholdLine, segments, thresholdSegments;
 			let renderer, scene, camera, camera2, controls;
@@ -61,7 +53,7 @@ var that = this
 
 			function init() {
 
-				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true, alpha: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true, alpha: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setClearColor( 0x000000, 0.0 );
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -224,7 +216,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				////stats.update();
 

@@ -1,4 +1,4 @@
-import * as THREE from 'three-weixin';
+import * as THREE from '../../three//index';
 import {document,self,window} from 'dhtml-weixin'
 let camera, scene, renderer, group;
 
@@ -16,11 +16,11 @@ function init( canvas, width, height, pixelRatio, path ) {
 
 	// we don't use ImageLoader since it has a DOM dependency (HTML5 image element)
 
-	const loader = new THREE.ImageBitmapLoader().setPath( path );
+	const loader = new THREE.ImageBitmapLoader(null,this.canvas).setPath( path );
 	loader.setOptions( { imageOrientation: 'flipY' } );
-	loader.load( 'textures/matcaps/matcap-porcelain-white.jpg',async function ( imageBitmap ) {
+	loader.load( 'textures/matcaps/matcap-porcelain-white.jpg', function ( imageBitmap ) {
 
-		const texture = new THREE.CanvasTexture(await core.Canvas.fix( imageBitmap ));
+		const texture = new THREE.CanvasTexture( imageBitmap );
 
 		const geometry = new THREE.IcosahedronGeometry( 5, 8 );
 		const materials = [
@@ -42,7 +42,7 @@ function init( canvas, width, height, pixelRatio, path ) {
 
 		}
 
-		renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true, canvas: canvas } );
+		renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true, canvas: canvas } );
 		renderer.setPixelRatio( pixelRatio );
 		renderer.setSize( width, height, false );
 

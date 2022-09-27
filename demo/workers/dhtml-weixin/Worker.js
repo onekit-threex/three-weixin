@@ -311,8 +311,8 @@ export default class Worker extends EventTarget {
   // /////////////////
   constructor(url) {
     super();
-    if (getApp().onekit_debug) {
-      console[getApp().onekit_debug]("[Worker]", url);
+    if (wx.getStorageSync("onekit_debug")) {
+      console[wx.getStorageSync("onekit_debug")]("[Worker]", url);
     }
     const createNewWorker = () => {
       const worker = wx.createWorker("workers/" + url, {
@@ -338,7 +338,6 @@ export default class Worker extends EventTarget {
       this._worker = worker;
     };
     createNewWorker();
-    getApp().worker = this;
   }
 
   postMessage(json) {

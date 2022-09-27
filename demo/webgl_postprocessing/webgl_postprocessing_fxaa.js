@@ -4,41 +4,35 @@ import {
     window,
     requestAnimationFrame
 } from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import * as THREE from '../three/Three.js';
 
 import {
     EffectComposer
-} from './jsm/postprocessing/EffectComposer.js';
+} from '../jsm/postprocessing/EffectComposer.js';
 import {
     RenderPass
-} from './jsm/postprocessing/RenderPass.js';
+} from '../jsm/postprocessing/RenderPass.js';
 import {
     ShaderPass
-} from './jsm/postprocessing/ShaderPass.js';
+} from '../jsm/postprocessing/ShaderPass.js';
 import {
     CopyShader
-} from './jsm/shaders/CopyShader.js';
+} from '../jsm/shaders/CopyShader.js';
 import {
     FXAAShader
-} from './jsm/shaders/FXAAShader.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
+} from '../jsm/shaders/FXAAShader.js';
+var requestId
+Page({
+       
+         webgl_touch(e) {
+        const web_e = Event.fix(e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    async onLoad() {
+async onLoad() {
+                const canvas3d = this.canvas =await document.createElementAsync("canvas", "webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas", "webgl")
         let camera, scene, renderer, clock, group, container;
 
         let composer1, composer2, fxaaPass;
@@ -156,7 +150,7 @@ var that = this
 
         function animate() {
 
-            requestAnimationFrame(animate);
+            requestId = requestAnimationFrame(animate);
 
             const halfWidth = container.offsetWidth / 2;
 

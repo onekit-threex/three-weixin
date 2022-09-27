@@ -1,56 +1,43 @@
 import {
-    document,
-    window,
-    requestAnimationFrame,
-    cancelAnimationFrame,
-    Event,
-    core,
-    performance
+	document,
+	window,
+	requestAnimationFrame,
+	cancelAnimationFrame,
+	Event
 } from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import * as THREE from '../three/Three.js';
 
-import Stats from './jsm/libs/stats.module.js';
+import Stats from '../jsm/libs/stats.module.js';
 import {
-    GUI
-} from './jsm/libs/lil-gui.module.min.js';
+	GUI
+} from '../jsm/libs/lil-gui.module.min.js';
 
 import {
-    GLTFLoader
-} from './jsm/loaders/GLTFLoader.js';
+	GLTFLoader
+} from '../jsm/loaders/GLTFLoader.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
 
-    onUnload() {
-        cancelAnimationFrame()
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null
-    },
-    webgl_touch(e) {
+		if (this.renderer) {
+			this.renderer.dispose()
+			this.renderer.forceContextLoss()
+			this.renderer.context = null
+			this.renderer.domElement = null
+			this.renderer = null
+		}
+	},
+	    webgl_touch(e) {
         const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-    async onLoad() {
-        var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas", "webgl")
-
+async onLoad() {
+		const canvas3d = this.canvas =await document.createElementAsync("canvas", "webgl")
+		var that = this
         let scene, renderer, camera, stats;
         let model, skeleton, mixer, clock;
 
@@ -67,62 +54,59 @@ Page({
 
         function init() {
 
-            const container = document.getElementById('container');
+            const container = document.getElementById( 'container' );
 
-            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.set(1, 2, -3);
-            camera.lookAt(0, 1, 0);
+            camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
+            camera.position.set( 1, 2, - 3 );
+            camera.lookAt( 0, 1, 0 );
 
             clock = new THREE.Clock();
 
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xa0a0a0);
-            scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+            scene.background = new THREE.Color( 0xa0a0a0 );
+            scene.fog = new THREE.Fog( 0xa0a0a0, 10, 50 );
 
-            const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
-            hemiLight.position.set(0, 20, 0);
-            scene.add(hemiLight);
+            const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+            hemiLight.position.set( 0, 20, 0 );
+            scene.add( hemiLight );
 
-            const dirLight = new THREE.DirectionalLight(0xffffff);
-            dirLight.position.set(-3, 10, -10);
+            const dirLight = new THREE.DirectionalLight( 0xffffff );
+            dirLight.position.set( - 3, 10, - 10 );
             dirLight.castShadow = true;
             dirLight.shadow.camera.top = 2;
-            dirLight.shadow.camera.bottom = -2;
-            dirLight.shadow.camera.left = -2;
+            dirLight.shadow.camera.bottom = - 2;
+            dirLight.shadow.camera.left = - 2;
             dirLight.shadow.camera.right = 2;
             dirLight.shadow.camera.near = 0.1;
             dirLight.shadow.camera.far = 40;
-            scene.add(dirLight);
+            scene.add( dirLight );
 
             // scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
 
             // ground
 
-            const mesh = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({
-                color: 0x999999,
-                depthWrite: false
-            }));
-            mesh.rotation.x = -Math.PI / 2;
+            const mesh = new THREE.Mesh( new THREE.PlaneGeometry( 100, 100 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
+            mesh.rotation.x = - Math.PI / 2;
             mesh.receiveShadow = true;
-            scene.add(mesh);
+            scene.add( mesh );
 
             const loader = new GLTFLoader();
-            loader.load('models/gltf/Soldier.glb', function (gltf) {
+            loader.load( 'models/gltf/Soldier.glb', function ( gltf ) {
 
                 model = gltf.scene;
-                scene.add(model);
+                scene.add( model );
 
-                model.traverse(function (object) {
+                model.traverse( function ( object ) {
 
-                    if (object.isMesh) object.castShadow = true;
+                    if ( object.isMesh ) object.castShadow = true;
 
-                });
+                } );
 
                 //
 
-                skeleton = new THREE.SkeletonHelper(model);
+                skeleton = new THREE.SkeletonHelper( model );
                 skeleton.visible = false;
-                scene.add(skeleton);
+                scene.add( skeleton );
 
                 //
 
@@ -133,49 +117,44 @@ Page({
 
                 const animations = gltf.animations;
 
-                mixer = new THREE.AnimationMixer(model);
+                mixer = new THREE.AnimationMixer( model );
 
-                idleAction = mixer.clipAction(animations[0]);
-                walkAction = mixer.clipAction(animations[3]);
-                runAction = mixer.clipAction(animations[1]);
+                idleAction = mixer.clipAction( animations[ 0 ] );
+                walkAction = mixer.clipAction( animations[ 3 ] );
+                runAction = mixer.clipAction( animations[ 1 ] );
 
-                actions = [idleAction, walkAction, runAction];
+                actions = [ idleAction, walkAction, runAction ];
 
                 activateAllActions();
 
                 animate();
 
-            });
+            } );
 
-            renderer = that.renderer = new THREE.WebGLRenderer({
-                canvas: canvas3d,
-                antialias: true
-            });
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer = that.renderer =new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
             renderer.outputEncoding = THREE.sRGBEncoding;
             renderer.shadowMap.enabled = true;
-            container.appendChild(renderer.domElement);
+            container.appendChild( renderer.domElement );
 
             stats = new Stats();
-            container.appendChild(stats.dom);
+            container.appendChild( stats.dom );
 
-            window.addEventListener('resize', onWindowResize);
+            window.addEventListener( 'resize', onWindowResize );
 
         }
 
         function createPanel() {
 
-            const panel = new GUI({
-                width: 310
-            });
+            const panel = new GUI( { width: 310 } );
 
-            const folder1 = panel.addFolder('Visibility');
-            const folder2 = panel.addFolder('Activation/Deactivation');
-            const folder3 = panel.addFolder('Pausing/Stepping');
-            const folder4 = panel.addFolder('Crossfading');
-            const folder5 = panel.addFolder('Blend Weights');
-            const folder6 = panel.addFolder('General Speed');
+            const folder1 = panel.addFolder( 'Visibility' );
+            const folder2 = panel.addFolder( 'Activation/Deactivation' );
+            const folder3 = panel.addFolder( 'Pausing/Stepping' );
+            const folder4 = panel.addFolder( 'Crossfading' );
+            const folder5 = panel.addFolder( 'Blend Weights' );
+            const folder6 = panel.addFolder( 'General Speed' );
 
             settings = {
                 'show model': true,
@@ -187,22 +166,22 @@ Page({
                 'modify step size': 0.05,
                 'from walk to idle': function () {
 
-                    prepareCrossFade(walkAction, idleAction, 1.0);
+                    prepareCrossFade( walkAction, idleAction, 1.0 );
 
                 },
                 'from idle to walk': function () {
 
-                    prepareCrossFade(idleAction, walkAction, 0.5);
+                    prepareCrossFade( idleAction, walkAction, 0.5 );
 
                 },
                 'from walk to run': function () {
 
-                    prepareCrossFade(walkAction, runAction, 2.5);
+                    prepareCrossFade( walkAction, runAction, 2.5 );
 
                 },
                 'from run to walk': function () {
 
-                    prepareCrossFade(runAction, walkAction, 5.0);
+                    prepareCrossFade( runAction, walkAction, 5.0 );
 
                 },
                 'use default duration': true,
@@ -213,35 +192,35 @@ Page({
                 'modify time scale': 1.0
             };
 
-            folder1.add(settings, 'show model').onChange(showModel);
-            folder1.add(settings, 'show skeleton').onChange(showSkeleton);
-            folder2.add(settings, 'deactivate all');
-            folder2.add(settings, 'activate all');
-            folder3.add(settings, 'pause/continue');
-            folder3.add(settings, 'make single step');
-            folder3.add(settings, 'modify step size', 0.01, 0.1, 0.001);
-            crossFadeControls.push(folder4.add(settings, 'from walk to idle'));
-            crossFadeControls.push(folder4.add(settings, 'from idle to walk'));
-            crossFadeControls.push(folder4.add(settings, 'from walk to run'));
-            crossFadeControls.push(folder4.add(settings, 'from run to walk'));
-            folder4.add(settings, 'use default duration');
-            folder4.add(settings, 'set custom duration', 0, 10, 0.01);
-            folder5.add(settings, 'modify idle weight', 0.0, 1.0, 0.01).listen().onChange(function (weight) {
+            folder1.add( settings, 'show model' ).onChange( showModel );
+            folder1.add( settings, 'show skeleton' ).onChange( showSkeleton );
+            folder2.add( settings, 'deactivate all' );
+            folder2.add( settings, 'activate all' );
+            folder3.add( settings, 'pause/continue' );
+            folder3.add( settings, 'make single step' );
+            folder3.add( settings, 'modify step size', 0.01, 0.1, 0.001 );
+            crossFadeControls.push( folder4.add( settings, 'from walk to idle' ) );
+            crossFadeControls.push( folder4.add( settings, 'from idle to walk' ) );
+            crossFadeControls.push( folder4.add( settings, 'from walk to run' ) );
+            crossFadeControls.push( folder4.add( settings, 'from run to walk' ) );
+            folder4.add( settings, 'use default duration' );
+            folder4.add( settings, 'set custom duration', 0, 10, 0.01 );
+            folder5.add( settings, 'modify idle weight', 0.0, 1.0, 0.01 ).listen().onChange( function ( weight ) {
 
-                setWeight(idleAction, weight);
+                setWeight( idleAction, weight );
 
-            });
-            folder5.add(settings, 'modify walk weight', 0.0, 1.0, 0.01).listen().onChange(function (weight) {
+            } );
+            folder5.add( settings, 'modify walk weight', 0.0, 1.0, 0.01 ).listen().onChange( function ( weight ) {
 
-                setWeight(walkAction, weight);
+                setWeight( walkAction, weight );
 
-            });
-            folder5.add(settings, 'modify run weight', 0.0, 1.0, 0.01).listen().onChange(function (weight) {
+            } );
+            folder5.add( settings, 'modify run weight', 0.0, 1.0, 0.01 ).listen().onChange( function ( weight ) {
 
-                setWeight(runAction, weight);
+                setWeight( runAction, weight );
 
-            });
-            folder6.add(settings, 'modify time scale', 0.0, 1.5, 0.01).onChange(modifyTimeScale);
+            } );
+            folder6.add( settings, 'modify time scale', 0.0, 1.5, 0.01 ).onChange( modifyTimeScale );
 
             folder1.open();
             folder2.open();
@@ -253,21 +232,21 @@ Page({
         }
 
 
-        function showModel(visibility) {
+        function showModel( visibility ) {
 
             model.visible = visibility;
 
         }
 
 
-        function showSkeleton(visibility) {
+        function showSkeleton( visibility ) {
 
             skeleton.visible = visibility;
 
         }
 
 
-        function modifyTimeScale(speed) {
+        function modifyTimeScale( speed ) {
 
             mixer.timeScale = speed;
 
@@ -276,38 +255,38 @@ Page({
 
         function deactivateAllActions() {
 
-            actions.forEach(function (action) {
+            actions.forEach( function ( action ) {
 
                 action.stop();
 
-            });
+            } );
 
         }
 
         function activateAllActions() {
 
-            setWeight(idleAction, settings['modify idle weight']);
-            setWeight(walkAction, settings['modify walk weight']);
-            setWeight(runAction, settings['modify run weight']);
+            setWeight( idleAction, settings[ 'modify idle weight' ] );
+            setWeight( walkAction, settings[ 'modify walk weight' ] );
+            setWeight( runAction, settings[ 'modify run weight' ] );
 
-            actions.forEach(function (action) {
+            actions.forEach( function ( action ) {
 
                 action.play();
 
-            });
+            } );
 
         }
 
         function pauseContinue() {
 
-            if (singleStepMode) {
+            if ( singleStepMode ) {
 
                 singleStepMode = false;
                 unPauseAllActions();
 
             } else {
 
-                if (idleAction.paused) {
+                if ( idleAction.paused ) {
 
                     unPauseAllActions();
 
@@ -323,21 +302,21 @@ Page({
 
         function pauseAllActions() {
 
-            actions.forEach(function (action) {
+            actions.forEach( function ( action ) {
 
                 action.paused = true;
 
-            });
+            } );
 
         }
 
         function unPauseAllActions() {
 
-            actions.forEach(function (action) {
+            actions.forEach( function ( action ) {
 
                 action.paused = false;
 
-            });
+            } );
 
         }
 
@@ -346,15 +325,15 @@ Page({
             unPauseAllActions();
 
             singleStepMode = true;
-            sizeOfNextStep = settings['modify step size'];
+            sizeOfNextStep = settings[ 'modify step size' ];
 
         }
 
-        function prepareCrossFade(startAction, endAction, defaultDuration) {
+        function prepareCrossFade( startAction, endAction, defaultDuration ) {
 
             // Switch default / custom crossfade duration (according to the user's choice)
 
-            const duration = setCrossFadeDuration(defaultDuration);
+            const duration = setCrossFadeDuration( defaultDuration );
 
             // Make sure that we don't go on in singleStepMode, and that all actions are unpaused
 
@@ -364,45 +343,45 @@ Page({
             // If the current action is 'idle' (duration 4 sec), execute the crossfade immediately;
             // else wait until the current action has finished its current loop
 
-            if (startAction === idleAction) {
+            if ( startAction === idleAction ) {
 
-                executeCrossFade(startAction, endAction, duration);
+                executeCrossFade( startAction, endAction, duration );
 
             } else {
 
-                synchronizeCrossFade(startAction, endAction, duration);
+                synchronizeCrossFade( startAction, endAction, duration );
 
             }
 
         }
 
-        function setCrossFadeDuration(defaultDuration) {
+        function setCrossFadeDuration( defaultDuration ) {
 
             // Switch default crossfade duration <-> custom crossfade duration
 
-            if (settings['use default duration']) {
+            if ( settings[ 'use default duration' ] ) {
 
                 return defaultDuration;
 
             } else {
 
-                return settings['set custom duration'];
+                return settings[ 'set custom duration' ];
 
             }
 
         }
 
-        function synchronizeCrossFade(startAction, endAction, duration) {
+        function synchronizeCrossFade( startAction, endAction, duration ) {
 
-            mixer.addEventListener('loop', onLoopFinished);
+            mixer.addEventListener( 'loop', onLoopFinished );
 
-            function onLoopFinished(event) {
+            function onLoopFinished( event ) {
 
-                if (event.action === startAction) {
+                if ( event.action === startAction ) {
 
-                    mixer.removeEventListener('loop', onLoopFinished);
+                    mixer.removeEventListener( 'loop', onLoopFinished );
 
-                    executeCrossFade(startAction, endAction, duration);
+                    executeCrossFade( startAction, endAction, duration );
 
                 }
 
@@ -410,28 +389,28 @@ Page({
 
         }
 
-        function executeCrossFade(startAction, endAction, duration) {
+        function executeCrossFade( startAction, endAction, duration ) {
 
             // Not only the start action, but also the end action must get a weight of 1 before fading
             // (concerning the start action this is already guaranteed in this place)
 
-            setWeight(endAction, 1);
+            setWeight( endAction, 1 );
             endAction.time = 0;
 
             // Crossfade with warping - you can also try without warping by setting the third parameter to false
 
-            startAction.crossFadeTo(endAction, duration, true);
+            startAction.crossFadeTo( endAction, duration, true );
 
         }
 
         // This function is needed, since animationAction.crossFadeTo() disables its start action and sets
         // the start action's timeScale to ((start animation's duration) / (end animation's duration))
 
-        function setWeight(action, weight) {
+        function setWeight( action, weight ) {
 
             action.enabled = true;
-            action.setEffectiveTimeScale(1);
-            action.setEffectiveWeight(weight);
+            action.setEffectiveTimeScale( 1 );
+            action.setEffectiveWeight( weight );
 
         }
 
@@ -439,9 +418,9 @@ Page({
 
         function updateWeightSliders() {
 
-            settings['modify idle weight'] = idleWeight;
-            settings['modify walk weight'] = walkWeight;
-            settings['modify run weight'] = runWeight;
+            settings[ 'modify idle weight' ] = idleWeight;
+            settings[ 'modify walk weight' ] = walkWeight;
+            settings[ 'modify run weight' ] = runWeight;
 
         }
 
@@ -449,30 +428,30 @@ Page({
 
         function updateCrossFadeControls() {
 
-            if (idleWeight === 1 && walkWeight === 0 && runWeight === 0) {
+            if ( idleWeight === 1 && walkWeight === 0 && runWeight === 0 ) {
 
-                crossFadeControls[0].disable();
-                crossFadeControls[1].enable();
-                crossFadeControls[2].disable();
-                crossFadeControls[3].disable();
-
-            }
-
-            if (idleWeight === 0 && walkWeight === 1 && runWeight === 0) {
-
-                crossFadeControls[0].enable();
-                crossFadeControls[1].disable();
-                crossFadeControls[2].enable();
-                crossFadeControls[3].disable();
+                crossFadeControls[ 0 ].disable();
+                crossFadeControls[ 1 ].enable();
+                crossFadeControls[ 2 ].disable();
+                crossFadeControls[ 3 ].disable();
 
             }
 
-            if (idleWeight === 0 && walkWeight === 0 && runWeight === 1) {
+            if ( idleWeight === 0 && walkWeight === 1 && runWeight === 0 ) {
 
-                crossFadeControls[0].disable();
-                crossFadeControls[1].disable();
-                crossFadeControls[2].disable();
-                crossFadeControls[3].enable();
+                crossFadeControls[ 0 ].enable();
+                crossFadeControls[ 1 ].disable();
+                crossFadeControls[ 2 ].enable();
+                crossFadeControls[ 3 ].disable();
+
+            }
+
+            if ( idleWeight === 0 && walkWeight === 0 && runWeight === 1 ) {
+
+                crossFadeControls[ 0 ].disable();
+                crossFadeControls[ 1 ].disable();
+                crossFadeControls[ 2 ].disable();
+                crossFadeControls[ 3 ].enable();
 
             }
 
@@ -483,7 +462,7 @@ Page({
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
 
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize( window.innerWidth, window.innerHeight );
 
         }
 
@@ -491,7 +470,7 @@ Page({
 
             // Render loop
 
-            requestAnimationFrame(animate);
+            //requestId =requestAnimationFrame(animate);
 
             idleWeight = idleAction.getEffectiveWeight();
             walkWeight = walkAction.getEffectiveWeight();
@@ -511,7 +490,7 @@ Page({
 
             // If in single step mode, make one step and then do nothing (until the user clicks again)
 
-            if (singleStepMode) {
+            if ( singleStepMode ) {
 
                 mixerUpdateDelta = sizeOfNextStep;
                 sizeOfNextStep = 0;
@@ -520,12 +499,12 @@ Page({
 
             // Update the animation mixer, the stats panel, and render this frame
 
-            mixer.update(mixerUpdateDelta);
+            mixer.update( mixerUpdateDelta );
 
-            // //stats.update();
+            stats.update();
 
-            renderer.render(scene, camera);
+            renderer.render( scene, camera );
 
         }
-    }
+	}
 })

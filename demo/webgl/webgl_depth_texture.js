@@ -1,10 +1,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import * as THREE from '../three/Three.js';
 
-import Stats from './jsm/libs/stats.module.js';
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import Stats from '../jsm/libs/stats.module.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
 const onekit = {
 "post-vert":
 	`varying vec2 vUv;
@@ -36,37 +36,28 @@ void main() {
     gl_FragColor.a = 1.0;
 }`
 }
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+var requestId
+Page({
+    onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+                const canvas3d = this.canvas =await document.createElementAsync("canvas", "webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas", "webgl")
+            var that = this
 
         let camera, scene, renderer, controls, stats;
 			let target;
@@ -215,7 +206,7 @@ var that = this
 
 				if ( ! supportsExtension ) return;
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				// render scene into target
 				renderer.setRenderTarget( target );

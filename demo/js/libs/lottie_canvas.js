@@ -1,3 +1,33 @@
+
+import {
+    Blob,
+    btoa,
+    createImageBitmap,
+    CSSStyleDeclaration,
+    performance,
+    document,
+    DOMParser,
+    EventTarget,
+    fetch,
+    Headers,
+    HTMLCanvasElement,
+    HTMLImageElement,
+    ImageBitmap,
+    location,
+    navigator,
+    Request,
+    requestAnimationFrame,
+    cancelAnimationFrame,
+    Response,
+    URL,
+    window,
+    self,
+    WebAssembly,
+    Worker,
+    XMLHttpRequest,
+	ImageData,
+    core,
+    } from 'dhtml-weixin';
 (typeof navigator !== "undefined") && (function(root, factory) {
     if (typeof define === "function" && define.amd) {
         define(function() {
@@ -296,7 +326,7 @@ var createTypedArray = (function(){
 		} else if(type === 'int16') {
 			return new Int16Array(len);
 		} else if(type === 'uint8c') {
-			return new Uint8ClampedArray(len);
+            return new Uint8ClampedArray(len);
 		}
 	}
 	if(typeof Uint8ClampedArray === 'function' && typeof Float32Array === 'function') {
@@ -9493,13 +9523,13 @@ AnimationItem.prototype.setParams = function(params) {
     var animType = params.animType ? params.animType : params.renderer ? params.renderer : 'svg';
     switch(animType){
         case 'canvas':
-            that.renderer = new CanvasRenderer(this, params.rendererSettings);
+            this.renderer = new CanvasRenderer(this, params.rendererSettings);
             break;
         case 'svg':
-            that.renderer = new SVGRenderer(this, params.rendererSettings);
+            this.renderer = new SVGRenderer(this, params.rendererSettings);
             break;
         default:
-            that.renderer = new HybridRenderer(this, params.rendererSettings);
+            this.renderer = new HybridRenderer(this, params.rendererSettings);
             break;
     }
     this.imagePreloader.setCacheType(animType);
@@ -12747,5 +12777,5 @@ if (standalone) {
 }
 var readyStateCheckInterval = setInterval(checkReady, 100);
 
-return lottie;
+return lottie
 }));

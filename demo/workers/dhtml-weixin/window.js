@@ -8,11 +8,18 @@ import Location from './Location'
 import requestAnimationFrame from './requestAnimationFrame'
 import cancelAnimationFrame from './cancelAnimationFrame'
 import createImageBitmap from './createImageBitmap'
+import HTMLImageElement from "./HTMLImageElement";
+import HTMLCanvasElement from "./HTMLCanvasElement"
+import ImageBitmap from "./ImageBitmap"
 import Worker from './Worker'
+import btoa from "./btoa"
 import AudioContext from "./AudioContext"
 // ///////////////////////////////////////////////
 
 export default class Window extends EventTarget {
+  get btoa() {
+    return btoa
+  }
   get Int8Array() {
     return Int8Array
   }
@@ -59,8 +66,8 @@ export default class Window extends EventTarget {
   // /////////////////
 
   _getSystemInfoSync() {
-    if (!this.systemInfo) {
-      this.systemInfo = wx.getSystemInfoSync()
+    if (!this.onekit_systemInfo) {
+      this.onekit_systemInfo = wx.getSystemInfoSync()
     }
   }
 
@@ -75,20 +82,28 @@ export default class Window extends EventTarget {
     this.setInterval = setInterval
     this.clearInterval = clearInterval
   }
-
+  get HTMLImageElement() {
+    return HTMLImageElement
+  }
+  get HTMLCanvasElement() {
+    return HTMLCanvasElement
+  }
+  get ImageBitmap() {
+    return ImageBitmap
+  }
   get devicePixelRatio() {
     this._getSystemInfoSync()
-    return this.systemInfo.pixelRatio
+    return this.onekit_systemInfo.pixelRatio
   }
 
   get innerWidth() {
     this._getSystemInfoSync()
-    return this.systemInfo.windowWidth
+    return this.onekit_systemInfo.windowWidth
   }
 
   get innerHeight() {
     this._getSystemInfoSync()
-    return this.systemInfo.windowHeight
+    return this.onekit_systemInfo.windowHeight
   }
 
   get Math() {

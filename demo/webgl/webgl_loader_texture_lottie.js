@@ -1,41 +1,33 @@
 // webgl/webgl_loader_texture_lottie.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
-import { RoundedBoxGeometry } from './jsm/geometries/RoundedBoxGeometry.js';
-import { LottieLoader } from './jsm/loaders/LottieLoader.js';
+import * as THREE from '../three/Three.js';
+import  { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from '../jsm/geometries/RoundedBoxGeometry.js';
+import { LottieLoader } from '../jsm/loaders/LottieLoader.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let renderer, scene, camera;
 			let mesh;
@@ -57,7 +49,7 @@ var that = this
 
 					setupControls( texture.animation );
 
-					// texture = new THREE.TextureLoader().load( 'textures/uv_grid_directx.jpg' );
+					// texture = new THREE.TextureLoader( ).load( 'textures/uv_grid_directx.jpg' );
 
 					const geometry = new RoundedBoxGeometry( 1, 1, 1, 7, 0.2 );
 					const material = new THREE.MeshStandardMaterial( { roughness: 0.1, map: texture } );
@@ -132,7 +124,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				if ( mesh ) {
 

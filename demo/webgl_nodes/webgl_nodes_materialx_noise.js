@@ -1,53 +1,39 @@
 // webgl_nodes/webgl_nodes_materialx_noise.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import { MeshPhysicalNodeMaterial, add, mul, normalWorld, saturate, timerLocal } from './jsm/nodes/Nodes.js';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
+import { MeshPhysicalNodeMaterial, add, mul, normalWorld, saturate, timerLocal } from '../jsm/nodes/Nodes.js';
 
 			import {
 				mx_perlin_noise_float,
 				mx_cell_noise_float,
 				mx_worley_noise_float,
 				mx_fractal_noise_float
-			} from './jsm/nodes/materialx/functions/lib/mx_noise.js';
+			} from '../jsm/nodes/materialx/functions/lib/mx_noise.js';
 
-			import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
+			import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
 
-			import Stats from './jsm/libs/stats.module.js';
+			import Stats from '../jsm/libs/stats.module.js';
 
-			import { OrbitControls } from './jsm/controls/OrbitControls.js';
-			import { HDRCubeTextureLoader } from './jsm/loaders/HDRCubeTextureLoader.js';
+			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+			import { HDRCubeTextureLoader } from '../jsm/loaders/HDRCubeTextureLoader.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let container, stats;
 
 let camera, scene, renderer;
@@ -185,7 +171,7 @@ function onWindowResize() {
 
 function animate() {
 
-    requestAnimationFrame( animate );
+    requestId = requestAnimationFrame(animate);
 
     nodeFrame.update();
 

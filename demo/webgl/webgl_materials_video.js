@@ -1,33 +1,26 @@
 // webgl/webgl_materials_video.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-
-import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from './jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
-import { BloomPass } from './jsm/postprocessing/BloomPass.js';
-import { CopyShader } from './jsm/shaders/CopyShader.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
+import * as THREE from '../three/Three.js';
+import  { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
+import { BloomPass } from '../jsm/postprocessing/BloomPass.js';
+import { CopyShader } from '../jsm/shaders/CopyShader.js';
+var requestId
+Page({
     data:{
-        onekit_path:getApp().onekit_path
+        onekit_path:wx.getStorageSync('onekit_path')
     },
-	async onLoad() {
+	   
+         webgl_touch(e) {
+        const web_e = Event.fix(e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
+    },
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container;
 
@@ -194,7 +187,7 @@ var that = this
 
         function animate() {
 
-            requestAnimationFrame( animate );
+            requestId = requestAnimationFrame(animate);
 
             render();
 

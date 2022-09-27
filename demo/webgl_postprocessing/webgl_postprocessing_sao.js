@@ -1,44 +1,29 @@
 // webgl_postprocessing/webgl_postprocessing_sao.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import * as THREE from '../three/Three.js';
 
-import Stats from './jsm/libs/stats.module.js';
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import Stats from '../jsm/libs/stats.module.js';
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
 
-import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from './jsm/postprocessing/RenderPass.js';
-import { SAOPass } from './jsm/postprocessing/SAOPass.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
+import { SAOPass } from '../jsm/postprocessing/SAOPass.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
 let container, stats;
 let camera, scene, renderer;
@@ -57,7 +42,7 @@ function init() {
     const height = window.innerHeight || 1;
     const devicePixelRatio = window.devicePixelRatio || 1;
 
-    renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
     renderer.setClearColor( 0x000000 );
     renderer.setPixelRatio( devicePixelRatio );
     renderer.setSize( width, height );
@@ -166,7 +151,7 @@ function onWindowResize() {
 
 function animate() {
 
-    requestAnimationFrame( animate );
+    requestId = requestAnimationFrame(animate);
 
     stats.begin();
     render();

@@ -56,8 +56,8 @@ var DracoDecoderModule = (function() {
 let decoderConfig;
 let decoderPending;
 
-worker.onMessage(function (e) {
-  e = self2.onmessage(e);
+worker.onMessage( function ( e ) {
+     e = self2.onmessage(e);
  const message = e.data;
 	switch ( message.type ) {
 

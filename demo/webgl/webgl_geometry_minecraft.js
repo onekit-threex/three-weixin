@@ -1,42 +1,34 @@
 // webgl/webgl_geometry_minecraft.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
-import Stats from './jsm/libs/stats.module.js';
+import * as THREE from '../three/Three.js';
+import Stats from '../jsm/libs/stats.module.js';
 
-import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
-import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
-import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
+import { FirstPersonControls } from '../jsm/controls/FirstPersonControls.js';
+import { ImprovedNoise } from '../jsm/math/ImprovedNoise.js';
+import * as BufferGeometryUtils from '../jsm/utils/BufferGeometryUtils.js';
+var requestId
+Page({
+	   
+         onUnload() {
+	   		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+        
+	},
+         webgl_touch(e) {
         const web_e = Event.fix(e)
-       window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
+        //window.dispatchEvent(web_e)
+        //document.dispatchEvent(web_e)
+        this.canvas.dispatchEvent(web_e)
     },
-async onLoad(){
+async onLoad() {
+        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-        const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 
         let container, stats;
 
@@ -149,7 +141,7 @@ var that = this
 				const geometry = BufferGeometryUtils.mergeBufferGeometries( geometries );
 				geometry.computeBoundingSphere();
 
-				const texture = new THREE.TextureLoader().load( 'textures/minecraft/atlas.png' );
+				const texture = new THREE.TextureLoader( ).load( 'textures/minecraft/atlas.png' );
 				texture.magFilter = THREE.NearestFilter;
 
 				const mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { map: texture, side: THREE.DoubleSide } ) );
@@ -162,7 +154,7 @@ var that = this
 				directionalLight.position.set( 1, 1, 0.5 ).normalize();
 				scene.add( directionalLight );
 
-				renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
@@ -230,7 +222,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame( animate );
+				requestAnimationFrame(animate);
 
 				render();
 			//	//stats.update();

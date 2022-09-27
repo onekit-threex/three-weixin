@@ -1,44 +1,30 @@
 // misc/misc_exporter_usdz.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,Blob,URL} from 'dhtml-weixin';
-import * as THREE from 'three-weixin';
+import * as THREE from '../three/Three.js';
 
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
+import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
 
-import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
-import { USDZExporter } from './jsm/exporters/USDZExporter.js';
+import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import { USDZExporter } from '../jsm/exporters/USDZExporter.js';
 
-Page({   
- onShareAppMessage() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            path:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-    onShareTimeline() {
-        return {
-            title: "ThreeX 元宇宙利器",
-            query:"/index",
-            imageUrl:"/ThreeX.jpg"
-        }
-    },
-  onUnload(){
-    cancelAnimationFrame()
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-},
-    webgl_touch(e){
-        const web_e = Event.fix(e)
-        window.dispatchEvent(web_e)
-        this.canvas && this.canvas.dispatchEvent(web_e)
-    },
-async onLoad(){
+import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+
+var requestId
+Page({
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+
+if( this.renderer){
+        this.renderer.dispose()
+        this.renderer.forceContextLoss()
+        this.renderer.context = null
+        this.renderer.domElement = null
+        this.renderer = null  }
+	},
+  async onLoad(){
+const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
-const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl")
 let camera, scene, renderer;
 
 init();
@@ -46,7 +32,7 @@ render();
 
 function init() {
 
-    renderer = that.renderer = new  THREE.WebGLRenderer({canvas:canvas3d, antialias: true } );
+    renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -67,7 +53,7 @@ function init() {
 
         scene.add( gltf.scene );
 
-        const shadowMesh = await createSpotShadowMesh();
+        const shadowMesh = createSpotShadowMesh();
         shadowMesh.position.y = - 1.1;
         shadowMesh.position.z = - 0.25;
         shadowMesh.scale.setScalar( 2 );
@@ -97,7 +83,7 @@ function init() {
 
 }
 
-async function createSpotShadowMesh() {
+function createSpotShadowMesh() {
 
     const canvas = document.createElement( 'canvas' );
     canvas.width = 128;
@@ -111,7 +97,7 @@ async function createSpotShadowMesh() {
     context.fillStyle = gradient;
     context.fillRect( 0, 0, canvas.width, canvas.height );
 
-    const shadowTexture = new THREE.CanvasTexture(await core.Canvas.fix( canvas ));
+    const shadowTexture = new THREE.CanvasTexture( canvas );
 
     const geometry = new THREE.PlaneGeometry();
     const material = new THREE.MeshBasicMaterial( {
