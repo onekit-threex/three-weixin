@@ -2,10 +2,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { MeshSurfaceSampler } from '../jsm/math/MeshSurfaceSampler.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { MeshSurfaceSampler } from './jsm/math/MeshSurfaceSampler.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

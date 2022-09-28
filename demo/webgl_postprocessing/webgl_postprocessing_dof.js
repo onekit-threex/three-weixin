@@ -2,12 +2,12 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
-			import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-			import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-			import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-			import { BokehPass } from '../jsm/postprocessing/BokehPass.js';
+			import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+			import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+			import { BokehPass } from './jsm/postprocessing/BokehPass.js';
 
 var requestId
 Page({

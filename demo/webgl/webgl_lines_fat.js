@@ -1,15 +1,15 @@
 // webgl/webgl_lines_fat.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
-import { GPUStatsPanel } from '../jsm/utils/GPUStatsPanel.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GPUStatsPanel } from './jsm/utils/GPUStatsPanel.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { Line2 } from '../jsm/lines/Line2.js';
-import { LineMaterial } from '../jsm/lines/LineMaterial.js';
-import { LineGeometry } from '../jsm/lines/LineGeometry.js';
-import * as GeometryUtils from '../jsm/utils/GeometryUtils.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { Line2 } from './jsm/lines/Line2.js';
+import { LineMaterial } from './jsm/lines/LineMaterial.js';
+import { LineGeometry } from './jsm/lines/LineGeometry.js';
+import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 var requestId
 Page({
 	   

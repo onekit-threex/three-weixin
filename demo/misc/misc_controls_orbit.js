@@ -2,8 +2,8 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

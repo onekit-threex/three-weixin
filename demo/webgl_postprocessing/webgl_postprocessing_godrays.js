@@ -2,13 +2,13 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GodRaysFakeSunShader, GodRaysDepthMaskShader, GodRaysCombineShader, GodRaysGenerateShader } from '../jsm/shaders/GodRaysShader.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GodRaysFakeSunShader, GodRaysDepthMaskShader, GodRaysCombineShader, GodRaysGenerateShader } from './jsm/shaders/GodRaysShader.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

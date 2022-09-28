@@ -1,7 +1,7 @@
 // webgl/webgl_lod.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { FlyControls } from '../jsm/controls/FlyControls.js';
+import  { FlyControls } from './jsm/controls/FlyControls.js';
 var requestId
 Page({
 	   

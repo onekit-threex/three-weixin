@@ -1,8 +1,8 @@
 // webgl/webgl_loader_lwo.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { LWOLoader } from '../jsm/loaders/LWOLoader.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { LWOLoader } from './jsm/loaders/LWOLoader.js';
 
 var requestId
 Page({

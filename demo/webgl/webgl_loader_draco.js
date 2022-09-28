@@ -1,7 +1,7 @@
 // webgl/webgl_loader_draco.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { DRACOLoader } from '../jsm/loaders/DRACOLoader.js';
+import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 var requestId
 Page({
     onUnload() {

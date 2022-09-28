@@ -2,11 +2,11 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { GPUComputationRenderer } from '../jsm/misc/GPUComputationRenderer.js';
-import { SimplexNoise } from '../jsm/math/SimplexNoise.js';
+import { GPUComputationRenderer } from './jsm/misc/GPUComputationRenderer.js';
+import { SimplexNoise } from './jsm/math/SimplexNoise.js';
 const onekit = {
    "heightmapFragmentShader":`
 

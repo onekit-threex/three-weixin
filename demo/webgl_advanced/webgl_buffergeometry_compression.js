@@ -2,12 +2,12 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import * as GeometryCompressionUtils from '../jsm/utils/GeometryCompressionUtils.js';
-import * as BufferGeometryUtils from '../jsm/utils/BufferGeometryUtils.js';
-import { TeapotGeometry } from '../jsm/geometries/TeapotGeometry.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import * as GeometryCompressionUtils from './jsm/utils/GeometryCompressionUtils.js';
+import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
+import { TeapotGeometry } from './jsm/geometries/TeapotGeometry.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

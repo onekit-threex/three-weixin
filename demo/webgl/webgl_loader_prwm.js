@@ -1,7 +1,7 @@
 // webgl/webgl_loader_prwm.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { PRWMLoader } from '../jsm/loaders/PRWMLoader.js';
+import  { PRWMLoader } from './jsm/loaders/PRWMLoader.js';
 var requestId
 Page({
 	   

@@ -1,7 +1,7 @@
 // webgl/webgl_geometry_extrude_shapes.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { TrackballControls } from '../jsm/controls/TrackballControls.js';
+import  { TrackballControls } from './jsm/controls/TrackballControls.js';
 var requestId
 Page({
     onUnload(){

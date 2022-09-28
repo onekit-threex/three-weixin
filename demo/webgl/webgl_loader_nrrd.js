@@ -1,12 +1,12 @@
 // webgl/webgl_loader_nrrd.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { TrackballControls } from '../jsm/controls/TrackballControls.js';
-import { NRRDLoader } from '../jsm/loaders/NRRDLoader.js';
-import { VTKLoader } from '../jsm/loaders/VTKLoader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
+import { NRRDLoader } from './jsm/loaders/NRRDLoader.js';
+import { VTKLoader } from './jsm/loaders/VTKLoader.js';
 var requestId
 Page({
 	   

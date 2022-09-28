@@ -7,16 +7,16 @@ import {
 	Event
 } from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 import {
 	OrbitControls
-} from '../jsm/controls/OrbitControls.js';
+} from './jsm/controls/OrbitControls.js';
 import {
 	ConvexObjectBreaker
-} from '../jsm/misc/ConvexObjectBreaker.js';
+} from './jsm/misc/ConvexObjectBreaker.js';
 import {
 	ConvexGeometry
-} from '../jsm/geometries/ConvexGeometry.js';
+} from './jsm/geometries/ConvexGeometry.js';
 var requestId
 Page({
 

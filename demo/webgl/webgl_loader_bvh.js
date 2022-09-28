@@ -1,8 +1,8 @@
 // webgl/webgl_loader_bvh.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { BVHLoader } from '../jsm/loaders/BVHLoader.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { BVHLoader } from './jsm/loaders/BVHLoader.js';
 var requestId
 Page({
 	   

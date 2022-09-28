@@ -2,8 +2,8 @@ import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,pe
 import * as THREE from '../three/Three.js';
 
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import * as SkeletonUtils from '../jsm/utils/SkeletonUtils.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import * as SkeletonUtils from './jsm/utils/SkeletonUtils.js';
 
 var requestId
 Page({

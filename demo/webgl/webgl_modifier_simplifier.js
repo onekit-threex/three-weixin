@@ -1,9 +1,9 @@
 // webgl/webgl_modifier_simplifier.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { SimplifyModifier } from '../jsm/modifiers/SimplifyModifier.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { SimplifyModifier } from './jsm/modifiers/SimplifyModifier.js';
 var requestId
 Page({
 	   

@@ -1,12 +1,12 @@
 // webgl/webgl_materials_physical_clearcoat.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { HDRCubeTextureLoader } from '../jsm/loaders/HDRCubeTextureLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { HDRCubeTextureLoader } from './jsm/loaders/HDRCubeTextureLoader.js';
 
-import { FlakesTexture } from '../jsm/textures/FlakesTexture.js';
+import { FlakesTexture } from './jsm/textures/FlakesTexture.js';
 
 var requestId
 Page({

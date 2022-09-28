@@ -1,9 +1,9 @@
 // webgl/webgl_loader_gltf.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 var requestId
 Page({
 	   

@@ -1,9 +1,9 @@
 // webgl/webgl_lines_dashed.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import * as GeometryUtils from '../jsm/utils/GeometryUtils.js';
+import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 var requestId
 Page({
 	   

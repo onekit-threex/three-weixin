@@ -1,7 +1,7 @@
 // webgl/webgl_loader_mdd.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { MDDLoader } from '../jsm/loaders/MDDLoader.js';
+import  { MDDLoader } from './jsm/loaders/MDDLoader.js';
 var requestId
 Page({
 	   

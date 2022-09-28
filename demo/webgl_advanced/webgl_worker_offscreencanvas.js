@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import initJank from '../jsm/offscreen/jank.js';
-import init from '../jsm/offscreen/scene.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import initJank from './jsm/offscreen/jank.js';
+import init from './jsm/offscreen/scene.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

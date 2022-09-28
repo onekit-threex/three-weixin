@@ -1,19 +1,19 @@
 // webgl_nodes/webgl_nodes_playground.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import * as Nodes from '../jsm/nodes/Nodes.js';
+import * as Nodes from './jsm/nodes/Nodes.js';
 
-import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
+import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 
-import { NodeEditor } from '../jsm/node-editor/NodeEditor.js';
-import { MeshEditor } from '../jsm/node-editor/scene/MeshEditor.js';
+import { NodeEditor } from './jsm/node-editor/NodeEditor.js';
+import { MeshEditor } from './jsm/node-editor/scene/MeshEditor.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { FBXLoader } from '../jsm/loaders/FBXLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { FBXLoader } from './jsm/loaders/FBXLoader.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

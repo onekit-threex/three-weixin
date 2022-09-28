@@ -5,12 +5,12 @@ import {
 	requestAnimationFrame
 } from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
 import {
 	OrbitControls
-} from '../jsm/controls/OrbitControls.js';
-import * as BufferGeometryUtils from '../jsm/utils/BufferGeometryUtils.js';
+} from './jsm/controls/OrbitControls.js';
+import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 
 var requestId
 Page({
@@ -58,7 +58,7 @@ var that = this
 		const margin = 0.05;
 		let transformAux1;
 		let softBodyHelpers;
-		var Ammo = require("../jsm/ammo/index")
+		var Ammo = require("./jsm/ammo/index")
 		Ammo().then(function (AmmoLib) {
 
 			Ammo = that.onekit_ammo //AmmoLib;

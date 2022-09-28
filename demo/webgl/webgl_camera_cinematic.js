@@ -1,10 +1,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { CinematicCamera } from '../jsm/cameras/CinematicCamera.js';
+import { CinematicCamera } from './jsm/cameras/CinematicCamera.js';
 var requestId
 Page({
     onUnload() {

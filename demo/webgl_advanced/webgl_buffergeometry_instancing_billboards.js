@@ -1,7 +1,7 @@
 // webgl_advanced/webgl_buffergeometry_instancing_billboards.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 const onekit = {
     "vshader" :`
     precision highp float;

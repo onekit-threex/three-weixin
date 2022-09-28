@@ -1,13 +1,13 @@
 // webgl_postprocessing/webgl_postprocessing_rgb_halftone.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { HalftonePass } from '../jsm/postprocessing/HalftonePass.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { HalftonePass } from './jsm/postprocessing/HalftonePass.js';
 
 
 var requestId

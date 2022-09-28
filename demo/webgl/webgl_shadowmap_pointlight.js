@@ -1,9 +1,9 @@
 // webgl/webgl_shadowmap_pointlight.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,performance,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 var requestId
 Page({
 	   

@@ -1,7 +1,7 @@
 // webgl/webgl_rtt.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 const onekit = {
     fragment_shader_screen:`	varying vec2 vUv;
     uniform sampler2D tDiffuse;

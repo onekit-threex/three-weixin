@@ -1,7 +1,7 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import * as GeometryUtils from '../jsm/utils/GeometryUtils.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import * as GeometryUtils from './jsm/utils/GeometryUtils.js';
 var requestId
 Page({
     onUnload() {

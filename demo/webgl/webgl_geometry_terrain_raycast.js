@@ -1,10 +1,10 @@
 // webgl/webgl_geometry_terrain_raycast.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,core,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ImprovedNoise } from '../jsm/math/ImprovedNoise.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
 
 var requestId
 Page({

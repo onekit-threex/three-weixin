@@ -1,10 +1,10 @@
 // webgl/webgl_geometry_teapot.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import  { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { TeapotGeometry } from '../jsm/geometries/TeapotGeometry.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { TeapotGeometry } from './jsm/geometries/TeapotGeometry.js';
 var requestId
 Page({
 	   

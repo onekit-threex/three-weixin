@@ -1,10 +1,10 @@
 // webgl/webgl_loader_texture_tga.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { TGALoader } from '../jsm/loaders/TGALoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { TGALoader } from './jsm/loaders/TGALoader.js';
 
 var requestId
 Page({

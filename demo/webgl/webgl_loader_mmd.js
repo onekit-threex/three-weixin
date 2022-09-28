@@ -1,13 +1,13 @@
 // webgl/webgl_loader_mmd.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import  Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { OutlineEffect } from '../jsm/effects/OutlineEffect.js';
-import { MMDLoader } from '../jsm/loaders/MMDLoader.js';
-import { MMDAnimationHelper } from '../jsm/animation/MMDAnimationHelper.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
+import { MMDLoader } from './jsm/loaders/MMDLoader.js';
+import { MMDAnimationHelper } from './jsm/animation/MMDAnimationHelper.js';
 
 var requestId
 Page({
@@ -40,7 +40,7 @@ var that = this
 			let helper, ikHelper, physicsHelper;
 
 			const clock = new THREE.Clock();
-            var Ammo = require("../jsm/ammo/index")
+            var Ammo = require("./jsm/ammo/index")
 			Ammo().then( function (  ) {
 				Ammo = that.onekit_ammo;
 

@@ -1,8 +1,8 @@
 // webgl/webgl_loader_gcode.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GCodeLoader } from '../jsm/loaders/GCodeLoader.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GCodeLoader } from './jsm/loaders/GCodeLoader.js';
 var requestId
 Page({
 	   

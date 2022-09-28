@@ -1,9 +1,9 @@
 // webgl/webgl_materials_physical_transmission.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { GUI } from '../jsm/libs/lil-gui.module.min.js';
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import  { GUI } from './jsm/libs/lil-gui.module.min.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 var requestId
 Page({
 	   

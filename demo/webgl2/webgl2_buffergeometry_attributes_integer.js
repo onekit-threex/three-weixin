@@ -1,7 +1,7 @@
 // webgl2/webgl2_buffergeometry_attributes_integer.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import WebGL from '../jsm/capabilities/WebGL.js';
+import WebGL from './jsm/capabilities/WebGL.js';
 const onekit = {
 "vertexShader":`
   in int textureIndex;
@@ -36,7 +36,7 @@ const onekit = {
 `
 }
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

@@ -1,6 +1,6 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { AnaglyphEffect } from '../jsm/effects/AnaglyphEffect.js';
+import  { AnaglyphEffect } from './jsm/effects/AnaglyphEffect.js';
 
 var requestId
 Page({

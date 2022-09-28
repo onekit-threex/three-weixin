@@ -2,13 +2,13 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,performance,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { DRACOLoader } from '../jsm/loaders/DRACOLoader.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 var requestId
 Page({
     onUnload() {

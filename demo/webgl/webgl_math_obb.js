@@ -1,10 +1,10 @@
 // webgl/webgl_math_obb.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OBB } from '../jsm/math/OBB.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import  { OBB } from './jsm/math/OBB.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 var requestId
 Page({
 	   

@@ -1,14 +1,14 @@
 // webgl_postprocessing/webgl_postprocessing_unreal_bloom.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from '../jsm/postprocessing/UnrealBloomPass.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
 
 
 var requestId

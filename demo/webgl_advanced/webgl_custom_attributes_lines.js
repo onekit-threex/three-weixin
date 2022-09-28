@@ -1,9 +1,9 @@
 // webgl_advanced/webgl_custom_attributes_lines.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { FontLoader } from '../jsm/loaders/FontLoader.js';
-            import { TextGeometry } from '../jsm/geometries/TextGeometry.js';
-            import Stats from '../jsm/libs/stats.module.js';
+import { FontLoader } from './jsm/loaders/FontLoader.js';
+            import { TextGeometry } from './jsm/geometries/TextGeometry.js';
+            import Stats from './jsm/libs/stats.module.js';
 const onekit = {
    "vertexshader":`
 

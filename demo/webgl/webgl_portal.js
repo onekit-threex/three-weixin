@@ -1,8 +1,8 @@
 // webgl/webgl_portal.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  * as CameraUtils from '../jsm/utils/CameraUtils.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import  * as CameraUtils from './jsm/utils/CameraUtils.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
 var requestId
 Page({

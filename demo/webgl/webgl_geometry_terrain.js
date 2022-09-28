@@ -2,10 +2,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,core,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { FirstPersonControls } from '../jsm/controls/FirstPersonControls.js';
-import { ImprovedNoise } from '../jsm/math/ImprovedNoise.js';
+import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
+import { ImprovedNoise } from './jsm/math/ImprovedNoise.js';
 
 var requestId
 Page({ 

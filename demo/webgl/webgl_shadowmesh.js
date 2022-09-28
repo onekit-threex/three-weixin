@@ -1,7 +1,7 @@
 // webgl/webgl_shadowmesh.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { ShadowMesh } from '../jsm/objects/ShadowMesh.js';
+import  { ShadowMesh } from './jsm/objects/ShadowMesh.js';
 var requestId
 Page({
 	   

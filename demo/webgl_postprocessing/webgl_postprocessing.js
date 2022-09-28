@@ -2,14 +2,14 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 
-import { RGBShiftShader } from '../jsm/shaders/RGBShiftShader.js';
-import { DotScreenShader } from '../jsm/shaders/DotScreenShader.js';
+import { RGBShiftShader } from './jsm/shaders/RGBShiftShader.js';
+import { DotScreenShader } from './jsm/shaders/DotScreenShader.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

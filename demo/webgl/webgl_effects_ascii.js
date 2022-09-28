@@ -1,7 +1,7 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,HTMLCanvasElement} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { AsciiEffect } from '../jsm/effects/AsciiEffect.js';
-import { TrackballControls } from '../jsm/controls/TrackballControls.js';
+import { AsciiEffect } from './jsm/effects/AsciiEffect.js';
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
 var requestId
 Page({
     onUnload() {
@@ -90,7 +90,7 @@ async onLoad() {
         //
 
         function animate() {
-        //  requestId = requestAnimationFrame(animate);
+         requestId = requestAnimationFrame(animate);
 
             render();
 

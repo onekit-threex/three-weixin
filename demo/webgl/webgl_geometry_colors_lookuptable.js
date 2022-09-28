@@ -1,9 +1,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import  { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { Lut } from '../jsm/math/Lut.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { Lut } from './jsm/math/Lut.js';
 
 var requestId
 Page({

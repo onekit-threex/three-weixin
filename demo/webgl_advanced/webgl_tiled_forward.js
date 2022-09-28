@@ -1,13 +1,13 @@
 // webgl_advanced/webgl_tiled_forward.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-			import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-			import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 
-			import { UnrealBloomPass } from '../jsm/postprocessing/UnrealBloomPass.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+			import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

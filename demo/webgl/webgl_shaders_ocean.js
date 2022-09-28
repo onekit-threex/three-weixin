@@ -1,12 +1,12 @@
 // webgl/webgl_shaders_ocean.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,performance,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { Water } from '../jsm/objects/Water.js';
-import { Sky } from '../jsm/objects/Sky.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { Water } from './jsm/objects/Water.js';
+import { Sky } from './jsm/objects/Sky.js';
 var requestId
 Page({
 	   

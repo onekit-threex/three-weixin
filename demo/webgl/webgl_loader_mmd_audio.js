@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { OutlineEffect } from '../jsm/effects/OutlineEffect.js';
-import { MMDLoader } from '../jsm/loaders/MMDLoader.js';
-import { MMDAnimationHelper } from '../jsm/animation/MMDAnimationHelper.js';
+import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
+import { MMDLoader } from './jsm/loaders/MMDLoader.js';
+import { MMDAnimationHelper } from './jsm/animation/MMDAnimationHelper.js';
 
 var requestId
 Page({
@@ -38,7 +38,7 @@ var that = this
         const clock = new THREE.Clock();
 
         const startButton = document.getElementById( 'startButton' );
-        var Ammo = require("../jsm/ammo/index")
+        var Ammo = require("./jsm/ammo/index")
 
             Ammo().then( function () {
                 init();

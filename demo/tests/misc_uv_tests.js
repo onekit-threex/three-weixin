@@ -9,10 +9,10 @@ import {
 import * as THREE from '../three/Three.js';
 import {
 	UVsDebug
-} from '../jsm/utils/UVsDebug.js';
+} from './jsm/utils/UVsDebug.js';
 import {
 	GUI
-} from '../jsm/libs/lil-gui.module.min.js';
+} from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

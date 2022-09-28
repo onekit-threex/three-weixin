@@ -1,7 +1,7 @@
 // webgl/webgl_loader_texture_dds.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { DDSLoader } from '../jsm/loaders/DDSLoader.js';
+import  { DDSLoader } from './jsm/loaders/DDSLoader.js';
 var requestId
 Page({
 	   

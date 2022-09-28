@@ -1,11 +1,11 @@
 // webgl/webgl_materials_cubemap_dynamic.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import Stats from '../jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import Stats from './jsm/libs/stats.module.js';
 var requestId
 Page({
 	   

@@ -2,10 +2,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { PositionalAudioHelper } from '../jsm/helpers/PositionalAudioHelper.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { PositionalAudioHelper } from './jsm/helpers/PositionalAudioHelper.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

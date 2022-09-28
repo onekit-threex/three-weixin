@@ -1,6 +1,6 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { PeppersGhostEffect } from '../jsm/effects/PeppersGhostEffect.js';
+import  { PeppersGhostEffect } from './jsm/effects/PeppersGhostEffect.js';
 var requestId
 Page({
     onUnload() {

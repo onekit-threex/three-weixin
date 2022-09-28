@@ -1,11 +1,11 @@
 // webgl/webgl_shadowmap_performance.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
-import { FirstPersonControls } from '../jsm/controls/FirstPersonControls.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { FontLoader } from '../jsm/loaders/FontLoader.js';
-import { TextGeometry } from '../jsm/geometries/TextGeometry.js';
+import  Stats from './jsm/libs/stats.module.js';
+import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { FontLoader } from './jsm/loaders/FontLoader.js';
+import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 var requestId
 Page({
 	   

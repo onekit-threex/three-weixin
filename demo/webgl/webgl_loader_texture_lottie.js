@@ -1,9 +1,9 @@
 // webgl/webgl_loader_texture_lottie.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { RoomEnvironment } from '../jsm/environments/RoomEnvironment.js';
-import { RoundedBoxGeometry } from '../jsm/geometries/RoundedBoxGeometry.js';
-import { LottieLoader } from '../jsm/loaders/LottieLoader.js';
+import  { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from './jsm/geometries/RoundedBoxGeometry.js';
+import { LottieLoader } from './jsm/loaders/LottieLoader.js';
 
 var requestId
 Page({

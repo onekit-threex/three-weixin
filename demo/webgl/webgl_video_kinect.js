@@ -1,7 +1,7 @@
 // webgl/webgl_video_kinect.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 const onekit = {
     vs:`	uniform sampler2D map;
 

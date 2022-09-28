@@ -1,10 +1,10 @@
 // webgl/webgl_helpers.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,performance,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import  { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
-import { VertexNormalsHelper } from '../jsm/helpers/VertexNormalsHelper.js';
-import { VertexTangentsHelper } from '../jsm/helpers/VertexTangentsHelper.js';
+import { VertexNormalsHelper } from './jsm/helpers/VertexNormalsHelper.js';
+import { VertexTangentsHelper } from './jsm/helpers/VertexTangentsHelper.js';
 var requestId
 Page({
 	   

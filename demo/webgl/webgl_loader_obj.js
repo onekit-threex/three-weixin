@@ -1,7 +1,7 @@
 // webgl/webgl_loader_obj.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+import  { OBJLoader } from './jsm/loaders/OBJLoader.js';
 var requestId
 Page({
 	   

@@ -1,6 +1,6 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { StereoEffect } from '../jsm/effects/StereoEffect.js';
+import  { StereoEffect } from './jsm/effects/StereoEffect.js';
 var requestId
 Page({
     onUnload() {

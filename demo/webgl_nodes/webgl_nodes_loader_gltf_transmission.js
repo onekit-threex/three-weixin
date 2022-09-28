@@ -1,16 +1,16 @@
 // webgl_nodes/webgl_nodes_loader_gltf_transmission.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { NodeMaterial, float, texture, mul } from '../jsm/nodes/Nodes.js';
+import { NodeMaterial, float, texture, mul } from './jsm/nodes/Nodes.js';
 
-import { nodeFrame } from '../jsm/renderers/webgl/nodes/WebGLNodes.js';
+import { nodeFrame } from './jsm/renderers/webgl/nodes/WebGLNodes.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 
-import { DRACOLoader } from '../jsm/loaders/DRACOLoader.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

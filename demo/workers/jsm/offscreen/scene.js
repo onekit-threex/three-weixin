@@ -1,4 +1,4 @@
-import * as THREE from '../../three//index';
+import * as THREE from '../../three/index';
 import {document,self,window} from 'dhtml-weixin'
 let camera, scene, renderer, group;
 

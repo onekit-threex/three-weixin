@@ -1,10 +1,10 @@
 // webgl/webgl_shadowmap_viewer.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ShadowMapViewer } from '../jsm/utils/ShadowMapViewer.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ShadowMapViewer } from './jsm/utils/ShadowMapViewer.js';
 var requestId
 Page({
 	   

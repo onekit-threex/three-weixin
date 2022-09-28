@@ -7,16 +7,16 @@ import {
 } from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 import {
     GUI
-} from '../jsm/libs/lil-gui.module.min.js';
+} from './jsm/libs/lil-gui.module.min.js';
 import {
     OrbitControls
-} from '../jsm/controls/OrbitControls.js';
+} from './jsm/controls/OrbitControls.js';
 import {
     GLTFLoader
-} from '../jsm/loaders/GLTFLoader.js';
+} from './jsm/loaders/GLTFLoader.js';
 
 var requestId
 Page({

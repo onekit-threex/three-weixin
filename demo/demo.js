@@ -1,92 +1,66 @@
-import {
-    document,
-    window,
-    Event,
-    requestAnimationFrame,
-    cancelAnimationFrame
-} from 'dhtml-weixin';
-import * as THREE from './three/Three.js';
-import {
-    OrbitControls
-} from './jsm/controls/OrbitControls.js';
-import {
-    GLTFLoader
-} from './jsm/loaders/GLTFLoader.js';
-
-var requestId
+// demo.js
 Page({
-   onUnload(){
-    cancelAnimationFrame(requestId, this.canvas)
-    this.renderer.dispose()
-    this.renderer.forceContextLoss()
-    this.renderer.context = null
-    this.renderer.domElement = null
-    this.renderer = null
-   },
-       webgl_touch(e) {
-        const web_e = Event.fix(e)
-        this.canvas.dispatchEvent(web_e)
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+
     },
-async onLoad() {
-        const canvas3d = this.canvas =await document.createElementAsync("canvas", "webgl")
-        var that = this
-        let scene, camera, stats,renderer;
-        let model;
 
-        init();
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad(options) {
 
-        function init() {
+    },
 
-            const container = document.getElementById( 'container' );
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady() {
 
-            scene = new THREE.Scene();
-            //scene.background = new THREE.Color( 0xa0a0a0 );
-            //scene.fog = new THREE.Fog( 0xa0a0a0, 10, 50 );
+    },
 
-            const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
-            hemiLight.position.set( 0, 20, 0 );
-            scene.add( hemiLight );
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow() {
 
-            const loader = new GLTFLoader();
-            loader.load( 'ikea/shafa/index.glb', function ( gltf ) {
+    },
 
-                model = gltf.scene;
-                scene.add( model );
-                model.scale.setScalar(0.01)
-                animate();
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide() {
 
-            } );
+    },
 
-          renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
-          that.renderer = renderer
-            renderer.setPixelRatio( window.devicePixelRatio );
-            renderer.setSize( window.innerWidth, window.innerHeight );
-          //  renderer.outputEncoding = THREE.sRGBEncoding;
-            renderer.shadowMap.enabled = true;
-            container.appendChild( renderer.domElement );
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload() {
 
-            // camera
-            camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 100 );
-            camera.position.set( - 1, 2, 3 );
-            const controls = new OrbitControls( camera, renderer.domElement );
-            controls.enablePan = false;
-            controls.enableZoom = true;
-            controls.target.set( 0, 1, 0 );
-            controls.update();
+    },
 
-        }
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh() {
 
+    },
 
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom() {
 
-        function animate() {
+    },
 
-          requestId = requestAnimationFrame(animate);
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage() {
 
-
-
-            renderer.render( scene, camera );
-
-        }
-        
     }
 })

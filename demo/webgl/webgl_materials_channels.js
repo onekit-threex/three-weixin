@@ -1,11 +1,11 @@
 // webgl/webgl_materials_channels.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 var requestId
 Page({
 	   

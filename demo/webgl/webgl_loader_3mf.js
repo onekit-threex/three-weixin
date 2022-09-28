@@ -1,9 +1,9 @@
 // webgl/webgl_loader_3mf.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ThreeMFLoader } from '../jsm/loaders/3MFLoader.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ThreeMFLoader } from './jsm/loaders/3MFLoader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 var requestId
 Page({
 	   

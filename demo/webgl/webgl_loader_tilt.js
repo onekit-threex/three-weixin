@@ -1,8 +1,8 @@
 // webgl/webgl_loader_tilt.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { TiltLoader } from '../jsm/loaders/TiltLoader.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { TiltLoader } from './jsm/loaders/TiltLoader.js';
 var requestId
 Page({
 	   

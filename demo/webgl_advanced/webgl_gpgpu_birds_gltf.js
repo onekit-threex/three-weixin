@@ -2,10 +2,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
-import { GPUComputationRenderer } from '../jsm/misc/GPUComputationRenderer.js';
+import Stats from './jsm/libs/stats.module.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+import { GPUComputationRenderer } from './jsm/misc/GPUComputationRenderer.js';
 const onekit = {
     "fragmentShaderPosition":`
 

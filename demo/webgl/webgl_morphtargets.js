@@ -1,8 +1,8 @@
 // webgl/webgl_morphtargets.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 var requestId
 Page({
 	   

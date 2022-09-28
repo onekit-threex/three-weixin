@@ -1,10 +1,10 @@
 // webgl/webgl_loader_collada_kinematics.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { TWEEN } from '../jsm/libs/tween.module.min.js';
-import { ColladaLoader } from '../jsm/loaders/ColladaLoader.js';
+import { TWEEN } from './jsm/libs/tween.module.min.js';
+import { ColladaLoader } from './jsm/loaders/ColladaLoader.js';
 var requestId
 Page({
 	   

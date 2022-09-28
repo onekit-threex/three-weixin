@@ -1,8 +1,8 @@
 // webgl/webgl_loader_kmz.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { KMZLoader } from '../jsm/loaders/KMZLoader.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { KMZLoader } from './jsm/loaders/KMZLoader.js';
 var requestId
 Page({
 	   

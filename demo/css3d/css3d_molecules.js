@@ -1,10 +1,10 @@
 // css3d/css3d_molecules.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { TrackballControls } from '../jsm/controls/TrackballControls.js';
-import { PDBLoader } from '../jsm/loaders/PDBLoader.js';
-import { CSS3DRenderer, CSS3DObject, CSS3DSprite } from '../jsm/renderers/CSS3DRenderer.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
+import { PDBLoader } from './jsm/loaders/PDBLoader.js';
+import { CSS3DRenderer, CSS3DObject, CSS3DSprite } from './jsm/renderers/CSS3DRenderer.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({

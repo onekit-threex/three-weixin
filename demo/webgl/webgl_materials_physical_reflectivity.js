@@ -1,12 +1,12 @@
 // webgl/webgl_materials_physical_reflectivity.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 var requestId
 Page({
 	   

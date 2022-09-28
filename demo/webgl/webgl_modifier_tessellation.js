@@ -1,11 +1,11 @@
 // webgl/webgl_modifier_tessellation.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
-import { TrackballControls } from '../jsm/controls/TrackballControls.js';
-			import { TessellateModifier } from '../jsm/modifiers/TessellateModifier.js';
-			import { FontLoader } from '../jsm/loaders/FontLoader.js';
-			import { TextGeometry } from '../jsm/geometries/TextGeometry.js';
+import  Stats from './jsm/libs/stats.module.js';
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
+			import { TessellateModifier } from './jsm/modifiers/TessellateModifier.js';
+			import { FontLoader } from './jsm/loaders/FontLoader.js';
+			import { TextGeometry } from './jsm/geometries/TextGeometry.js';
 
 const onekit  = {
     vertexshader:`

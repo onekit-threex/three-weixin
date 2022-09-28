@@ -1,9 +1,9 @@
 // webgl/webgl_loader_texture_logluv.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import  { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { LogLuvLoader } from '../jsm/loaders/LogLuvLoader.js';
+import { LogLuvLoader } from './jsm/loaders/LogLuvLoader.js';
 var requestId
 Page({
 	   

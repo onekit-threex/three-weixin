@@ -1,10 +1,10 @@
 // webgl/webgl_lensflares.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { FlyControls } from '../jsm/controls/FlyControls.js';
-import { Lensflare, LensflareElement } from '../jsm/objects/Lensflare.js';
+import { FlyControls } from './jsm/controls/FlyControls.js';
+import { Lensflare, LensflareElement } from './jsm/objects/Lensflare.js';
 
 var requestId
 Page({

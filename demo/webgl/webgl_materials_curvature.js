@@ -1,9 +1,9 @@
 // webgl/webgl_materials_curvature.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { OBJLoader } from '../jsm/loaders/OBJLoader.js';
+import  { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { OBJLoader } from './jsm/loaders/OBJLoader.js';
 const onekit = {
     "vertexShaderRaw":`attribute float curvature;
 

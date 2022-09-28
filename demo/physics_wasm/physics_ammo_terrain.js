@@ -2,10 +2,10 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({
@@ -54,7 +54,7 @@ var that = this
     const objectTimePeriod = 3;
     let timeNextSpawn = time + objectTimePeriod;
     const maxNumObjects = 30;
-var Ammo = require("../jsm/ammo/index")
+var Ammo = require("./jsm/ammo/index")
     Ammo().then( function ( AmmoLib ) {
 
         Ammo = that.onekit_ammo//AmmoLib;

@@ -8,19 +8,19 @@ import * as THREE from '../three/Three.js';
 
 import {
     EffectComposer
-} from '../jsm/postprocessing/EffectComposer.js';
+} from './jsm/postprocessing/EffectComposer.js';
 import {
     RenderPass
-} from '../jsm/postprocessing/RenderPass.js';
+} from './jsm/postprocessing/RenderPass.js';
 import {
     ShaderPass
-} from '../jsm/postprocessing/ShaderPass.js';
+} from './jsm/postprocessing/ShaderPass.js';
 import {
     CopyShader
-} from '../jsm/shaders/CopyShader.js';
+} from './jsm/shaders/CopyShader.js';
 import {
     FXAAShader
-} from '../jsm/shaders/FXAAShader.js';
+} from './jsm/shaders/FXAAShader.js';
 var requestId
 Page({
        

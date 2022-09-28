@@ -1,8 +1,8 @@
 // webgl/webgl_mirror.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { Reflector } from '../jsm/objects/Reflector.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { Reflector } from './jsm/objects/Reflector.js';
 var requestId
 Page({
 	   

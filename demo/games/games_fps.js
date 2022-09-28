@@ -2,16 +2,16 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
-import { Octree } from '../jsm/math/Octree.js';
-import { OctreeHelper } from '../jsm/helpers/OctreeHelper.js';
+import { Octree } from './jsm/math/Octree.js';
+import { OctreeHelper } from './jsm/helpers/OctreeHelper.js';
 
-import { Capsule } from '../jsm/math/Capsule.js';
+import { Capsule } from './jsm/math/Capsule.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 var requestId
 Page({
     webgl_touch(e) {

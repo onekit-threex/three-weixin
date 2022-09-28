@@ -1,9 +1,9 @@
 // webgl/webgl_geometry_convex.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { ConvexGeometry } from '../jsm/geometries/ConvexGeometry.js';
-import * as BufferGeometryUtils from '../jsm/utils/BufferGeometryUtils.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { ConvexGeometry } from './jsm/geometries/ConvexGeometry.js';
+import * as BufferGeometryUtils from './jsm/utils/BufferGeometryUtils.js';
 var requestId
 Page({
 	   

@@ -1,6 +1,6 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { ParallaxBarrierEffect } from '../jsm/effects/ParallaxBarrierEffect.js';
+import  { ParallaxBarrierEffect } from './jsm/effects/ParallaxBarrierEffect.js';
 var requestId
 Page({
     onUnload() {

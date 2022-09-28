@@ -2,16 +2,16 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 
-import { LuminosityShader } from '../jsm/shaders/LuminosityShader.js';
-import { SobelOperatorShader } from '../jsm/shaders/SobelOperatorShader.js';
+import { LuminosityShader } from './jsm/shaders/LuminosityShader.js';
+import { SobelOperatorShader } from './jsm/shaders/SobelOperatorShader.js';
 
 var requestId
 Page({

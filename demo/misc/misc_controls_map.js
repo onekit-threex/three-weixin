@@ -2,9 +2,9 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { MapControls } from '../jsm/controls/OrbitControls.js';
+import { MapControls } from './jsm/controls/OrbitControls.js';
 
 var requestId
 Page({

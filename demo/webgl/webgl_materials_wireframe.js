@@ -1,9 +1,9 @@
 // webgl/webgl_materials_wireframe.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import  { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 const onekit = {
     vertexShader:`	attribute vec3 center;

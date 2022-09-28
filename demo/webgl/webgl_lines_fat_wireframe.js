@@ -1,13 +1,13 @@
 // webgl/webgl_lines_fat_wireframe.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
-import { LineMaterial } from '../jsm/lines/LineMaterial.js';
-import { Wireframe } from '../jsm/lines/Wireframe.js';
-import { WireframeGeometry2 } from '../jsm/lines/WireframeGeometry2.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
+import { LineMaterial } from './jsm/lines/LineMaterial.js';
+import { Wireframe } from './jsm/lines/Wireframe.js';
+import { WireframeGeometry2 } from './jsm/lines/WireframeGeometry2.js';
 
 var requestId
 Page({

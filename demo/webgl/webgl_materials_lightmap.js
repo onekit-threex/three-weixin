@@ -1,9 +1,9 @@
 // webgl/webgl_materials_lightmap.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
 const onekit = {
     "vertexShader":`	varying vec3 vWorldPosition;

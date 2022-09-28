@@ -1,9 +1,9 @@
 // webgl/webgl_materials_bumpmap.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from '../jsm/libs/stats.module.js';
+import  Stats from './jsm/libs/stats.module.js';
 
-import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 var requestId
 Page({
 	   

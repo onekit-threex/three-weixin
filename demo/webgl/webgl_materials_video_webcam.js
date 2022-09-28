@@ -1,7 +1,7 @@
 // webgl/webgl_materials_video_webcam.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,navigator} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import { OrbitControls } from '../jsm/controls/OrbitControls.js';
+import { OrbitControls } from './jsm/controls/OrbitControls.js';
 var requestId
 Page({
 	   

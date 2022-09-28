@@ -2,16 +2,16 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from '../jsm/libs/stats.module.js';
+import Stats from './jsm/libs/stats.module.js';
 
-import { GUI } from '../jsm/libs/lil-gui.module.min.js';
-import { EffectComposer } from '../jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '../jsm/postprocessing/RenderPass.js';
-import { TexturePass } from '../jsm/postprocessing/TexturePass.js';
-import { CubeTexturePass } from '../jsm/postprocessing/CubeTexturePass.js';
-import { ShaderPass } from '../jsm/postprocessing/ShaderPass.js';
-import { ClearPass } from '../jsm/postprocessing/ClearPass.js';
-import { CopyShader } from '../jsm/shaders/CopyShader.js';
+import { GUI } from './jsm/libs/lil-gui.module.min.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { TexturePass } from './jsm/postprocessing/TexturePass.js';
+import { CubeTexturePass } from './jsm/postprocessing/CubeTexturePass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { ClearPass } from './jsm/postprocessing/ClearPass.js';
+import { CopyShader } from './jsm/shaders/CopyShader.js';
 
 var requestId
 Page({

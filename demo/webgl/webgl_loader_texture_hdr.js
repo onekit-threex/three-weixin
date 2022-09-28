@@ -1,9 +1,9 @@
 // webgl/webgl_loader_texture_hdr.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  { GUI } from '../jsm/libs/lil-gui.module.min.js';
+import  { GUI } from './jsm/libs/lil-gui.module.min.js';
 
-import { RGBELoader } from '../jsm/loaders/RGBELoader.js';
+import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 var requestId
 Page({
 	   
