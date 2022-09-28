@@ -6,7 +6,7 @@
 #### 介绍
 全网最强 Three.js 微信小程序版(兼容Uni-App版）。
 完美效果，完美移植。
-问题反馈（QQ群185654475）
+学习与反馈（QQ群185654475）
 
 #### 软件架构
 完美复刻Three.js
@@ -85,11 +85,13 @@
         },
         onUnload(){
             cancelAnimationFrame(requestId)
-            this.renderer.dispose()
-            this.renderer.forceContextLoss()
-            this.renderer.context = null
-            this.renderer.domElement = null
-            this.renderer = null
+            setTimeout(()=>{
+                this.renderer.dispose()
+                this.renderer.forceContextLoss()
+                this.renderer.context = null
+                this.renderer.domElement = null
+                this.renderer = null
+            },100);
         },
     })
     ```
@@ -109,11 +111,13 @@
         },
         onUnload(){
             cancelAnimationFrame(requestId)
-            this.renderer.dispose()
-            this.renderer.forceContextLoss()
-            this.renderer.context = null
-            this.renderer.domElement = null
-            this.renderer = null
+            setTimeout(()=>{
+                this.renderer.dispose()
+                this.renderer.forceContextLoss()
+                this.renderer.context = null
+                this.renderer.domElement = null
+                this.renderer = null
+            },100);
        },
     })
     ```
