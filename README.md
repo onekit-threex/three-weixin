@@ -85,11 +85,13 @@
         },
         onUnload(){
             cancelAnimationFrame(requestId)
-            this.renderer.dispose()
-            this.renderer.forceContextLoss()
-            this.renderer.context = null
-            this.renderer.domElement = null
-            this.renderer = null
+            setTimeout(()=>{
+                this.renderer.dispose()
+                this.renderer.forceContextLoss()
+                this.renderer.context = null
+                this.renderer.domElement = null
+                this.renderer = null
+            },100);
         },
     })
     ```
@@ -109,11 +111,13 @@
         },
         onUnload(){
             cancelAnimationFrame(requestId)
-            this.renderer.dispose()
-            this.renderer.forceContextLoss()
-            this.renderer.context = null
-            this.renderer.domElement = null
-            this.renderer = null
+            setTimeout(()=>{
+                this.renderer.dispose()
+                this.renderer.forceContextLoss()
+                this.renderer.context = null
+                this.renderer.domElement = null
+                this.renderer = null
+            },100);
        },
     })
     ```
