@@ -10,13 +10,16 @@ Page({
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
         
 	},
          webgl_touch(e) {
@@ -76,69 +79,69 @@ var that = this
 
 				// load dudv map for distortion effect
 
-				const dudvMap = new THREE.TextureLoader( ).load( 'textures/waterdudv.jpg', function () {
-
+				const dudvMap = new THREE.TextureLoader( ).load( 'textures/waterdudv.jpg',  (dudvMap) =>{
+   
+                    dudvMap.wrapS = dudvMap.wrapT = THREE.RepeatWrapping;
+                    refractor.material.uniforms.tDudv.value = dudvMap;
+    
+                    //
+    
+                    const geometry = new THREE.IcosahedronGeometry( 5, 0 );
+                    const material = new THREE.MeshPhongMaterial( { color: 0xffffff, emissive: 0x333333, flatShading: true } );
+                    smallSphere = new THREE.Mesh( geometry, material );
+                    scene.add( smallSphere );
+    
+                    // walls
+                    const planeGeo = new THREE.PlaneGeometry( 100.1, 100.1 );
+    
+                    const planeTop = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
+                    planeTop.position.y = 100;
+                    planeTop.rotateX( Math.PI / 2 );
+                    scene.add( planeTop );
+    
+                    const planeBottom = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
+                    planeBottom.rotateX( - Math.PI / 2 );
+                    scene.add( planeBottom );
+    
+                    const planeBack = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x7f7fff } ) );
+                    planeBack.position.z = - 50;
+                    planeBack.position.y = 50;
+                    scene.add( planeBack );
+    
+                    const planeRight = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x00ff00 } ) );
+                    planeRight.position.x = 50;
+                    planeRight.position.y = 50;
+                    planeRight.rotateY( - Math.PI / 2 );
+                    scene.add( planeRight );
+    
+                    const planeLeft = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xff0000 } ) );
+                    planeLeft.position.x = - 50;
+                    planeLeft.position.y = 50;
+                    planeLeft.rotateY( Math.PI / 2 );
+                    scene.add( planeLeft );
+    
+                    // lights
+                    const mainLight = new THREE.PointLight( 0xcccccc, 1.5, 250 );
+                    mainLight.position.y = 60;
+                    scene.add( mainLight );
+    
+                    const greenLight = new THREE.PointLight( 0x00ff00, 0.25, 1000 );
+                    greenLight.position.set( 550, 50, 0 );
+                    scene.add( greenLight );
+    
+                    const redLight = new THREE.PointLight( 0xff0000, 0.25, 1000 );
+                    redLight.position.set( - 550, 50, 0 );
+                    scene.add( redLight );
+    
+                    const blueLight = new THREE.PointLight( 0x7f7fff, 0.25, 1000 );
+                    blueLight.position.set( 0, 50, 550 );
+                    scene.add( blueLight );
+    
+                    window.addEventListener( 'resize', onWindowResize );
 					animate();
 
-				} );
-
-				dudvMap.wrapS = dudvMap.wrapT = THREE.RepeatWrapping;
-				refractor.material.uniforms.tDudv.value = dudvMap;
-
-				//
-
-				const geometry = new THREE.IcosahedronGeometry( 5, 0 );
-				const material = new THREE.MeshPhongMaterial( { color: 0xffffff, emissive: 0x333333, flatShading: true } );
-				smallSphere = new THREE.Mesh( geometry, material );
-				scene.add( smallSphere );
-
-				// walls
-				const planeGeo = new THREE.PlaneGeometry( 100.1, 100.1 );
-
-				const planeTop = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
-				planeTop.position.y = 100;
-				planeTop.rotateX( Math.PI / 2 );
-				scene.add( planeTop );
-
-				const planeBottom = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
-				planeBottom.rotateX( - Math.PI / 2 );
-				scene.add( planeBottom );
-
-				const planeBack = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x7f7fff } ) );
-				planeBack.position.z = - 50;
-				planeBack.position.y = 50;
-				scene.add( planeBack );
-
-				const planeRight = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x00ff00 } ) );
-				planeRight.position.x = 50;
-				planeRight.position.y = 50;
-				planeRight.rotateY( - Math.PI / 2 );
-				scene.add( planeRight );
-
-				const planeLeft = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xff0000 } ) );
-				planeLeft.position.x = - 50;
-				planeLeft.position.y = 50;
-				planeLeft.rotateY( Math.PI / 2 );
-				scene.add( planeLeft );
-
-				// lights
-				const mainLight = new THREE.PointLight( 0xcccccc, 1.5, 250 );
-				mainLight.position.y = 60;
-				scene.add( mainLight );
-
-				const greenLight = new THREE.PointLight( 0x00ff00, 0.25, 1000 );
-				greenLight.position.set( 550, 50, 0 );
-				scene.add( greenLight );
-
-				const redLight = new THREE.PointLight( 0xff0000, 0.25, 1000 );
-				redLight.position.set( - 550, 50, 0 );
-				scene.add( redLight );
-
-				const blueLight = new THREE.PointLight( 0x7f7fff, 0.25, 1000 );
-				blueLight.position.set( 0, 50, 550 );
-				scene.add( blueLight );
-
-				window.addEventListener( 'resize', onWindowResize );
+                } );
+             
 
 			}
 
@@ -153,7 +156,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+			//	requestAnimationFrame(animate);
 
 				const time = clock.getElapsedTime();
 

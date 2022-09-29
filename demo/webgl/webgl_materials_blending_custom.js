@@ -1,5 +1,5 @@
 // webgl/webgl_materials_blending_custom.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 import { GUI } from './jsm/libs/lil-gui.module.min.js';
 var requestId
@@ -7,13 +7,16 @@ Page({
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
         
 	},
          webgl_touch(e) {
@@ -238,7 +241,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 
 				const time = Date.now() * 0.00025;
 				const ox = ( time * - 0.01 * mapBg.repeat.x ) % 1;

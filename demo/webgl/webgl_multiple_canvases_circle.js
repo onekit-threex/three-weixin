@@ -6,13 +6,16 @@ Page({
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
         
 	},
          webgl_touch(e) {
@@ -65,7 +68,7 @@ var that = this
 
 				renderer.render( scene, camera );
 
-				context.drawImage( renderer.domElement, 0, 0 );
+			//	context.drawImage( renderer.domElement, 0, 0 );
 
 			};
 
@@ -73,11 +76,11 @@ var that = this
 
 	async	function init() {
 
-			const canvas1 = document.getElementById( 'canvas1' );
-			const canvas2 = document.getElementById( 'canvas2' );
-			const canvas3 = document.getElementById( 'canvas3' );
-			const canvas4 = document.getElementById( 'canvas4' );
-			const canvas5 = document.getElementById( 'canvas5' );
+			const canvas1 =await document.getElementByIdAsync( 'canvas1' );
+			const canvas2 = await document.getElementByIdAsync( 'canvas2' );
+			const canvas3 = await document.getElementByIdAsync( 'canvas3' );
+			const canvas4 = await document.getElementByIdAsync( 'canvas4' );
+			const canvas5 = await document.getElementByIdAsync( 'canvas5' );
 
 			const fudge = 0.45; // I don't know why this is needed :-(
 			const rot = 30 * THREE.MathUtils.DEG2RAD;

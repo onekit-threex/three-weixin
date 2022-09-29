@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -31,7 +32,7 @@ import {
 import { ColorInput, StringInput, NumberInput, LabelElement, Element } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
 import { Color } from '../../../../three/Three';
-import { UniformNode } from 'three/nodes';
+import { UniformNode } from '../../../jsm/nodes/Nodes.js';
 
 export class ColorEditor extends BaseNode {
 

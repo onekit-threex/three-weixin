@@ -11,15 +11,7 @@ var requestId
 Page({
 	   
          onUnload() {
-	   		cancelAnimationFrame(requestId, this.canvas)
 
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
-        
 	},
          webgl_touch(e) {
         const web_e = Event.fix(e)
@@ -28,7 +20,7 @@ if( this.renderer){
         this.canvas.dispatchEvent(web_e)
     },
 async onLoad() {
-        const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
+     //   const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
         	// Add the extension functions
 		/*	THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
@@ -253,7 +245,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 
 				render();
 				stats.update();

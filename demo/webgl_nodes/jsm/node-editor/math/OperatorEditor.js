@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -29,7 +30,7 @@ import {
     core,
     } from 'dhtml-weixin';
 import { Element, LabelElement, NumberInput, SelectInput } from '../../libs/flow.module.js';
-import { UniformNode, OperatorNode } from 'three/nodes';
+import { UniformNode, OperatorNode } from '../../../jsm/nodes/Nodes.js';
 import { BaseNode } from '../core/BaseNode.js';
 
 export class OperatorEditor extends BaseNode {

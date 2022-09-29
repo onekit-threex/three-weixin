@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -29,7 +30,7 @@ import {
     core,
     } from 'dhtml-weixin';
 import { WebGLNodeBuilder } from './WebGLNodeBuilder.js';
-import { NodeFrame } from 'three/nodes';
+import { NodeFrame } from '../../../../jsm/nodes/Nodes.js';
 
 import { Material } from '../../../../../three/Three';
 

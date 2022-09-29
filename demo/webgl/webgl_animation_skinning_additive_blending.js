@@ -22,6 +22,7 @@ var requestId
 Page({
    onUnload(){
     cancelAnimationFrame(requestId, this.canvas)
+this.worker && this.worker.terminate()
     this.renderer.dispose()
     this.renderer.forceContextLoss()
     this.renderer.context = null

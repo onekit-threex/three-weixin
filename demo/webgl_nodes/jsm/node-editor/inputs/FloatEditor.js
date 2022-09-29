@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { NumberInput, Element } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { UniformNode } from 'three/nodes';
+import { UniformNode } from '../../../jsm/nodes/Nodes.js';
 
 export class FloatEditor extends BaseNode {
 

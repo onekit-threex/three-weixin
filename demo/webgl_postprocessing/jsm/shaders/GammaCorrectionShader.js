@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,

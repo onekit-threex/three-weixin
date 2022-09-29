@@ -1,5 +1,5 @@
 // css3d/css3d_molecules.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 import { TrackballControls } from './jsm/controls/TrackballControls.js';
 import { PDBLoader } from './jsm/loaders/PDBLoader.js';
@@ -10,13 +10,16 @@ var requestId
 Page({
 	onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
 	},
   async onLoad(){
 const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
@@ -83,7 +86,7 @@ function init() {
 
     //
 
-    renderer = new CSS3DRenderer();
+    renderer = that.renderer = new CSS3DRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.getElementById( 'container' ).appendChild( renderer.domElement );
 
@@ -222,7 +225,7 @@ function imageToCanvas( image ) {
     canvas.height = height;
 
     const context = canvas.getContext( '2d' );
-    context.drawImage( image, 0, 0, width, height );
+    context.drawImage( image.image || image, 0, 0, width, height );
 
     return canvas;
 

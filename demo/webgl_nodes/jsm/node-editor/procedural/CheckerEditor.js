@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { CheckerNode, UVNode } from 'three/nodes';
+import { CheckerNode, UVNode } from '../../../jsm/nodes/Nodes.js';
 
 const defaultUV = new UVNode();
 

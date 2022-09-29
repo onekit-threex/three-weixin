@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { ColorInput, ToggleInput, SliderInput, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { PointsNodeMaterial } from 'three/nodes';
+import { PointsNodeMaterial } from '../../../jsm/nodes/Nodes.js';
 import * as THREE from '../../../../three/Three';
 
 export class PointsMaterialEditor extends BaseNode {

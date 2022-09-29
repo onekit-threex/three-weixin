@@ -20,6 +20,7 @@ var requestId
 Page({
 	onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
+this.worker && this.worker.terminate()
 
 		if (this.renderer) {
 			this.renderer.dispose()

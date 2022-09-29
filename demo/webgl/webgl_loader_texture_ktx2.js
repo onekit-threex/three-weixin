@@ -6,14 +6,7 @@ var requestId
 Page({
 	   
          onUnload() {
-	   		cancelAnimationFrame(requestId, this.canvas)
 
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
         
 	},
          webgl_touch(e) {

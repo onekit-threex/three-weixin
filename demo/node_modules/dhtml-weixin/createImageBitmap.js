@@ -3,14 +3,14 @@ import HTMLImageElement from "./HTMLImageElement"
 import Base64 from "./core/Base64"
 import Blob from "./Blob"
 
-export default function createImageBitmap(src, options) {
+export default function createImageBitmap (src, options) {
   return new Promise((resolve) => {
     const img = new HTMLImageElement()
-    img.onload = function() {
+    img.onload = function () {
       resolve(img)
     }
-    if(src instanceof Blob){
-        src = "data:image/png;base64,"+Base64.arrayBufferToBase64(src.array[0])
+    if (src instanceof Blob) {
+      src = "data:image/png;base64," + Base64.arrayBufferToBase64(src.array[0])
     }
     img.src = src
   })

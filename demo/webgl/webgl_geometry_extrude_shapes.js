@@ -6,6 +6,7 @@ var requestId
 Page({
     onUnload(){
         cancelAnimationFrame(requestId, this.canvas)
+this.worker && this.worker.terminate()
         this.renderer.dispose()
         this.renderer.forceContextLoss()
         this.renderer.context = null
@@ -173,7 +174,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 
 				controls.update();
 				renderer.render( scene, camera );

@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -28,6 +29,8 @@ import {
 	ImageData,
     core,
     } from 'dhtml-weixin';
+import Ammo from '../../ammo/index';
+window.Ammo = Ammo;
 async function AmmoPhysics() {
 
 	if ( 'Ammo' in window === false ) {

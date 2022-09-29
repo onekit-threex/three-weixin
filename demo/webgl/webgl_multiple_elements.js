@@ -8,13 +8,16 @@ Page({
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
         
 	},
          webgl_touch(e) {
@@ -24,6 +27,7 @@ if( this.renderer){
         this.canvas.dispatchEvent(web_e)
     },
 async onLoad() {
+    var canvas
         const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
         
@@ -31,12 +35,12 @@ var that = this
 
 			const scenes = [];
 
-			init();
+		await	init();
 			animate();
 
-			function init() {
+		async	function init() {
 
-				canvas = document.getElementById( 'c' );
+				canvas = await document.getElementByIdAsync( 'c' );
 
 				const geometries = [
 					new THREE.BoxGeometry( 1, 1, 1 ),
@@ -102,7 +106,7 @@ var that = this
 				}
 
 
-				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,canvas: canvas, antialias: true } );
+				renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 				renderer.setClearColor( 0xffffff, 1 );
 				renderer.setPixelRatio( window.devicePixelRatio );
 

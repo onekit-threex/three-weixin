@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { ColorInput, SliderInput, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { MeshStandardNodeMaterial } from 'three/nodes';
+import { MeshStandardNodeMaterial } from '../../../jsm/nodes/Nodes.js';
 
 export class StandardMaterialEditor extends BaseNode {
 

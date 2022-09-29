@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -29,7 +30,7 @@ import {
     core,
     } from 'dhtml-weixin';
 import { BaseNode } from '../core/BaseNode.js';
-import { MatcapUVNode } from 'three/nodes';
+import { MatcapUVNode } from '../../../jsm/nodes/Nodes.js';
 
 export class MatcapUVEditor extends BaseNode {
 

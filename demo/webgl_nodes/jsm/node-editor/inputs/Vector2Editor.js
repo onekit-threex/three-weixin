@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -31,7 +32,7 @@ import {
 import { NumberInput, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
 import { Vector2 } from '../../../../three/Three';
-import { UniformNode } from 'three/nodes';
+import { UniformNode } from '../../../jsm/nodes/Nodes.js';
 
 export class Vector2Editor extends BaseNode {
 

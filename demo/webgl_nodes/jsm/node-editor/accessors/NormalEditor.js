@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { SelectInput, Element } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { NormalNode } from 'three/nodes';
+import { NormalNode } from '../../../jsm/nodes/Nodes.js';
 
 export class NormalEditor extends BaseNode {
 

@@ -4,6 +4,7 @@ import CSSStyleDeclaration from "./CSSStyleDeclaration";
 import Document from "./document";
 import fetch from "./fetch";
 import Headers from "./Headers";
+import Image from "./Image";
 import HTMLImageElement from "./HTMLImageElement";
 import HTMLCanvasElement from "./HTMLCanvasElement"
 import ImageBitmap from "./ImageBitmap"
@@ -34,6 +35,7 @@ const window = new Window();
 const self = window;
 const location = new Location();
 module.exports = {
+  Image,
   AudioContext,
   ImageData,
   Blob,

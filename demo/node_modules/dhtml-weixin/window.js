@@ -8,6 +8,7 @@ import Location from './Location'
 import requestAnimationFrame from './requestAnimationFrame'
 import cancelAnimationFrame from './cancelAnimationFrame'
 import createImageBitmap from './createImageBitmap'
+import Image from "./Image";
 import HTMLImageElement from "./HTMLImageElement";
 import HTMLCanvasElement from "./HTMLCanvasElement"
 import ImageBitmap from "./ImageBitmap"
@@ -15,62 +16,68 @@ import Worker from './Worker'
 import btoa from "./btoa"
 import AudioContext from "./AudioContext"
 import ImageData from "./ImageData"
+import Event from "./Event"
 // ///////////////////////////////////////////////
 
 export default class Window extends EventTarget {
-
-  get ImageData(){
+  get Image () {
+    return Image
+  }
+  get Event () {
+    return Event
+  }
+  get ImageData () {
     return ImageData
   }
-  get btoa() {
+  get btoa () {
     return btoa
   }
-  get Int8Array() {
+  get Int8Array () {
     return Int8Array
   }
 
-  get Uint8Array() {
+  get Uint8Array () {
     return Uint8Array
   }
 
-  get Uint8ClampedArray() {
+  get Uint8ClampedArray () {
     return Uint8ClampedArray
   }
 
-  get Int16Array() {
+  get Int16Array () {
     return Int16Array
   }
 
-  get Uint16Array() {
+  get Uint16Array () {
     return Uint16Array
   }
 
-  get Int32Array() {
+  get Int32Array () {
     return Int32Array
   }
 
-  get Uint32Array() {
+  get Uint32Array () {
     return Uint32Array
   }
 
-  get Float32Array() {
+  get Float32Array () {
     return Float32Array
   }
 
-  get Float64Array() {
+  get Float64Array () {
     return Float64Array
   }
 
-  get BigInt64Array() {
+  get BigInt64Array () {
     return BigInt64Array
   }
 
-  get BigUint64Array() {
+  get BigUint64Array () {
     return BigUint64Array
   }
   // /////////////////
 
-  _getSystemInfoSync() {
+  _getSystemInfoSync () {
     if (!this.onekit_systemInfo) {
       this.onekit_systemInfo = wx.getSystemInfoSync()
     }
@@ -87,58 +94,58 @@ export default class Window extends EventTarget {
     this.setInterval = setInterval
     this.clearInterval = clearInterval
   }
-  get HTMLImageElement() {
+  get HTMLImageElement () {
     return HTMLImageElement
   }
-  get HTMLCanvasElement() {
+  get HTMLCanvasElement () {
     return HTMLCanvasElement
   }
-  get ImageBitmap() {
+  get ImageBitmap () {
     return ImageBitmap
   }
-  get devicePixelRatio() {
+  get devicePixelRatio () {
     this._getSystemInfoSync()
     return this.onekit_systemInfo.pixelRatio
   }
 
-  get innerWidth() {
+  get innerWidth () {
     this._getSystemInfoSync()
     return this.onekit_systemInfo.windowWidth
   }
 
-  get innerHeight() {
+  get innerHeight () {
     this._getSystemInfoSync()
     return this.onekit_systemInfo.windowHeight
   }
 
-  get Math() {
+  get Math () {
     return this.Math
   }
 
-  get location() {
+  get location () {
     return new Location()
   }
 
-  get requestAnimationFrame() {
+  get requestAnimationFrame () {
     return requestAnimationFrame
   }
 
-  get cancelAnimationFrame() {
+  get cancelAnimationFrame () {
     return cancelAnimationFrame
   }
 
-  get createImageBitmap() {
+  get createImageBitmap () {
     return createImageBitmap
   }
 
-  get localStorage() {
+  get localStorage () {
     return localStorage
   }
 
-  postMessage(json) {
+  postMessage (json) {
     return Worker.self_postMessage(json)
   }
-  onmessage(msg) {
+  onmessage (msg) {
     return Worker.self_onmessage(msg)
   }
 }

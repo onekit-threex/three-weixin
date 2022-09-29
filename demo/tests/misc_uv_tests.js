@@ -4,7 +4,8 @@ import {
 	window,
 	requestAnimationFrame,
 	cancelAnimationFrame,
-	Event
+    Event,
+    core
 } from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 import {
@@ -21,6 +22,7 @@ Page({
 	},
 	onUnload() {
 	//	cancelAnimationFrame(requestId, this.canvas)
+this.worker && this.worker.terminate()
 
 	},
 	    webgl_touch(e) {
@@ -33,7 +35,7 @@ async onLoad() {
 	//	const canvas3d = this.canvas =await document.createElementAsync("canvas", "webgl")
 		var that = this
 
-		function test(name, geometry) {
+		async function test(name, geometry) {
 
 			/*  const d = document.createElement( 'div' );
 
@@ -43,14 +45,14 @@ async onLoad() {
 
     document.body.appendChild( d );
 */
-             const result = UVsDebug(geometry);
+            var canvas = UVsDebug(geometry)
+             const result = canvas.wx_element.toDataURL()
 			const key = `tests[${that.data.tests.length}]`
 			const data = {}
 			data[key] =  {
 					name,
 					result
 				}
-			
 			that.setData(data)
 		}
 
@@ -64,23 +66,23 @@ async onLoad() {
 
 		//
 
-		test('new THREE.PlaneGeometry( 100, 100, 4, 4 )', new THREE.PlaneGeometry(100, 100, 4, 4));
+	await	test('new THREE.PlaneGeometry( 100, 100, 4, 4 )', new THREE.PlaneGeometry(100, 100, 4, 4));
 
-		test('new THREE.SphereGeometry( 75, 12, 6 )', new THREE.SphereGeometry(75, 12, 6));
+	await	test('new THREE.SphereGeometry( 75, 12, 6 )', new THREE.SphereGeometry(75, 12, 6));
 
-		test('new THREE.IcosahedronGeometry( 30, 1 )', new THREE.IcosahedronGeometry(30, 1));
+	await	test('new THREE.IcosahedronGeometry( 30, 1 )', new THREE.IcosahedronGeometry(30, 1));
 
-		test('new THREE.OctahedronGeometry( 30, 2 )', new THREE.OctahedronGeometry(30, 2));
+	await	test('new THREE.OctahedronGeometry( 30, 2 )', new THREE.OctahedronGeometry(30, 2));
 
-		test('new THREE.CylinderGeometry( 25, 75, 100, 10, 5 )', new THREE.CylinderGeometry(25, 75, 100, 10, 5));
+	await	test('new THREE.CylinderGeometry( 25, 75, 100, 10, 5 )', new THREE.CylinderGeometry(25, 75, 100, 10, 5));
 
-		test('new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 )', new THREE.BoxGeometry(100, 100, 100, 4, 4, 4));
+	await	test('new THREE.BoxGeometry( 100, 100, 100, 4, 4, 4 )', new THREE.BoxGeometry(100, 100, 100, 4, 4, 4));
 
-		test('new THREE.LatheGeometry( points, 8 )', new THREE.LatheGeometry(points, 8));
+	await	test('new THREE.LatheGeometry( points, 8 )', new THREE.LatheGeometry(points, 8));
 
-		test('new THREE.TorusGeometry( 50, 20, 8, 8 )', new THREE.TorusGeometry(50, 20, 8, 8));
+	await	test('new THREE.TorusGeometry( 50, 20, 8, 8 )', new THREE.TorusGeometry(50, 20, 8, 8));
 
-		test('new THREE.TorusKnotGeometry( 50, 10, 12, 6 )', new THREE.TorusKnotGeometry(50, 10, 12, 6));
+	await	test('new THREE.TorusKnotGeometry( 50, 10, 12, 6 )', new THREE.TorusKnotGeometry(50, 10, 12, 6));
 
 	}
 })

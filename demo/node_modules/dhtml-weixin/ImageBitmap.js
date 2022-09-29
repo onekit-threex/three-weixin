@@ -1,14 +1,14 @@
 export default class ImageBitmap {
-  constructor(wx_element) {
-    this.wx_element = wx_element;
+  constructor(image) {
+    this.image = image;
   }
   get width() {
-    return this.wx_element.width;
+    return this.image.width;
   }
   get height() {
-    return this.wx_element.height;
+    return this.image.height;
   }
   get data() {
-    return this.wx_element.data;
+    return this.image.data;
   }
 }

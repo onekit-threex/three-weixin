@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -66,7 +67,7 @@ class LottieLoader extends Loader {
 			container.style.height = data.h + 'px';
 			document.body.appendChild( container );
 
-			const animation = bodymovin.loadAnimation( {
+			const animation = require('../../js/libs/lottie_canvas').bodymovin.loadAnimation( {
 				container: container,
 				animType: 'canvas',
 				loop: true,

@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { SelectInput, LabelElement, Element } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { OscNode, UniformNode } from 'three/nodes';
+import { OscNode, UniformNode } from '../../../jsm/nodes/Nodes.js';
 
 const NULL_VALUE = new UniformNode( 0 );
 

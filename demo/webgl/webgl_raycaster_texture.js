@@ -7,13 +7,16 @@ Page({
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
         
 	},
          webgl_touch(e) {
@@ -24,6 +27,7 @@ if( this.renderer){
     },
 async onLoad() {
         const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
+        var canvas
 var that = this
         const WRAPPING = {
             'RepeatWrapping': THREE.RepeatWrapping,
@@ -51,7 +55,7 @@ var that = this
             if ( parentTexture ) {
 
                 this._parentTexture.push( parentTexture );
-                parentTexture.image = this._canvas;
+                core.Canvas.toImage(canvas3d,this._canvas).then( image=> parentTexture.image=  image);
 
             }
 
@@ -94,12 +98,12 @@ var that = this
 
             _parentTexture: [],
 
-            addParent: function ( parentTexture ) {
+            addParent:async function ( parentTexture ) {
 
                 if ( this._parentTexture.indexOf( parentTexture ) === - 1 ) {
 
                     this._parentTexture.push( parentTexture );
-                    parentTexture.image = this._canvas;
+                    parentTexture.image = await core.Canvas.toImage(canvas3d,this._canvas);
 
                 }
 
@@ -165,10 +169,10 @@ var that = this
         const mouse = new THREE.Vector2();
         const onClickPosition = new THREE.Vector2();
 
-        init();
+    await    init();
         render();
 
-        function init() {
+      async  function init() {
 
             container = document.getElementById( 'container' );
 
@@ -188,7 +192,7 @@ var that = this
 
             // A cube, in the middle.
             cubeTexture = new THREE.Texture( undefined, THREE.UVMapping, THREE.RepeatWrapping, THREE.RepeatWrapping );
-            canvas = new CanvasTexture( cubeTexture );
+            canvas = new CanvasTexture(cubeTexture);
             const cubeMaterial = new THREE.MeshBasicMaterial( { map: cubeTexture } );
             const cubeGeometry = new THREE.BoxGeometry( 20, 20, 20 );
             let uvs = cubeGeometry.attributes.uv.array;
@@ -230,7 +234,7 @@ var that = this
             // A circle on the right.
 
             circleTexture = new THREE.Texture( undefined, THREE.UVMapping, THREE.RepeatWrapping, THREE.RepeatWrapping );
-            canvas.addParent( circleTexture );
+          await  canvas.addParent( circleTexture );
             const circleMaterial = new THREE.MeshBasicMaterial( { map: circleTexture } );
             const circleGeometry = new THREE.CircleGeometry( 25, 40, 0, Math.PI * 2 );
             uvs = circleGeometry.attributes.uv.array;
@@ -312,9 +316,11 @@ var that = this
             return raycaster.intersectObjects( objects, false );
 
         }
-
+var count=0
         function render() {
-
+if(count++>10){
+    return
+}
             requestId = requestAnimationFrame( render );
 
             // update texture parameters

@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_worker_offscreencanvas.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
 import initJank from './jsm/offscreen/jank.js';
@@ -10,13 +10,16 @@ var requestId
 Page({
 	onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
 	},
   async onLoad(){
 const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
@@ -28,7 +31,7 @@ const width = canvas1.clientWidth;
 const height = canvas1.clientHeight;
 const pixelRatio = window.devicePixelRatio;
 
-init( canvas1, width, height, pixelRatio, './' );
+init( canvas3d, width, height, pixelRatio, './' );
 initJank();
 
 // offscreen

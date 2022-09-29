@@ -14,7 +14,9 @@ export default class HTMLElement extends Element {
   }
 
   get ownerDocument() {
-    return {documentElement:new HTMLElement()};
+    var document = new HTMLElement()
+    document.documentElement =new HTMLElement() 
+    return document;
   }
 
   get parentElement() {
@@ -48,6 +50,7 @@ export default class HTMLElement extends Element {
   get innerHTML() {
     return this._innerHTML;
   }
+  prepend() {}
   append() {}
   appendChild() {}
   removeChild() {}

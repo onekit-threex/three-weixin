@@ -36,8 +36,8 @@ export default class Response {
 			return new Promise((resolve, reject) => {
 				try {
 					const BASE64 = 'base64,'
-					const url = url.substring(url.indexOf(BASE64) + BASE64.length)
-					resolve(Base64.base64ToArrayBuffer(url))
+					const base64 = url.substring(url.indexOf(BASE64) + BASE64.length)
+					resolve(Base64.base64ToArrayBuffer(base64))
 				} catch (ex) {
 					console.error(ex)
 					reject(ex)

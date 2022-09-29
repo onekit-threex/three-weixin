@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -46,9 +47,9 @@ class TIFFLoader extends DataTextureLoader {
 
 	parse( buffer ) {
 
-		const ifds = UTIF.decode( buffer );
-		UTIF.decodeImage( buffer, ifds[ 0 ] );
-		const rgba = UTIF.toRGBA8( ifds[ 0 ] );
+		const ifds = require('../../jsm/libs/utif.module').decode( buffer );
+		require('../../jsm/libs/utif.module').decodeImage( buffer, ifds[ 0 ] );
+		const rgba = require('../../jsm/libs/utif.module').toRGBA8( ifds[ 0 ] );
 
 		return {
 			width: ifds[ 0 ].width,

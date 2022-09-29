@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -48,9 +49,9 @@ class LogLuvLoader extends DataTextureLoader {
 
 	parse( buffer ) {
 
-		const ifds = UTIF.decode( buffer );
-		UTIF.decodeImage( buffer, ifds[ 0 ] );
-		const rgba = UTIF.toRGBA( ifds[ 0 ], this.type );
+		const ifds = require('../../jsm/libs/utif.module').decode( buffer );
+		require('../../jsm/libs/utif.module').decodeImage( buffer, ifds[ 0 ] );
+		const rgba = require('../../jsm/libs/utif.module').toRGBA( ifds[ 0 ], this.type );
 
 		return {
 			width: ifds[ 0 ].width,
@@ -72,17 +73,17 @@ class LogLuvLoader extends DataTextureLoader {
 
 }
 
-// from https://github.com/photopea/UTIF.js (MIT License)
+// from https://github.com/photopea/require('../../jsm/libs/utif.module').js (MIT License)
 
 const UTIF = {};
 
-UTIF.decode = function ( buff, prm ) {
+require('../../jsm/libs/utif.module').decode = function ( buff, prm ) {
 
 	if ( prm == null ) prm = { parseMN: true, debug: false }; // read MakerNote, debug
 	var data = new Uint8Array( buff ), offset = 0;
 
-	var id = UTIF._binBE.readASCII( data, offset, 2 ); offset += 2;
-	var bin = id == 'II' ? UTIF._binLE : UTIF._binBE;
+	var id = require('../../jsm/libs/utif.module')._binBE.readASCII( data, offset, 2 ); offset += 2;
+	var bin = id == 'II' ? require('../../jsm/libs/utif.module')._binLE : require('../../jsm/libs/utif.module')._binBE;
 	bin.readUshort( data, offset ); offset += 2;
 
 	var ifdo = bin.readUint( data, offset );
@@ -96,7 +97,7 @@ UTIF.decode = function ( buff, prm ) {
 		}
 
 
-		UTIF._readIFD( bin, data, ifdo, ifds, 0, prm );
+		require('../../jsm/libs/utif.module')._readIFD( bin, data, ifdo, ifds, 0, prm );
 
 		ifdo = bin.readUint( data, ifdo + 2 + cnt * 12 );
 		if ( ifdo == 0 ) break;
@@ -107,11 +108,11 @@ UTIF.decode = function ( buff, prm ) {
 
 };
 
-UTIF.decodeImage = function ( buff, img, ifds ) {
+require('../../jsm/libs/utif.module').decodeImage = function ( buff, img, ifds ) {
 
 	if ( img.data ) return;
 	var data = new Uint8Array( buff );
-	var id = UTIF._binBE.readASCII( data, 0, 2 );
+	var id = require('../../jsm/libs/utif.module')._binBE.readASCII( data, 0, 2 );
 
 	if ( img[ 't256' ] == null ) return;	// No width => probably not an image
 	img.isLE = id == 'II';
@@ -149,10 +150,10 @@ UTIF.decodeImage = function ( buff, img, ifds ) {
 			for ( var x = 0; x < tx; x ++ ) {
 
 				var i = y * tx + x; for ( var j = 0; j < tbuff.length; j ++ ) tbuff[ j ] = 0;
-				UTIF.decode._decompress( img, ifds, data, soff[ i ], bcnt[ i ], cmpr, tbuff, 0, fo );
+				require('../../jsm/libs/utif.module').decode._decompress( img, ifds, data, soff[ i ], bcnt[ i ], cmpr, tbuff, 0, fo );
 				// Might be required for 7 too. Need to check
 				if ( cmpr == 6 ) bytes = tbuff;
-				else UTIF._copyTile( tbuff, Math.ceil( tw * bipp / 8 ) | 0, th, bytes, Math.ceil( img.width * bipp / 8 ) | 0, img.height, Math.ceil( x * tw * bipp / 8 ) | 0, y * th );
+				else require('../../jsm/libs/utif.module')._copyTile( tbuff, Math.ceil( tw * bipp / 8 ) | 0, th, bytes, Math.ceil( img.width * bipp / 8 ) | 0, img.height, Math.ceil( x * tw * bipp / 8 ) | 0, y * th );
 
 			}
 
@@ -163,7 +164,7 @@ UTIF.decodeImage = function ( buff, img, ifds ) {
 		var rps = img[ 't278' ] ? img[ 't278' ][ 0 ] : img.height; rps = Math.min( rps, img.height );
 		for ( var i = 0; i < soff.length; i ++ ) {
 
-			UTIF.decode._decompress( img, ifds, data, soff[ i ], bcnt[ i ], cmpr, bytes, Math.ceil( bilen / 8 ) | 0, fo );
+			require('../../jsm/libs/utif.module').decode._decompress( img, ifds, data, soff[ i ], bcnt[ i ], cmpr, bytes, Math.ceil( bilen / 8 ) | 0, fo );
 			bilen += bipl * rps;
 
 		}
@@ -176,11 +177,11 @@ UTIF.decodeImage = function ( buff, img, ifds ) {
 
 };
 
-UTIF.decode._decompress = function ( img, ifds, data, off, len, cmpr, tgt, toff ) {
+require('../../jsm/libs/utif.module').decode._decompress = function ( img, ifds, data, off, len, cmpr, tgt, toff ) {
 
 	//console.log("compression", cmpr);
 	//var time = Date.now();
-	if ( cmpr == 34676 ) UTIF.decode._decodeLogLuv32( img, data, off, len, tgt, toff );
+	if ( cmpr == 34676 ) require('../../jsm/libs/utif.module').decode._decodeLogLuv32( img, data, off, len, tgt, toff );
 	else console.log( 'Unsupported compression', cmpr );
 
 	//console.log(Date.now()-time);
@@ -228,7 +229,7 @@ UTIF.decode._decompress = function ( img, ifds, data, off, len, cmpr, tgt, toff 
 
 };
 
-UTIF.decode._decodeLogLuv32 = function ( img, data, off, len, tgt, toff ) {
+require('../../jsm/libs/utif.module').decode._decodeLogLuv32 = function ( img, data, off, len, tgt, toff ) {
 
 	var w = img.width, qw = w * 4;
 	var io = 0, out = new Uint8Array( qw );
@@ -265,10 +266,10 @@ UTIF.decode._decodeLogLuv32 = function ( img, data, off, len, tgt, toff ) {
 
 };
 
-UTIF.tags = {};
-//UTIF.ttypes = {  256:3,257:3,258:3,   259:3, 262:3,  273:4,  274:3, 277:3,278:4,279:4, 282:5, 283:5, 284:3, 286:5,287:5, 296:3, 305:2, 306:2, 338:3, 513:4, 514:4, 34665:4  };
+require('../../jsm/libs/utif.module').tags = {};
+//require('../../jsm/libs/utif.module').ttypes = {  256:3,257:3,258:3,   259:3, 262:3,  273:4,  274:3, 277:3,278:4,279:4, 282:5, 283:5, 284:3, 286:5,287:5, 296:3, 305:2, 306:2, 338:3, 513:4, 514:4, 34665:4  };
 // start at tag 250
-UTIF._types = function () {
+require('../../jsm/libs/utif.module')._types = function () {
 
 	var main = new Array( 250 ); main.fill( 0 );
 	main = main.concat( [ 0, 0, 0, 0, 4, 3, 3, 3, 3, 3, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2, 2, 2, 2, 4, 3, 0, 0, 3, 4, 4, 3, 3, 5, 5, 3, 2, 5, 5, 0, 0, 0, 0, 4, 4, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 5, 5, 3, 0, 3, 3, 4, 4, 4, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] );
@@ -286,7 +287,7 @@ UTIF._types = function () {
 
 }();
 
-UTIF._readIFD = function ( bin, data, offset, ifds, depth, prm ) {
+require('../../jsm/libs/utif.module')._readIFD = function ( bin, data, offset, ifds, depth, prm ) {
 
 	var cnt = bin.readUshort( data, offset ); offset += 2;
 	var ifd = {};
@@ -300,7 +301,7 @@ UTIF._readIFD = function ( bin, data, offset, ifds, depth, prm ) {
 		var voff = bin.readUint( data, offset ); offset += 4;
 
 		var arr = [];
-		//ifd["t"+tag+"-"+UTIF.tags[tag]] = arr;
+		//ifd["t"+tag+"-"+require('../../jsm/libs/utif.module').tags[tag]] = arr;
 		if ( type == 1 || type == 7 ) {
 
 			arr = new Uint8Array( data.buffer, ( num < 5 ? offset - 4 : voff ), num );
@@ -365,7 +366,7 @@ UTIF._readIFD = function ( bin, data, offset, ifds, depth, prm ) {
 
 		}
 
-		if ( prm.debug ) console.log( '   '.repeat( depth ), tag, type, UTIF.tags[ tag ], arr );
+		if ( prm.debug ) console.log( '   '.repeat( depth ), tag, type, require('../../jsm/libs/utif.module').tags[ tag ], arr );
 
 		ifd[ 't' + tag ] = arr;
 
@@ -373,7 +374,7 @@ UTIF._readIFD = function ( bin, data, offset, ifds, depth, prm ) {
 
 			var oarr = tag == 50740 ? [ bin.readUint( arr, 0 ) ] : arr;
 			var subfd = [];
-			for ( var j = 0; j < oarr.length; j ++ ) UTIF._readIFD( bin, data, oarr[ j ], subfd, depth + 1, prm );
+			for ( var j = 0; j < oarr.length; j ++ ) require('../../jsm/libs/utif.module')._readIFD( bin, data, oarr[ j ], subfd, depth + 1, prm );
 			if ( tag == 330 ) ifd.subIFD = subfd;
 			if ( tag == 34665 ) ifd.exifIFD = subfd[ 0 ];
 			if ( tag == 34853 ) ifd.gpsiIFD = subfd[ 0 ]; //console.log("gps", subfd[0]);  }
@@ -389,7 +390,7 @@ UTIF._readIFD = function ( bin, data, offset, ifds, depth, prm ) {
 			if ( bin.readASCII( mn, 0, 5 ) == 'Nikon' ) ifd.makerNote = UTIF[ 'decode' ]( mn.slice( 10 ).buffer )[ 0 ];
 			else if ( bin.readUshort( data, voff ) < 300 && bin.readUshort( data, voff + 4 ) <= 12 ) {
 
-				var subsub = []; UTIF._readIFD( bin, data, voff, subsub, depth + 1, prm );
+				var subsub = []; require('../../jsm/libs/utif.module')._readIFD( bin, data, voff, subsub, depth + 1, prm );
 				ifd.makerNote = subsub[ 0 ];
 
 			}
@@ -404,7 +405,7 @@ UTIF._readIFD = function ( bin, data, offset, ifds, depth, prm ) {
 
 };
 
-UTIF.toRGBA = function ( out, type ) {
+require('../../jsm/libs/utif.module').toRGBA = function ( out, type ) {
 
 	const w = out.width, h = out.height, area = w * h, data = out.data;
 
@@ -489,7 +490,7 @@ UTIF.toRGBA = function ( out, type ) {
 
 };
 
-UTIF._binBE =
+require('../../jsm/libs/utif.module')._binBE =
 {
 	nextZero: function ( data, o ) {
 
@@ -503,17 +504,17 @@ UTIF._binBE =
 	},
 	readShort: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; a[ 0 ] = buff[ p + 1 ]; a[ 1 ] = buff[ p + 0 ]; return UTIF._binBE.i16[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; a[ 0 ] = buff[ p + 1 ]; a[ 1 ] = buff[ p + 0 ]; return require('../../jsm/libs/utif.module')._binBE.i16[ 0 ];
 
 	},
 	readInt: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; a[ 0 ] = buff[ p + 3 ]; a[ 1 ] = buff[ p + 2 ]; a[ 2 ] = buff[ p + 1 ]; a[ 3 ] = buff[ p + 0 ]; return UTIF._binBE.i32[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; a[ 0 ] = buff[ p + 3 ]; a[ 1 ] = buff[ p + 2 ]; a[ 2 ] = buff[ p + 1 ]; a[ 3 ] = buff[ p + 0 ]; return require('../../jsm/libs/utif.module')._binBE.i32[ 0 ];
 
 	},
 	readUint: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; a[ 0 ] = buff[ p + 3 ]; a[ 1 ] = buff[ p + 2 ]; a[ 2 ] = buff[ p + 1 ]; a[ 3 ] = buff[ p + 0 ]; return UTIF._binBE.ui32[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; a[ 0 ] = buff[ p + 3 ]; a[ 1 ] = buff[ p + 2 ]; a[ 2 ] = buff[ p + 1 ]; a[ 3 ] = buff[ p + 0 ]; return require('../../jsm/libs/utif.module')._binBE.ui32[ 0 ];
 
 	},
 	readASCII: function ( buff, p, l ) {
@@ -523,12 +524,12 @@ UTIF._binBE =
 	},
 	readFloat: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; for ( var i = 0; i < 4; i ++ ) a[ i ] = buff[ p + 3 - i ]; return UTIF._binBE.fl32[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; for ( var i = 0; i < 4; i ++ ) a[ i ] = buff[ p + 3 - i ]; return require('../../jsm/libs/utif.module')._binBE.fl32[ 0 ];
 
 	},
 	readDouble: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; for ( var i = 0; i < 8; i ++ ) a[ i ] = buff[ p + 7 - i ]; return UTIF._binBE.fl64[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; for ( var i = 0; i < 8; i ++ ) a[ i ] = buff[ p + 7 - i ]; return require('../../jsm/libs/utif.module')._binBE.fl64[ 0 ];
 
 	},
 
@@ -539,7 +540,7 @@ UTIF._binBE =
 	},
 	writeInt: function ( buff, p, n ) {
 
-		var a = UTIF._binBE.ui8; UTIF._binBE.i32[ 0 ] = n; buff[ p + 3 ] = a[ 0 ]; buff[ p + 2 ] = a[ 1 ]; buff[ p + 1 ] = a[ 2 ]; buff[ p + 0 ] = a[ 3 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; require('../../jsm/libs/utif.module')._binBE.i32[ 0 ] = n; buff[ p + 3 ] = a[ 0 ]; buff[ p + 2 ] = a[ 1 ]; buff[ p + 1 ] = a[ 2 ]; buff[ p + 0 ] = a[ 3 ];
 
 	},
 	writeUint: function ( buff, p, n ) {
@@ -554,21 +555,21 @@ UTIF._binBE =
 	},
 	writeDouble: function ( buff, p, n ) {
 
-		UTIF._binBE.fl64[ 0 ] = n;
-		for ( var i = 0; i < 8; i ++ ) buff[ p + i ] = UTIF._binBE.ui8[ 7 - i ];
+		require('../../jsm/libs/utif.module')._binBE.fl64[ 0 ] = n;
+		for ( var i = 0; i < 8; i ++ ) buff[ p + i ] = require('../../jsm/libs/utif.module')._binBE.ui8[ 7 - i ];
 
 	}
 };
-UTIF._binBE.ui8 = new Uint8Array( 8 );
-UTIF._binBE.i16 = new Int16Array( UTIF._binBE.ui8.buffer );
-UTIF._binBE.i32 = new Int32Array( UTIF._binBE.ui8.buffer );
-UTIF._binBE.ui32 = new Uint32Array( UTIF._binBE.ui8.buffer );
-UTIF._binBE.fl32 = new Float32Array( UTIF._binBE.ui8.buffer );
-UTIF._binBE.fl64 = new Float64Array( UTIF._binBE.ui8.buffer );
+require('../../jsm/libs/utif.module')._binBE.ui8 = new Uint8Array( 8 );
+require('../../jsm/libs/utif.module')._binBE.i16 = new Int16Array( require('../../jsm/libs/utif.module')._binBE.ui8.buffer );
+require('../../jsm/libs/utif.module')._binBE.i32 = new Int32Array( require('../../jsm/libs/utif.module')._binBE.ui8.buffer );
+require('../../jsm/libs/utif.module')._binBE.ui32 = new Uint32Array( require('../../jsm/libs/utif.module')._binBE.ui8.buffer );
+require('../../jsm/libs/utif.module')._binBE.fl32 = new Float32Array( require('../../jsm/libs/utif.module')._binBE.ui8.buffer );
+require('../../jsm/libs/utif.module')._binBE.fl64 = new Float64Array( require('../../jsm/libs/utif.module')._binBE.ui8.buffer );
 
-UTIF._binLE =
+require('../../jsm/libs/utif.module')._binLE =
 {
-	nextZero: UTIF._binBE.nextZero,
+	nextZero: require('../../jsm/libs/utif.module')._binBE.nextZero,
 	readUshort: function ( buff, p ) {
 
 		return ( buff[ p + 1 ] << 8 ) | buff[ p ];
@@ -576,28 +577,28 @@ UTIF._binLE =
 	},
 	readShort: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; a[ 0 ] = buff[ p + 0 ]; a[ 1 ] = buff[ p + 1 ]; return UTIF._binBE.i16[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; a[ 0 ] = buff[ p + 0 ]; a[ 1 ] = buff[ p + 1 ]; return require('../../jsm/libs/utif.module')._binBE.i16[ 0 ];
 
 	},
 	readInt: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; a[ 0 ] = buff[ p + 0 ]; a[ 1 ] = buff[ p + 1 ]; a[ 2 ] = buff[ p + 2 ]; a[ 3 ] = buff[ p + 3 ]; return UTIF._binBE.i32[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; a[ 0 ] = buff[ p + 0 ]; a[ 1 ] = buff[ p + 1 ]; a[ 2 ] = buff[ p + 2 ]; a[ 3 ] = buff[ p + 3 ]; return require('../../jsm/libs/utif.module')._binBE.i32[ 0 ];
 
 	},
 	readUint: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; a[ 0 ] = buff[ p + 0 ]; a[ 1 ] = buff[ p + 1 ]; a[ 2 ] = buff[ p + 2 ]; a[ 3 ] = buff[ p + 3 ]; return UTIF._binBE.ui32[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; a[ 0 ] = buff[ p + 0 ]; a[ 1 ] = buff[ p + 1 ]; a[ 2 ] = buff[ p + 2 ]; a[ 3 ] = buff[ p + 3 ]; return require('../../jsm/libs/utif.module')._binBE.ui32[ 0 ];
 
 	},
-	readASCII: UTIF._binBE.readASCII,
+	readASCII: require('../../jsm/libs/utif.module')._binBE.readASCII,
 	readFloat: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; for ( var i = 0; i < 4; i ++ ) a[ i ] = buff[ p + i ]; return UTIF._binBE.fl32[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; for ( var i = 0; i < 4; i ++ ) a[ i ] = buff[ p + i ]; return require('../../jsm/libs/utif.module')._binBE.fl32[ 0 ];
 
 	},
 	readDouble: function ( buff, p ) {
 
-		var a = UTIF._binBE.ui8; for ( var i = 0; i < 8; i ++ ) a[ i ] = buff[ p + i ]; return UTIF._binBE.fl64[ 0 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; for ( var i = 0; i < 8; i ++ ) a[ i ] = buff[ p + i ]; return require('../../jsm/libs/utif.module')._binBE.fl64[ 0 ];
 
 	},
 
@@ -608,7 +609,7 @@ UTIF._binLE =
 	},
 	writeInt: function ( buff, p, n ) {
 
-		var a = UTIF._binBE.ui8; UTIF._binBE.i32[ 0 ] = n; buff[ p + 0 ] = a[ 0 ]; buff[ p + 1 ] = a[ 1 ]; buff[ p + 2 ] = a[ 2 ]; buff[ p + 3 ] = a[ 3 ];
+		var a = require('../../jsm/libs/utif.module')._binBE.ui8; require('../../jsm/libs/utif.module')._binBE.i32[ 0 ] = n; buff[ p + 0 ] = a[ 0 ]; buff[ p + 1 ] = a[ 1 ]; buff[ p + 2 ] = a[ 2 ]; buff[ p + 3 ] = a[ 3 ];
 
 	},
 	writeUint: function ( buff, p, n ) {
@@ -616,9 +617,9 @@ UTIF._binLE =
 		buff[ p ] = ( n >>> 0 ) & 255; buff[ p + 1 ] = ( n >>> 8 ) & 255; buff[ p + 2 ] = ( n >>> 16 ) & 255; buff[ p + 3 ] = ( n >>> 24 ) & 255;
 
 	},
-	writeASCII: UTIF._binBE.writeASCII
+	writeASCII: require('../../jsm/libs/utif.module')._binBE.writeASCII
 };
-UTIF._copyTile = function ( tb, tw, th, b, w, h, xoff, yoff ) {
+require('../../jsm/libs/utif.module')._copyTile = function ( tb, tw, th, b, w, h, xoff, yoff ) {
 
 	//log("copyTile", tw, th,  w, h, xoff, yoff);
 	var xlim = Math.min( tw, w - xoff );

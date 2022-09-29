@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -28,7 +29,7 @@ import {
 	ImageData,
     core,
     } from 'dhtml-weixin';
-import { Node } from 'three/nodes';
+import { Node } from '../../../../jsm/nodes/Nodes.js';
 
 class SlotNode extends Node {
 

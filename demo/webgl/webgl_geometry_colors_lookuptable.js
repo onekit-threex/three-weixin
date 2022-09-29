@@ -9,13 +9,16 @@ var requestId
 Page({
     onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
 	},
          webgl_touch(e) {
         const web_e = Event.fix(e)
@@ -59,12 +62,12 @@ var that = this
             orthoCamera = new THREE.OrthographicCamera( - 1, 1, 1, - 1, 1, 2 );
             orthoCamera.position.set( 0.5, 0, 1 );
 
-            console.error("ok?")
+           // console.error("ok?")
             const cv =  lut.createCanvas() 
             sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
                 map: new THREE.CanvasTexture(await core.Canvas.fix(canvas3d,cv))
             } ) );
-            console.error("ok!")
+          //  console.error("ok!")
             sprite.scale.x = 0.125;
             uiScene.add( sprite );
 

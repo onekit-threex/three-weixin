@@ -1,5 +1,5 @@
 // games/games_fps.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -53,7 +53,7 @@ scene.add( directionalLight );
 
 const container = document.getElementById( 'container' );
 
- renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
+var renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.shadowMap.enabled = true;

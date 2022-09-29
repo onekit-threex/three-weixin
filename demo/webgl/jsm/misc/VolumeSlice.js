@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -212,7 +213,7 @@ class VolumeSlice {
 		}
 
 		 core.Canvas.putImageData(ctx, imgData, 0, 0 );
-		this.ctx.drawImage( (await core.Canvas.toImage(canvas)), 0, 0, iLength, jLength, 0, 0, this.canvas.width, this.canvas.height );
+		this.ctx.drawImage( (await core.Canvas.toImage(this.canvas,canvas)), 0, 0, iLength, jLength, 0, 0, this.canvas.width, this.canvas.height );
 
 
 		this.mesh.material.map.needsUpdate = true;

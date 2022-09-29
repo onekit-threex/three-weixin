@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_buffergeometry_compression.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -13,13 +13,16 @@ var requestId
 Page({
 	onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
 	},
   async onLoad(){
 const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
@@ -223,7 +226,7 @@ const statsEnabled = true;
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 
 				controls.update();
 				updateLightsPossition();

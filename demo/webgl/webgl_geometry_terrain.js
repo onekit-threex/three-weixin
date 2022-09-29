@@ -195,7 +195,7 @@ const canvas = canvas2d
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 
 				render();
 				//stats.update();

@@ -5,3 +5,5 @@
     bindtouchend="webgl_touch"
     bindtouchcancel="webgl_touch">
     </canvas>
+    
+    <canvas type="2d" id="c"></canvas>

@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -382,7 +383,7 @@ function getToBlobPromise( canvas, mimeType ) {
 
 	if ( canvas.toBlob !== undefined ) {
 
-		return new Promise( ( resolve ) => canvas.toBlob( resolve, mimeType ) );
+		return new Promise( ( resolve ) => core.Canvas.toBlob(canvas, resolve, mimeType ) );
 
 	}
 

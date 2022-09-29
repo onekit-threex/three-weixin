@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -69,7 +70,7 @@ class LightProbeGenerator {
 
 			const context = canvas.getContext( '2d' );
 
-			context.drawImage( image, 0, 0, width, height );
+			context.drawImage( image.image || image, 0, 0, width, height );
 
 			const imageData = context.getImageData( 0, 0, width, height );
 

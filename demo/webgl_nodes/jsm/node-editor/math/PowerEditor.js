@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { LabelElement, NumberInput } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { MathNode, UniformNode } from 'three/nodes';
+import { MathNode, UniformNode } from '../../../jsm/nodes/Nodes.js';
 
 export class PowerEditor extends BaseNode {
 

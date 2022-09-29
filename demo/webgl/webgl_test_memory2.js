@@ -1,6 +1,7 @@
 // webgl/webgl_test_memory2.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
+var timer
 const onekit = {
     fragmentShader:`void main() {
 
@@ -24,14 +25,18 @@ var requestId
 Page({
 	   
          onUnload() {
-	   		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+        clearInterval(timer) 
+            cancelAnimationFrame(requestId, this.canvas)
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
         
 	},
          webgl_touch(e) {
@@ -57,7 +62,7 @@ var that = this
         let fragmentShader, vertexShader;
 
         init();
-        setInterval( render, 1000 / 60 );
+       timer=  setInterval( render, 1000 / 60 );
 
         function init() {
 

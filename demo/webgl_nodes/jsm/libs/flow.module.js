@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -28,6 +29,7 @@ import {
 	ImageData,
     core,
     } from 'dhtml-weixin';
+import {Event} from 'dhtml-weixin';
 /**
  * https://github.com/sunag/flow
  */

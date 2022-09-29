@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -97,7 +98,7 @@ class USDZExporter {
 			const isRGBA = texture.format === 1023;
 
 			const canvas = imageToCanvas( texture.image, color );
-			const blob = await new Promise( resolve => canvas.toBlob( resolve, isRGBA ? 'image/png' : 'image/jpeg', 1 ) );
+			const blob = await new Promise( resolve => core.Canvas.toBlob(canvas, resolve, isRGBA ? 'image/png' : 'image/jpeg', 1 ) );
 
 			files[ `textures/Texture_${ id }.${ isRGBA ? 'png' : 'jpg' }` ] = new Uint8Array( await blob.arrayBuffer() );
 
@@ -150,7 +151,7 @@ function imageToCanvas( image, color ) {
 		canvas.height = image.height * Math.min( 1, scale );
 
 		const context = canvas.getContext( '2d' );
-		context.drawImage( image, 0, 0, canvas.width, canvas.height );
+		context.drawImage( image.image||image, 0, 0, canvas.width, canvas.height );
 
 		if ( color !== undefined ) {
 

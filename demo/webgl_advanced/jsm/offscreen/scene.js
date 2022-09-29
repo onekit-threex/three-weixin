@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -28,7 +29,7 @@ import {
 	ImageData,
     core,
     } from 'dhtml-weixin';
-import * as THREE from '../../../build/three.module.js';
+import * as THREE from '../../../three/Three.js';
 
 let camera, scene, renderer, group;
 

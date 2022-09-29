@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -28,7 +29,7 @@ import {
 	ImageData,
     core,
     } from 'dhtml-weixin';
-;module.exports = (function(){
+;module.export=(function(){
     var UTIF = {};
     
     // Make available for import by `require()`
@@ -42,7 +43,7 @@ import {
     (function(UTIF, pako){
         
     // Following lines add a JPEG decoder  to UTIF.JpegDecoder
-    module.exports = (function(){"use strict";var W=function a1(){function W(p){this.message="JPEG error: "+p}W.prototype=new Error;W.prototype.name="JpegError";W.constructor=W;return W}(),ak=function ag(){var p=new Uint8Array([0,1,8,16,9,2,3,10,17,24,32,25,18,11,4,5,12,19,26,33,40,48,41,34,27,20,13,6,7,14,21,28,35,42,49,56,57,50,43,36,29,22,15,23,30,37,44,51,58,59,52,45,38,31,39,46,53,60,61,54,47,55,62,63]),t=4017,ac=799,ah=3406,ao=2276,ar=1567,ai=3784,s=5793,ad=2896;function ak(Q){if(Q==null)Q={};if(Q.w==null)Q.w=-1;this.V=Q.n;this.N=Q.w}function a5(Q,h){var f=0,G=[],n,E,a=16,F;while(a>0&&!Q[a-1]){a--}G.push({children:[],index:0});var C=G[0];for(n=0;n<a;n++)
+    (function(){"use strict";var W=function a1(){function W(p){this.message="JPEG error: "+p}W.prototype=new Error;W.prototype.name="JpegError";W.constructor=W;return W}(),ak=function ag(){var p=new Uint8Array([0,1,8,16,9,2,3,10,17,24,32,25,18,11,4,5,12,19,26,33,40,48,41,34,27,20,13,6,7,14,21,28,35,42,49,56,57,50,43,36,29,22,15,23,30,37,44,51,58,59,52,45,38,31,39,46,53,60,61,54,47,55,62,63]),t=4017,ac=799,ah=3406,ao=2276,ar=1567,ai=3784,s=5793,ad=2896;function ak(Q){if(Q==null)Q={};if(Q.w==null)Q.w=-1;this.V=Q.n;this.N=Q.w}function a5(Q,h){var f=0,G=[],n,E,a=16,F;while(a>0&&!Q[a-1]){a--}G.push({children:[],index:0});var C=G[0];for(n=0;n<a;n++)
     {for(E=0;E<Q[n];E++){C=G.pop();C.children[C.index]=h[f];while(C.index>0){C=G.pop()}C.index++;G.push(C);while(G.length<=n){G.push(F={children:[],index:0});C.children[C.index]=F.children;C=F}f++}if(n+1<a){G.push(F={children:[],index:0});C.children[C.index]=F.children;C=F}}return G[0].children}function a2(Q,h,f){return 64*((Q.P+1)*h+f)}function a7(Q,h,f,G,n,E,a,C,F,d){if(d==null)d=!1;var T=f.m,U=f.Z,z=h,J=0,V=0,r=0,D=0,a8,q=0,X,O,_,N,e,K,x=0,k,g,R,c;function Y(){if(V>0){V--;return J>>V&1}J=Q[h++];if(J===255){var I=Q[h++];if(I){if(I===220&&d){h+=2;var l=Z(Q,h);h+=2;if(l>0&&l!==f.s){throw new DNLMarkerError("Found DNL marker (0xFFDC) while parsing scan data",l)}}else if(I===217){if(d){var M=q*8;
     if(M>0&&M<f.s/10){throw new DNLMarkerError("Found EOI marker (0xFFD9) while parsing scan data, "+"possibly caused by incorrect `scanLines` parameter",M)}}throw new EOIMarkerError("Found EOI marker (0xFFD9) while parsing scan data")}throw new W("unexpected marker")}}V=7;return J>>>7}function u(I){var l=I;while(!0){l=l[Y()];switch(typeof l){case"number":return l;case"object":continue}throw new W("invalid huffman sequence")}}function m(I){var e=0;while(I>0){e=e<<1|Y();I--}return e}function j(I){if(I===1){return Y()===1?1:-1}var e=m(I);if(e>=1<<I-1){return e}return e+(-1<<I)+1}function v(X,I){var l=u(X.J),M=l===0?0:j(l),N=1;
     X.D[I]=X.Q+=M;while(N<64){var S=u(X.i),i=S&15,A=S>>4;if(i===0){if(A<15){break}N+=16;continue}N+=A;var o=p[N];X.D[I+o]=j(i);N++}}function $(X,I){var l=u(X.J),M=l===0?0:j(l)<<F;X.D[I]=X.Q+=M}function b(X,I){X.D[I]|=Y()<<F}function P(X,I){if(r>0){r--;return}var N=E,l=a;while(N<=l){var M=u(X.i),S=M&15,i=M>>4;if(S===0){if(i<15){r=m(i)+(1<<i)-1;break}N+=16;continue}N+=i;var A=p[N];X.D[I+A]=j(S)*(1<<F);N++}}function a4(X,I){var N=E,l=a,M=0,S,i;while(N<=l){var A=I+p[N],o=X.D[A]<0?-1:1;switch(D){case 0:i=u(X.i);S=i&15;M=i>>4;if(S===0){if(M<15){r=m(M)+(1<<M);D=4}else{M=16;D=1}}else{if(S!==1){throw new W("invalid ACn encoding")}a8=j(S);D=M?2:3}continue;case 1:case 2:if(X.D[A]){X.D[A]+=o*(Y()<<F)}else{M--;if(M===0){D=D===2?3:0}}break;case 3:if(X.D[A]){X.D[A]+=o*(Y()<<F)}else{X.D[A]=a8<<F;
@@ -1572,7 +1573,7 @@ import {
     l[q]+=S}}}}return x}();
     
     
-    module.exports = (function(){var G=0,F=1,i=2,b=3,J=4,N=5,E=6,s=7,c=8,T=9,a3=10,f=11,q=12,M=13,m=14,x=15,L=16,$=17,p=18;
+    (function(){var G=0,F=1,i=2,b=3,J=4,N=5,E=6,s=7,c=8,T=9,a3=10,f=11,q=12,M=13,m=14,x=15,L=16,$=17,p=18;
     function a5(t){var Z=UTIF._binBE.readUshort,u={b:Z(t,0),i:t[2],C:t[3],u:t[4],q:Z(t,5),k:Z(t,7),e:Z(t,9),l:Z(t,11),s:t[13],d:Z(t,14)};
     if(u.b!=18771||u.i>1||u.q<6||u.q%6||u.e<768||u.e%24||u.l!=768||u.k<u.l||u.k%u.l||u.k-u.e>=u.l||u.s>16||u.s!=u.k/u.l||u.s!=Math.ceil(u.e/u.l)||u.d!=u.q/6||u.u!=12&&u.u!=14&&u.u!=16||u.C!=16&&u.C!=0){throw"Invalid data"}if(u.i==0){throw"Not implemented. We need this file!"}u.h=u.C==16;
     u.m=(u.h?u.l*2/3:u.l>>>1)|0;u.A=u.m+2;u.f=64;u.g=(1<<u.u)-1;u.n=4*u.u;return u}function a7(t,Z){var u=new Array(Z.s),e=4*Z.s,Q=16+e;

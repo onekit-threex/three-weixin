@@ -1,5 +1,5 @@
 // webgl_advanced/webgl_raymarching_reflect.js
-import {document,window,requestAnimationFrame,cancelAnimationFrame,Event} from 'dhtml-weixin';
+import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
 import Stats from './jsm/libs/stats.module.js';
@@ -217,16 +217,19 @@ var requestId
 Page({
 	onUnload() {
 		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
 	},
   async onLoad(){
-const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
+const canvas = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
 
 
@@ -250,7 +253,7 @@ render();
 
 function init() {
 
-  renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas3d,canvas: canvas } );
+  renderer = that.renderer = new THREE.WebGLRenderer( { canvas:canvas } );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( config.resolution, config.resolution );
 

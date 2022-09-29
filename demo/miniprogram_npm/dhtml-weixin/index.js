@@ -4,13 +4,14 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1664283477419, function(require, module, exports) {
+__DEFINE__(1664470259058, function(require, module, exports) {
 var __TEMP__ = require('./Blob');var Blob = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./createImageBitmap');var createImageBitmap = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./CSSStyleDeclaration');var CSSStyleDeclaration = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./document');var Document = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./fetch');var fetch = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Headers');var Headers = __REQUIRE_DEFAULT__(__TEMP__);
+var __TEMP__ = require('./Image');var Image = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLCanvasElement');var HTMLCanvasElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./ImageBitmap');var ImageBitmap = __REQUIRE_DEFAULT__(__TEMP__);
@@ -41,6 +42,7 @@ const window = new Window();
 const self = window;
 const location = new Location();
 module.exports = {
+  Image,
   AudioContext,
   ImageData,
   Blob,
@@ -74,8 +76,8 @@ module.exports = {
   core,
 };
 
-}, function(modId) {var map = {"./Blob":1664283477420,"./createImageBitmap":1664283477421,"./CSSStyleDeclaration":1664283477435,"./document":1664283477436,"./fetch":1664283477449,"./Headers":1664283477451,"./HTMLImageElement":1664283477422,"./HTMLCanvasElement":1664283477437,"./ImageBitmap":1664283477445,"./navigator":1664283477452,"./Request":1664283477453,"./requestAnimationFrame":1664283477443,"./cancelAnimationFrame":1664283477444,"./Response":1664283477450,"./URL":1664283477439,"./window":1664283477438,"./WebAssembly":1664283477454,"./Worker":1664283477446,"./XMLHttpRequest":1664283477455,"./Location":1664283477442,"./core/xmldom/dom-parser":1664283477456,"./core/index":1664283477460,"./EventTarget":1664283477431,"./Element":1664283477429,"./Node":1664283477430,"./Event":1664283477433,"./Performance":1664283477441,"./btoa":1664283477424,"./ImageData":1664283477448,"./AudioContext":1664283477447}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477420, function(require, module, exports) {
+}, function(modId) {var map = {"./Blob":1664470259059,"./createImageBitmap":1664470259060,"./CSSStyleDeclaration":1664470259074,"./document":1664470259075,"./fetch":1664470259089,"./Headers":1664470259091,"./Image":1664470259084,"./HTMLImageElement":1664470259061,"./HTMLCanvasElement":1664470259076,"./ImageBitmap":1664470259085,"./navigator":1664470259092,"./Request":1664470259093,"./requestAnimationFrame":1664470259082,"./cancelAnimationFrame":1664470259083,"./Response":1664470259090,"./URL":1664470259078,"./window":1664470259077,"./WebAssembly":1664470259094,"./Worker":1664470259086,"./XMLHttpRequest":1664470259095,"./Location":1664470259081,"./core/xmldom/dom-parser":1664470259096,"./core/index":1664470259100,"./EventTarget":1664470259070,"./Element":1664470259068,"./Node":1664470259069,"./Event":1664470259072,"./Performance":1664470259080,"./btoa":1664470259063,"./ImageData":1664470259088,"./AudioContext":1664470259087}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259059, function(require, module, exports) {
 /* eslint-disable camelcase */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Blob {
   constructor(array, options) {
@@ -91,122 +93,122 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Blob
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477421, function(require, module, exports) {
+__DEFINE__(1664470259060, function(require, module, exports) {
 /* eslint-disable no-unused-vars */
 var __TEMP__ = require('./HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Blob');var Blob = __REQUIRE_DEFAULT__(__TEMP__);
 
-if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function createImageBitmap(src, options) {
+if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function createImageBitmap (src, options) {
   return new Promise((resolve) => {
     const img = new HTMLImageElement()
-    img.onload = function() {
+    img.onload = function () {
       resolve(img)
     }
-    if(src instanceof Blob){
-        src = "data:image/png;base64,"+Base64.arrayBufferToBase64(src.array[0])
+    if (src instanceof Blob) {
+      src = "data:image/png;base64," + Base64.arrayBufferToBase64(src.array[0])
     }
     img.src = src
   })
 };exports.default = createImageBitmap
 
-}, function(modId) { var map = {"./HTMLImageElement":1664283477422,"./core/Base64":1664283477423,"./Blob":1664283477420}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477422, function(require, module, exports) {
+}, function(modId) { var map = {"./HTMLImageElement":1664470259061,"./core/Base64":1664470259062,"./Blob":1664470259059}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259061, function(require, module, exports) {
 var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLElement');var HTMLElement = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class HTMLImageElement extends HTMLElement {
-	constructor(canvas2d) {
-		super();
-		const canvas = canvas2d || Page.current.canvas.wx_element;
-		this.wx_element = canvas.createImage();
-		this.wx_element.onload = () => {
-			if (this.onload) {
-				this.onload.call(this);
-			}
-			if (this._all_event_handlers.load) {
-				this._all_event_handlers.load.forEach((handler) => {
-					handler.call(this);
-				});
-			}
-		};
-		this.wx_element.onerror = (e) => {
-			if (this.onerror) {
-				this.onerror.call(this, e);
-			}
-			if (this._all_event_handlers.error) {
-				this._all_event_handlers.error.forEach((handler) => {
-					handler.call(this, e);
-				});
-			}
-		};
-		this.onekit_image = this;
-	}
-	get width() {
-		return this.wx_element.width;
-	}
-	get height() {
-		return this.wx_element.height;
-	}
-	get data() {
-		return this.wx_element.data;
-	}
-	get complete() {
-		return this.wx_element.complete;
-	}
-	set crossOrigin(crossOrigin) {
-		this._crossOrigin = crossOrigin;
-	}
+  constructor(canvas2d) {
+    super();
+    const canvas = canvas2d || Page.current.canvas.wx_element;
+    this.image = canvas.createImage();
+    this.image.onload = () => {
+      if (this.onload) {
+        this.onload.call(this);
+      }
+      if (this._all_event_handlers.load) {
+        this._all_event_handlers.load.forEach((handler) => {
+          handler.call(this);
+        });
+      }
+    };
+    this.image.onerror = (e) => {
+      if (this.onerror) {
+        this.onerror.call(this, e);
+      }
+      if (this._all_event_handlers.error) {
+        this._all_event_handlers.error.forEach((handler) => {
+          handler.call(this, e);
+        });
+      }
+    };
+    this.onekit_image = this;
+  }
+  get width () {
+    return this.image.width;
+  }
+  get height () {
+    return this.image.height;
+  }
+  get data () {
+    return this.image.data;
+  }
+  get complete () {
+    return this.image.complete;
+  }
+  set crossOrigin (crossOrigin) {
+    this._crossOrigin = crossOrigin;
+  }
 
-	get crossOrigin() {
-		return this._crossOrigin;
-	}
+  get crossOrigin () {
+    return this._crossOrigin;
+  }
 
-	set src(url) {
-		const onekit_debug = Page.getApp().onekit_debug
-		if (onekit_debug) {
-			if (url.startsWith("data:")) {
-				console[onekit_debug]("[image]", "blob");
-			} else {
-				console[onekit_debug]("[image]", url);
-			}
-		}
-		if (url.startsWith('data:')) {
-			this._src = url;
-			this.wx_element.src = url
-			return
-		}
-		if (url.startsWith("blob:")) {
-			try {
-				this._src = url;
-				const arrayBuffer = Page.current.DataURL[url].array[0]
-				const base64 = "data:image/png;base64," + Base64.arrayBufferToBase64(arrayBuffer)
-				this.wx_element.src = base64
-			} catch (ex) {
-				console.error(ex);
-			}
-			return
-		}
-		if (url.startsWith("./")) {
-			url = url.substring(2)
-		}
-		if (!url.startsWith("blob:") &&
-			!url.startsWith("data:") &&
-			!url.startsWith("http://") &&
-			!url.startsWith("https://")) {
-			url = (Page.getApp().onekit_path || "") + url
-		}
-		this.wx_element.src = url;
+  set src (url) {
+    const onekit_debug = Page.getApp().onekit_debug
+    if (onekit_debug) {
+      if (url.startsWith("data:")) {
+        console[onekit_debug]("[image]", "blob");
+      } else {
+        console[onekit_debug]("[image]", url);
+      }
+    }
+    if (url.startsWith('data:')) {
+      this._src = url;
+      this.image.src = url
+      return
+    }
+    if (url.startsWith("blob:")) {
+      try {
+        this._src = url;
+        const arrayBuffer = Page.current.DataURL[url].array[0]
+        const base64 = "data:image/png;base64," + Base64.arrayBufferToBase64(arrayBuffer)
+        this.image.src = base64
+      } catch (ex) {
+        console.error(ex);
+      }
+      return
+    }
+    if (url.startsWith("./")) {
+      url = url.substring(2)
+    }
+    if (!url.startsWith("blob:") &&
+      !url.startsWith("data:") &&
+      !url.startsWith("http://") &&
+      !url.startsWith("https://")) {
+      url = (Page.getApp().onekit_path || "") + url
+    }
+    this.image.src = url;
 
-	}
+  }
 
-	get src() {
-		return this._src;
-	}
+  get src () {
+    return this._src;
+  }
 };exports.default = HTMLImageElement
 
-}, function(modId) { var map = {"./core/Base64":1664283477423,"./core/Page":1664283477425,"./HTMLElement":1664283477426}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477423, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Base64":1664470259062,"./core/Page":1664470259064,"./HTMLElement":1664470259065}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259062, function(require, module, exports) {
 /* eslint-disable max-len */
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-nested-ternary */
@@ -262,8 +264,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Base64
 
-}, function(modId) { var map = {"../btoa":1664283477424}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477424, function(require, module, exports) {
+}, function(modId) { var map = {"../btoa":1664470259063}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259063, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function btoa(string) {
   const b64 =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -300,7 +302,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = btoa
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477425, function(require, module, exports) {
+__DEFINE__(1664470259064, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Page{
     static get current(){
         const pages = this.getCurrentPages()
@@ -329,7 +331,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
 };exports.default = Page
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477426, function(require, module, exports) {
+__DEFINE__(1664470259065, function(require, module, exports) {
 var __TEMP__ = require('./Style');var Style = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Element');var Element = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./ClassCollection');var ClassCollection = __REQUIRE_DEFAULT__(__TEMP__);
@@ -346,7 +348,9 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 
   get ownerDocument() {
-    return {documentElement:new HTMLElement()};
+    var document = new HTMLElement()
+    document.documentElement =new HTMLElement() 
+    return document;
   }
 
   get parentElement() {
@@ -380,6 +384,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   get innerHTML() {
     return this._innerHTML;
   }
+  prepend() {}
   append() {}
   appendChild() {}
   removeChild() {}
@@ -426,8 +431,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = HTMLElement
 
-}, function(modId) { var map = {"./Style":1664283477427,"./Element":1664283477429,"./ClassCollection":1664283477434,"./core/Page":1664283477425}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477427, function(require, module, exports) {
+}, function(modId) { var map = {"./Style":1664470259066,"./Element":1664470259068,"./ClassCollection":1664470259073,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259066, function(require, module, exports) {
 
 /* eslint-disable class-methods-use-this */
 var __TEMP__ = require('./core/String');var String = __REQUIRE_DEFAULT__(__TEMP__);
@@ -635,8 +640,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = Style
 
-}, function(modId) { var map = {"./core/String":1664283477428,"./core/Page":1664283477425}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477428, function(require, module, exports) {
+}, function(modId) { var map = {"./core/String":1664470259067,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259067, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class String {
   static fromHump(s) {
     return s.replace(/([A-Z])/g, "-$1").toLowerCase();
@@ -651,7 +656,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = String
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477429, function(require, module, exports) {
+__DEFINE__(1664470259068, function(require, module, exports) {
 /* eslint-disable no-useless-constructor */
 /* eslint-disable class-methods-use-this */
 var __TEMP__ = require('./Node');var Node = __REQUIRE_DEFAULT__(__TEMP__);
@@ -662,8 +667,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Element
 
-}, function(modId) { var map = {"./Node":1664283477430}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477430, function(require, module, exports) {
+}, function(modId) { var map = {"./Node":1664470259069}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259069, function(require, module, exports) {
 /* eslint-disable no-useless-constructor */
 var __TEMP__ = require('./EventTarget');var EventTarget = __REQUIRE_DEFAULT__(__TEMP__);
 
@@ -673,8 +678,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Node
 
-}, function(modId) { var map = {"./EventTarget":1664283477431}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477431, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664470259070}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259070, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 /* eslint-disable max-len */
 var __TEMP__ = require('./core/ArrayX');var ArrayX = __REQUIRE_DEFAULT__(__TEMP__);
@@ -757,8 +762,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = EventTarget
 
-}, function(modId) { var map = {"./core/ArrayX":1664283477432,"./Event":1664283477433}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477432, function(require, module, exports) {
+}, function(modId) { var map = {"./core/ArrayX":1664470259071,"./Event":1664470259072}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259071, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });exports.default = {
   remove(array, item) {
     const index = array.indexOf(item)
@@ -770,7 +775,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477433, function(require, module, exports) {
+__DEFINE__(1664470259072, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Event {
     
     static fix(wx_e){
@@ -810,7 +815,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Event
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477434, function(require, module, exports) {
+__DEFINE__(1664470259073, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class ClassCollection {
   constructor(element){
@@ -831,7 +836,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = ClassCollection
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477435, function(require, module, exports) {
+__DEFINE__(1664470259074, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class CSSStyleDeclaration {
   constructor() {
     this.fill = ''
@@ -865,7 +870,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = CSSStyleDeclaration
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477436, function(require, module, exports) {
+__DEFINE__(1664470259075, function(require, module, exports) {
 var __TEMP__ = require('./HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLCanvasElement');var HTMLCanvasElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./window');var Window = __REQUIRE_DEFAULT__(__TEMP__);
@@ -873,9 +878,9 @@ var __TEMP__ = require('./Location');var Location = __REQUIRE_DEFAULT__(__TEMP__
 var __TEMP__ = require('./HTMLElement');var HTMLElement = __REQUIRE_DEFAULT__(__TEMP__);
 const window = new Window()
 
-class Head extends HTMLElement {}
+class Head extends HTMLElement { }
 
-class Body extends HTMLElement {}
+class Body extends HTMLElement { }
 
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Document extends HTMLElement {
   constructor() {
@@ -883,15 +888,15 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     this.window = window;
   }
 
-  get body() {
+  get body () {
     return new Body();
   }
 
-  get head() {
+  get head () {
     return new Head();
   }
 
-  async createElementAsync(nodeName, canvasType = "2d", THIS) {
+  async createElementAsync (nodeName, canvasType = "2d", THIS) {
     switch (nodeName) {
       case "canvas":
         return new Promise((resolve) => {
@@ -904,7 +909,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
             .fields({ node: true })
             .exec((res) => {
               const canvas = res[0].node;
-              resolve(canvasType=="webgl"?new HTMLCanvasElement(canvas):canvas);
+              resolve(new HTMLCanvasElement(canvas));
             });
         });
       default:
@@ -913,7 +918,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
   }
 
-  async getElementByIdAsync(id,canvasType="2d",THIS) {
+  async getElementByIdAsync (id, canvasType = "2d", THIS) {
     return new Promise((resolve) => {
       const query = wx.createSelectorQuery();
       if (THIS) {
@@ -923,13 +928,13 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
         .select(`#${id}`)
         .fields({ node: true })
         .exec((res) => {
-            const canvas = res[0].node;
-            resolve(canvasType=="webgl"?new HTMLCanvasElement(canvas):canvas);
+          const canvas = res[0].node;
+          resolve(new HTMLCanvasElement(canvas));
         });
     });
   }
 
-  async getElementsByTagNameAsync(tagName,canvasType="2d",THIS) {
+  async getElementsByTagNameAsync (tagName, canvasType = "2d", THIS) {
     return new Promise((resolve) => {
       const query = wx.createSelectorQuery();
       if (THIS) {
@@ -939,13 +944,13 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
         .select(tagName)
         .fields({ node: true })
         .exec((res) => {
-            const canvas = res[0].node;
-            resolve(canvasType=="webgl"?new HTMLCanvasElement(canvas):canvas);
+          const canvas = res[0].node;
+          resolve([new HTMLCanvasElement(canvas)]);
         });
     });
   }
 
-  async getElementsByClassNameAsync(className,canvasType="2d",THIS) {
+  async getElementsByClassNameAsync (className, canvasType = "2d", THIS) {
     return new Promise((resolve) => {
       const query = wx.createSelectorQuery();
       if (THIS) {
@@ -955,20 +960,16 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
         .select(`.${className}`)
         .fields({ node: true })
         .exec((res) => {
-            const canvas = res[0].node;
-            resolve(canvasType=="webgl"?new HTMLCanvasElement(canvas):canvas);
+          const canvas = res[0].node;
+          resolve([new HTMLCanvasElement(canvas)]);
         });
     });
   }
 
-  createElement(nodeName, canvasType = "2d",canvas) {
+  createElement (nodeName, canvasType = "2d", canvas) {
     switch (nodeName) {
       case "canvas":
-       // if(canvasType=="webgl"){
-         return new HTMLCanvasElement(wx.createOffscreenCanvas({ type: canvasType }));
-        //}else{
-          //return new HTMLCanvasElement(wx.createOffscreenCanvas({ type: canvasType })); 
-        //}
+        return new HTMLCanvasElement(wx.createOffscreenCanvas({ type: canvasType }));
       case "img":
         return new HTMLImageElement(canvas);
       default:
@@ -976,41 +977,41 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
   }
 
-  createElementNS(namesspace, nodeName, canvasType) {
+  createElementNS (namesspace, nodeName, canvasType) {
     return this.createElement(nodeName, canvasType);
   }
 
-  get documentElement() {
+  get documentElement () {
     return new HTMLElement();
   }
 
-  getElementById() {
+  getElementById () {
     return new HTMLElement();
   }
 
-  getElementsByTagName() {
+  getElementsByTagName () {
     return [];
   }
 
-  getElementsByClassName() {
+  getElementsByClassName () {
     return [];
   }
 
-  querySelector() {
+  querySelector () {
     return new HTMLElement();
   }
 
-  get location() {
+  get location () {
     return new Location();
   }
 
-  querySelectorAll() {
+  querySelectorAll () {
     return [];
   }
 };exports.default = Document
 
-}, function(modId) { var map = {"./HTMLImageElement":1664283477422,"./HTMLCanvasElement":1664283477437,"./window":1664283477438,"./Location":1664283477442,"./HTMLElement":1664283477426}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477437, function(require, module, exports) {
+}, function(modId) { var map = {"./HTMLImageElement":1664470259061,"./HTMLCanvasElement":1664470259076,"./window":1664470259077,"./Location":1664470259081,"./HTMLElement":1664470259065}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259076, function(require, module, exports) {
 var __TEMP__ = require('./HTMLElement');var HTMLElement = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class HTMLCanvasElement extends HTMLElement {
   constructor(wx_element) {
@@ -1040,8 +1041,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = HTMLCanvasElement
 
-}, function(modId) { var map = {"./HTMLElement":1664283477426}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477438, function(require, module, exports) {
+}, function(modId) { var map = {"./HTMLElement":1664470259065}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259077, function(require, module, exports) {
 /* eslint-disable no-undef */
 /* eslint-disable getter-return */
 /* eslint-disable class-methods-use-this */
@@ -1052,6 +1053,7 @@ var __TEMP__ = require('./Location');var Location = __REQUIRE_DEFAULT__(__TEMP__
 var __TEMP__ = require('./requestAnimationFrame');var requestAnimationFrame = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./cancelAnimationFrame');var cancelAnimationFrame = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./createImageBitmap');var createImageBitmap = __REQUIRE_DEFAULT__(__TEMP__);
+var __TEMP__ = require('./Image');var Image = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLCanvasElement');var HTMLCanvasElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./ImageBitmap');var ImageBitmap = __REQUIRE_DEFAULT__(__TEMP__);
@@ -1059,62 +1061,68 @@ var __TEMP__ = require('./Worker');var Worker = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./btoa');var btoa = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./AudioContext');var AudioContext = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./ImageData');var ImageData = __REQUIRE_DEFAULT__(__TEMP__);
+var __TEMP__ = require('./Event');var Event = __REQUIRE_DEFAULT__(__TEMP__);
 // ///////////////////////////////////////////////
 
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Window extends EventTarget {
-
-  get ImageData(){
+  get Image () {
+    return Image
+  }
+  get Event () {
+    return Event
+  }
+  get ImageData () {
     return ImageData
   }
-  get btoa() {
+  get btoa () {
     return btoa
   }
-  get Int8Array() {
+  get Int8Array () {
     return Int8Array
   }
 
-  get Uint8Array() {
+  get Uint8Array () {
     return Uint8Array
   }
 
-  get Uint8ClampedArray() {
+  get Uint8ClampedArray () {
     return Uint8ClampedArray
   }
 
-  get Int16Array() {
+  get Int16Array () {
     return Int16Array
   }
 
-  get Uint16Array() {
+  get Uint16Array () {
     return Uint16Array
   }
 
-  get Int32Array() {
+  get Int32Array () {
     return Int32Array
   }
 
-  get Uint32Array() {
+  get Uint32Array () {
     return Uint32Array
   }
 
-  get Float32Array() {
+  get Float32Array () {
     return Float32Array
   }
 
-  get Float64Array() {
+  get Float64Array () {
     return Float64Array
   }
 
-  get BigInt64Array() {
+  get BigInt64Array () {
     return BigInt64Array
   }
 
-  get BigUint64Array() {
+  get BigUint64Array () {
     return BigUint64Array
   }
   // /////////////////
 
-  _getSystemInfoSync() {
+  _getSystemInfoSync () {
     if (!this.onekit_systemInfo) {
       this.onekit_systemInfo = wx.getSystemInfoSync()
     }
@@ -1131,64 +1139,64 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     this.setInterval = setInterval
     this.clearInterval = clearInterval
   }
-  get HTMLImageElement() {
+  get HTMLImageElement () {
     return HTMLImageElement
   }
-  get HTMLCanvasElement() {
+  get HTMLCanvasElement () {
     return HTMLCanvasElement
   }
-  get ImageBitmap() {
+  get ImageBitmap () {
     return ImageBitmap
   }
-  get devicePixelRatio() {
+  get devicePixelRatio () {
     this._getSystemInfoSync()
     return this.onekit_systemInfo.pixelRatio
   }
 
-  get innerWidth() {
+  get innerWidth () {
     this._getSystemInfoSync()
     return this.onekit_systemInfo.windowWidth
   }
 
-  get innerHeight() {
+  get innerHeight () {
     this._getSystemInfoSync()
     return this.onekit_systemInfo.windowHeight
   }
 
-  get Math() {
+  get Math () {
     return this.Math
   }
 
-  get location() {
+  get location () {
     return new Location()
   }
 
-  get requestAnimationFrame() {
+  get requestAnimationFrame () {
     return requestAnimationFrame
   }
 
-  get cancelAnimationFrame() {
+  get cancelAnimationFrame () {
     return cancelAnimationFrame
   }
 
-  get createImageBitmap() {
+  get createImageBitmap () {
     return createImageBitmap
   }
 
-  get localStorage() {
+  get localStorage () {
     return localStorage
   }
 
-  postMessage(json) {
+  postMessage (json) {
     return Worker.self_postMessage(json)
   }
-  onmessage(msg) {
+  onmessage (msg) {
     return Worker.self_onmessage(msg)
   }
 };exports.default = Window
 
-}, function(modId) { var map = {"./EventTarget":1664283477431,"./URL":1664283477439,"./Performance":1664283477441,"./Location":1664283477442,"./requestAnimationFrame":1664283477443,"./cancelAnimationFrame":1664283477444,"./createImageBitmap":1664283477421,"./HTMLImageElement":1664283477422,"./HTMLCanvasElement":1664283477437,"./ImageBitmap":1664283477445,"./Worker":1664283477446,"./btoa":1664283477424,"./AudioContext":1664283477447,"./ImageData":1664283477448}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477439, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664470259070,"./URL":1664470259078,"./Performance":1664470259080,"./Location":1664470259081,"./requestAnimationFrame":1664470259082,"./cancelAnimationFrame":1664470259083,"./createImageBitmap":1664470259060,"./Image":1664470259084,"./HTMLImageElement":1664470259061,"./HTMLCanvasElement":1664470259076,"./ImageBitmap":1664470259085,"./Worker":1664470259086,"./btoa":1664470259063,"./AudioContext":1664470259087,"./ImageData":1664470259088,"./Event":1664470259072}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259078, function(require, module, exports) {
 var __TEMP__ = require('./core/GUID');var GUID = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class URL {
@@ -1216,8 +1224,8 @@ page.DataURL[url] = blob
   }
 };exports.default = URL
 
-}, function(modId) { var map = {"./core/GUID":1664283477440,"./core/Page":1664283477425}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477440, function(require, module, exports) {
+}, function(modId) { var map = {"./core/GUID":1664470259079,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259079, function(require, module, exports) {
 /* eslint-disable no-mixed-operators */
 /* eslint-disable no-bitwise */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function GUID() {
@@ -1229,7 +1237,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = GUID
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477441, function(require, module, exports) {
+__DEFINE__(1664470259080, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Performance {
   constructor() {
@@ -1241,7 +1249,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Performance
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477442, function(require, module, exports) {
+__DEFINE__(1664470259081, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Location {
   constructor() {
@@ -1252,7 +1260,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Location
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477443, function(require, module, exports) {
+__DEFINE__(1664470259082, function(require, module, exports) {
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function requestAnimationFrame(callback,canvas=Page.current.canvas) {
   if(!canvas){
@@ -1265,8 +1273,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   return requestId
 };exports.default = requestAnimationFrame
 
-}, function(modId) { var map = {"./core/Page":1664283477425}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477444, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259083, function(require, module, exports) {
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function cancelAnimationFrame(requestId,canvas=Page.current.canvas) {
 	try {
@@ -1285,25 +1293,120 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = cancelAnimationFrame
 
-}, function(modId) { var map = {"./core/Page":1664283477425}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477445, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259084, function(require, module, exports) {
+var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
+var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
+var __TEMP__ = require('./EventTarget');var EventTarget = __REQUIRE_DEFAULT__(__TEMP__);
+if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class HTMLImageElement extends EventTarget {
+  constructor(canvas2d) {
+    super();
+    const canvas = canvas2d || Page.current.canvas.wx_element;
+    this.image = canvas.createImage();
+    this.image.onload = () => {
+      if (this.onload) {
+        this.onload.call(this);
+      }
+      if (this._all_event_handlers.load) {
+        this._all_event_handlers.load.forEach((handler) => {
+          handler.call(this);
+        });
+      }
+    };
+    this.image.onerror = (e) => {
+      if (this.onerror) {
+        this.onerror.call(this, e);
+      }
+      if (this._all_event_handlers.error) {
+        this._all_event_handlers.error.forEach((handler) => {
+          handler.call(this, e);
+        });
+      }
+    };
+    this.onekit_image = this;
+  }
+  get width () {
+    return this.image.width;
+  }
+  get height () {
+    return this.image.height;
+  }
+  get data () {
+    return this.image.data;
+  }
+  get complete () {
+    return this.image.complete;
+  }
+  set crossOrigin (crossOrigin) {
+    this._crossOrigin = crossOrigin;
+  }
+
+  get crossOrigin () {
+    return this._crossOrigin;
+  }
+
+  set src (url) {
+    const onekit_debug = Page.getApp().onekit_debug
+    if (onekit_debug) {
+      if (url.startsWith("data:")) {
+        console[onekit_debug]("[image]", "blob");
+      } else {
+        console[onekit_debug]("[image]", url);
+      }
+    }
+    if (url.startsWith('data:')) {
+      this._src = url;
+      this.image.src = url
+      return
+    }
+    if (url.startsWith("blob:")) {
+      try {
+        this._src = url;
+        const arrayBuffer = Page.current.DataURL[url].array[0]
+        const base64 = "data:image/png;base64," + Base64.arrayBufferToBase64(arrayBuffer)
+        this.image.src = base64
+      } catch (ex) {
+        console.error(ex);
+      }
+      return
+    }
+    if (url.startsWith("./")) {
+      url = url.substring(2)
+    }
+    if (!url.startsWith("blob:") &&
+      !url.startsWith("data:") &&
+      !url.startsWith("http://") &&
+      !url.startsWith("https://")) {
+      url = (Page.getApp().onekit_path || "") + url
+    }
+    this.image.src = url;
+
+  }
+
+  get src () {
+    return this._src;
+  }
+};exports.default = HTMLImageElement
+
+}, function(modId) { var map = {"./core/Base64":1664470259062,"./core/Page":1664470259064,"./EventTarget":1664470259070}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259085, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class ImageBitmap {
-  constructor(wx_element) {
-    this.wx_element = wx_element;
+  constructor(image) {
+    this.image = image;
   }
   get width() {
-    return this.wx_element.width;
+    return this.image.width;
   }
   get height() {
-    return this.wx_element.height;
+    return this.image.height;
   }
   get data() {
-    return this.wx_element.data;
+    return this.image.data;
   }
 };exports.default = ImageBitmap
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477446, function(require, module, exports) {
+__DEFINE__(1664470259086, function(require, module, exports) {
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 /* eslint-disable no-tabs */
@@ -1618,6 +1721,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   // /////////////////
   constructor(url) {
     super();
+    Page.current.worker = this
 		const onekit_debug = Page.getApp().onekit_debug
     if (onekit_debug) {
       console[onekit_debug]("[Worker]", url);
@@ -1659,8 +1763,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Worker
 
-}, function(modId) { var map = {"./EventTarget":1664283477431,"./core/Page":1664283477425}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477447, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664470259070,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259087, function(require, module, exports) {
 class Gain {
     constructor(wx_gain) {
         this.wx_gain = wx_gain
@@ -1765,7 +1869,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
 };exports.default = AudioContext
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477448, function(require, module, exports) {
+__DEFINE__(1664470259088, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class ImageData{
     constructor(array,width,height){
         this.array=array
@@ -1774,7 +1878,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
 };exports.default = ImageData
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477449, function(require, module, exports) {
+__DEFINE__(1664470259089, function(require, module, exports) {
 var __TEMP__ = require('./Response');var Response = __REQUIRE_DEFAULT__(__TEMP__);
 
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function fetch(request) {
@@ -1783,8 +1887,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   })
 };exports.default = fetch
 
-}, function(modId) { var map = {"./Response":1664283477450}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477450, function(require, module, exports) {
+}, function(modId) { var map = {"./Response":1664470259090}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259090, function(require, module, exports) {
 /* eslint-disable handle-callback-err */
 /* eslint-disable no-console */
 var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
@@ -1823,8 +1927,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 			return new Promise((resolve, reject) => {
 				try {
 					const BASE64 = 'base64,'
-					const url = url.substring(url.indexOf(BASE64) + BASE64.length)
-					resolve(Base64.base64ToArrayBuffer(url))
+					const base64 = url.substring(url.indexOf(BASE64) + BASE64.length)
+					resolve(Base64.base64ToArrayBuffer(base64))
 				} catch (ex) {
 					console.error(ex)
 					reject(ex)
@@ -1897,8 +2001,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = Response
 
-}, function(modId) { var map = {"./core/Base64":1664283477423,"./core/Page":1664283477425,"./Blob":1664283477420}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477451, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Base64":1664470259062,"./core/Page":1664470259064,"./Blob":1664470259059}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259091, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Headers {
   constructor(data) {
     this.data = data
@@ -1906,7 +2010,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Headers
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477452, function(require, module, exports) {
+__DEFINE__(1664470259092, function(require, module, exports) {
 class Navigator {
   constructor() {
     const systemInfo = wx.getSystemInfoSync()
@@ -1925,7 +2029,7 @@ class Navigator {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });exports.default = new Navigator();
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477453, function(require, module, exports) {
+__DEFINE__(1664470259093, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Request {
   constructor(url, options = {}) {
     this.url = url
@@ -1934,7 +2038,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Request
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477454, function(require, module, exports) {
+__DEFINE__(1664470259094, function(require, module, exports) {
 module.exports = {
   compile: WXWebAssembly.compile,
 
@@ -1968,7 +2072,7 @@ module.exports = {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477455, function(require, module, exports) {
+__DEFINE__(1664470259095, function(require, module, exports) {
 /* eslint-disable camelcase */
 var __TEMP__ = require('./EventTarget');var EventTarget = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
@@ -2101,8 +2205,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = XMLHttpRequest
 
-}, function(modId) { var map = {"./EventTarget":1664283477431,"./core/Page":1664283477425}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477456, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664470259070,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259096, function(require, module, exports) {
 /* eslint-disable */
 function DOMParser(options) {
   this.options = options || {locator: {}}
@@ -2359,8 +2463,8 @@ exports.XMLSerializer = require('./dom').XMLSerializer
 exports.DOMParser = DOMParser
 // }
 
-}, function(modId) { var map = {"./entities":1664283477457,"./sax":1664283477458,"./dom":1664283477459}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477457, function(require, module, exports) {
+}, function(modId) { var map = {"./entities":1664470259097,"./sax":1664470259098,"./dom":1664470259099}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259097, function(require, module, exports) {
 exports.entityMap = {
   lt: '<',
   gt: '>',
@@ -2607,7 +2711,7 @@ exports.entityMap = {
 // for(var  n in exports.entityMap){console.log(exports.entityMap[n].charCodeAt())}
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477458, function(require, module, exports) {
+__DEFINE__(1664470259098, function(require, module, exports) {
 /* eslint-disable */
 // [4]   	NameStartChar	   ::=   	":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x2FF] | [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] | [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
 // [4a]   	NameChar	   ::=   	NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
@@ -3219,7 +3323,7 @@ function split(source, start) {
 exports.XMLReader = XMLReader
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477459, function(require, module, exports) {
+__DEFINE__(1664470259099, function(require, module, exports) {
 /* eslint-disable */
 /*
  * DOM Level 2
@@ -4492,8 +4596,8 @@ exports.DOMImplementation = DOMImplementation
 exports.XMLSerializer = XMLSerializer
 // }
 
-}, function(modId) { var map = {"../../CSSStyleDeclaration":1664283477435}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477460, function(require, module, exports) {
+}, function(modId) { var map = {"../../CSSStyleDeclaration":1664470259074}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259100, function(require, module, exports) {
 var __TEMP__ = require('./ArrayX');var ArrayX = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Canvas');var Canvas = __REQUIRE_DEFAULT__(__TEMP__);
@@ -4509,128 +4613,102 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   Page
 };
 
-}, function(modId) { var map = {"./ArrayX":1664283477432,"./Base64":1664283477423,"./Canvas":1664283477461,"./GUID":1664283477440,"./Page":1664283477425,"./String":1664283477428}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664283477461, function(require, module, exports) {
+}, function(modId) { var map = {"./ArrayX":1664470259071,"./Base64":1664470259062,"./Canvas":1664470259101,"./GUID":1664470259079,"./Page":1664470259064,"./String":1664470259067}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664470259101, function(require, module, exports) {
 var __TEMP__ = require('../HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('../HTMLCanvasElement');var HTMLCanvasElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('../ImageBitmap');var ImageBitmap = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('../Blob');var Blob = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Canvas {
-	/*
-	static x2image(x, tobase64, toBuffer) {
-		if (!x) {
-			return x;
-		}
-		var img;
-		if (x instanceof HTMLImageElement) {
-			img = x.wx_element;
-		} else if (x instanceof ImageBitmap) {
-			img = x.wx_element;
-		} else if (x instanceof HTMLCanvasElement) {
-			img = x.wx_element;
-			if (tobase64) {
-				img = img.toDataURL();
-				if (toBuffer) {
-					const prev = "data:image/png;base64,";
-					img = img.substring(prev.length);
-					img = Base64.base64ToArrayBuffer(img);
-				}
-			}
-		} else {
-			img = x;
-		}
-		return img;
-	}*/
-	static fix(canvas, canvas_image) {
-		if (canvas.wx_element) {
-			canvas = canvas.wx_element;
-		}
-		if (canvas_image.wx_element) {
-			canvas_image = canvas_image.wx_element;
-		}
-		return new Promise((callback, reject) => {
-			try {
-				var image = canvas.createImage();
-				image.onload = function () {
-					var result = new HTMLCanvasElement(canvas_image)
-					result.image = image
-					callback(result);
-				};
-				image.onerror = function (e) {
-					reject(e)
-				}
-				image.src = canvas_image.toDataURL();
-
-			} catch (e) {
-				reject(e)
-			}
-		});
+  static fix (canvas, canvas_image) {
+    if (canvas.wx_element) {
+      canvas = canvas.wx_element;
     }
-	static toImage(canvas, canvas_image) {
-		if (canvas.wx_element) {
-			canvas = canvas.wx_element;
-		}
-		if (canvas_image.wx_element) {
-			canvas_image = canvas_image.wx_element;
-		}
-		return new Promise((callback, reject) => {
-			try {
-				var image = canvas.createImage();
-				image.onload = function () {
-					callback(image);
-				};
-				image.onerror = function (e) {
-					reject(e)
-				}
-				image.src = canvas_image.toDataURL();
-
-			} catch (e) {
-				reject(e)
-			}
-		});
+    if (canvas_image.wx_element) {
+      canvas_image = canvas_image.wx_element;
     }
-	static toBlob(canvas, callback, type, quality) {
-		const base64 = canvas.toDataURL(type, quality);
-		const prev = `data:${type};base64,`;
-		const buffer = Base64.base64ToArrayBuffer(base64.substring(prev.length));
-		const blob = new Blob([buffer]);
-		callback(blob);
-	}
+    return new Promise((callback, reject) => {
+      try {
+        var image = canvas.createImage();
+        image.onload = function () {
+          var result = new HTMLCanvasElement(canvas_image)
+          result.image = image
+          callback(result);
+        };
+        image.onerror = function (e) {
+          reject(e)
+        }
+        image.src = canvas_image.toDataURL();
 
-	static putImageData(
-		ctx,
-		imageData,
-		dx,
-		dy,
-		dirtyX,
-		dirtyY,
-		dirtyWidth,
-		dirtyHeight
-	) {
-		const data = imageData.data;
-		const height = imageData.height;
-		const width = imageData.width;
-		dirtyX = dirtyX || 0;
-		dirtyY = dirtyY || 0;
-		dirtyWidth = dirtyWidth !== undefined ? dirtyWidth : width;
-		dirtyHeight = dirtyHeight !== undefined ? dirtyHeight : height;
-		const limitBottom = dirtyY + dirtyHeight;
-		const limitRight = dirtyX + dirtyWidth;
-		for (let y = dirtyY; y < limitBottom; y++) {
-			for (let x = dirtyX; x < limitRight; x++) {
-				const pos = y * width + x;
-				ctx.fillStyle = `rgba(${data[pos * 4 + 0]}, ${data[pos * 4 + 1]}, ${
-          data[pos * 4 + 2]
-        }, ${data[pos * 4 + 3] / 255})`;
-				ctx.fillRect(x + dx, y + dy, 1, 1);
-			}
-		}
-	}
+      } catch (e) {
+        reject(e)
+      }
+    });
+  }
+  static toImage (canvas, canvas_image) {
+    if (canvas.wx_element) {
+      canvas = canvas.wx_element;
+    }
+    if (canvas_image.wx_element) {
+      canvas_image = canvas_image.wx_element;
+    }
+    return new Promise((callback, reject) => {
+      try {
+        var image = canvas.createImage();
+        image.onload = function () {
+          callback(image);
+        };
+        image.onerror = function (e) {
+          reject(e)
+        }
+        image.src = canvas_image.toDataURL();
+
+      } catch (e) {
+        reject(e)
+      }
+    });
+  }
+  static toBlob (canvas, callback, type, quality) {
+    const base64 = canvas.toDataURL(type, quality);
+    const prev = `data:${type};base64,`;
+    const buffer = Base64.base64ToArrayBuffer(base64.substring(prev.length));
+    const blob = new Blob([buffer]);
+    callback(blob);
+  }
+
+  static putImageData (
+    ctx,
+    imageData,
+    dx,
+    dy,
+    dirtyX,
+    dirtyY,
+    dirtyWidth,
+    dirtyHeight
+  ) {
+    const data = imageData.data;
+    const height = imageData.height;
+    const width = imageData.width;
+    dirtyX = dirtyX || 0;
+    dirtyY = dirtyY || 0;
+    dirtyWidth = dirtyWidth !== undefined ? dirtyWidth : width;
+    dirtyHeight = dirtyHeight !== undefined ? dirtyHeight : height;
+    const limitBottom = dirtyY + dirtyHeight;
+    const limitRight = dirtyX + dirtyWidth;
+    for (let y = dirtyY; y < limitBottom; y++) {
+      for (let x = dirtyX; x < limitRight; x++) {
+        const pos = y * width + x;
+        ctx.fillStyle = `rgba(${data[pos * 4 + 0]}, ${data[pos * 4 + 1]}, ${data[pos * 4 + 2]
+          }, ${data[pos * 4 + 3] / 255})`;
+        ctx.fillRect(x + dx, y + dy, 1, 1);
+      }
+    }
+  }
 };exports.default = Canvas
 
-}, function(modId) { var map = {"../HTMLImageElement":1664283477422,"../HTMLCanvasElement":1664283477437,"../ImageBitmap":1664283477445,"./Base64":1664283477423,"../Blob":1664283477420}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1664283477419);
+}, function(modId) { var map = {"../HTMLImageElement":1664470259061,"../HTMLCanvasElement":1664470259076,"../ImageBitmap":1664470259085,"./Base64":1664470259062,"../Blob":1664470259059}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1664470259058);
 })()
 //miniprogram-npm-outsideDeps=[]
 //# sourceMappingURL=index.js.map

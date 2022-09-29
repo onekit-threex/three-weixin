@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -31,7 +32,7 @@ import {
 import { SelectInput, Element, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
 import { Vector3 } from '../../../../three/Three';
-import { MathNode, UniformNode } from 'three/nodes';
+import { MathNode, UniformNode } from '../../../jsm/nodes/Nodes.js';
 
 const DEFAULT_VALUE = new UniformNode( new Vector3() );
 

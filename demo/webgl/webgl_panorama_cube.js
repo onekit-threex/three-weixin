@@ -7,13 +7,16 @@ Page({
 	   
          onUnload() {
 	   		cancelAnimationFrame(requestId, this.canvas)
-
-if( this.renderer){
-        this.renderer.dispose()
-        this.renderer.forceContextLoss()
-        this.renderer.context = null
-        this.renderer.domElement = null
-        this.renderer = null  }
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 100)
         
 	},
          webgl_touch(e) {
@@ -23,6 +26,7 @@ if( this.renderer){
         this.canvas.dispatchEvent(web_e)
     },
 async onLoad() {
+    var canvas;
         const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
 var that = this
         
@@ -92,8 +96,8 @@ var that = this
 							canvas = document.createElement( 'canvas' );
 							context = canvas.getContext( '2d' );
 							canvas.height = tileWidth;
-							canvas.width = tileWidth;
-							context.drawImage( image, tileWidth * i, 0, tileWidth, tileWidth, 0, 0, tileWidth, tileWidth );
+                            canvas.width = tileWidth;
+							context.drawImage( image.image, tileWidth * i, 0, tileWidth, tileWidth, 0, 0, tileWidth, tileWidth );
 							textures[ i ].image = canvas;
 							textures[ i ].needsUpdate = true;
 
@@ -116,7 +120,7 @@ var that = this
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 
 				controls.update(); // required when damping is enabled
 

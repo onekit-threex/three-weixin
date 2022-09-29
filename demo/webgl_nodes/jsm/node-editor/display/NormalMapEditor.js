@@ -11,6 +11,7 @@ import {
     fetch,
     Headers,
     HTMLCanvasElement,
+	Image,
     HTMLImageElement,
     ImageBitmap,
     location,
@@ -30,7 +31,7 @@ import {
     } from 'dhtml-weixin';
 import { SelectInput, Element, LabelElement } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';
-import { NormalMapNode, ConstNode } from 'three/nodes';
+import { NormalMapNode, ConstNode } from '../../../jsm/nodes/Nodes.js';
 import { TangentSpaceNormalMap, ObjectSpaceNormalMap } from '../../../../three/Three';
 
 const nullValue = new ConstNode( 0 );
