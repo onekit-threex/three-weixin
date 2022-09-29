@@ -46,10 +46,10 @@ Page({
 	},
 	onReady() {
 
-		timer = setInterval(() => {
+		//timer = setInterval(() => {
             index++
 	//	this.run()
-		}, 4000)
+	//	}, 4000)
 	//	this.run()
 	},
 	onHide() {
