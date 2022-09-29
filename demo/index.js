@@ -48,9 +48,9 @@ Page({
 
 		timer = setInterval(() => {
             index++
-		this.run()
+	//	this.run()
 		}, 4000)
-		this.run()
+	//	this.run()
 	},
 	onHide() {
 		clearInterval(timer)
