@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1664470259058, function(require, module, exports) {
+__DEFINE__(1664514100380, function(require, module, exports) {
 var __TEMP__ = require('./Blob');var Blob = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./createImageBitmap');var createImageBitmap = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./CSSStyleDeclaration');var CSSStyleDeclaration = __REQUIRE_DEFAULT__(__TEMP__);
@@ -76,8 +76,8 @@ module.exports = {
   core,
 };
 
-}, function(modId) {var map = {"./Blob":1664470259059,"./createImageBitmap":1664470259060,"./CSSStyleDeclaration":1664470259074,"./document":1664470259075,"./fetch":1664470259089,"./Headers":1664470259091,"./Image":1664470259084,"./HTMLImageElement":1664470259061,"./HTMLCanvasElement":1664470259076,"./ImageBitmap":1664470259085,"./navigator":1664470259092,"./Request":1664470259093,"./requestAnimationFrame":1664470259082,"./cancelAnimationFrame":1664470259083,"./Response":1664470259090,"./URL":1664470259078,"./window":1664470259077,"./WebAssembly":1664470259094,"./Worker":1664470259086,"./XMLHttpRequest":1664470259095,"./Location":1664470259081,"./core/xmldom/dom-parser":1664470259096,"./core/index":1664470259100,"./EventTarget":1664470259070,"./Element":1664470259068,"./Node":1664470259069,"./Event":1664470259072,"./Performance":1664470259080,"./btoa":1664470259063,"./ImageData":1664470259088,"./AudioContext":1664470259087}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259059, function(require, module, exports) {
+}, function(modId) {var map = {"./Blob":1664514100381,"./createImageBitmap":1664514100382,"./CSSStyleDeclaration":1664514100396,"./document":1664514100397,"./fetch":1664514100411,"./Headers":1664514100413,"./Image":1664514100406,"./HTMLImageElement":1664514100383,"./HTMLCanvasElement":1664514100398,"./ImageBitmap":1664514100407,"./navigator":1664514100414,"./Request":1664514100415,"./requestAnimationFrame":1664514100404,"./cancelAnimationFrame":1664514100405,"./Response":1664514100412,"./URL":1664514100400,"./window":1664514100399,"./WebAssembly":1664514100416,"./Worker":1664514100408,"./XMLHttpRequest":1664514100417,"./Location":1664514100403,"./core/xmldom/dom-parser":1664514100418,"./core/index":1664514100422,"./EventTarget":1664514100392,"./Element":1664514100390,"./Node":1664514100391,"./Event":1664514100394,"./Performance":1664514100402,"./btoa":1664514100385,"./ImageData":1664514100410,"./AudioContext":1664514100409}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100381, function(require, module, exports) {
 /* eslint-disable camelcase */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Blob {
   constructor(array, options) {
@@ -93,7 +93,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Blob
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259060, function(require, module, exports) {
+__DEFINE__(1664514100382, function(require, module, exports) {
 /* eslint-disable no-unused-vars */
 var __TEMP__ = require('./HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
@@ -112,8 +112,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   })
 };exports.default = createImageBitmap
 
-}, function(modId) { var map = {"./HTMLImageElement":1664470259061,"./core/Base64":1664470259062,"./Blob":1664470259059}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259061, function(require, module, exports) {
+}, function(modId) { var map = {"./HTMLImageElement":1664514100383,"./core/Base64":1664514100384,"./Blob":1664514100381}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100383, function(require, module, exports) {
 var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLElement');var HTMLElement = __REQUIRE_DEFAULT__(__TEMP__);
@@ -207,8 +207,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = HTMLImageElement
 
-}, function(modId) { var map = {"./core/Base64":1664470259062,"./core/Page":1664470259064,"./HTMLElement":1664470259065}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259062, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Base64":1664514100384,"./core/Page":1664514100386,"./HTMLElement":1664514100387}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100384, function(require, module, exports) {
 /* eslint-disable max-len */
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-nested-ternary */
@@ -264,8 +264,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Base64
 
-}, function(modId) { var map = {"../btoa":1664470259063}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259063, function(require, module, exports) {
+}, function(modId) { var map = {"../btoa":1664514100385}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100385, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function btoa(string) {
   const b64 =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -302,7 +302,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = btoa
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259064, function(require, module, exports) {
+__DEFINE__(1664514100386, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Page{
     static get current(){
         const pages = this.getCurrentPages()
@@ -331,7 +331,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
 };exports.default = Page
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259065, function(require, module, exports) {
+__DEFINE__(1664514100387, function(require, module, exports) {
 var __TEMP__ = require('./Style');var Style = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Element');var Element = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./ClassCollection');var ClassCollection = __REQUIRE_DEFAULT__(__TEMP__);
@@ -431,8 +431,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = HTMLElement
 
-}, function(modId) { var map = {"./Style":1664470259066,"./Element":1664470259068,"./ClassCollection":1664470259073,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259066, function(require, module, exports) {
+}, function(modId) { var map = {"./Style":1664514100388,"./Element":1664514100390,"./ClassCollection":1664514100395,"./core/Page":1664514100386}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100388, function(require, module, exports) {
 
 /* eslint-disable class-methods-use-this */
 var __TEMP__ = require('./core/String');var String = __REQUIRE_DEFAULT__(__TEMP__);
@@ -640,8 +640,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = Style
 
-}, function(modId) { var map = {"./core/String":1664470259067,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259067, function(require, module, exports) {
+}, function(modId) { var map = {"./core/String":1664514100389,"./core/Page":1664514100386}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100389, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class String {
   static fromHump(s) {
     return s.replace(/([A-Z])/g, "-$1").toLowerCase();
@@ -656,7 +656,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = String
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259068, function(require, module, exports) {
+__DEFINE__(1664514100390, function(require, module, exports) {
 /* eslint-disable no-useless-constructor */
 /* eslint-disable class-methods-use-this */
 var __TEMP__ = require('./Node');var Node = __REQUIRE_DEFAULT__(__TEMP__);
@@ -667,8 +667,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Element
 
-}, function(modId) { var map = {"./Node":1664470259069}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259069, function(require, module, exports) {
+}, function(modId) { var map = {"./Node":1664514100391}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100391, function(require, module, exports) {
 /* eslint-disable no-useless-constructor */
 var __TEMP__ = require('./EventTarget');var EventTarget = __REQUIRE_DEFAULT__(__TEMP__);
 
@@ -678,8 +678,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Node
 
-}, function(modId) { var map = {"./EventTarget":1664470259070}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259070, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664514100392}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100392, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 /* eslint-disable max-len */
 var __TEMP__ = require('./core/ArrayX');var ArrayX = __REQUIRE_DEFAULT__(__TEMP__);
@@ -762,8 +762,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = EventTarget
 
-}, function(modId) { var map = {"./core/ArrayX":1664470259071,"./Event":1664470259072}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259071, function(require, module, exports) {
+}, function(modId) { var map = {"./core/ArrayX":1664514100393,"./Event":1664514100394}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100393, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });exports.default = {
   remove(array, item) {
     const index = array.indexOf(item)
@@ -775,7 +775,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259072, function(require, module, exports) {
+__DEFINE__(1664514100394, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Event {
     
     static fix(wx_e){
@@ -815,7 +815,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Event
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259073, function(require, module, exports) {
+__DEFINE__(1664514100395, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class ClassCollection {
   constructor(element){
@@ -836,7 +836,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = ClassCollection
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259074, function(require, module, exports) {
+__DEFINE__(1664514100396, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class CSSStyleDeclaration {
   constructor() {
     this.fill = ''
@@ -870,7 +870,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = CSSStyleDeclaration
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259075, function(require, module, exports) {
+__DEFINE__(1664514100397, function(require, module, exports) {
 var __TEMP__ = require('./HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./HTMLCanvasElement');var HTMLCanvasElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./window');var Window = __REQUIRE_DEFAULT__(__TEMP__);
@@ -1010,8 +1010,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Document
 
-}, function(modId) { var map = {"./HTMLImageElement":1664470259061,"./HTMLCanvasElement":1664470259076,"./window":1664470259077,"./Location":1664470259081,"./HTMLElement":1664470259065}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259076, function(require, module, exports) {
+}, function(modId) { var map = {"./HTMLImageElement":1664514100383,"./HTMLCanvasElement":1664514100398,"./window":1664514100399,"./Location":1664514100403,"./HTMLElement":1664514100387}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100398, function(require, module, exports) {
 var __TEMP__ = require('./HTMLElement');var HTMLElement = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class HTMLCanvasElement extends HTMLElement {
   constructor(wx_element) {
@@ -1041,8 +1041,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = HTMLCanvasElement
 
-}, function(modId) { var map = {"./HTMLElement":1664470259065}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259077, function(require, module, exports) {
+}, function(modId) { var map = {"./HTMLElement":1664514100387}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100399, function(require, module, exports) {
 /* eslint-disable no-undef */
 /* eslint-disable getter-return */
 /* eslint-disable class-methods-use-this */
@@ -1195,8 +1195,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Window
 
-}, function(modId) { var map = {"./EventTarget":1664470259070,"./URL":1664470259078,"./Performance":1664470259080,"./Location":1664470259081,"./requestAnimationFrame":1664470259082,"./cancelAnimationFrame":1664470259083,"./createImageBitmap":1664470259060,"./Image":1664470259084,"./HTMLImageElement":1664470259061,"./HTMLCanvasElement":1664470259076,"./ImageBitmap":1664470259085,"./Worker":1664470259086,"./btoa":1664470259063,"./AudioContext":1664470259087,"./ImageData":1664470259088,"./Event":1664470259072}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259078, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664514100392,"./URL":1664514100400,"./Performance":1664514100402,"./Location":1664514100403,"./requestAnimationFrame":1664514100404,"./cancelAnimationFrame":1664514100405,"./createImageBitmap":1664514100382,"./Image":1664514100406,"./HTMLImageElement":1664514100383,"./HTMLCanvasElement":1664514100398,"./ImageBitmap":1664514100407,"./Worker":1664514100408,"./btoa":1664514100385,"./AudioContext":1664514100409,"./ImageData":1664514100410,"./Event":1664514100394}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100400, function(require, module, exports) {
 var __TEMP__ = require('./core/GUID');var GUID = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class URL {
@@ -1224,8 +1224,8 @@ page.DataURL[url] = blob
   }
 };exports.default = URL
 
-}, function(modId) { var map = {"./core/GUID":1664470259079,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259079, function(require, module, exports) {
+}, function(modId) { var map = {"./core/GUID":1664514100401,"./core/Page":1664514100386}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100401, function(require, module, exports) {
 /* eslint-disable no-mixed-operators */
 /* eslint-disable no-bitwise */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function GUID() {
@@ -1237,7 +1237,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = GUID
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259080, function(require, module, exports) {
+__DEFINE__(1664514100402, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Performance {
   constructor() {
@@ -1249,7 +1249,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Performance
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259081, function(require, module, exports) {
+__DEFINE__(1664514100403, function(require, module, exports) {
 /* eslint-disable class-methods-use-this */
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Location {
   constructor() {
@@ -1260,7 +1260,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Location
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259082, function(require, module, exports) {
+__DEFINE__(1664514100404, function(require, module, exports) {
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function requestAnimationFrame(callback,canvas=Page.current.canvas) {
   if(!canvas){
@@ -1273,8 +1273,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   return requestId
 };exports.default = requestAnimationFrame
 
-}, function(modId) { var map = {"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259083, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Page":1664514100386}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100405, function(require, module, exports) {
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function cancelAnimationFrame(requestId,canvas=Page.current.canvas) {
 	try {
@@ -1293,8 +1293,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = cancelAnimationFrame
 
-}, function(modId) { var map = {"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259084, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Page":1664514100386}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100406, function(require, module, exports) {
 var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./EventTarget');var EventTarget = __REQUIRE_DEFAULT__(__TEMP__);
@@ -1388,8 +1388,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = HTMLImageElement
 
-}, function(modId) { var map = {"./core/Base64":1664470259062,"./core/Page":1664470259064,"./EventTarget":1664470259070}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259085, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Base64":1664514100384,"./core/Page":1664514100386,"./EventTarget":1664514100392}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100407, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class ImageBitmap {
   constructor(image) {
     this.image = image;
@@ -1406,7 +1406,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = ImageBitmap
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259086, function(require, module, exports) {
+__DEFINE__(1664514100408, function(require, module, exports) {
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 /* eslint-disable no-tabs */
@@ -1763,8 +1763,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Worker
 
-}, function(modId) { var map = {"./EventTarget":1664470259070,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259087, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664514100392,"./core/Page":1664514100386}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100409, function(require, module, exports) {
 class Gain {
     constructor(wx_gain) {
         this.wx_gain = wx_gain
@@ -1869,7 +1869,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
 };exports.default = AudioContext
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259088, function(require, module, exports) {
+__DEFINE__(1664514100410, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class ImageData{
     constructor(array,width,height){
         this.array=array
@@ -1878,7 +1878,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
     }
 };exports.default = ImageData
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259089, function(require, module, exports) {
+__DEFINE__(1664514100411, function(require, module, exports) {
 var __TEMP__ = require('./Response');var Response = __REQUIRE_DEFAULT__(__TEMP__);
 
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });function fetch(request) {
@@ -1887,8 +1887,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   })
 };exports.default = fetch
 
-}, function(modId) { var map = {"./Response":1664470259090}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259090, function(require, module, exports) {
+}, function(modId) { var map = {"./Response":1664514100412}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100412, function(require, module, exports) {
 /* eslint-disable handle-callback-err */
 /* eslint-disable no-console */
 var __TEMP__ = require('./core/Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
@@ -2001,8 +2001,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = Response
 
-}, function(modId) { var map = {"./core/Base64":1664470259062,"./core/Page":1664470259064,"./Blob":1664470259059}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259091, function(require, module, exports) {
+}, function(modId) { var map = {"./core/Base64":1664514100384,"./core/Page":1664514100386,"./Blob":1664514100381}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100413, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Headers {
   constructor(data) {
     this.data = data
@@ -2010,7 +2010,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Headers
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259092, function(require, module, exports) {
+__DEFINE__(1664514100414, function(require, module, exports) {
 class Navigator {
   constructor() {
     const systemInfo = wx.getSystemInfoSync()
@@ -2029,7 +2029,7 @@ class Navigator {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });exports.default = new Navigator();
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259093, function(require, module, exports) {
+__DEFINE__(1664514100415, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });class Request {
   constructor(url, options = {}) {
     this.url = url
@@ -2038,7 +2038,7 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };exports.default = Request
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259094, function(require, module, exports) {
+__DEFINE__(1664514100416, function(require, module, exports) {
 module.exports = {
   compile: WXWebAssembly.compile,
 
@@ -2072,7 +2072,7 @@ module.exports = {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259095, function(require, module, exports) {
+__DEFINE__(1664514100417, function(require, module, exports) {
 /* eslint-disable camelcase */
 var __TEMP__ = require('./EventTarget');var EventTarget = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./core/Page');var Page = __REQUIRE_DEFAULT__(__TEMP__);
@@ -2205,8 +2205,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 	}
 };exports.default = XMLHttpRequest
 
-}, function(modId) { var map = {"./EventTarget":1664470259070,"./core/Page":1664470259064}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259096, function(require, module, exports) {
+}, function(modId) { var map = {"./EventTarget":1664514100392,"./core/Page":1664514100386}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100418, function(require, module, exports) {
 /* eslint-disable */
 function DOMParser(options) {
   this.options = options || {locator: {}}
@@ -2463,8 +2463,8 @@ exports.XMLSerializer = require('./dom').XMLSerializer
 exports.DOMParser = DOMParser
 // }
 
-}, function(modId) { var map = {"./entities":1664470259097,"./sax":1664470259098,"./dom":1664470259099}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259097, function(require, module, exports) {
+}, function(modId) { var map = {"./entities":1664514100419,"./sax":1664514100420,"./dom":1664514100421}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100419, function(require, module, exports) {
 exports.entityMap = {
   lt: '<',
   gt: '>',
@@ -2711,7 +2711,7 @@ exports.entityMap = {
 // for(var  n in exports.entityMap){console.log(exports.entityMap[n].charCodeAt())}
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259098, function(require, module, exports) {
+__DEFINE__(1664514100420, function(require, module, exports) {
 /* eslint-disable */
 // [4]   	NameStartChar	   ::=   	":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x2FF] | [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] | [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
 // [4a]   	NameChar	   ::=   	NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
@@ -3323,7 +3323,7 @@ function split(source, start) {
 exports.XMLReader = XMLReader
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259099, function(require, module, exports) {
+__DEFINE__(1664514100421, function(require, module, exports) {
 /* eslint-disable */
 /*
  * DOM Level 2
@@ -4596,8 +4596,8 @@ exports.DOMImplementation = DOMImplementation
 exports.XMLSerializer = XMLSerializer
 // }
 
-}, function(modId) { var map = {"../../CSSStyleDeclaration":1664470259074}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259100, function(require, module, exports) {
+}, function(modId) { var map = {"../../CSSStyleDeclaration":1664514100396}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100422, function(require, module, exports) {
 var __TEMP__ = require('./ArrayX');var ArrayX = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Base64');var Base64 = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('./Canvas');var Canvas = __REQUIRE_DEFAULT__(__TEMP__);
@@ -4613,8 +4613,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   Page
 };
 
-}, function(modId) { var map = {"./ArrayX":1664470259071,"./Base64":1664470259062,"./Canvas":1664470259101,"./GUID":1664470259079,"./Page":1664470259064,"./String":1664470259067}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1664470259101, function(require, module, exports) {
+}, function(modId) { var map = {"./ArrayX":1664514100393,"./Base64":1664514100384,"./Canvas":1664514100423,"./GUID":1664514100401,"./Page":1664514100386,"./String":1664514100389}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1664514100423, function(require, module, exports) {
 var __TEMP__ = require('../HTMLImageElement');var HTMLImageElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('../HTMLCanvasElement');var HTMLCanvasElement = __REQUIRE_DEFAULT__(__TEMP__);
 var __TEMP__ = require('../ImageBitmap');var ImageBitmap = __REQUIRE_DEFAULT__(__TEMP__);
@@ -4707,8 +4707,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   }
 };exports.default = Canvas
 
-}, function(modId) { var map = {"../HTMLImageElement":1664470259061,"../HTMLCanvasElement":1664470259076,"../ImageBitmap":1664470259085,"./Base64":1664470259062,"../Blob":1664470259059}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1664470259058);
+}, function(modId) { var map = {"../HTMLImageElement":1664514100383,"../HTMLCanvasElement":1664514100398,"../ImageBitmap":1664514100407,"./Base64":1664514100384,"../Blob":1664514100381}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1664514100380);
 })()
 //miniprogram-npm-outsideDeps=[]
 //# sourceMappingURL=index.js.map

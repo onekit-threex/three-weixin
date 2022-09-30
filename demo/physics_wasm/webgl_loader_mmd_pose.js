@@ -274,7 +274,7 @@ var Ammo = require("./ammo/index")
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 				render();
 
 			}

@@ -2,7 +2,6 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
 import { MMDLoader } from './jsm/loaders/MMDLoader.js';
@@ -132,7 +131,6 @@ var Ammo = require("./ammo/index")
 
 							} else {
 
-								initGui();
 
 							}
 
@@ -148,116 +146,6 @@ var Ammo = require("./ammo/index")
 
 				window.addEventListener( 'resize', onWindowResize );
 
-				function initGui() {
-
-					const gui = new GUI();
-
-					const dictionary = mesh.morphTargetDictionary;
-
-					const controls = {};
-					const keys = [];
-
-					const poses = gui.addFolder( 'Poses' );
-					const morphs = gui.addFolder( 'Morphs' );
-
-					function getBaseName( s ) {
-
-						return s.slice( s.lastIndexOf( '/' ) + 1 );
-
-					}
-
-					function initControls() {
-
-						for ( const key in dictionary ) {
-
-							controls[ key ] = 0.0;
-
-						}
-
-						controls.pose = - 1;
-
-						for ( let i = 0; i < vpdFiles.length; i ++ ) {
-
-							controls[ getBaseName( vpdFiles[ i ] ) ] = false;
-
-						}
-
-					}
-
-					function initKeys() {
-
-						for ( const key in dictionary ) {
-
-							keys.push( key );
-
-						}
-
-					}
-
-					function initPoses() {
-
-						const files = { default: - 1 };
-
-						for ( let i = 0; i < vpdFiles.length; i ++ ) {
-
-							files[ getBaseName( vpdFiles[ i ] ) ] = i;
-
-						}
-
-						poses.add( controls, 'pose', files ).onChange( onChangePose );
-
-					}
-
-					function initMorphs() {
-
-						for ( const key in dictionary ) {
-
-							morphs.add( controls, key, 0.0, 1.0, 0.01 ).onChange( onChangeMorph );
-
-						}
-
-					}
-
-					function onChangeMorph() {
-
-						for ( let i = 0; i < keys.length; i ++ ) {
-
-							const key = keys[ i ];
-							const value = controls[ key ];
-							mesh.morphTargetInfluences[ i ] = value;
-
-						}
-
-					}
-
-					function onChangePose() {
-
-						const index = parseInt( controls.pose );
-
-						if ( index === - 1 ) {
-
-							mesh.pose();
-
-						} else {
-
-							helper.pose( mesh, vpds[ index ] );
-
-						}
-
-					}
-
-					initControls();
-					initKeys();
-					initPoses();
-					initMorphs();
-
-					onChangeMorph();
-					onChangePose();
-
-					poses.open();
-					morphs.open();
-
-				}
 
 			}
 
@@ -274,7 +162,7 @@ var Ammo = require("./ammo/index")
 
 			function animate() {
 
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 				render();
 
 			}

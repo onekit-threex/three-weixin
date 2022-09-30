@@ -1,8 +1,6 @@
 // webgl/webgl_loader_mmd.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core,performance} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import  Stats from './jsm/libs/stats.module.js';
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
@@ -31,10 +29,10 @@ if( this.renderer){
     },
 async onLoad() {
         const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")
+        this.onekit_ammo = await require("./ammo/index")()
 var that = this
 
         
-			let stats;
 
 			let mesh, camera, scene, renderer, effect;
 			let helper, ikHelper, physicsHelper;
@@ -85,8 +83,6 @@ var that = this
 
 				// STATS
 
-				stats = new Stats();
-				container.appendChild( stats.dom );
 
 				// model
 
@@ -151,43 +147,7 @@ var that = this
 						'show rigid bodies': false
 					};
 
-					const gui = new GUI();
 
-					gui.add( api, 'animation' ).onChange( function () {
-
-						helper.enable( 'animation', api[ 'animation' ] );
-
-					} );
-
-					gui.add( api, 'ik' ).onChange( function () {
-
-						helper.enable( 'ik', api[ 'ik' ] );
-
-					} );
-
-					gui.add( api, 'outline' ).onChange( function () {
-
-						effect.enabled = api[ 'outline' ];
-
-					} );
-
-					gui.add( api, 'physics' ).onChange( function () {
-
-						helper.enable( 'physics', api[ 'physics' ] );
-
-					} );
-
-					gui.add( api, 'show IK bones' ).onChange( function () {
-
-						ikHelper.visible = api[ 'show IK bones' ];
-
-					} );
-
-					gui.add( api, 'show rigid bodies' ).onChange( function () {
-
-						if ( physicsHelper !== undefined ) physicsHelper.visible = api[ 'show rigid bodies' ];
-
-					} );
 
 				}
 
@@ -208,9 +168,7 @@ var that = this
 
 			requestId =	requestAnimationFrame(animate);
 
-				stats.begin();
 				render();
-				stats.end();
 
 			}
 

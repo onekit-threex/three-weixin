@@ -5,7 +5,6 @@ import {
 	requestAnimationFrame
 } from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from './jsm/libs/stats.module.js';
 
 import {
 	OrbitControls
@@ -40,7 +39,7 @@ async onLoad() {
 var that = this
 
 		// Graphics variables
-		let container, stats;
+		let container;
 		let camera, controls, scene, renderer;
 		let textureLoader;
 		const clock = new THREE.Clock();
@@ -126,10 +125,6 @@ var that = this
 
 			scene.add(light);
 
-			stats = new Stats();
-			stats.domElement.style.position = 'absolute';
-			stats.domElement.style.top = '0px';
-			container.appendChild(stats.domElement);
 
 
 			window.addEventListener('resize', onWindowResize);
@@ -426,7 +421,6 @@ var that = this
 			requestId = requestAnimationFrame(animate);
 
 			render();
-			stats.update();
 
 		}
 

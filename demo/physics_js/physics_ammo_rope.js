@@ -1,11 +1,9 @@
 // physics/physics_ammo_rope.js
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
-import Stats from './jsm/libs/stats.module.js';
 
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
 
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({
@@ -27,7 +25,7 @@ const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl"
 var that = this
 
 	// Graphics variables
-    let container, stats;
+    let container;
     let camera, controls, scene, renderer;
     let textureLoader;
     const clock = new THREE.Clock();
@@ -111,11 +109,6 @@ var Ammo = require("./ammo/index")
         light.shadow.mapSize.y = 1024;
 
         scene.add( light );
-
-        stats = new Stats();
-        stats.domElement.style.position = 'absolute';
-        stats.domElement.style.top = '0px';
-        container.appendChild( stats.domElement );
 
         //
 
@@ -415,7 +408,6 @@ var Ammo = require("./ammo/index")
         requestId = requestAnimationFrame(animate);
 
         render();
-        stats.update();
 
     }
 

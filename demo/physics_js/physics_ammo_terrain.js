@@ -2,11 +2,7 @@
 import {document,window,requestAnimationFrame,cancelAnimationFrame,Event,core} from 'dhtml-weixin';
 import * as THREE from '../three/Three.js';
 
-import Stats from './jsm/libs/stats.module.js';
-
 import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { GUI } from './jsm/libs/lil-gui.module.min.js';
-
 var requestId
 Page({
 	onUnload() {
@@ -36,7 +32,7 @@ var that = this
     const terrainMinHeight = - 2;
 
     // Graphics variables
-    let container, stats;
+    let container;
     let camera, scene, renderer;
     let terrainMesh;
     const clock = new THREE.Clock();
@@ -87,10 +83,6 @@ var Ammo = require("./ammo/index")
         renderer.shadowMap.enabled = true;
         container.appendChild( renderer.domElement );
 
-        stats = new Stats();
-        stats.domElement.style.position = 'absolute';
-        stats.domElement.style.top = '0px';
-        container.appendChild( stats.domElement );
 
         camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.2, 2000 );
 
@@ -382,7 +374,6 @@ var Ammo = require("./ammo/index")
         requestId = requestAnimationFrame(animate);
 
         render();
-        stats.update();
 
     }
 

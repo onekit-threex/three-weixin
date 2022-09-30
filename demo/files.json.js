@@ -112,7 +112,6 @@ export default {
 		"webgl_loader_texture_ktx",
 		"webgl_loader_texture_ktx2",
 		"webgl_loader_texture_logluv",
-		"webgl_loader_texture_lottie",
 		"webgl_loader_texture_pvrtc",
 		"webgl_loader_texture_rgbm",
 		"webgl_loader_texture_tga",

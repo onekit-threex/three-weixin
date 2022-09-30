@@ -14,10 +14,6 @@ import {
 import {
 	AmmoPhysics
 } from './jsm/physics/AmmoPhysics.js';
-import Stats from './jsm/libs/stats.module.js';
-import {
-	GUI
-} from './jsm/libs/lil-gui.module.min.js';
 
 var requestId
 Page({
@@ -38,7 +34,7 @@ this.worker && this.worker.terminate()
 		const canvas3d = this.canvas = await document.createElementAsync("canvas", "webgl")
 		var that = this
 
-		let camera, scene, renderer, stats;
+		let camera, scene, renderer;
 		let physics, position;
 
 		let boxes, spheres;
@@ -137,8 +133,6 @@ this.worker && this.worker.terminate()
 			renderer.outputEncoding = THREE.sRGBEncoding;
 			document.body.appendChild(renderer.domElement);
 
-			stats = new Stats();
-			document.body.appendChild(stats.dom);
 
 			//
 
@@ -172,7 +166,6 @@ this.worker && this.worker.terminate()
 
 			renderer.render(scene, camera);
 
-			stats.update();
 
 		}
 	}

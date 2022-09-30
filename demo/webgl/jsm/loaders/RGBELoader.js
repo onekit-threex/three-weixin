@@ -47,7 +47,7 @@ class RGBELoader extends DataTextureLoader {
 
 		super( manager );
 
-		this.type = HalfFloatType;
+		this.type = FloatType;
 
 	}
 

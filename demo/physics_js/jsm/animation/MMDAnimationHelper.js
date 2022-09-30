@@ -1108,7 +1108,7 @@ class AudioManager {
 		this.currentTime += delta;
 
 		if ( this._shouldStopAudio() ) this.audio.stop();
-		if ( this._shouldStartAudio() ) this.audio.play();
+	//	if ( this._shouldStartAudio() ) this.audio.play();
 
 		return this;
 

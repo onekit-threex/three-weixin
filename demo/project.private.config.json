@@ -3,7 +3,7 @@
     "projectname": "three-weixin-demo",
     "setting": {
         "compileHotReLoad": true,
-        "urlCheck": true,
+        "urlCheck": false,
         "bigPackageSizeSupport": true,
         "autoAudits": false
     },
