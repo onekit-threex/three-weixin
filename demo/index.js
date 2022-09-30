@@ -24,9 +24,7 @@ Page({
 		})
 	},
 	run() {
-		//const sub = "webgl_nodes"
         var subs = Object.keys(files)
-      //  subs = subs.slice(1)
 		var x = index;
 		for (var sub of subs) {
 			var demos = files[sub]
@@ -46,10 +44,10 @@ Page({
 	},
 	onReady() {
 
-		//timer = setInterval(() => {
+		timer = setInterval(() => {
             index++
 	//	this.run()
-	//	}, 4000)
+	}, 4000)
 	//	this.run()
 	},
 	onHide() {
