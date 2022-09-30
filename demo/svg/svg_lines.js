@@ -10,7 +10,7 @@ Page({
 		cancelAnimationFrame(requestId, this.canvas)
 this.worker && this.worker.terminate()
 		setTimeout(() => {
-			if (this.renderer) {
+			if (this.renderer instanceof THREE.WebGL1Renderer) {
 				this.renderer.dispose()
 				this.renderer.forceContextLoss()
 				this.renderer.context = null

@@ -38,7 +38,7 @@ var that = this
 			let helper, ikHelper, physicsHelper;
 
 			const clock = new THREE.Clock();
-            var Ammo = require("./ammo/index")
+            var Ammo = require("../ammo/ammo/index")
 			Ammo().then( function (  ) {
 				Ammo = that.onekit_ammo;
 

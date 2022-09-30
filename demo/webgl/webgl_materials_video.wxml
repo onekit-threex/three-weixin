@@ -1,5 +1,5 @@
 
-<video id="video" src="https://onekit.cn/textures/sintel.ogv" style="position: absolute;" />
+<video id="video" src="https://onekit.cn/examples/textures/sintel.ogv" style="position: absolute;" />
 
         <canvas id="canvas_webgl" type="webgl"  
     disable-scroll="true"

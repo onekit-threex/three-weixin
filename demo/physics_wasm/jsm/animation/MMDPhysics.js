@@ -56,7 +56,8 @@ import {
  */
 
 /* global Ammo */
-var Ammo
+
+var Ammo;
 class MMDPhysics {
 
 	/**
@@ -68,8 +69,9 @@ class MMDPhysics {
 	 * @param {Integer} params.maxStepNum - Default is 3.
 	 * @param {Vector3} params.gravity - Default is ( 0, - 9.8 * 10, 0 )
 	 */
-	constructor( mesh, rigidBodyParams, constraintParams = [], params = {} ) {
-        Ammo = core.Page.current.onekit_ammo
+	constructor( mesh, rigidBodyParams, constraintParams = [], params = {} ) {Ammo = core.Page.current.onekit_ammo
+
+
 		if ( typeof Ammo === 'undefined' ) {
 
 			throw new Error( 'THREE.MMDPhysics: Import ammo.js https://github.com/kripken/ammo.js' );

@@ -25,7 +25,7 @@ Page({
 		cancelAnimationFrame(requestId, this.canvas)
 this.worker && this.worker.terminate()
 		setTimeout(() => {
-			if (this.renderer) {
+			if (this.renderer!=null) {
 				this.renderer.dispose()
 				this.renderer.forceContextLoss()
 				this.renderer.context = null
