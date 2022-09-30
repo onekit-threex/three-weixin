@@ -1,7 +1,7 @@
 ![ThreeX](ThreeX.jpeg)
 # three-weixin(全网最强)
 # 支持Ammo（WASM/JS双模式）
-# 牛逼可用,请点星.
+# 厉害可用,请点星.
 
 #### 介绍
 全网最强 Three.js 微信小程序版(兼容Uni-App版）。
