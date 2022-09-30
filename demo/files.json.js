@@ -116,7 +116,6 @@ export default {
 		"webgl_loader_texture_rgbm",
 		"webgl_loader_texture_tga",
 		"webgl_loader_texture_tiff",
-		"webgl_loader_ttf",
         "webgl_loader_usdz",
 		"webgl_loader_vox",
 		"webgl_loader_vrml",

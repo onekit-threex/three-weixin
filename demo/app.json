@@ -1,11 +1,10 @@
 {
     "permission": {},
     "pages": [
-        "index",
-        "demo"
+        "index"
     ],
     "window": {
-        "navigationBarTitleText": "OneKit Three X",
+        "navigationBarTitleText": "Three X",
         "backgroundColor": "#F5F5F9"
     },
     "sitemapLocation": "sitemap.json",
@@ -130,7 +129,6 @@
                 "webgl_loader_texture_rgbm",
                 "webgl_loader_texture_tga",
                 "webgl_loader_texture_tiff",
-                "webgl_loader_ttf",
                 "webgl_loader_usdz",
                 "webgl_loader_vox",
                 "webgl_loader_vrml",
