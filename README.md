@@ -1,12 +1,12 @@
 ![ThreeX](ThreeX.jpeg)
 # three-weixin(全网最强)
 # 支持Ammo（WASM/JS双模式）
-# 厉害可用,请点星.
+# 牛逼可用,请点星.
 
 #### 介绍
 全网最强 Three.js 微信小程序版(兼容Uni-App版）。
 完美效果，完美移植。
-学习与反馈（QQ群185654475）
+问题反馈（QQ群185654475）
 
 #### 软件架构
 完美复刻Three.js
@@ -85,13 +85,11 @@
         },
         onUnload(){
             cancelAnimationFrame(requestId)
-            setTimeout(()=>{
-                this.renderer.dispose()
-                this.renderer.forceContextLoss()
-                this.renderer.context = null
-                this.renderer.domElement = null
-                this.renderer = null
-            },100);
+            this.renderer.dispose()
+            this.renderer.forceContextLoss()
+            this.renderer.context = null
+            this.renderer.domElement = null
+            this.renderer = null
         },
     })
     ```
@@ -111,13 +109,11 @@
         },
         onUnload(){
             cancelAnimationFrame(requestId)
-            setTimeout(()=>{
-                this.renderer.dispose()
-                this.renderer.forceContextLoss()
-                this.renderer.context = null
-                this.renderer.domElement = null
-                this.renderer = null
-            },100);
+            this.renderer.dispose()
+            this.renderer.forceContextLoss()
+            this.renderer.context = null
+            this.renderer.domElement = null
+            this.renderer = null
        },
     })
     ```
