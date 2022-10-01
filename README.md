@@ -22,7 +22,7 @@
 
 #### 如何购买
 请认准“成都未来之门科技有限公司”
-【[唯一购买通道](https://onekit.cn/threex)]】
+【[唯一购买通道](https://onekit.cn/threex)】
 
 #### Demo演示(微信小程序/Uni-App)
 
