@@ -10,12 +10,10 @@
 
 #### 软件架构
 完美复刻Three.js
-【[效果演示](https://www.bilibili.com/video/BV1Ed4y1q7CE)】
+[效果演示](https://www.bilibili.com/video/BV1Qe4y1Z7x2?share_source=copy_web&vd_source=7c04e28e67346c8e44c9b04db22d7631)
 
 ![输入图片说明](1.png)
 ![输入图片说明](2.png)
-
-
 
 #### Demo演示(微信小程序/Uni-App)
 
