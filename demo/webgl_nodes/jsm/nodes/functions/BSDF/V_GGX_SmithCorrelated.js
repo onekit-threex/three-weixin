@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { ShaderNode, add, sub, mul, div, pow2, max, sqrt, EPSILON } from '../../shadernode/ShaderNodeBaseElements.js';
 

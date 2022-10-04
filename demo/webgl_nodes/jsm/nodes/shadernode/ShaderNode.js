@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import ArrayElementNode from '../utils/ArrayElementNode.js';
 import ConvertNode from '../utils/ConvertNode.js';

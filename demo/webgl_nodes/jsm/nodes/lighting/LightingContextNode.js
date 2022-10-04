@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import ContextNode from '../core/ContextNode.js';
 import { float, vec3, add, temp } from '../shadernode/ShaderNodeBaseElements.js';

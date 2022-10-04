@@ -75,7 +75,6 @@
                 "webgl_lights_pointlights",
                 "webgl_lights_spotlight",
                 "webgl_lights_spotlights",
-                "webgl_lights_rectarealight",
                 "webgl_lines_colors",
                 "webgl_lines_dashed",
                 "webgl_lines_fat",
@@ -238,6 +237,7 @@
                 "webgl_water_flowmap"
             ]
         },
+        
         {
             "root": "webgl_nodes",
             "pages": [
@@ -282,6 +282,12 @@
                 "webgl_postprocessing_taa",
                 "webgl_postprocessing_unreal_bloom",
                 "webgl_postprocessing_unreal_bloom_selective"
+            ]
+        },
+        {
+            "root": "webgl_",
+            "pages": [
+                "webgl_lights_rectarealight"
             ]
         },
         {
@@ -332,10 +338,6 @@
         {
             "root": "physics_js",
             "pages": [
-                
-                "webgl_loader_mmd",
-                "webgl_loader_mmd_pose",
-                "webgl_loader_mmd_audio",
                 "physics_ammo_break",
                 "physics_ammo_cloth",
                 "physics_ammo_instancing",
@@ -347,9 +349,6 @@
         {
             "root": "physics_wasm",
             "pages": [
-                "webgl_loader_mmd",
-                "webgl_loader_mmd_pose",
-                "webgl_loader_mmd_audio",
                 "physics_ammo_break",
                 "physics_ammo_cloth",
                 "physics_ammo_instancing",

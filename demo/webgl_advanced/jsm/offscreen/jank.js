@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 let interval = null;
 let result = null;

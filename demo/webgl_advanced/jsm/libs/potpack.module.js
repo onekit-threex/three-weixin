@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 /**
  * potpack - by [@mourner](https://github.com/mourner)

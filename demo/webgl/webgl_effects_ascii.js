@@ -8,14 +8,14 @@ Page({
 		cancelAnimationFrame(requestId, this.canvas)
 this.worker && this.worker.terminate()
 		setTimeout(() => {
-			if (this.renderer) {
+			if (this.renderer instanceof THREE.WebGLRenderer) {
 				this.renderer.dispose()
 				this.renderer.forceContextLoss()
 				this.renderer.context = null
 				this.renderer.domElement = null
 				this.renderer = null
 			}
-		}, 100)
+		}, 0)
 	},
          webgl_touch(e) {
         const web_e = Event.fix(e)
@@ -71,7 +71,7 @@ async onLoad() {
             effect.domElement.style.backgroundColor = 'black';
 
             document.body.appendChild( effect.domElement );
-
+console.error(effect)
             controls = new TrackballControls( camera, effect.domElement );
 
             //
@@ -93,7 +93,7 @@ async onLoad() {
         //
 
         function animate() {
-         requestId = requestAnimationFrame(animate);
+        // requestId = requestAnimationFrame(animate);
 
             render();
 

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import LightingNode from './LightingNode.js';
 import ContextNode from '../core/ContextNode.js';

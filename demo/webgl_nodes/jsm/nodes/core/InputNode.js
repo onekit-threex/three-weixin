@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import Node from './Node.js';
 import { getValueType, getValueFromType } from './NodeUtils.js';

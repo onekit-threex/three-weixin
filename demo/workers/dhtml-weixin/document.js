@@ -186,9 +186,9 @@ export default class Document extends EventTarget {
   createElement(nodeName, canvasType = "2d",canvas) {
     switch (nodeName) {
       case "canvas":
-        return wx.createOffscreenCanvas({ type: canvasType });
+        return new HTMLImageElemen(twx.createOffscreenCanvas({ type: canvasType }));
       case "img":
-        return new HTMLImageElement(canvas);
+        return new HTMLImageElement(wx.createOffscreenCanvas({ type: canvasType }));
       default:
         return new HTMLElement();
     }

@@ -4,7 +4,7 @@ import {
 var Ammo
 //console.error("[ammo]",navigator.platform)
 //if (navigator.platform=="ios"){
-	Ammo = require("../../ammo/ammo")
+	Ammo = require("./ammo.js")
 //} else {
 //	Ammo = require("./ammo.wasm")
 //}

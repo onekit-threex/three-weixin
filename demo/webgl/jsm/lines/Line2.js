@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { LineSegments2 } from '../lines/LineSegments2.js';
 import { LineGeometry } from '../lines/LineGeometry.js';

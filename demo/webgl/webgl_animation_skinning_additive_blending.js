@@ -393,7 +393,7 @@ async onLoad() {
         function animate() {
             // Render loop
 
-            requestId = requestAnimationFrame(animate);
+        //    requestId = requestAnimationFrame(animate);
 
             for ( let i = 0; i !== numAnimations; ++ i ) {
 

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 /**
  * Ascii generation is based on https://github.com/hassadee/jsascii/blob/master/jsascii.js

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import TempNode from '../core/TempNode.js';
 import { vec2, add, sub, mul, cos, sin } from '../shadernode/ShaderNodeBaseElements.js';

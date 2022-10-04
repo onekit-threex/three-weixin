@@ -19,7 +19,19 @@ import {
 } from './jsm/geometries/ConvexGeometry.js';
 var requestId
 Page({
-
+	onUnload() {
+		cancelAnimationFrame(requestId, this.canvas)
+this.worker && this.worker.terminate()
+		setTimeout(() => {
+			if (this.renderer instanceof THREE.WebGLRenderer) {
+				this.renderer.dispose()
+				this.renderer.forceContextLoss()
+				this.renderer.context = null
+				this.renderer.domElement = null
+				this.renderer = null
+			}
+		}, 0)
+	},
 	    webgl_touch(e) {
         const web_e = Event.fix(e)
         window.dispatchEvent(web_e)
@@ -430,7 +442,7 @@ async onLoad() {
 
 		function animate() {
 
-			requestAnimationFrame(animate);
+			requestId = requestAnimationFrame(animate);
 
 			render();
 			stats.update();

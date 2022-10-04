@@ -29,14 +29,14 @@ Page({
 		cancelAnimationFrame(requestId, this.canvas)
 this.worker && this.worker.terminate()
 		setTimeout(() => {
-			if (this.renderer) {
+			if (this.renderer instanceof THREE.WebGLRenderer) {
 				this.renderer.dispose()
 				this.renderer.forceContextLoss()
 				this.renderer.context = null
 				this.renderer.domElement = null
 				this.renderer = null
 			}
-		}, 100)
+		}, 0)
         
         this.dracoLoader.dispose()
 	},
@@ -67,9 +67,9 @@ async onLoad() {
 
     const scene = new THREE.Scene();
   /////////////////////////////////
-    //var AmbientLight = new THREE.AmbientLight(0xffffff,1)
-    //AmbientLight.position.set(0, 0, 100)
-    //scene.add(AmbientLight)
+    var AmbientLight = new THREE.AmbientLight(0xffffff,1)
+    AmbientLight.position.set(0, 0, 100)
+    scene.add(AmbientLight)
     ///////////////////
 /*
       var spotLight = new THREE.SpotLight(0xffffff, 1) //聚光灯
@@ -148,7 +148,7 @@ async onLoad() {
 */
 		function animate() {
 
-			requestId = requestAnimationFrame(animate);
+		//	requestId = requestAnimationFrame(animate);
 
 			const delta = clock.getDelta();
 

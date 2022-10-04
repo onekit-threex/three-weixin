@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { Color, Matrix3, Matrix4, Vector2, Vector3, Vector4 } from '../../../../three/Three';
 

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import NodeFunction from '../core/NodeFunction.js';
 import NodeFunctionInput from '../core/NodeFunctionInput.js';

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { LabelElement, ToggleInput, SelectInput } from '../../libs/flow.module.js';
 import { BaseNode, onNodeValidElement } from '../core/BaseNode.js';

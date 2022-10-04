@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import NodeMaterial from './NodeMaterial.js';
 import { LineBasicMaterial } from '../../../../three/Three';

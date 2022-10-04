@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { ShaderNode, mul } from '../../shadernode/ShaderNodeBaseElements.js';
 

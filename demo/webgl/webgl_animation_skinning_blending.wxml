@@ -3,5 +3,6 @@
     bindtouchstart="webgl_touch"
     bindtouchmove="webgl_touch"
     bindtouchend="webgl_touch"
-    bindtouchcancel="webgl_touch">
+    bindtouchcancel="webgl_touch" style="height: 50%;" >
     </canvas>
+    <image src="{{base64}}" style="position: absolute;background: blue;" />

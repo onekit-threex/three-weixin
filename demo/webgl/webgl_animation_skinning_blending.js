@@ -22,7 +22,7 @@ Page({
 		cancelAnimationFrame(requestId, this.canvas)
 this.worker && this.worker.terminate()
 
-		if (this.renderer) {
+		if (this.renderer instanceof THREE.WebGLRenderer) {
 			this.renderer.dispose()
 			this.renderer.forceContextLoss()
 			this.renderer.context = null
@@ -471,7 +471,7 @@ async onLoad() {
 
             // Render loop
 
-            requestId =requestAnimationFrame(animate);
+          //  requestId =requestAnimationFrame(animate);
 
             idleWeight = idleAction.getEffectiveWeight();
             walkWeight = walkAction.getEffectiveWeight();

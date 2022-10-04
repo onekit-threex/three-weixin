@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import * as Nodes from '../Nodes.js';
 import { FileLoader, Loader } from '../../../../three/Three';

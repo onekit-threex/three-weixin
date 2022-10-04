@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import FogNode from './FogNode.js';
 import { smoothstep, negate, positionView } from '../shadernode/ShaderNodeBaseElements.js';

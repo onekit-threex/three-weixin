@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { Material, ShaderMaterial } from '../../../../three/Three';
 import { getNodesKeys, getCacheKey } from '../core/NodeUtils.js';

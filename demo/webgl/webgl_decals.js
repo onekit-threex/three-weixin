@@ -13,14 +13,14 @@ Page({
 		cancelAnimationFrame(requestId, this.canvas)
 this.worker && this.worker.terminate()
 		setTimeout(() => {
-			if (this.renderer) {
+			if (this.renderer instanceof THREE.WebGLRenderer) {
 				this.renderer.dispose()
 				this.renderer.forceContextLoss()
 				this.renderer.context = null
 				this.renderer.domElement = null
 				this.renderer = null
 			}
-		}, 100)
+		}, 0)
 	}, 
      webgl_touch(e) {
         const web_e = Event.fix(e)
@@ -285,8 +285,9 @@ var that = this
 
 			}
 
+      var count=0
 			function animate() {
-				requestAnimationFrame(animate);
+				requestId = requestAnimationFrame(animate);
 
 				renderer.render( scene, camera );
 

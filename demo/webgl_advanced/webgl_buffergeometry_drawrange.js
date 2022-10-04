@@ -22,7 +22,7 @@ Page({
 		cancelAnimationFrame(requestId, this.canvas)
 this.worker && this.worker.terminate()
 
-		if (this.renderer) {
+		if (this.renderer instanceof THREE.WebGLRenderer) {
 			this.renderer.dispose()
 			this.renderer.forceContextLoss()
 			this.renderer.context = null

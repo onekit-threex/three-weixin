@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import getGeometryRoughness from './getGeometryRoughness.js';
 import { ShaderNode, add, max, min } from '../../shadernode/ShaderNodeBaseElements.js';

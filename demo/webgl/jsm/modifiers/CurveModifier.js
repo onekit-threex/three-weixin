@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 // Original src: https://github.com/zz85/threejs-path-flow
 const CHANNELS = 4;

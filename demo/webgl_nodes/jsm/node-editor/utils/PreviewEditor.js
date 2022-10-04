@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { OrbitControls } from '../../controls/OrbitControls.js';
 import { ViewHelper } from '../../helpers/ViewHelper.js';

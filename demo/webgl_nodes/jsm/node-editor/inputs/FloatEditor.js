@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { NumberInput, Element } from '../../libs/flow.module.js';
 import { BaseNode } from '../core/BaseNode.js';

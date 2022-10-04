@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import F_Schlick from './F_Schlick.js';
 import V_GGX_SmithCorrelated from './V_GGX_SmithCorrelated.js';

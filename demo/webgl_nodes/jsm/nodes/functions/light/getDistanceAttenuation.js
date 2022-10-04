@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import {
 	ShaderNode, div, max, sub, mul, clamp, pow, pow2, pow4, cond, greaterThan

@@ -19,7 +19,7 @@ this.worker && this.worker.terminate()
 				this.renderer.domElement = null
 				this.renderer = null
 			}
-		}, 100)
+		}, 0)
 	},
   async onLoad(){
 const canvas3d = this.canvas =await document.createElementAsync("canvas","webgl")

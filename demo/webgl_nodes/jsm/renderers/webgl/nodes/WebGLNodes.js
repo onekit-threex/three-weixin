@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { WebGLNodeBuilder } from './WebGLNodeBuilder.js';
 import { NodeFrame } from '../../../../jsm/nodes/Nodes.js';

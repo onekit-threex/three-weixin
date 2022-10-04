@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { NodeUpdateType } from './constants.js';
 import { getNodesKeys, getCacheKey } from './NodeUtils.js';

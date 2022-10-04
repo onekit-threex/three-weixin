@@ -62,7 +62,6 @@ export default {
 		"webgl_lights_pointlights",
 		"webgl_lights_spotlight",
 		"webgl_lights_spotlights",
-		"webgl_lights_rectarealight",
 		"webgl_lines_colors",
 		"webgl_lines_dashed",
 		"webgl_lines_fat",
@@ -224,7 +223,8 @@ export default {
 		"webgl_water",
         "webgl_water_flowmap",
 		"webgl_animation_keyframes"
-	],
+    ],
+     "webgl_":["webgl_lights_rectarealight"],
 	"webgl_nodes": [
 		"webgl_nodes_loader_gltf_iridescence",
 		"webgl_nodes_loader_gltf_transmission",
@@ -301,11 +301,13 @@ export default {
 	],
 	"games": [
 		"games_fps"
-	],
-	"physics_js": [
+    ],
+    "mmd": [
 		"webgl_loader_mmd",
 		"webgl_loader_mmd_pose",
-		"webgl_loader_mmd_audio",
+		"webgl_loader_mmd_audio"
+    ],
+	"physics_js": [
 		"physics_ammo_break",
 		"physics_ammo_cloth",
 		"physics_ammo_instancing",
@@ -314,9 +316,6 @@ export default {
 		"physics_ammo_volume"
     ],
     "physics_wasm": [
-		"webgl_loader_mmd",
-		"webgl_loader_mmd_pose",
-		"webgl_loader_mmd_audio",
 		"physics_ammo_break",
 		"physics_ammo_cloth",
 		"physics_ammo_instancing",

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { defaultShaderStages, NodeFrame, MathNode, GLSLNodeParser, NodeBuilder } from '../../../../jsm/nodes/Nodes.js';
 import SlotNode from './SlotNode.js';

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import {
 	BufferAttribute,
@@ -383,7 +384,7 @@ function getToBlobPromise( canvas, mimeType ) {
 
 	if ( canvas.toBlob !== undefined ) {
 
-		return new Promise( ( resolve ) => core.Canvas.toBlob(canvas, resolve, mimeType ) );
+		return new Promise( ( resolve ) => canvas.toBlob( resolve, mimeType ) );
 
 	}
 

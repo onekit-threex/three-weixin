@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { BaseNode } from '../core/BaseNode.js';
 import { MatcapUVNode } from '../../../jsm/nodes/Nodes.js';

@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import Node from '../core/Node.js';
 import PropertyNode from '../core/PropertyNode.js';

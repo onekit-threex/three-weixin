@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { LabelElement } from '../../libs/flow.module.js';
 import { Object3DEditor } from './Object3DEditor.js';

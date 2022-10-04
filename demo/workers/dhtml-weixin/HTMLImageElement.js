@@ -9,7 +9,7 @@ import Page from "./core/Page"
 export default class HTMLImageElement extends EventTarget {
 	constructor(canvas2d) {
 		super();
-		const canvas = canvas2d || core.Page.current.canvas.wx_element;
+		const canvas = wx.createOffscreenCanvas({type:"2d"})//core.Page.current.canvas.wx_element;
 		this.wx_element = canvas.createImage();
 		this.wx_element.onload = () => {
 			if (this.onload) {

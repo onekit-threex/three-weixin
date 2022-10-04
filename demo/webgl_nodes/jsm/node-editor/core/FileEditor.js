@@ -27,7 +27,8 @@ import {
     Worker,
     XMLHttpRequest,
 	ImageData,
-    core,
+	TextDecoder,
+    core
     } from 'dhtml-weixin';
 import { StringInput, Element } from '../../libs/flow.module.js';
 import { BaseNode } from './BaseNode.js';
