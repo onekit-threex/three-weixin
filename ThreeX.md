@@ -1,4 +1,4 @@
-![链接](./ThreeX.jpeg)
+![链接](./logo.jpeg)
 
 # ThreeX(微信小程序插件)
 # 支持Ammo（WASM/JS双模式）
