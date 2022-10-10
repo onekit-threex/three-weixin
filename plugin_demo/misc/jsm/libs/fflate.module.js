@@ -47,17 +47,17 @@ version 0.6.9
 // Sometimes 0 will appear where -1 would be more appropriate. This is because using a uint
 // is better for memory in most engines (I *think*).
 var ch2 = {};
-var durl = function (c) { return URL.createObjectURL(new Blob([c], { type: 'text/javascript' })); };
-var cwk = function (u) { return new Worker(u); };
+var durl// = function (c) { return URL.createObjectURL(new Blob([c], { type: 'text/javascript' })); };
+var cwk/* = function (u) { return new Worker(u); };
 try {
     URL.revokeObjectURL(durl(''));
 }
-catch (e) {
+catch (e) {*/
     // We're in Deno or a very old browser
     durl = function (c) { return 'data:application/javascript;charset=UTF-8,' + encodeURI(c); };
     // If Deno, this is necessary; if not, this changes nothing
     cwk = function (u) { return new Worker(u, { type: 'module' }); };
-}
+//}
 var wk = (function (c, id, msg, transfer, cb) {
     var w = cwk(ch2[id] || (ch2[id] = durl(c)));
     w.onerror = function (e) { return cb(e.error, null); };

@@ -3,12 +3,6 @@
     "pages": [
         "index"
     ],
-    "window": {
-        "navigationBarTitleText": "Three X",
-        "backgroundColor": "#F5F5F9"
-    },
-    "sitemapLocation": "sitemap.json",
-    "workers": "workers",
     "plugins": {
         "ThreeX": {
           "version": "1.0.1",
@@ -16,8 +10,16 @@
           "export": "threex.js"
         }
       },
+    "window": {
+        "navigationBarTitleText": "Three X",
+        "backgroundColor": "#F5F5F9"
+    },
+    "sitemapLocation": "sitemap.json",
+    "workers": "workers",
     "subpackages": [{
             "root": "webgl",
+        
+        
             "pages": [
                 "webgl_animation_keyframes",
                 "webgl_animation_skinning_blending",
@@ -244,7 +246,6 @@
                 "webgl_water_flowmap"
             ]
         },
-        
         {
             "root": "webgl_nodes",
             "pages": [
@@ -293,6 +294,7 @@
         },
         {
             "root": "webgl_",
+
             "pages": [
                 "webgl_lights_rectarealight"
             ]
@@ -364,7 +366,7 @@
                 "physics_ammo_volume"
             ]
         },
-        
+
         {
             "root": "oimo",
             "pages": [
