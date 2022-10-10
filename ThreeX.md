@@ -28,13 +28,13 @@
     1.2.  app.json的plugins节点添加
 
     ```
-      "three": {
+      "ThreeX": {
         "provider": "wx5d6376b4fc730db9",
-        "export": "index.js"
+        "export": "threex.js"
       }
     ```
 
-    1.3. 根目录添加index.js文件
+    1.3. 根目录添加threex.js文件
 
     ```
     module.exports = {
@@ -58,14 +58,14 @@
     <canvas id="canvas_webgl" type="webgl"/>
     ```
 
-3.  代码中，使用three换为使用three-wexin
+3.  代码中，使用three换为使用ThreeX
 
     ```
     import * as THREE from 'three'
     ```
     更换为
     ```
-    const THREE = requirePlugin('three');
+    const THREE = requirePlugin('ThreeX');
     ```
 
 4.  代码中，替换examples中内容
