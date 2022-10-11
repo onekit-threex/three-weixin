@@ -80,15 +80,14 @@
 
 5.  复制你的网页版Three.js项目页面代码(建议Vue2项目)代码到本小程序页面onLoad或onReady中。
 
-    5.1 异步方式
+  5.1 异步方式
 
     ```
     var requestId // 来自 requestId = requestAnimationFrame()
-    const THREE = requirePlugin('ThreeX');
-Page({
+    Page({
         async onLoad() {
             const canvas3d = this.canvas = await document.createElementAsync("canvas","webgl");
-            //组件中使用 const canvas3d = getApp().canvas = await document.createElementAsync("canvas","webgl",this);
+            //组件中使用 getApp().canvas = await document.createElementAsync("canvas","webgl",this);
              const renderer = this.renderer = new THREE.WebGLRenderer( { canvas:canvas3d, antialias: true } );
             /*你的代码 */
         },
@@ -107,8 +106,7 @@ Page({
 
     ```
     var requestId // 来自 requestId = requestAnimationFrame()
-    const THREE = requirePlugin('ThreeX');
-Page({
+    Page({
         onLoad() {
             document.createElementAsync("canvas","webgl").then(canvas=>{
                 //组件中使用 document.createElementAsync("canvas","webgl",this).then(canvas=>{
