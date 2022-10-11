@@ -83,7 +83,6 @@
   5.1 异步方式
 
     ```
-
     var requestId // 来自 requestId = requestAnimationFrame()
     Page({
         async onLoad() {
@@ -107,7 +106,6 @@
   5.2 同步方式
 
     ```
-
     var requestId // 来自 requestId = requestAnimationFrame()
     Page({
         onLoad() {
@@ -127,7 +125,6 @@
             this.renderer = null
        },
     })
-
     ```
 
 
