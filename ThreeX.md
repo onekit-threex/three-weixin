@@ -15,7 +15,12 @@
 ![输入图片说明](1.png)
 ![输入图片说明](2.png)
 
-#### 项目使用(微信小程序/Uni-App)
+#### UniApp使用插件
+
+详细步骤请访问【[UniApp官网](http://https://uniapp.dcloud.net.cn/tutorial/mp-weixin-plugin.html#mp-plugin)】
+并继续下面的使用步骤
+
+#### 项目使用(微信小程序)
 
 1.  安装
 
