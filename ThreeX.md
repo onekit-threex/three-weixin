@@ -80,7 +80,7 @@
 
 5.  复制你的网页版Three.js项目页面代码(建议Vue2项目)代码到本小程序页面onLoad或onReady中。
 
-  5.1 异步方式
+    5.1 异步方式
 
     ```
     var requestId // 来自 requestId = requestAnimationFrame()
@@ -100,10 +100,9 @@
             this.renderer = null
         },
     })
-
     ```
 
-  5.2 同步方式
+    5.2 同步方式
 
     ```
     var requestId // 来自 requestId = requestAnimationFrame()
@@ -126,7 +125,6 @@
        },
     })
     ```
-
 
 6.  所有JS文件，若用到网页对象（如window、document），请在页面顶部添加 
     ```
