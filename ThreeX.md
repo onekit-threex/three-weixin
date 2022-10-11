@@ -17,7 +17,7 @@
 
 #### UniApp使用插件
 
-详细步骤请访问【[UniApp官网](http://https://uniapp.dcloud.net.cn/tutorial/mp-weixin-plugin.html#mp-plugin)】
+详细步骤请访问【[UniApp官网](https://uniapp.dcloud.net.cn/tutorial/mp-weixin-plugin.html#mp-plugin)】
 并继续下面的使用步骤
 
 #### 项目使用(微信小程序)
