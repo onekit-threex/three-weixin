@@ -229,9 +229,13 @@ class GLTFLoader extends Loader {
 		loader.setResponseType( 'arraybuffer' );
 		loader.setRequestHeader( this.requestHeader );
 		loader.setWithCredentials( this.withCredentials );
-
+        wx.showLoading({
+          title: '加载中',
+        })
 		loader.load( url, function ( data ) {
-
+wx.hideLoading({
+  success: (res) => {},
+})
 			try {
 
 				scope.parse( data, resourcePath, function ( gltf ) {

@@ -2,7 +2,18 @@ import files from './files.json'
 var index = 0
 var timer
 Page({
-    
+    onshareAppMessage(){
+        return {
+            title: 'ThreeJS原生引擎',
+            path: '/index'
+          }
+    },
+    onShareTimeline(){
+        return {
+            title: 'ThreeJS原生引擎',
+            path: '/index'
+          }
+    },
 	onLoad() {
 
 		const sections = []
