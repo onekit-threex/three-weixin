@@ -24,6 +24,7 @@ this.worker && this.worker.terminate()
 	}, 
      webgl_touch(e) {
         const web_e = Event.fix(e)
+        console.error(web_e)
         window.dispatchEvent(web_e)
         document.dispatchEvent(web_e)
         this.canvas.dispatchEvent(web_e)
