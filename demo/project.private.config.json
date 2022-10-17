@@ -1,6 +1,6 @@
 {
     "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "projectname": "threex-free-demo",
+    "projectname": "demo",
     "setting": {
         "compileHotReLoad": true,
         "urlCheck": false,
@@ -355,6 +355,17 @@
                 {
                     "name": "",
                     "pathName": "demo",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null,
+                    "partialCompile": {
+                        "enabled": true,
+                        "pages": []
+                    }
+                },
+                {
+                    "name": "",
+                    "pathName": "webgl/webgl_decals",
                     "query": "",
                     "launchMode": "default",
                     "scene": null,
