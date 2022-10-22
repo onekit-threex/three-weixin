@@ -10,7 +10,7 @@
     },
     "plugins": {
         "ThreeX": {
-          "version": "1.0.0",
+          "version": "1.0.1",
           "provider": "wx74ea3ef7e1e72753",
           "export": "threex.js"
         }
