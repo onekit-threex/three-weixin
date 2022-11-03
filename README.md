@@ -15,6 +15,9 @@
 ![输入图片说明](1.png)
 ![输入图片说明](2.png)
 
+### 当前活动
+【1024狂欢】[https://onekit.cn/1024](https://onekit.cn/1024/)(多版本免费)
+
 ### 组织介绍
 成都未来之门科技有限公司
 
@@ -26,8 +29,7 @@
 
 【[ThreePro](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx74ea3ef7e1e72753)】小程序插件方式。零代码/低代码接入。(个人年底免费)
 
-#### 当前活动
-【1024狂欢】[https://onekit.cn/1024](https://onekit.cn/1024/)(多版本免费)
+
 
 #### 如何购买
 请认准“成都未来之门科技有限公司”
