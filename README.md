@@ -10,7 +10,8 @@
 
 #### 软件架构
 完美复刻Three.js
-【[效果演示](https://www.bilibili.com/video/BV1Ed4y1q7CE)】
+【微信小程序】微信搜索小程序“ThreeX”、“ThreeAR”。
+【[B站演示](https://www.bilibili.com/video/BV1Ed4y1q7CE)】
 
 ![输入图片说明](1.png)
 ![输入图片说明](2.png)
