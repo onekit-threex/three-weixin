@@ -5,15 +5,15 @@ ThreeX，全平台Three.JS原生引擎。本项目是Three.JS的微信小程序�
 本项目分为3个部分：
 
 - 【DHTML依赖库】标准NPM版，W3标准的DHTML兼容库。（MIT开源）
-- 【ThreeX核心库】微信小程序标准插件，重构了ThreeJS内核、DHTML深度适配、WebGL深度适配，并强力压缩体积。（2023年开源）
-- 【ThreeX扩展库】本项目。DHTML深度适配、WebGL深度适配。（MIT开源）
+- 【ThreeX核心库】微信小程序标准插件，重构了ThreeJS内核、深度适配DHTML、深度适配WebGL，并强力压缩体积。（2023年计划开源）
+- 【ThreeX扩展库】本项目。部分重构threejs扩展库。深度适配DHTML、深度适配WebGL。（MIT开源）
 
 
 #### 问题反馈
 QQ群：185654475
 
 #### 软件架构
-软件架构说明
+软件架构说明同threejs扩展库
 
 
 #### 安装教程
