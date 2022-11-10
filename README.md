@@ -18,7 +18,7 @@ QQ群：185654475
 
 #### 安装教程
 
-ThreeX使用说明[https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9)
+ThreeX使用说明 [https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9)
 
 
 #### 参与贡献
