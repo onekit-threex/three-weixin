@@ -16,11 +16,7 @@ QQ群：185654475
 软件架构说明同threejs扩展库
 
 
-#### 安装教程
-
-ThreeX使用说明 [https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9)
-
-#### 版本比较
+#### 使用教程
 
 【[ThreeX](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9)】小程序插件方式。支持更多手机机型。
 
