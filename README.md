@@ -20,6 +20,13 @@ QQ群：185654475
 
 ThreeX使用说明 [https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9)
 
+#### 版本比较
+
+【[ThreeX](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx5d6376b4fc730db9)】小程序插件方式。支持更多手机机型。
+
+【[ThreePro](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx74ea3ef7e1e72753)】小程序插件方式。零代码/低代码接入。
+
+【[ThreeAR](https://mp.weixin.qq.com/wxopen/pluginbasicprofile?action=intro&appid=wx87ff7ed2c6c3979d)】小程序插件方式。面部识别、空间识别。
 
 #### 参与贡献
 
