@@ -1,2 +1,2 @@
-import * as THREE from "three-weixin"
+const THREE = requirePlugin("ThreeX")
 module.exports = THREE
