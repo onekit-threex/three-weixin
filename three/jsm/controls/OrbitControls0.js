@@ -640,12 +640,12 @@ function handleTouchStartRotate( event ) {
 
 	if ( event.touches.length == 1 ) {
 
-		rotateStart.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+		rotateStart.set( event.touches[ 0 ].x, event.touches[ 0 ].y );
 
 	} else {
 
-		var x = 0.5 * ( event.touches[ 0 ].pageX + event.touches[ 1 ].pageX );
-		var y = 0.5 * ( event.touches[ 0 ].pageY + event.touches[ 1 ].pageY );
+		var x = 0.5 * ( event.touches[ 0 ].x + event.touches[ 1 ].x );
+		var y = 0.5 * ( event.touches[ 0 ].y + event.touches[ 1 ].y );
 
 		rotateStart.set( x, y );
 
@@ -657,12 +657,12 @@ function handleTouchStartPan( event ) {
 
 	if ( event.touches.length == 1 ) {
 
-		panStart.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+		panStart.set( event.touches[ 0 ].x, event.touches[ 0 ].y );
 
 	} else {
 
-		var x = 0.5 * ( event.touches[ 0 ].pageX + event.touches[ 1 ].pageX );
-		var y = 0.5 * ( event.touches[ 0 ].pageY + event.touches[ 1 ].pageY );
+		var x = 0.5 * ( event.touches[ 0 ].x + event.touches[ 1 ].x );
+		var y = 0.5 * ( event.touches[ 0 ].y + event.touches[ 1 ].y );
 
 		panStart.set( x, y );
 
@@ -672,8 +672,8 @@ function handleTouchStartPan( event ) {
 
 function handleTouchStartDolly( event ) {
 
-	var dx = event.touches[ 0 ].pageX - event.touches[ 1 ].pageX;
-	var dy = event.touches[ 0 ].pageY - event.touches[ 1 ].pageY;
+	var dx = event.touches[ 0 ].x - event.touches[ 1 ].x;
+	var dy = event.touches[ 0 ].y - event.touches[ 1 ].y;
 
 	var distance = Math.sqrt( dx * dx + dy * dy );
 
@@ -701,12 +701,12 @@ function handleTouchMoveRotate( event ) {
 
 	if ( event.touches.length == 1 ) {
 
-		rotateEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+		rotateEnd.set( event.touches[ 0 ].x, event.touches[ 0 ].y );
 
 	} else {
 
-		var x = 0.5 * ( event.touches[ 0 ].pageX + event.touches[ 1 ].pageX );
-		var y = 0.5 * ( event.touches[ 0 ].pageY + event.touches[ 1 ].pageY );
+		var x = 0.5 * ( event.touches[ 0 ].x + event.touches[ 1 ].x );
+		var y = 0.5 * ( event.touches[ 0 ].y + event.touches[ 1 ].y );
 
 		rotateEnd.set( x, y );
 
@@ -728,12 +728,12 @@ function handleTouchMovePan( event ) {
 
 	if ( event.touches.length == 1 ) {
 
-		panEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+		panEnd.set( event.touches[ 0 ].x, event.touches[ 0 ].y );
 
 	} else {
 
-		var x = 0.5 * ( event.touches[ 0 ].pageX + event.touches[ 1 ].pageX );
-		var y = 0.5 * ( event.touches[ 0 ].pageY + event.touches[ 1 ].pageY );
+		var x = 0.5 * ( event.touches[ 0 ].x + event.touches[ 1 ].x );
+		var y = 0.5 * ( event.touches[ 0 ].y + event.touches[ 1 ].y );
 
 		panEnd.set( x, y );
 
@@ -749,8 +749,8 @@ function handleTouchMovePan( event ) {
 
 function handleTouchMoveDolly( event ) {
 
-	var dx = event.touches[ 0 ].pageX - event.touches[ 1 ].pageX;
-	var dy = event.touches[ 0 ].pageY - event.touches[ 1 ].pageY;
+	var dx = event.touches[ 0 ].x - event.touches[ 1 ].x;
+	var dy = event.touches[ 0 ].y - event.touches[ 1 ].y;
 
 	var distance = Math.sqrt( dx * dx + dy * dy );
 
