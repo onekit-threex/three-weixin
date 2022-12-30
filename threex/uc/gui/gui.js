@@ -6,6 +6,10 @@ Component({
 	},
 	options: {},
 	properties: {
+		show: {
+			type: Boolean,
+			value: true
+		},
 		root: {
 			type: Boolean,
 			value: true
@@ -33,7 +37,12 @@ Component({
 		}
 	},
 	methods: {
-
+		title_tap() {
+			const show = !this.data.show
+			this.setData({
+				show
+			})
+		},
 		addFolder(title) {
 			return this.GUI.addFolder(title)
 		},
@@ -63,7 +72,7 @@ Component({
 			const controller = this.GUI._findNode(`${path}children[${index}]`)
 			switch (type) {
 				case "function":
-					controller.getValue().call( controller.object );
+					controller.getValue().call(controller.object);
 					break
 				default:
 					controller.setValue(value)

@@ -60,6 +60,7 @@ export default class GUI {
 			var children = this._findData(`${parent.PATH}children`)
 			children.push({
 				type: "GUI",
+				show:true,
 				children: []
 			})
 			var data = {}
@@ -421,6 +422,7 @@ export default class GUI {
 		this._hidden = !show;
 
 		this.domElement.style.display = this._hidden ? 'none' : '';
+		this._render("show",show)
 
 		return this;
 
