@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dhtml-weixin": "^4.1.3"
+    "dhtml-weixin": "latest",
+    "mini-color-picker": "latest"
   }
 }
