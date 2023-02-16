@@ -1,8 +1,8 @@
 {
     "plugins": {
         "ThreeX": {
-          "version": "1.0.5",
           "provider": "wx5d6376b4fc730db9",
+          "version": "1.0.5",
           "export": "threex.js"
         }
     }
